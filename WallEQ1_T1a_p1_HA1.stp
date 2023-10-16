@@ -685,7 +685,7 @@ end if,
 
 
 ! ---- ITEM 11
-if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb), then,
+if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), then,
 [*DOX=1:1]
 [*DO A = 1:11]
 T # [+T] = $TQ8bR[A]tablex * $[HX.X],
@@ -716,7 +716,7 @@ endif,
 
 
 
-if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb), then,
+if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), then,
 
 [*DOX=1:1]
 T # [+T] = $TQ8BREG * $[HX.X],
@@ -741,7 +741,7 @@ endif,
 
 
 
-if ($Q22023/nb), then,
+if ($Q22023/nb+$Q32023/nb), then,
 [*SETn=CODE8B1.#]
 [*DOX=1:1]
 [*DO A = 1:N]
@@ -803,7 +803,7 @@ ENDIF,
 
 
 
-
+[*SK 1]
 
 [*DOX=1:1]
 if $F9a/nb,	T [+T] = $TQ9a * $[HX.X],
@@ -827,9 +827,7 @@ BT = "Among Non-users of FinTech Apps AND Digital/Online financial transactions"
 END IF,
 [*ENDX]
 
-
-
-
+[*1]
 
 
 
@@ -1241,7 +1239,7 @@ END IF,
 
 
 
-if $Q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 
 [*DOX=1:1]
 T [+T] = $TQ17k * $[HX.X],
@@ -1533,14 +1531,11 @@ BT = "ALL RESPONDENT",
 [*SETS=0]
 [*DO A = 1:n]
 T # [T] = $NOM_LAD[a] * [+S],
-if $Q32021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q42021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q12022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q22022/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q32022/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q42022/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q12023/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q22023/nb,  T # [T] = $NOM_LAD[a] * [+S],
+if $Q32023/nb,  T # [T] = $NOM_LAD[a] * [+S],
 [*END A]
 
 
@@ -1553,14 +1548,11 @@ BT = "Among Users of FinTech Apps",
 [*SETS=0]
 [*DO A = 1:n]
 T # [T] = $NOM_LAD[a] * [+S],
-if $Q32021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q42021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q12022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q22022/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q32022/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q42022/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q12023/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q22023/nb,  T # [T] = $NOM_LAD[a] * [+S],
+if $Q32023/nb,  T # [T] = $NOM_LAD[a] * [+S],
 [*END A]
 end if,
 
@@ -1574,24 +1566,21 @@ BT = "Among Non-users of FinTech Apps",
 [*SETS=0]
 [*DO A = 1:n]
 T # [T] = $NOM_LAD[a] * [+S],
-if $Q32021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q42021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q12022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q22022/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q32022/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q42022/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q12023/nb,  T # [T] = $NOM_LAD[a] * [+S],
 if $Q22023/nb,  T # [T] = $NOM_LAD[a] * [+S],
+if $Q32023/nb,  T # [T] = $NOM_LAD[a] * [+S],
 [*END A]
 end if,
 
 
 
 
-
+[*SK 32]
 ! --------- 2022 Q1. Q153A ---------- !
 [*DOX=1:1]
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8a/2), THEN,
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8a/2), THEN,
 T [+T] = $TQ153A * $[HX.X],
 BT = "Among P2M user of Buy and pay from any store, bank, establishments",
 END IF,
@@ -1600,14 +1589,14 @@ END IF,
 
 [*DOX=1:1]
 if $TQ17i/1, then,
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8a/2), T [+T] = $TQ153A * $[HX.X],
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8a/2), T [+T] = $TQ153A * $[HX.X],
 BT = "Among Users of FinTech Apps AND P2M user of Buy and pay from any store, bank, establishments",
 END IF,
 [*ENDX]
 
 [*DOX=1:1]
 if $TQ17i/2, then,
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8a/2), T [+T] = $TQ153A * $[HX.X],
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8a/2), T [+T] = $TQ153A * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND P2M user of Buy and pay from any store, bank, establishments",
 END IF,
 [*ENDX]
@@ -1620,7 +1609,7 @@ END IF,
 ! --------- 2022 Q1. Q153B ---------- !
 [*DOA=1:BP]
 [*DOX=1:1]
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8a/2).($TQ153A/[a]), THEN,
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8a/2).($TQ153A/[a]), THEN,
 T [+T] = $TQ153bR[a] * $[HX.X],
 BT = "Among P2M user of Buy and pay from any store, bank, establishments - [BOPAID.A]",
 END IF,
@@ -1632,7 +1621,7 @@ END IF,
 [*DOA=1:BP]
 [*DOX=1:1]
 if $TQ17i/1, then,
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8a/2).($TQ153A/[a]), T [+T] = $TQ153bR[a] * $[HX.X],
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8a/2).($TQ153A/[a]), T [+T] = $TQ153bR[a] * $[HX.X],
 BT = "Among Users of FinTech Apps AND P2M user of Buy and pay from any store, bank, establishments - [BOPAID.A]",
 END IF,
 [*ENDX]
@@ -1641,7 +1630,7 @@ END IF,
 [*DOA=1:BP]
 [*DOX=1:1]
 if $TQ17i/2, then,
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8a/2).($TQ153A/[a]), T [+T] = $TQ153bR[a] * $[HX.X],
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8a/2).($TQ153A/[a]), T [+T] = $TQ153bR[a] * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND P2M user of Buy and pay from any store, bank, establishments - [BOPAID.A]",
 END IF,
 [*ENDX]
@@ -1654,7 +1643,7 @@ END IF,
 
 ! --- REGARDLESS
 [*DOX=1:1]
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8a/2).($TQ153A/1..[BP]), THEN,
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8a/2).($TQ153A/1..[BP]), THEN,
 T [+T] = $TQ153b_REG * $[HX.X],
 BT = "Among P2M user of Buy and pay from any store, bank, establishments - REGARDLESS",
 END IF,
@@ -1663,20 +1652,20 @@ END IF,
 
 [*DOX=1:1]
 if $TQ17i/1, then,
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8a/2).($TQ153A/1..[BP]), T [+T] = $TQ153b_REG * $[HX.X],
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8a/2).($TQ153A/1..[BP]), T [+T] = $TQ153b_REG * $[HX.X],
 BT = "Among Users of FinTech Apps AND P2M user of Buy and pay from any store, bank, establishments - REGARDLESS",
 END IF,
 [*ENDX]
 
 [*DOX=1:1]
 if $TQ17i/2, then,
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8a/2).($TQ153A/1..[BP]), T [+T] = $TQ153b_REG * $[HX.X],
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8a/2).($TQ153A/1..[BP]), T [+T] = $TQ153b_REG * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND P2M user of Buy and pay from any store, bank, establishments - REGARDLESS",
 END IF,
 [*ENDX]
 
 
-
+[*32]
 
 
 
@@ -2157,7 +2146,7 @@ END IF,
 
 [*Setn=D50i.#]
 
-if $Q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 [*DOX=1:1]
 [*DOA=1:N]
 IF ($TQ8bR2/1).($TQ50h/[a]), THEN,
@@ -2169,7 +2158,7 @@ END IF,
 end if,
 
 
-if $Q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 [*DOX=1:1]
 [*DOA=1:N]
 IF ($TQ17i/1).($TQ8bR2/1).($TQ50h/[a]), THEN,
@@ -2181,7 +2170,7 @@ END IF,
 end if,
 
 
-if $Q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 [*DOX=1:1]
 [*DOA=1:N]
 IF ($TQ17i/2).($TQ8bR2/1).($TQ50h/[a]), THEN,
@@ -2196,7 +2185,7 @@ end if,
 
 ! ----- REGARDLESS ----- !
 [*Setn=D50i.#]
-if $Q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 [*DOX=1:1]
 IF ($TQ8bR2/1).($TQ50h/1..[n]), THEN,
 T [+T] = $TQ50IREG * $[HX.X],
@@ -2260,7 +2249,7 @@ END IF,
 ! ===== Q51F
 [*Setn=D51F.#]
 
-if $q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 [*DOX=1:1]
 [*DOA=1:N]
 IF ($TQ8bR2/2).($TQ51a/[a]), THEN,
@@ -2272,7 +2261,7 @@ END IF,
 end if,
 
 
-if $q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 [*DOX=1:1]
 [*DOA=1:N]
 if $TQ17i/1, then,
@@ -2284,7 +2273,7 @@ END IF,
 end if,
 
 
-if $q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 [*DOX=1:1]
 [*DOA=1:N]
 if $TQ17i/2, then,
@@ -2300,7 +2289,7 @@ endif,
 ! === REGARDLESS === !
 [*Setn=D51F.#]
 
-if $q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 
 [*DOX=1:1]
 IF ($TQ8bR2/2).($TQ51a/1..[n]), THEN,
@@ -2631,7 +2620,7 @@ END IF,
 !----- 2022 Q1 ----- !
 
 [*DOX=1:1]
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8bR2/4), THEN,
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8bR2/4), THEN,
 T [+T] = $TQ154 * $[HX.X],
 BT = "Among those who pay bills offline",
 END IF,
@@ -2639,14 +2628,14 @@ END IF,
 
 [*DOX=1:1]
 if $TQ17i/1, then,
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8bR2/4), T [+T] = $TQ154 * $[HX.X],
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8bR2/4), T [+T] = $TQ154 * $[HX.X],
 BT = "Among Users of FinTech Apps AND Those who pay bills offline",
 END IF,
 [*ENDX]
 
 [*DOX=1:1]
 if $TQ17i/2, then,
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8bR2/4), T [+T] = $TQ154 * $[HX.X],
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8bR2/4), T [+T] = $TQ154 * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Those who pay bills offline",
 END IF,
 [*ENDX]
@@ -2659,10 +2648,10 @@ END IF,
 
 ! ======= Q4 2022
 [*Setn=D52F.#]
-if $Q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 [*DOX=1:1]
 [*DOA=1:N]
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8bR2/4).($TQ52a/[a]), THEN,
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8bR2/4).($TQ52a/[a]), THEN,
 T [+T] = $TQ52FR[a] * $[HX.X],
 BT = "Among those who pay bills offline - [D52F.a]",
 END IF,
@@ -2670,11 +2659,11 @@ END IF,
 [*ENDX]
 endif,
 
-if $Q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 [*DOX=1:1]
 [*DOA=1:N]
 if $TQ17i/1, then,
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8bR2/4).($TQ52a/[a]), T [+T] = $TQ52FR[a] * $[HX.X],
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8bR2/4).($TQ52a/[a]), T [+T] = $TQ52FR[a] * $[HX.X],
 BT = "Among Users of FinTech Apps AND Those who pay bills offline - [D52F.a]",
 END IF,
 [*ENDA]
@@ -2682,7 +2671,7 @@ END IF,
 endif,
 
 
-if $Q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 [*DOX=1:1]
 [*DOA=1:N]
 if $TQ17i/2, then,
@@ -2697,9 +2686,9 @@ endif,
 ! ======= REGARDLESS ====== !
 [*Setn=D52F.#]
 
-if $Q42022/nb+$Q12023/nb+$Q22023/nb, then,
+if $Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
 [*DOX=1:1]
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8bR2/4).($TQ52a/1..[n]), THEN,
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8bR2/4).($TQ52a/1..[n]), THEN,
 T [+T] = $TQ52FREG * $[HX.X],
 BT = "Among those who pay bills offline - REGARDLESS",
 END IF,
@@ -2708,7 +2697,7 @@ END IF,
 
 [*DOX=1:1]
 if $TQ17i/1, then,
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8bR2/4).($TQ52a/1..[n]), T [+T] = $TQ52FREG * $[HX.X],
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8bR2/4).($TQ52a/1..[n]), T [+T] = $TQ52FREG * $[HX.X],
 BT = "Among Users of FinTech Apps AND Those who pay bills offline - REGARDLESS",
 END IF,
 [*ENDX]
@@ -2716,7 +2705,7 @@ END IF,
 
 [*DOX=1:1]
 if $TQ17i/2, then,
-IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb).($TQ8bR2/4).($TQ52a/1..[n]), T [+T] = $TQ52FREG * $[HX.X],
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb).($TQ8bR2/4).($TQ52a/1..[n]), T [+T] = $TQ52FREG * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Those who pay bills offline - REGARDLESS",
 END IF,
 [*ENDX]

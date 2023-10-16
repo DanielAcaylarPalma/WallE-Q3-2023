@@ -1,4 +1,9 @@
 *.ASC
 *.lst
 *.log
+*.xlsx
+*.csv
+*.rpt
+*.tab
+*.toc
 kfile/

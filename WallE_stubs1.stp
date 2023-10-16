@@ -205,7 +205,7 @@ VT = "Q8a. GENERAL FINANCIAL TRANSACTIONS DONE IN THE PAST 2 MONTHS",
 V = $TQ8bR1,
 end if, 
 
-if ($q12022/nb+$q22022/NB+$q32022/NB+$q42022/NB+$q12023/NB), then,
+if ($q12022/nb+$q22022/NB+$q32022/NB+$q42022/NB+$q12023/NB+$q22023/NB+$q32023/NB), then,
 OM $TQ8a = $Q8BR1R2/1-12,R,F,
 VT = "Q8a. GENERAL FINANCIAL TRANSACTIONS DONE IN THE PAST 2 MONTHS",
 V = $TQ8bR1,
@@ -219,41 +219,34 @@ end if,
 ! ---- ITEM 11
 [*SETn = stub8b.#]
 
-if ($Q32021/nb+$Q42021/nb), then,
 [*doa=1:n]
-OM $TQ8bR[A]list = 
-$TQ8bR1/[a],
-$TQ8bR2/[a],
-$TQ8bR3/[a] + ($TQ8bR1/n([a]).$TQ8bR2/n([a]).$TQ8bR3/n([a])),
-[*end a]
-end if,
 
-
-
-if ($Q12022/nb+$Q22022/nb+$q32022/NB+$q42022/NB+$q12023/NB), then,
-[*doa=1:n]
-OM $TQ8bR[A]list = 
-$TQ8bR1/[a],
-$TQ8bR2/[a],
-$TQ8bR3/[a] + ($TQ8bR1/n([a]).$TQ8bR2/n([a])),
-[*end a]
-end if,
-
-
-[*doa=1:n]
 DM $TQ8bR[A]tablex = 
-($TQ8bR[A]list/1.ct($TQ8bR[A]list)/1) + ($TQ8bR[A]list/1.2.ct($TQ8bR[A]list)/2),
-($TQ8bR[A]list/1) . (ct($TQ8bR[A]list)/1),
-($TQ8bR[A]list/1.2) . (ct($TQ8bR[A]list)/2),
-($TQ8bR[A]list/2) . (ct($TQ8bR[A]list)/1),
-$TQ8bR[A]list/3,
+(($TQ8bR[A]list/2.ct($TQ8bR[A]list)/1) + ($TQ8bR[A]list/1.2.ct($TQ8bR[A]list)/2))
++$hybrid[A]/NB+$offlineonly[A]/NB,
+
+(($TQ8bR[A]list/1.ct($TQ8bR[A]list)/1) + ($TQ8bR[A]list/1.2.ct($TQ8bR[A]list)/2))
++$digitalonly[A]/NB+$hybrid[A]/NB,
+
+(($TQ8bR[A]list/1) . (ct($TQ8bR[A]list)/1))+$digitalonly[A]/NB,
+(($TQ8bR[A]list/1.2) . (ct($TQ8bR[A]list)/2))+$hybrid[A]/NB,
+(($TQ8bR[A]list/2) . (ct($TQ8bR[A]list)/1))+$offlineonly[A]/NB,
+
+(($TQ8bR[A]list/1.ct($TQ8bR[A]list)/1) + ($TQ8bR[A]list/1.2.ct($TQ8bR[A]list)/2))
++$digitalonly[A]/NB+$hybrid[A]/NB+(($TQ8bR[A]list/2) . (ct($TQ8bR[A]list)/1))+$offlineonly[A]/NB,
+
+$TQ8bR[A]list/3+$TQ8b1R[A]/8,
 r,f,
 XT = "Q8b. GENERAL FINANCIAL TRANSACTIONS METHODS - [stub8b.A]",
 X = "
+TOTAL NON-DIGITAL/ OFFLINE: `[Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check) + Non-digital/Offline (Cash/ Check) ONLY`];
 Digital/Online (Cashless) + Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
 `   Digital/Online (Cashless) ONLY;
 `   Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
 Non-digital/Offline (Cash/ Check) ONLY;
+
+TOTAL INCIDENCE (DIGITAL + OFFLINE/ PHYSICAL TRANSACTION);
+
 Did not do this transaction;
 Missing Answer<z>; 
 Total Count<c>",
@@ -262,19 +255,90 @@ Total Count<c>",
 
 
 dm $TQ8BREG = 
-[*DO B = 1:5]
+[*DO B = 1:7]
 [*doa=1:n]($TQ8bR[A]tablex/[B])[*SLE]+[*END A],
 [*END B]
 R,F,
 XT = "Q8b. GENERAL FINANCIAL TRANSACTIONS METHODS - REGARDLESS",
 X = "
+TOTAL NON-DIGITAL/ OFFLINE: `[Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check) + Non-digital/Offline (Cash/ Check) ONLY`];
 Digital/Online (Cashless) + Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
 `   Digital/Online (Cashless) ONLY;
 `   Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
 Non-digital/Offline (Cash/ Check) ONLY;
+
+TOTAL INCIDENCE (DIGITAL + OFFLINE/ PHYSICAL TRANSACTION);
+
 Did not do this transaction<S>;
      Missing Answer<z>; 
      Total Count<c>",
+[*DATA filtersQ8brebase =
+$resp/NB,
+($TQ33_REG/1.n2..3)+($TQ55/1.n2..3),
+($TQ33_REG/2.n1.n3)+($TQ55/2.n1.n3),
+($TQ33_REG/3)+($TQ55/3),
+($TQ33_REG/1.3)+($TQ55/1.3),
+($TQ33_REG/2.3)+($TQ55/2.3)]
+
+[*DO Z = 1:6]
+IF [filtersQ8brebase.Z], THEN,
+[*doa=1:n]
+
+DM $TQ8bR[A]tablexrebase[Z] = 
+(($TQ8bR[A]list/2.ct($TQ8bR[A]list)/1) + ($TQ8bR[A]list/1.2.ct($TQ8bR[A]list)/2))
++$hybrid[A]/NB+$offlineonly[A]/NB,
+
+(($TQ8bR[A]list/1.ct($TQ8bR[A]list)/1) + ($TQ8bR[A]list/1.2.ct($TQ8bR[A]list)/2))
++$digitalonly[A]/NB+$hybrid[A]/NB,
+
+(($TQ8bR[A]list/1) . (ct($TQ8bR[A]list)/1))+$digitalonly[A]/NB,
+(($TQ8bR[A]list/1.2) . (ct($TQ8bR[A]list)/2))+$hybrid[A]/NB,
+(($TQ8bR[A]list/2) . (ct($TQ8bR[A]list)/1))+$offlineonly[A]/NB,
+
+(($TQ8bR[A]list/1.ct($TQ8bR[A]list)/1) + ($TQ8bR[A]list/1.2.ct($TQ8bR[A]list)/2))
++$digitalonly[A]/NB+$hybrid[A]/NB+(($TQ8bR[A]list/2) . (ct($TQ8bR[A]list)/1))+$offlineonly[A]/NB,
+
+$TQ8bR[A]list/3+$TQ8b1R[A]/8,
+r,f,
+XT = "Q8b. GENERAL FINANCIAL TRANSACTIONS METHODS - [stub8b.A]",
+X = "
+TOTAL NON-DIGITAL/ OFFLINE: `[Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check) + Non-digital/Offline (Cash/ Check) ONLY`];
+Digital/Online (Cashless) + Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
+`   Digital/Online (Cashless) ONLY;
+`   Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
+Non-digital/Offline (Cash/ Check) ONLY;
+
+TOTAL INCIDENCE (DIGITAL + OFFLINE/ PHYSICAL TRANSACTION);
+
+Did not do this transaction;
+Missing Answer<z><S>; 
+Total Count<c>",
+[*end a]
+END IF,
+[*END Z]
+
+
+
+[*DO Z = 1:6]
+dm $TQ8BREGrebase[Z] = 
+[*DO B = 1:7]
+[*doa=1:n]($TQ8bR[A]tablexrebase[Z]/[B])[*SLE]+[*END A],
+[*END B]
+R,F,
+XT = "Q8b. GENERAL FINANCIAL TRANSACTIONS METHODS - REGARDLESS",
+X = "
+TOTAL NON-DIGITAL/ OFFLINE: `[Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check) + Non-digital/Offline (Cash/ Check) ONLY`];
+Digital/Online (Cashless) + Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
+`   Digital/Online (Cashless) ONLY;
+`   Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
+Non-digital/Offline (Cash/ Check) ONLY;
+
+TOTAL INCIDENCE (DIGITAL + OFFLINE/ PHYSICAL TRANSACTION);
+
+Did not do this transaction<S>;
+     Missing Answer<z><S>; 
+     Total Count<c>",
+[*END Z]
 
 
 [*doa=1:n]
@@ -329,7 +393,7 @@ Total count<C>",
 
 
 if $Q32021/nb, om $F9b = $xA_Q9b/1+1001+1002+1003+1008+1012+1013+1014+1018+1019+1017+1021+1025+2+1004+1005+1006+1007+1009+1015+1016+3+1010+1023+1024+1020+1011+9999+99,
-if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$q32022/NB+$q42022/NB+$q12023/NB), om $F9b = ($T_Q8b_1/n1..7.n10..12.n91..92)+($TQ9a/6),
+if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$q32022/NB+$q42022/NB+$q12023/NB+$q22023/NB+$q32023/NB), om $F9b = ($T_Q8b_1/n1..7.n10..12.n91..92)+($TQ9a/6),
 
 
 
@@ -366,7 +430,7 @@ end if,
 
 
 
-if ($Q12022/nb+$Q22022/nb+$q32022/NB+$q42022/NB+$q12023/NB), then,
+if ($Q12022/nb+$Q22022/nb+$q32022/NB+$q42022/NB+$q12023/NB+$q22023/NB+$q32023/NB), then,
 [*DOA=1:3]
 DM $FTQ8bR[A] = $T_Q8b_[A]/
 1+1024,
@@ -387,7 +451,7 @@ endif,
 
 
 ! ---- Q1'2022
-if ($Q12022/nb+$Q22022/nb+$q32022/NB+$q42022/NB+$q12023/NB), then,
+if ($Q12022/nb+$Q22022/nb+$q32022/NB+$q42022/NB+$q12023/NB+$q22023/NB+$q32023/NB), then,
 OM $TQ101 = 
 ($FTQ8bR1/1..11).($TQ9a/1..4),
 ($FTQ8bR1/N1..11).($TQ9b/1..4),
@@ -4170,7 +4234,6 @@ R,F,
 VT = "Q26c. MODE OF PAYMENT FOR OTHER TRANSACTION THE FIRST TIME - REGARDLESS",
 V = $TQ26cR1,
 
-[*1]
 
 
 
@@ -4333,6 +4396,7 @@ VT = "Q153b. MODE OF PAYMENT FOR ANY STORE/BANK/ESTABLISHMENT IN THE PAST 2 MONT
 V = $TQ153bR1,
 
 
+[*1]
 
 
 
@@ -4377,7 +4441,7 @@ end if,
 
 
 
-if ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$q12023/NB), then,
+if ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$q12023/NB+$q22023/NB+$q32023/NB), then,
 OM $TQ8c = 
 $xQ27_REG/1+1024,
 2+1006+1012+1013+1021+1031+1042,
@@ -4417,7 +4481,7 @@ end if,
 
 
 if ($q32021/nb+$q42021/nb), OM $FQ8C = ($TQ17a/1..[BRX]).($Q8BR1R2/1..7),
-if ($q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$q12023/NB), OM $FQ8C = ($TQ17a/1..[BRX]).($TQ8a/1..7),
+if ($q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$q12023/NB+$q22023/NB+$q32023/NB), OM $FQ8C = ($TQ17a/1..[BRX]).($TQ8a/1..7),
 
 
 
@@ -5589,7 +5653,7 @@ V = $TQ47R1,
 
 ! -------- Q48 --------- !
 if $Q32021/nb, 							OM $F48 = $xA_Q16d/13,12,11,3,1,7,2,4,23,
-if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$q12023/NB), 	OM $F48 = $xA_Q16d/
+if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$q12023/NB+$q22023/NB+$q32023/NB), 	OM $F48 = $xA_Q16d/
 13+1002+22+1022,
 12+1010,
 11,
@@ -8949,7 +9013,7 @@ V = $TQ63_TB,
 
 ! --------- Q64
 if $Q32021/nb, 										OM $F64 = $xA_Q16d/(13+22),12,11,3,1,7,2,4,23,
-if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$q12023/NB), 	
+if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$q12023/NB+$q22023/NB+$q32023/NB), 	
 
 
 OM $F64 = $xA_Q16d/
@@ -8994,7 +9058,7 @@ Total count<C>",
 [*ENDA]
 
 
-
+[*SK 33]
 ! ----- 2022 Q1 ---------- !
 [*DATA L163 (;) = 
 An innovative brand, always comes out with new and better products, services, and experiences;
@@ -9042,7 +9106,7 @@ Total count<C>",
 [*ENDA]
 
 
-
+[*33]
 
 
 
@@ -15746,13 +15810,13 @@ DM $TQ79 = $Q79/
 R,F,
 VT = "Q79. MONTHLY HOUSEHOLD INCOME",
 V = "
-Less than Php 10,957;
-Php 10,957-Php 21,914;
-Php 21,915-Php 43,828;
-Php 43,829-Php 76,699;
-Php 76,700-Php 131,484;
-Php 131,485-Php 219,140;
-Greater than Php 219,140;
+Less than Php 10,957 (10957)<v10957>;
+Php 10,957-Php 21,914 (16435.5)<v16435.5>;
+Php 21,915-Php 43,828 (32871.5)<v32871.5>;
+Php 43,829-Php 76,699 (60264)<v60264>;
+Php 76,700-Php 131,484 (104092)<v104092>;
+Php 131,485-Php 219,140 (175447.5)<v175447.5>;
+Greater than Php 219,140 (219140)<v219140>;
 Refuse/ Don't know;
 Missing answers<Z>;
 Total count<C>",
@@ -16940,7 +17004,7 @@ V = "
 
 ! ----- BRANDS LADDER ----- !
 
-DM $BRAND_LAD = 
+DM $BRAND_LAD_old = 
 [*DOA=1:BRX]
 $TQ16d/[A],
 ($TQ16a/N[A].$TQ16b/N[A]).($TQ16c/[A]),
@@ -16979,6 +17043,46 @@ V = "
 `     Q16g. Recommended[*sle];
 [*ENDA]",
 
+DM $BRAND_LAD = 
+[*DOA=1:BRX]
+$TQ16d/[A],
+($TQ16a/N[A].$TQ16b/N[A]).($TQ16c/[A]),
+($TQ16a/N[A]).($TQ16b/[A]),
+$TQ16a/[A],
+$TQ17l/[A],
+$TQ17g/[A],
+$TQ17d/[A],
+$TQ17f/[A],
+$TQ17e/[A],
+$TQ17a/[A],
+$TQ17c/[A],
+$TQ17k/[A],
+$TQ17b/[A],
+$TQ16f/[A],
+$TQ16e/[A],
+$TQ16g/[A],
+[*enda]
+VT = "Q16-Q17. BRAND FUNNEL",
+V = "
+[*DOA=1:BRX]
+[BRANDNONE.A]\
+`     Q16d. Total Awareness;
+`     Q16c. Aided;
+`     Q16b. Other spontaneous;
+`     Q16a. TOM;
+`     Q17l. Ever downloaded;
+`     Q17g. First Ever Tried<s>;
+`     Q17d. With Existing Acc;
+`     Q17f. Ever Tried;
+`     Q17e. P6M;
+`     Q17a. P2M;
+`     Q17c. P4W;
+`     Q17k. P1W;
+`     Q17b. BUMO;
+`     Q16f. 2nd Favorite<s>;
+`     Q16e. Favorite;
+`     Q16g. Recommended[*sle];
+[*ENDA]",
 
 
 
