@@ -1,0 +1,56 @@
+
+!===========================================================!
+!========================= ALIGN B =========================!
+!===========================================================!
+
+
+
+
+
+
+
+!{=============== BRANDS ===============}!	!AlignB
+
+[*DOD=1:BR]
+[*DOS=91:92]
+
+IF $xI_[S]_A_Q32f/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q32h_91 = $xI_[S]_T_Q32h_91,
+IF $xI_[S]_A_Q32a/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q32i2_91 = $xI_[S]_T_Q32i2_91,
+IF $xI_[S]_A_Q32f/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q32j2_91 = $xI_[S]_T_Q32j2_91,
+
+
+[*DOB=1:25]
+IF $xI_[S]_A_Q32f/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q32h_[B] = $xI_[S]_T_Q32h_[B],
+IF $xI_[S]_A_Q32a/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q32i2_[B] = $xI_[S]_T_Q32i2_[B],
+IF $xI_[S]_A_Q32f/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q32j2_[B] = $xI_[S]_T_Q32j2_[B],
+[*ENDB]
+
+
+[*ENDS]
+[*ENDD]
+
+
+
+!{=============== BANKS ===============}!
+
+[*DOA=1:47]
+[*DOB=1:XBK]
+IF $xI_[A]_A_Q32f/[SOEBANKS.B], ORDM $xI_[A]_T_Q32h_[ROWBANKS.B] = $xI_[A]_T_Q32h_91,
+IF $xI_[A]_A_Q32a/[SOEBANKS.B], ORDM $XI_[A]_T_Q32i2_[ROWBANKS.B] = $XI_[A]_T_Q32i2_91,
+IF $xI_[A]_A_Q32f/[SOEBANKS.B], ORDM $XI_[A]_T_Q32j2_[ROWBANKS.B] = $XI_[A]_T_Q32j2_91,
+
+[*ENDB]
+[*ENDA]
+
+[*DOA=1:BR]
+[*DOB=1:XBK]
+IF $xI_[ROWBRAND.A]_A_Q32f/[SOEBANKS.B], ORDM $xI_[ROWBRAND.A]_T_Q32h_[ROWBANKS.B] = $xI_[ROWBRAND.A]_T_Q32h_91,
+IF $xI_[ROWBRAND.A]_A_Q32a/[SOEBANKS.B], ORDM $XI_[ROWBRAND.A]_T_Q32i2_[ROWBANKS.B] = $XI_[ROWBRAND.A]_T_Q32i2_91,
+IF $xI_[ROWBRAND.A]_A_Q32f/[SOEBANKS.B], ORDM $XI_[ROWBRAND.A]_T_Q32j2_[ROWBANKS.B] = $XI_[ROWBRAND.A]_T_Q32j2_91,
+
+[*ENDB]
+[*ENDA]
+
+
+
+

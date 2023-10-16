@@ -1,0 +1,768 @@
+! ----------- >> HEADER A << ------------ !
+DM $HTX = T,
+$oct2021/nb,
+$nov2021/nb,
+$dec2021/nb,
+ht = "Header TOTAL",
+h = "
+TOTAL\
+   TOTAL *(a);
+   OCT *(b);
+   NOV *(c);
+   DEC *(d)",
+
+
+
+DM $HA = 
+T,
+$Q2/1,
+$Q2/2,
+ht = "Header A. Gender",
+h = "
+TOTAL\
+   TOTAL *(a);
+GENDER\
+   Male *(b);
+   Female *(c)",
+
+DM $HB = T,
+$T_Q1_1/1..21,
+$T_Q1_1/22..29,
+$T_Q1_1/30..34,
+$T_Q1_1/35..44,
+$T_Q1_1/45..99,
+XT = "Header B. Lifestage",
+X = "
+TOTAL*(a);
+LIFESTAGE\
+STUDENTS (21yo and below)*(b);
+YUPPIES (22-29yo)*(c);
+TRANSITIONERS (30-34yo)*(d);
+BALANCERS (35-44yo)*(e);
+RETIREES (45yo and above)*(f)",
+
+
+DM $HC = 
+T,
+$xSEC21/1001+1002+1003+1004+1005+1006+1007+1008+1009,
+$xSEC21/1012,
+$xSEC21/1001+1002+1003+1004+1005+1006+1007+1008+1009+1012,
+$xSEC21/1010+1011+1016+1013,
+$xSEC21/1014+1015,
+
+XT = "Header C. Working Status",
+X = "
+TOTAL*(a);
+WORKING STATUS\
+Working*(b);
+Studying*(c);
+Working and Studying*(d);
+Not Working and Not Studying*(e);
+Business Owner*(f)",
+
+
+DM $HD = T,
+$Q3/1,
+($Q3/2+3+4+5),
+($Q3/6+7+8),
+($Q3/9+10+11),
+($Q3/12+13+14+15+16+17),
+XT = "Header D. Region and Sub-Region",
+X = "
+TOTAL*(a);
+REGION & SUBREGION\
+NCR*(b);
+NCL*(c);
+SL*(d);
+Visayas*(e);
+Mindanao*(f)",
+
+
+
+DM $HE = T,
+$Q4/1,
+$Q4/2,
+
+$Q3/1,
+
+($Q3/2+3+4+5),
+($Q3/2+3+4+5).$Q4/1,
+($Q3/2+3+4+5).$Q4/2,
+
+($Q3/6+7+8),
+($Q3/6+7+8).$Q4/1,
+($Q3/6+7+8).$Q4/2,
+
+($Q3/9+10+11),
+($Q3/9+10+11).$Q4/1,
+($Q3/9+10+11).$Q4/2,
+
+($Q3/12+13+14+15+16+17),
+($Q3/12+13+14+15+16+17).$Q4/1,
+($Q3/12+13+14+15+16+17).$Q4/2,
+
+XT = "Header E. Locale & Region",
+X = "
+TOTAL\TOTAL*(a);
+REGION & LOCALE\
+Urban (NET)*(b);
+Rural (NET)*(c);
+NCR (NET)*(d);
+NCL (NET)*(e);
+NCL Urban*(f);
+NCL Rural*(g);
+SL (NET)*(h);
+SL Urban*(i);
+SL Rural*(j);
+Visayas (NET)*(k);
+Visayas Urban*(l);
+Visayas Rural*(m);
+Mindanao (NET)*(n);
+Mindanao Urban*(o);
+Mindanao Rural*(p)",
+
+
+
+
+DM $HF = T,
+$xQ102/1,
+$xQ102/2,
+$xQ102/1..2,
+$xQ102/3,
+$xQ102/4,
+xt = "Header F. SEC",
+x = "
+TOTAL\
+TOTAL*(a);
+SEC\
+AB*(b);
+C1*(c);
+ABC1*(d);
+C2*(e);
+D*(f)",
+
+
+
+
+DM $HG = T,
+$xQ102/1,
+$xQ102/1 . ($T_Q1_1/1..21),
+$xQ102/1 . ($T_Q1_1/22..29),
+$xQ102/1 . ($T_Q1_1/30..34),
+$xQ102/1 . ($T_Q1_1/35..44),
+$xQ102/1 . ($T_Q1_1/45..99),
+
+$xQ102/2,
+$xQ102/2 . ($T_Q1_1/1..21),
+$xQ102/2 . ($T_Q1_1/22..29),
+$xQ102/2 . ($T_Q1_1/30..34),
+$xQ102/2 . ($T_Q1_1/35..44),
+$xQ102/2 . ($T_Q1_1/45..99),
+
+$xQ102/1..2,
+$xQ102/1..2 . ($T_Q1_1/1..21),
+$xQ102/1..2 . ($T_Q1_1/22..29),
+$xQ102/1..2 . ($T_Q1_1/30..34),
+$xQ102/1..2 . ($T_Q1_1/35..44),
+$xQ102/1..2 . ($T_Q1_1/45..99),
+
+$xQ102/3,
+$xQ102/3 . ($T_Q1_1/1..21),
+$xQ102/3 . ($T_Q1_1/22..29),
+$xQ102/3 . ($T_Q1_1/30..34),
+$xQ102/3 . ($T_Q1_1/35..44),
+$xQ102/3 . ($T_Q1_1/45..99),
+
+$xQ102/4,
+$xQ102/4 . ($T_Q1_1/1..21),
+$xQ102/4 . ($T_Q1_1/22..29),
+$xQ102/4 . ($T_Q1_1/30..34),
+$xQ102/4 . ($T_Q1_1/35..44),
+$xQ102/4 . ($T_Q1_1/45..99),
+XT = "Header G. SEC and Lifestage",
+X = "
+TOTAL\
+TOTAL*(a);
+
+SEC & LIFESTAGE***
+SEC AB\
+AB TOTAL*(b);
+AB STUDENTS*(c);
+AB YUPPIES*(d);
+AB TRANSITIONERS*(e);
+AB BALANCERS*(f);
+AB RETIREES*(g);
+
+
+
+SEC C1\
+C1 TOTAL*(h);
+C1 STUDENTS*(i);
+C1 YUPPIES*(j);
+C1 TRANSITIONERS*(k);
+C1 BALANCERS*(l);
+C1 RETIREES*(m);
+
+SEC ABC1\
+ABC1 TOTAL*(n);
+ABC1 STUDENTS*(o);
+ABC1 YUPPIES*(p);
+ABC1 TRANSITIONERS*(q);
+ABC1 BALANCERS*(r);
+ABC1 RETIREES*(s);
+
+SEC C2\
+C2 TOTAL;
+C2 STUDENTS;
+C2 YUPPIES;
+C2 TRANSITIONERS;
+C2 BALANCERS;
+C2 RETIREES;
+
+SEC D\
+D TOTAL*(t);
+D STUDENTS*(u);
+D YUPPIES*(v);
+D TRANSITIONERS*(w);
+D BALANCERS*(x);
+D RETIREES*(y)",
+
+
+
+
+DM $HH = T,
+$Q3/1,
+$Q3/1 . ($T_Q1_1/1..21),
+$Q3/1 . ($T_Q1_1/22..29),
+$Q3/1 . ($T_Q1_1/30..34),
+$Q3/1 . ($T_Q1_1/35..44),
+$Q3/1 . ($T_Q1_1/45..99),
+
+($Q3/2+3+4+5),
+($Q3/2+3+4+5) . ($T_Q1_1/1..21),
+($Q3/2+3+4+5) . ($T_Q1_1/22..29),
+($Q3/2+3+4+5) . ($T_Q1_1/30..34),
+($Q3/2+3+4+5) . ($T_Q1_1/35..44),
+($Q3/2+3+4+5) . ($T_Q1_1/45..99),
+
+($Q3/6+7+8),
+($Q3/6+7+8) . ($T_Q1_1/1..21),
+($Q3/6+7+8) . ($T_Q1_1/22..29),
+($Q3/6+7+8) . ($T_Q1_1/30..34),
+($Q3/6+7+8) . ($T_Q1_1/35..44),
+($Q3/6+7+8) . ($T_Q1_1/45..99),
+
+($Q3/9+10+11),
+($Q3/9+10+11) . ($T_Q1_1/1..21),
+($Q3/9+10+11) . ($T_Q1_1/22..29),
+($Q3/9+10+11) . ($T_Q1_1/30..34),
+($Q3/9+10+11) . ($T_Q1_1/35..44),
+($Q3/9+10+11) . ($T_Q1_1/45..99),
+
+($Q3/12+13+14+15+16+17),
+($Q3/12+13+14+15+16+17) . ($T_Q1_1/1..21),
+($Q3/12+13+14+15+16+17) . ($T_Q1_1/22..29),
+($Q3/12+13+14+15+16+17) . ($T_Q1_1/30..34),
+($Q3/12+13+14+15+16+17) . ($T_Q1_1/35..44),
+($Q3/12+13+14+15+16+17) . ($T_Q1_1/45..99),
+XT = "Header H. Regions and Lifestage",
+X = "
+TOTAL\
+TOTAL*(a);
+
+REGION & LIFESTAGE***
+NCR\
+NCR TOTAL*(b);
+NCR STUDENTS*(c);
+NCR YUPPIES*(d);
+NCR TRANSITIONERS*(e);
+NCR BALANCERS*(f);
+NCR RETIREES*(g);
+
+NCL\
+NCL TOTAL*(h);
+NCL STUDENTS*(i);
+NCL YUPPIES*(j);
+NCL TRANSITIONERS*(k);
+NCL BALANCERS*(l);
+NCL RETIREES*(m);
+
+SL\
+SL TOTAL*(n);
+SL STUDENTS*(o);
+SL YUPPIES*(p);
+SL TRANSITIONERS*(q);
+SL BALANCERS*(r);
+SL RETIREES*(s);
+
+VISAYAS\
+VISAYAS TOTAL;
+VISAYAS STUDENTS;
+VISAYAS YUPPIES;
+VISAYAS TRANSITIONERS;
+VISAYAS BALANCERS;
+VISAYAS RETIREES;
+
+MINDANAO\
+MINDANAO TOTAL*(t);
+MINDANAO STUDENTS*(u);
+MINDANAO YUPPIES*(v);
+MINDANAO TRANSITIONERS*(w);
+MINDANAO BALANCERS*(x);
+MINDANAO RETIREES*(y)",
+
+DM $USER = $xQ17i/1,
+
+DM $HI = T,
+$xQ17i/1,
+$xQ17i/2,
+XT = "Header I. Userships",
+X = "
+TOTAL*(a);
+USERSHIP\
+USER*(b);
+NON-USER*(c)",
+
+
+DM $HJ = T,
+$Q72/1,
+3,
+2,
+XT = "Header J. Banking Connectivity",
+X = "
+TOTAL*(a);
+Banking Connectivity\
+Banked*(b);
+Unbanked*(c);
+Underbanked*(d)",
+
+
+DM $C_Q17D = $xA_Q17d/
+1,
+2+1050+1043,
+3,
+4,
+5+1020,
+6,
+7+1029,
+8,
+9,
+10,
+11,
+12+1010,
+13+1002,
+14,
+15,
+16+1008+1051,
+17,
+18+1047,
+19,
+20,
+21,
+22+1022,
+23+1009+1046,
+24+1015,
+25+1016+1033,
+26+1045,
+27,
+28+1042,
+29,
+30,
+31,
+32,
+33,
+34,
+35,
+36,
+37,
+38,
+39,
+40,
+41,
+42,
+1001,
+1003,
+1004+1005+1006+1017,
+1007,
+1011,
+1012,
+1013,
+1014,
+1018,
+1019+1041,
+1021,
+1028,
+1030,
+1031,
+1032,
+1034,
+1035,
+1036,
+1040,
+1044,
+1048,
+1049,
+1052,
+1053,
+
+DM $HK = T,
+CT($C_Q17D)/1,
+CT($C_Q17D)/2,
+CT($C_Q17D)/>2,
+XT = "Header K. Number of Brands Used",
+X = "
+TOTAL*(a);
+Number of Brands Used\
+Single*(b);
+Dual*(c);
+Multi*(d)",
+
+DM $GCASH_USER = $xA_Q17e/1,
+
+DM $HL = T,
+$xA_Q17e/1,
+$xA_Q17e/N1,
+XT = "Header L. Gcash/ Non-Gcash User in P6M",
+X = "
+TOTAL*(a);
+BRAND USERSHIP\
+Gcash USER*(a);
+Gcash NON-USER*(b)",
+
+
+[*DATA Q8C =
+1+1024,
+2+1006+1012+1013+1021+1031,
+3+1008,
+4+1001+1022,
+5+1009,
+6+1003+1002+1005+1010+1011+1023+1027+1020+1025+1026,
+7]
+
+DM $HM = T,
+[*do a = 1:7]
+$T_Q8b_1/[Q8C.a]+$T_Q8b_2/[Q8C.a],
+$T_Q8b_1/[Q8C.a],
+$T_Q8b_2/[Q8C.a],
+[*end a]
+XT = "Header M. Transactions Done in P2M",
+X = "
+TOTAL*(a);
+Transactions Done in P2M\
+Buy Mobile Load (Regardless)*(b);
+Buy Mobile Load (Online)*(c);
+Buy Mobile Load (Offline)*(d);
+Buy on Offline/ Online Store (Regardless)*(e);
+Buy on Offline/ Online Store (Online)*(f);
+Buy on Offline/ Online Store (Offline)*(g);
+Buy and Pay in Website via Online (regardless)*(h);
+Buy and Pay in Website via Online (online)*(i);
+Buy and Pay in Website via Online (Offline)*(j);
+Pay Bills (Regardless)*(k);
+Pay Bills (Online)*(l);
+Pay Bills (Offline)*(m);
+Save Money (Regardless)*(n);
+Save Money (Online)*(o);
+Save Money (Offline)*(p);
+Send/ Receive Remittances (regardless)*(q);
+Send/ Receive Remittances (Online)*(r);
+Send/ Receive Remittances (Offline)*(s);
+Buy Gaming Pins (regardless)*(t);
+Buy Gaming Pins (Online)*(u);
+Buy Gaming Pins(Offline)*(v)",
+
+
+
+! ----------- >> HEADER AS FILTER << ------------ 
+
+DM $F_HEADER = 
+$Q2/1,$Q2/2,
+
+$T_Q1_1/1..21,
+$T_Q1_1/22..29,
+$T_Q1_1/30..34,
+$T_Q1_1/35..44,
+$T_Q1_1/45..99,
+
+$xSEC21/1,
+$xSEC21/2,
+
+$Q3/1,
+($Q3/2+3+4+5),
+($Q3/6+7+8),
+($Q3/9+10+11),
+($Q3/12+13+14+15+16+17),
+
+$Q4/1,
+$Q4/2,
+
+$Q3/1,
+
+($Q3/2+3+4+5),
+($Q3/2+3+4+5).$Q4/1,
+($Q3/2+3+4+5).$Q4/2,
+
+($Q3/6+7+8),
+($Q3/6+7+8).$Q4/1,
+($Q3/6+7+8).$Q4/2,
+
+($Q3/9+10+11),
+($Q3/9+10+11).$Q4/1,
+($Q3/9+10+11).$Q4/2,
+
+($Q3/12+13+14+15+16+17),
+($Q3/12+13+14+15+16+17).$Q4/1,
+($Q3/12+13+14+15+16+17).$Q4/2,
+
+$xQ102/1,
+$xQ102/2,
+$xQ102/1..2,
+$xQ102/3,
+$xQ102/4,
+
+$xQ102/1 . ($T_Q1_1/1..21),
+$xQ102/1 . ($T_Q1_1/22..29),
+$xQ102/1 . ($T_Q1_1/30..34),
+$xQ102/1 . ($T_Q1_1/35..44),
+$xQ102/1 . ($T_Q1_1/45..99),
+
+$xQ102/2 . ($T_Q1_1/1..21),
+$xQ102/2 . ($T_Q1_1/22..29),
+$xQ102/2 . ($T_Q1_1/30..34),
+$xQ102/2 . ($T_Q1_1/35..44),
+$xQ102/2 . ($T_Q1_1/45..99),
+
+$xQ102/1..2 . ($T_Q1_1/1..21),
+$xQ102/1..2 . ($T_Q1_1/22..29),
+$xQ102/1..2 . ($T_Q1_1/30..34),
+$xQ102/1..2 . ($T_Q1_1/35..44),
+$xQ102/1..2 . ($T_Q1_1/45..99),
+
+$xQ102/3 . ($T_Q1_1/1..21),
+$xQ102/3 . ($T_Q1_1/22..29),
+$xQ102/3 . ($T_Q1_1/30..34),
+$xQ102/3 . ($T_Q1_1/35..44),
+$xQ102/3 . ($T_Q1_1/45..99),
+
+$xQ102/4 . ($T_Q1_1/1..21),
+$xQ102/4 . ($T_Q1_1/22..29),
+$xQ102/4 . ($T_Q1_1/30..34),
+$xQ102/4 . ($T_Q1_1/35..44),
+$xQ102/4 . ($T_Q1_1/45..99),
+
+$Q3/1 . ($T_Q1_1/1..21),
+$Q3/1 . ($T_Q1_1/22..29),
+$Q3/1 . ($T_Q1_1/30..34),
+$Q3/1 . ($T_Q1_1/35..44),
+$Q3/1 . ($T_Q1_1/45..99),
+
+($Q3/2+3+4+5) . ($T_Q1_1/1..21),
+($Q3/2+3+4+5) . ($T_Q1_1/22..29),
+($Q3/2+3+4+5) . ($T_Q1_1/30..34),
+($Q3/2+3+4+5) . ($T_Q1_1/35..44),
+($Q3/2+3+4+5) . ($T_Q1_1/45..99),
+
+($Q3/6+7+8) . ($T_Q1_1/1..21),
+($Q3/6+7+8) . ($T_Q1_1/22..29),
+($Q3/6+7+8) . ($T_Q1_1/30..34),
+($Q3/6+7+8) . ($T_Q1_1/35..44),
+($Q3/6+7+8) . ($T_Q1_1/45..99),
+
+($Q3/9+10+11) . ($T_Q1_1/1..21),
+($Q3/9+10+11) . ($T_Q1_1/22..29),
+($Q3/9+10+11) . ($T_Q1_1/30..34),
+($Q3/9+10+11) . ($T_Q1_1/35..44),
+($Q3/9+10+11) . ($T_Q1_1/45..99),
+
+($Q3/12+13+14+15+16+17) . ($T_Q1_1/1..21),
+($Q3/12+13+14+15+16+17) . ($T_Q1_1/22..29),
+($Q3/12+13+14+15+16+17) . ($T_Q1_1/30..34),
+($Q3/12+13+14+15+16+17) . ($T_Q1_1/35..44),
+($Q3/12+13+14+15+16+17) . ($T_Q1_1/45..99),
+
+$xQ17i/1,
+$xQ17i/2,
+
+$Q72/1,3,2,
+
+CT($C_Q17D)/1,
+CT($C_Q17D)/2,
+CT($C_Q17D)/>2,
+
+$xA_Q17e/1,
+$xA_Q17e/N1,
+
+[*do a = 1:7]
+$T_Q8b_1/[Q8C.a]+$T_Q8b_2/[Q8C.a],
+$T_Q8b_1/[Q8C.a],
+$T_Q8b_2/[Q8C.a],
+[*end a]
+
+[*DATA HEADF (;) =
+Male;
+Female;
+
+STUDENTS (21yo and below);
+YUPPIES (22-29yo);
+TRANSITIONERS (30-34yo);
+BALANCERS (35-44yo);
+RETIREES (45yo and above);
+
+Working;
+Not working;
+	
+NCR;
+NCL;
+SL;
+Visayas;
+Mindanao;
+	
+	
+Urban (NET);
+Rural (NET);
+NCR (NET);
+NCL (NET);
+NCL Urban;
+NCL Rural;
+SL (NET);
+SL Urban;
+SL Rural;
+Visayas (NET);
+Visayas Urban;
+Visayas Rural;
+Mindanao (NET);
+Mindanao Urban;
+Mindanao Rural;
+	
+SEC AB;
+SEC C1;
+SEC ABC1;
+SEC C2;
+SEC D;
+	
+SEC AB STUDENTS;
+SEC AB YUPPIES;
+SEC AB TRANSITIONERS;
+SEC AB BALANCERS;
+SEC AB RETIREES;
+	
+SEC C1 STUDENTS;
+SEC C1 YUPPIES;
+SEC C1 TRANSITIONERS;
+SEC C1 BALANCERS;
+SEC C1 RETIREES;
+	
+SEC ABC1 STUDENTS;
+SEC ABC1 YUPPIES;
+SEC ABC1 TRANSITIONERS;
+SEC ABC1 BALANCERS;
+SEC ABC1 RETIREES;
+	
+SEC C2 STUDENTS;
+SEC C2 YUPPIES;
+SEC C2 TRANSITIONERS;
+SEC C2 BALANCERS;
+SEC C2 RETIREES;
+	
+SEC D STUDENTS;
+SEC D YUPPIES;
+SEC D TRANSITIONERS;
+SEC D BALANCERS;
+SEC D RETIREES;
+	
+NCR STUDENTS;
+NCR YUPPIES;
+NCR TRANSITIONERS;
+NCR BALANCERS;
+NCR RETIREES;
+	
+NCL STUDENTS;
+NCL YUPPIES;
+NCL TRANSITIONERS;
+NCL BALANCERS;
+NCL RETIREES;
+	
+SL STUDENTS;
+SL YUPPIES;
+SL TRANSITIONERS;
+SL BALANCERS;
+SL RETIREES;
+	
+VISAYAS STUDENTS;
+VISAYAS YUPPIES;
+VISAYAS TRANSITIONERS;
+VISAYAS BALANCERS;
+VISAYAS RETIREES;
+	
+MINDANAO STUDENTS;
+MINDANAO YUPPIES;
+MINDANAO TRANSITIONERS;
+MINDANAO BALANCERS;
+MINDANAO RETIREES;
+	
+USER;
+NON-USER;
+	
+Banked;
+Unbanked;
+Underbanked;
+	
+Single;
+Dual;
+Multi;
+	
+Gcash USER;
+Gcash NON-USER;
+	
+Buy Mobile Load (Regardless);
+Buy Mobile Load (Online);
+Buy Mobile Load (Offline);
+Buy on Offline/ Online Store (Regardless);
+Buy on Offline/ Online Store (Online);
+Buy on Offline/ Online Store (Offline);
+Buy and Pay in Website via Online (regardless);
+Buy and Pay in Website via Online (online);
+Buy and Pay in Website via Online (Offline);
+Pay Bills (Regardless);
+Pay Bills (Online);
+Pay Bills (Offline);
+Save Money (Regardless);
+Save Money (Online);
+Save Money (Offline);
+Send/ Receive Remittances (regardless);
+Send/ Receive Remittances (Online);
+Send/ Receive Remittances (Offline);
+Buy Gaming Pins (regardless);
+Buy Gaming Pins (Online);
+Buy Gaming Pins(Offline)]
+
+
+
+DM $HN = T,
+$xT_Q8b/(1+1024).(n2.n1006.n1012.n1013.n1021.n1031),
+$xT_Q8b/(2+1006+1012+1013+1021+1031).(n1.n1024),
+$xT_Q8b/(1+1024).(2+1006+1012+1013+1021+1031),
+HT = "Header N. Combined Online/ Offline Transactions",
+H = "
+TOTAL*(a);
+ONLINE ONLY*(b);
+OFFLINE ONLY*(c);
+COMBINED*(d)",
+
+
+
+
+
+
+
+DM $H58 = T,
+$xA_Q75/3+1004+1012+1036,
+$xA_Q75/2+1001+1003+1033+1031,
+$xA_Q75/1006+1007+1008+1009+1010+1015+1016+1017+1019+1020+1023+1024+1026+1028+1029+1037,
+
+HT = "HEADER REQUEST ITEM 58",
+H = "
+TOTAL*(a);
+Remittance from family members*(b);
+Own business*(c);
+Income from self-employment*(d)",

@@ -1,0 +1,277 @@
+START CONTROL,
+*PROJECT WALL-E
+!C = CORR_WALLE_QTR1_MERGED.asc,
+
+
+!C =WALLE_Q2_APR_PUNCHED.asc;WALLE_Q2_MAY_PUNCHED.asc;WALLE_Q2_JUN_PUNCHED.asc,
+
+!C = WALLEQ1_MAINONLY_JAN.asc;WALLEQ1_MAINONLY_FEB.asc;WALLEQ1_MAINONLY_MAR.ASC,
+
+
+
+C = WALLEQ1_MAINONLY_PUNCHED.ASC,
+
+Y,
+CEP,
+CSVR2,
+OLDNAMES,
+FINISH CONTROL,
+
+START DATA,
+ORDER1234567890XV,
+SERIAL NUMBER IN COLUMNS 1-10,
+CARD CHARACTERS BINARY 300000,
+TEMPORARY /99999999/,
+
+DI $RESP = $1-10,
+
+di $blank = 0,
+di $Blankamt = $299996-300000,
+
+[*INSERT WallE_insertGlobal]
+[*INSERT WallE_oesoe]
+
+[*INSERT WallE_resp]
+
+[*INSERT walle_cardcol_banner]
+[*INSERT walle_cardcol_p1]
+[*INSERT WallE_insertAlign_pickup]
+[*INSERT WallE_insertAlign1]
+
+
+
+[*INSERT WallE_stubs_pickup]
+[*INSERT WallE_stubs1]
+
+
+!*INSERT WallE_stubsa1
+
+
+
+[*INSERT WALLE_HEADERS_trend]
+
+
+[*INSERT WALL_E_NEWWTS]
+
+
+
+DM $GCASH_USER = $xA_Q17e/1,
+DM $USER = $xQ17i/1,
+
+
+DM $HMARG = T,
+			$xQ17i/1.$Q4/1, 
+            $xQ17i/1.$Q4/2, 
+            $xQ17i/2.$Q4/1,  
+            $xQ17i/2.$Q4/2, 
+ 
+            $JAN2023/nb.$xQ17i/1.$Q4/1,  
+            $JAN2023/nb.$xQ17i/1.$Q4/2,
+            $JAN2023/nb.$xQ17i/2.$Q4/1,  
+            $JAN2023/nb.$xQ17i/2.$Q4/2,
+              
+
+            $FEB2023/nb.$xQ17i/1.$Q4/1,  
+            $FEB2023/nb.$xQ17i/1.$Q4/2,
+            $FEB2023/nb.$xQ17i/2.$Q4/1,  
+            $FEB2023/nb.$xQ17i/2.$Q4/2,
+
+            $MAR2023/nb.$xQ17i/1.$Q4/1,  
+            $MAR2023/nb.$xQ17i/1.$Q4/2,
+            $MAR2023/nb.$xQ17i/2.$Q4/1,  
+            $MAR2023/nb.$xQ17i/2.$Q4/2,
+
+
+
+HT = "USER AND NON-USER URBANITY",            
+H = "TOTAL;
+     QUARTER 1 2023*****
+     USER\
+     URBAN;RURAL;
+     NON-USER\
+     URBAN;RURAL;
+     JANUARY*****
+     USER\
+     URBAN;RURAL;
+     NON-USER\
+     URBAN;RURAL;
+     FEBRUARY*****
+     USER\
+     URBAN;RURAL;
+     NON-USER\
+     URBAN;RURAL;
+     MARCH*****
+     USER\
+     URBAN;RURAL;
+     NON-USER\
+     URBAN;RURAL",
+
+
+DM $TMARGQ4 = ($Q3/1),
+              ($Q3/1).$xQ102/1,
+              ($Q3/1).$xQ102/2,
+              ($Q3/1).$xQ102/3,
+              ($Q3/1).$xQ102/4,
+
+              ($Q3/2+3+4+5),
+              ($Q3/2+3+4+5).$xQ102/1,
+              ($Q3/2+3+4+5).$xQ102/2,
+              ($Q3/2+3+4+5).$xQ102/3,
+              ($Q3/2+3+4+5).$xQ102/4,
+
+              ($Q3/6+7+8),
+              ($Q3/6+7+8).$xQ102/1,
+              ($Q3/6+7+8).$xQ102/2,
+              ($Q3/6+7+8).$xQ102/3,
+              ($Q3/6+7+8).$xQ102/4,
+
+              ($Q3/9+10+11),
+              ($Q3/9+10+11).$xQ102/1,
+              ($Q3/9+10+11).$xQ102/2,
+              ($Q3/9+10+11).$xQ102/3,
+              ($Q3/9+10+11).$xQ102/4,
+
+              ($Q3/12+13+14+15+16+17),
+              ($Q3/12+13+14+15+16+17).$xQ102/1,
+              ($Q3/12+13+14+15+16+17).$xQ102/2,
+              ($Q3/12+13+14+15+16+17).$xQ102/3,
+              ($Q3/12+13+14+15+16+17).$xQ102/4,
+              R,F,
+VT = "MARGINALS - Q3 2022",
+ V = "
+METRO MANILA<Q>;
+`     AB;
+`     C1;
+`     C2;
+`     D;
+NORTH-CENTRAL LUZON<Q>;
+`     AB;
+`     C1;
+`     C2;
+`     D;
+SOUTH LUZON<Q>;
+`     AB;
+`     C1;
+`     C2;
+`     D;
+VISAYAS<Q>;
+`     AB;
+`     C1;
+`     C2;
+`     D;
+MINDANAO<Q>;
+`     AB;
+`     C1;
+`     C2;
+`     D;
+MISSING ANSWER<Z>;
+TOTAL COUNT<C>",
+
+
+dm $error_urban = $xQ17i/1.$Q4/1, 
+
+
+
+
+
+
+FINISH DATA,
+
+
+START TABLES,
+
+
+!!!!!!!!!!!!!!!!
+!!!!!FORMAT!!!!!
+!!!!!!!!!!!!!!!!
+
+
+
+
+GLOBAL IT # = '<JL>Wall-E',
+
+
+
+
+
+
+!======FOR QPS WINDOWS (% + raw - for datachecking)
+F= CTU'='/CAZ'-'/CZP'-'/SDV/UCH/NPGN/NPTC/TID/RLW30/LBB1/TOC/SPL250/CNZ'*'/URS/
+  DPR1/PCS/BRS/BCS/PRC/BTS/LPP55/NSER/CLG1/RNC1/NDAT/NPGN/BAL/RBL/BCS/BTS/CLW9/PBL/MOD,
+
+F=SDV,		! ------ PRINT STD DEVIATION
+F=DPR4,		! ------ DECIMAL %
+F=DPT0,		! ------ DECIMAL RAW COUNT
+F=DPA4,		! ------ DECIMAL MEAN,SUM..
+F=DPS4,	        ! ------ DECIMAL STD,
+F=MOD,		! ------ DISPLAY MODE
+F=MED,		! ------ DISPLAY MEDIAN
+!F=MCB29,          ! ------ Less than 30 base
+F=BTS,                  ! ------ Blank Tables Suppress
+F=BCS,                  ! ------ Blank Column Suppress
+F=NBRS,                  ! ------ Blank Row Suppress
+F=PBL/MOD,
+
+%AVG = 'Mean score<D2>',
+%DAT = '<&DD>/<&MONTH>/<&YY>',
+%RTH = '<ML3>ROW %',
+%RTV = '<ML3>COL %',
+%PRC = '<ML3>COUNT',
+%SER = '<ML3>STD ERR OF MEAN',
+%SDV ='STANDARD DEVIATION',
+%PTR = "TOTAL",
+!%AVG ='MEAN SCORE',
+%SDV ='STANDARD DEVIATION',
+%MED = '<ML7>MEDIAN            ',
+%UNR = '<ML7>(UNWEIGHTED BASE)',
+
+
+  
+F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+
+!F=NRTV, ! ------- ONLY COUNT
+!F=NPRC, ! -------- ONLY %
+
+
+
+
+F=BRS,
+
+
+
+!SELECT WR $newwts,
+
+[*DATA HX=
+HA1T,
+HET,
+HIT,
+HI2T,
+HI3T,
+HI4T,
+HKT,
+HLT,
+HMT,
+HNT,
+HOT]
+
+[*SET T = 0]
+T [+T] = $TMARGQ4 * $hmarg,
+BT = "All respondents",
+
+
+
+[*DOX=1:11]
+T [+T] = $PROFILE * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+
+
+FINISH TABLES,
+
+
+
+
+

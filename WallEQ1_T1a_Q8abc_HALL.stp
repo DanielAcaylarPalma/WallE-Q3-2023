@@ -1,0 +1,582 @@
+START CONTROL,
+*PROJECT WALL-E
+
+
+!C = P_WALLE_2022Q1.ASC;P_WALLE_2022Q2.ASC;P_WALLE_2022Q3.ASC;P_WALLE_2022Q4.ASC;P_WALLE_2023Q1.ASC;P_WALLE_2023Q2_PUNCHED.ASC,
+
+!C = P_WALLE_2023Q2_PUNCHED.ASC,
+
+!C = WALLE_Q2_APR_MAINONLY_CODED.asc,
+
+
+
+!C = WALLEQ1_MAINONLY_PUNCHED.ASC,
+
+!C = P_WALLE_2022Q2.ASC,
+
+C = P_WALLE_2023Q3.ASC,
+
+
+Y,
+CEP,
+CSVR2,
+OLDNAMES,
+FINISH CONTROL,
+
+START DATA,
+ORDER1234567890XV,
+SERIAL NUMBER IN COLUMNS 1-10,	
+CARD CHARACTERS BINARY 300000,
+TEMPORARY /99999999/,
+
+DI $RESP = $1-10,
+
+di $blank = 0,
+di $Blankamt = $299996-300000,
+
+[*INSERT WallE_insertGlobal]
+[*INSERT WallE_oesoe]
+
+[*INSERT WallE_resp]
+
+[*INSERT walle_cardcol_banner]
+[*INSERT walle_cardcol_p1]
+[*INSERT WallE_insertAlign_pickup]
+[*INSERT WallE_insertAlign1]
+
+
+
+[*INSERT WallE_stubs_pickup]
+[*INSERT WallE_stubs1]
+
+!*INSERT WallE_insertAligna
+
+
+!*INSERT walle_cardcol_p2
+!*INSERT walle_cardcol_p3
+
+
+
+!*INSERT WallE_stubsa1
+
+
+
+[*INSERT WALLE_HEADERS_Trend]
+!*INSERT WALLE_HEADERS_Trend_BACKUP
+
+
+[*INSERT WALL_E_NEWWTS]
+
+
+
+
+DM $GCASH_USER = $xA_Q17e/1,
+DM $USER = $xQ17i/1,
+
+
+if ($Q32021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $F53 = $TQ8bR2/5.($xA_Q53/1..3),
+if ($Q42021/nb), 			OM $F53 = $TQ8bR2/5.($TQ53/1..3),
+
+if ($Q32021/nb+$Q42021/nb), OM $FQ18R2 = $Q18/2,
+if ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $FQ18R2 = $TQ18/2,
+
+if ($Q32021/nb+$Q42021/nb), OM $FQ18R3 = $Q18/3,
+if ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $FQ18R3 = $TQ18/3,
+
+
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/nb), OM $FQ18R4 = $Q18/4,
+if ($Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $FQ18R4 = $TQ18/4,
+
+
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/nb), OM $FQ18R5 = $Q18/5,
+if ($Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $FQ18R5 = $TQ18/5,
+
+
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/nb), OM $FQ18R6 = $Q18/6,
+if ($Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $FQ18R6 = $TQ18/6,
+!
+
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb), 	OM $FQ18R1 = $Q18/1,
+if ($Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), 			OM $FQ18R1 = $TQ18/1,
+
+
+OM $Q2JUNE16_ONWARDS = $T_SEC01x02_1/220616+220617+220618+220619+220620+220621+220622+220623+220624+220625+220626+220627+220628+220629+220630+220701+220702,
+OM $Q2JUNE16_ONWARDS = $Q32022/nb,
+
+
+
+if $Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, DM $FQ8A = $A_Q8A/10..12,
+if $Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, DM $FQ8A_10 = $A_Q8A/10,
+if $Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, DM $FQ8A_11 = $A_Q8A/11,
+if $Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, DM $FQ8A_12 = $A_Q8A/12,
+
+
+[*DOA=1:BRX]
+if $Q32021/nb, 				OM $F46_[a] = $TQ16d/[A],
+if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $F46_[a] = $TQ16d/[A].($TQ45R[A]/1+2),
+
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/NB), 	OM $FQ19AR[a] = ($TQ19aR[a]/2..6),
+if ($Q32022/NB+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), 	OM $FQ19AR[a] = ($TQ19aR[a]/2..7),
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/NB), 	OM $FQ21BR[a] = ($TQ21bR[a]/2..6),
+if ($Q32022/NB+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), 	OM $FQ21BR[a] = ($TQ21bR[a]/2..7),
+[*ENDA]
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/NB), 	OM $FQ19AREG = $TQ19a_REG/2..6,
+if ($Q32022/NB+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), 	OM $FQ19AREG = $TQ19a_REG/2..7,
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/NB), 	OM $FQ21BREG = $TQ21b_REG/2..6,
+if ($Q32022/NB+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), 	OM $FQ21BREG = $TQ21b_REG/2..7,
+
+
+
+
+if $Q32021/nb, 				dm $FQ60 = $A_Q16d/1..98 . $A_Q17a/(99),
+if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), dm $FQ60 = ($TQ16d/1..[BRX]).$A_Q17a/99,
+
+om $F9a = $TQ8bR1/1..11,
+
+
+DM $F2023NB = $Q22023/nb+$Q32023/nb,
+DM $F2023B = $Q12022/nb+$Q22022/NB+$Q32022/NB+$Q42022/nb+$Q12023/nb+$Q32023/nb,
+
+om $F9a = $TQ8bR1/1..11,
+
+
+[*sk1]
+IF $RESP/28059943, then, 
+ck $xA_Q17f/B,
+ck $xQ16a/B,
+
+ck $xA_Q16b/B,
+ck $xA_Q16c/B,
+ck $xA_Q16d/B,
+ck $xA_Q17a/B,
+
+
+ENDIF,
+
+
+
+
+[*Setn=D158B.#]
+
+if $Q42022/nb+$Q12023/nb, then,
+[*DOA=1:N]
+
+IF ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb).($TQ8BR2/6).($Q106/1+3).($Q55/2+3).($TQ55f/[A]), THEN,
+T [+T] = $TQ158bR[A] * $[HX.X],
+BT = "Among who personally receive remittance Only offline - [D158B.A]",
+END IF,
+
+[*ENDA]
+end if,
+
+
+
+
+
+
+
+
+DM $SUM_AIDED1 = ($TQ16a/N1.$TQ16b/N1).($TQ16c/1),
+
+
+
+
+CK $SUM_AIDED1/B,
+CK $xA_Q16c/n(1+1056),
+
+
+
+
+if $resp/28292766, then,
+
+ck $xQ16a/b,
+ck $xA_Q16b/b,
+ck $xA_Q16c/b,
+ck $xA_Q16d/b,
+
+endif,
+
+
+
+
+
+
+
+
+
+IF $TQ8bR2/2.$TQ51a/53, THEN,
+CK $xT_Q51d_53/
+1010+1012+1007+1006+1005+1004+1003+1002+1150+
+1010+
+1012+
+1007+
+1006+
+1005+
+1004+
+1003+
+1002+1150+
+2+1109+1008+1011+
+3+1020+1050+1200+
+4+1104+1009+
+5+1100+
+6+1108+
+7+
+8+
+9,
+END IF,
+
+
+[*1]
+
+
+
+
+DM $HTOT = 
+T,
+ht = "Header TOTAL",
+h = "
+TOTAL",
+
+
+FINISH DATA,
+START TABLES,
+
+
+!!!!!!!!!!!!!!!!
+!!!!!FORMAT!!!!!
+!!!!!!!!!!!!!!!!
+
+
+
+
+
+GLOBAL IT # = '<JL>Wall-E',
+
+
+
+!======FOR QPS WINDOWS (% + raw - for datachecking)
+F= CTU'='/CAZ'-'/CZP'-'/SDV/UCH/NPGN/NPTC/TID/RLW30/LBB1/TOC/SPL250/CNZ'*'/URS/
+  DPR1/PCS/BRS/BCS/PRC/BTS/LPP55/NSER/CLG1/RNC1/NDAT/NPGN/BAL/RBL/BCS/BTS/CLW9/PBL/MOD,
+
+F=SDV,		! ------ PRINT STD DEVIATION
+F=DPR4,		! ------ DECIMAL %
+F=DPT0,		! ------ DECIMAL RAW COUNT
+F=DPA4,		! ------ DECIMAL MEAN,SUM..
+F=DPS4,	        ! ------ DECIMAL STD,
+F=MOD,		! ------ DISPLAY MODE
+F=MED,		! ------ DISPLAY MEDIAN
+!F=MCB29,          ! ------ Less than 30 base
+F=BTS,                  ! ------ Blank Tables Suppress
+F=BCS,                  ! ------ Blank Column Suppress
+F=NBRS,                  ! ------ Blank Row Suppress
+F=PBL/MOD,
+
+%AVG = 'Mean score<D2>',
+%DAT = '<&DD>/<&MONTH>/<&YY>',
+%RTH = '<ML3>ROW %',
+%RTV = '<ML3>COL %',
+%PRC = '<ML3>COUNT',
+%SER = '<ML3>STD ERR OF MEAN',
+%SDV ='STANDARD DEVIATION',
+%PTR = "TOTAL",
+!%AVG ='MEAN SCORE',
+%SDV ='STANDARD DEVIATION',
+%MED = '<ML7>MEDIAN            ',
+%UNR = '<ML7>(UNWEIGHTED BASE)',
+
+
+  
+F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+
+!F=NRTV, ! ------- ONLY COUNT
+!F=NPRC, ! -------- ONLY %
+
+
+!SELECT WR $newwts,
+
+
+F=BRS,
+
+
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HI2T,HI3T,HI4T,HJT,HKT,HLT,HMT,HNT]
+
+[*DATA HX=
+HA1T,
+HET,
+HIT,
+HLT,
+HOT]
+!
+
+[*SET T = 0]
+
+
+
+[*DATA HX=HTOT]
+
+
+
+
+
+
+[*setn=stub8b.#]
+[*DOA=1:n]
+[*DOX=1:1]
+T [+T] = $TQ8b_X[A] * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+[*ENDA]
+
+
+
+
+[*setn=stub8b.#]
+[*DOA=1:n]
+[*DOX=1:1]
+if $TQ17i/1, then,
+T [+T] = $TQ8b_X[A] * $[HX.X],
+BT = "Among Users of FinTech Apps",
+END IF,
+[*ENDX]
+[*ENDA]
+
+
+[*setn=stub8b.#]
+[*DOA=1:n]
+[*DOX=1:1]
+if $TQ17i/2, then,
+T [+T] = $TQ8b_X[A] * $[HX.X],
+BT = "Among Non-users of FinTech Apps",
+END IF,
+[*ENDX]
+[*ENDA]
+
+
+
+
+[*DOX=1:1]
+if $TQ8bR1/1..11,	T [+T] = $ct8a1 * $[HX.X],
+BT = "All respondents who transact using Digital/Online (cashless)",
+[*ENDX]
+
+[*DOX=1:1]
+if $TQ17i/1, then,
+if $TQ8bR1/1..11,	T [+T] = $ct8a1 * $[HX.X],
+BT = "Among Users of FinTech Apps Who transact using Digital/Online (cashless)",
+end if,
+[*ENDX]
+
+[*DOX=1:1]
+if $TQ17i/2, then,
+if $TQ8bR1/1..11,	T [+T] = $ct8a1 * $[HX.X],
+BT = "Among Non-users of FinTech Apps Who transact using Digital/Online (cashless)",
+end if,
+[*ENDX]
+
+
+
+[*DOX=1:1]
+if $TQ8bR2/1..11,	T [+T] = $ct8a2 * $[HX.X],
+BT = "All respondents who transact using Non-digital/Offline",
+[*ENDX]
+
+
+[*DOX=1:1]
+if $TQ17i/1, then,
+if $TQ8bR2/1..11,	T [+T] = $ct8a2 * $[HX.X],
+BT = "Among Users of FinTech Apps Who transact using Non-digital/Offline",
+end if,
+[*ENDX]
+
+
+[*DOX=1:1]
+if $TQ17i/2, then,
+if $TQ8bR2/1..11,	T [+T] = $ct8a2 * $[HX.X],
+BT = "Among Non-users of FinTech Apps Who transact using Non-digital/Offline",
+end if,
+[*ENDX]
+
+
+
+
+
+
+
+! ---- ITEM 6
+
+
+[*DOX=1:1]
+T # [+T] = $ct8a1break * $[HX.X],
+BT = "ALL RESPONDENT",
+[*ENDX]
+
+
+[*DOX=1:1]
+if $TQ17i/1, then,
+T # [+T] = $ct8a1break * $[HX.X],
+BT = "Among Users of FinTech Apps",
+end if,
+[*ENDX]
+
+
+[*DOX=1:1]
+if $TQ17i/2, then,
+T # [+T] = $ct8a1break * $[HX.X],
+BT = "Among Non-users of FinTech Apps",
+end if,
+[*ENDX]
+
+
+
+
+
+
+
+
+
+[*DOX=1:1]
+T # [+T] = $ct8a2break * $[HX.X],
+BT = "ALL RESPONDENT",
+[*ENDX]
+
+
+[*DOX=1:1]
+if $TQ17i/1, then,
+T # [+T] = $ct8a2break * $[HX.X],
+BT = "Among Users of FinTech Apps",
+end if,
+[*ENDX]
+
+
+[*DOX=1:1]
+if $TQ17i/2, then,
+T # [+T] = $ct8a2break * $[HX.X],
+BT = "Among Non-users of FinTech Apps",
+end if,
+[*ENDX]
+
+
+
+
+
+
+
+
+
+
+[*DOX=1:1]
+if $Q8BR1R2/1..11,	T [+T] = $TQ8a * $[HX.X],
+BT = "All respondent who transact using digital/online (cashless) and non-digital/offline (cash/ check)",
+[*ENDX]
+
+
+[*DOX=1:1]
+if $TQ17i/1, then,
+if $Q8BR1R2/1..11,	T [+T] = $TQ8a * $[HX.X],
+BT = "Among Users of FinTech Apps WHO transact using digital/online (cashless) and non-digital/offline (cash/ check)",
+end if,
+[*ENDX]
+
+
+[*DOX=1:1]
+if $TQ17i/2, then,
+if $Q8BR1R2/1..11,	T [+T] = $TQ8a * $[HX.X],
+BT = "Among Non-users of FinTech Apps WHO transact using digital/online (cashless) and non-digital/offline (cash/ check)",
+end if,
+[*ENDX]
+
+
+
+
+
+
+
+
+
+
+! ---- ITEM 11
+[*DOX=1:1]
+[*DO A = 1:11]
+T # [+T] = $TQ8bR[A]tablex * $[HX.X],
+BT = "ALL RESPONDENT",
+[*END A]
+[*ENDX]
+
+
+
+
+[*DOX=1:1]
+[*DO A = 1:11]
+if $TQ17i/1, then,
+T # [+T] = $TQ8bR[A]tablex * $[HX.X],
+BT = "Among Users of FinTech Apps",
+END IF,
+[*END A]
+[*ENDX]
+
+
+
+
+
+[*DOX=1:1]
+[*DO A = 1:11]
+if $TQ17i/2, then,
+T # [+T] = $TQ8bR[A]tablex * $[HX.X],
+BT = "Among Non-users of FinTech Apps",
+END IF,
+[*END A]
+[*ENDX]
+
+
+
+
+
+
+[*DOX=1:1]
+T # [+T] = $TQ8BREG * $[HX.X],
+BT = "ALL RESPONDENT",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+if $TQ17i/1, then,
+T # [+T] = $TQ8BREG * $[HX.X],
+BT = "Among Users of FinTech Apps",
+END IF,
+[*ENDX]
+
+
+
+
+
+[*DOX=1:1]
+if $TQ17i/2, then,
+T # [+T] = $TQ8BREG * $[HX.X],
+BT = "Among Non-users of FinTech Apps",
+END IF,
+[*ENDX]
+
+
+
+
+
+
+
+
+
+
+
+
+
+FINISH TABLES,
+
+

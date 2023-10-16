@@ -1,0 +1,63 @@
+
+!===========================================================!
+!========================= ALIGN B =========================!
+!===========================================================!
+
+
+!{=============== BRANDS ===============}!	!AlignB
+
+[*DOD=1:BR]
+[*FORS=91:92]
+IF $xQ17a_[S]_oth/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_Q32 = $xI_[S]_Q32,
+
+
+
+
+[*FORB=1:2:3:4:5:6:7:8:9:10:11:12:13:14:15:16:17:18:20:21:22:23:25:26]
+IF $xI_[B]_A_Q32a/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q32d_[B] = $xI_[S]_T_Q32d_[B],
+IF $xI_[B]_A_Q32a/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q32e_[B] = $xI_[S]_T_Q32e_[B],
+[*ENDB]
+
+
+[*ENDS]
+
+
+[*FORS=19:24:91:92]
+IF $xI_[S]_A_Q32a/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q32d_91 = $xI_[S]_T_Q32d_91,
+IF $xI_[S]_A_Q32a/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q32e_91 = $xI_[S]_T_Q32e_91,
+[*ENDS]
+
+
+
+
+[*ENDD]
+
+if $resp/23960513, then,
+IF $xI_92_A_Q32a/1006, ORDM $xI_49_T_Q32d_91 = $xI_92_T_Q32d_91,
+IF $xI_92_A_Q32a/1006, ORDM $xI_49_T_Q32e_91 = $xI_92_T_Q32e_91,
+
+endif,
+
+
+
+!{=============== BANKS ===============}!
+
+[*DOA=1:47]
+[*DOB=1:XBK]
+IF $xI_[A]_A_Q32a/[SOEBANKS.B], ORDM $XI_[A]_T_Q32d_[ROWBANKS.B] = $XI_[A]_T_Q32d_91,
+IF $xI_[A]_A_Q32a/[SOEBANKS.B], ORDM $xI_[A]_T_Q32e_[ROWBANKS.B] = $xI_[A]_T_Q32e_91,
+
+
+[*ENDB]
+[*ENDA]
+
+[*DOA=1:BR]
+[*DOB=1:XBK]
+IF $xI_[ROWBRAND.A]_A_Q32a/[SOEBANKS.B], ORDM $XI_[ROWBRAND.A]_T_Q32d_[ROWBANKS.B] = $XI_[ROWBRAND.A]_T_Q32d_91,
+IF $xI_[ROWBRAND.A]_A_Q32a/[SOEBANKS.B], ORDM $xI_[ROWBRAND.A]_T_Q32e_[ROWBANKS.B] = $xI_[ROWBRAND.A]_T_Q32e_91,
+[*ENDB]
+[*ENDA]
+
+
+
+

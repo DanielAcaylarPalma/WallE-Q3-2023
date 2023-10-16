@@ -1,0 +1,595 @@
+
+[*DOA=1:BR]
+OM $xQ28c_REG = $xI_[ROWBRAND.a]_Q28c,
+DM $TQ28cR[A] = $xI_[ROWBRAND.a]_Q28c/
+1,
+1001,
+1002,
+1003,
+1005,
+1006,
+1007,
+1008,
+1010,
+1012,
+1009,
+1501,
+1020+1000+2000,
+1700+1500,
+2600,
+1050,
+1160,
+1095,
+1100,
+1150,
+1600,
+2,
+R,F,
+VT = "Q28c. EXTRA CHARGE FOR MOBILE LOAD BOUGHT - [BRAND.A]",
+V = "
+Yes<q>;
+`     1<V1>;
+`     2<V2>;
+`     3<V3>;
+`     5<V5>;
+`     6<V6>;
+`     7<V7>;
+`     8<V8>;
+`     10<V10>;
+`     12<V12>;
+`     13<V13>;
+`     15<V15>;
+`     20<V20>;
+`     25<V25>;
+`     30<V30>;
+`     50<V50>;
+`     60<V60>;
+`     95<V95>;
+`     100<V100>;
+`     150<V150>;
+`     600<V600>;
+No;
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+
+
+DM $TQ28c_REG = $xQ28c_REG/
+1,
+1001,
+1002,
+1003,
+1005,
+1006,
+1007,
+1008,
+1010,
+1012,
+1009,
+1501,
+1020+1000+2000,
+1700+1500,
+2600,
+1050,
+1160,
+1095,
+1100,
+1150,
+1600,
+2,
+R,F,
+VT = "Q28c. EXTRA CHARGE FOR MOBILE LOAD BOUGHT - REGARDLESS",
+V = $TQ28cR1,
+
+
+
+
+[*DOA=1:BR]
+OM $xQ28d_REG = $xI_[ROWBRAND.a]_Q28d,
+DM $TQ28dR[A] = $xI_[ROWBRAND.a]_Q28d/
+1010+1012+1007+1006+1005+1004+1003+1002+1150+1013+1001,
+1013,
+1010,
+1012,
+1007,
+1006,
+1005,
+1004,
+1003,
+1002+1150,
+1001,
+2+1109+1008+1011+1014,
+3+1020+1050+1200,
+4+1104+1009+1015,
+5+1100,
+6+1108,
+7,
+8,
+9,
+R,
+F,
+VT = "Q28d. FREQUENCY OF BUYING MOBILE LOAD - [BRAND.A]",
+V = $Frequency,
+[*ENDA]
+
+
+
+
+DM $TQ28d_REG = $xQ28d_REG/
+1010+1012+1007+1006+1005+1004+1003+1002+1150+1013+1001,
+1013,
+1010,
+1012,
+1007,
+1006,
+1005,
+1004,
+1003,
+1002+1150,
+1001,
+2+1109+1008+1011+1014,
+3+1020+1050+1200,
+4+1104+1009+1015,
+5+1100,
+6+1108,
+7,
+8,
+9,
+R,
+F,
+VT = "Q28d. FREQUENCY OF BUYING MOBILE LOAD - REGARDLESS",
+V = $Frequency,
+
+!---- For Item9 count only
+[*set freq = 18]
+
+
+[*DOA=1:BR]
+OM $xQ28e_REG = $xI_[ROWBRAND.a]_Q28e,
+DM $TQ28eR[A] = $xI_[ROWBRAND.a]_Q28e/
+1-[AT],
+R,F,
+VT = "Q28e. AVERAGE AMOUNT SPENT PER TRANSACTION FOR BUYING MOBILE LOAD - [BRAND.A]",
+V = "
+[*DOV=1:AT]
+P[AMOUNT.V]<V[AMOUNT.V]>;
+[*ENDV]
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+
+
+DM $TQ28e_REG = $xQ28e_REG/
+1-[AT],
+R,F,
+VT = "Q28e. AVERAGE AMOUNT SPENT PER TRANSACTION FOR BUYING MOBILE LOAD - REGARDLESS",
+V = $TQ28eR1,
+
+
+
+[*DOA=1:BR]
+OM $Q28f_REG = $xI_[ROWBRAND.a]_Q28f,
+DM $TQ28fR[A] = $xI_[ROWBRAND.a]_Q28f/
+1,
+2,
+R,F,
+VT = "Q28f. QR CODE AS MODE OF PAYMENT FOR BUYING MOBILE LOAD - [BRAND.A]",
+V = "
+Yes;
+No;
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+
+
+DM $TQ28f_REG = $Q28f_REG/
+1,
+2,
+R,F,
+VT = "Q28f. QR CODE AS MODE OF PAYMENT FOR BUYING MOBILE LOAD - REGARDLESS",
+V = $TQ28fR1,
+
+
+
+
+
+
+
+
+[*DOA=1:BR]
+OM $xQ29a_REG = $xI_[ROWBRAND.a]_A_Q29a,
+OM $TQ29aR[A] = $xI_[ROWBRAND.a]_A_Q29a/
+1,
+2,
+3,
+4+1004+1062,
+5+1028+1042,
+6,
+7+1081,
+8,
+9+1029+1059,
+10+1061,
+11+1064,
+12+1006+1009+1024+1072+1082,
+13+1026+1080,
+14,
+15+1060,
+16,
+17,
+18,
+19+1015,
+20,
+21+1007,
+22+1066,
+23,
+24,
+25,
+26,
+27,
+28,
+29,
+1001,
+1002+1027+1030+1053,
+1003,
+1005,
+1008,
+1011,
+1012,
+1013+1052,
+1016+1056,
+1017,
+1018,
+1019,
+1022,
+1023,
+1025,
+1032+1034+1035+1054,
+1036,
+1037+1031,
+1038,
+1039,
+1040,
+1041,
+1050,
+1051,
+1055,
+1057,
+1058,
+1063,
+1065,
+1066,
+1067,
+1068,
+1069,
+1070,
+1073,
+1074,
+1075,
+1076,
+1077,
+1078,
+1079,
+1083,
+1084,
+1085,
+1086,
+1087,
+1088,
+1010+1021,
+1010,
+1021,
+1014+1020,
+1014,
+1020,
+1033,
+1033,
+1071,
+1071,
+9999,
+R,F,
+VT = "Q29a. TYPE OF STORE/ MERCHANT USUALLY BUY AND PAY ONLINE - [BRAND.A]",
+V = "
+Airline;
+Appliance Center;
+Carinderia;
+Convenience Store;
+Department stores;
+Donations (e.g. church, charity, etc.);
+Drugstore;
+Events (e.g. concerts);
+Fastfood/Casual Dining Restaurant;
+Gadget Stores;
+Garments/Footwear Retail Stores;
+General e-Commerce (e.g. Lazada, Shopee, etc);
+Grocery/Supermarket;
+Hotel/Accommodation Booking;
+Insurance (one time payment);
+Market Stalls;
+Medical Services (e.g. Doctor, Dentist);
+Movie tickets;
+Personal Care/Beauty Stores;
+Personal Services (e.g. Barber Shop/Salon, Spa, etc);
+Sari-sari Store;
+Tour/Travel Packages;
+Transportation (e.g. car rental, bus ticket, train tickets);
+Personal car expense;
+TVNS/Transportation Apps;
+Delivery service;
+Alcoholic Beverages;
+Tobacco;
+Furniture store;
+Mobile Load;
+Bills Payment;
+Apps Money;
+Play Store;
+Food Panda;
+Individual Person;
+Express Pay Remittance Center;
+Bank Outlet;
+Online Games;
+Payment For My Customer;
+Re Sealer Clothes;
+Tuition;
+Transfer Money To Gcash;
+Payment For Online Business;
+Personal Purposes;
+Online Seller Supplier;
+Payment For Friend;
+Facebook;
+SSS;
+Canteen;
+Motor Shop;
+Cash In To My Gcash;
+Meat vendor;
+Cignal;
+Market;
+Payment for online Sabong;
+HARDWARE;
+Globe store;
+Coda shop;
+Crypto currency;
+School;
+Rolling store;
+Gas Station;
+Milktea shop;
+Bookstore;
+SM;
+Fund transfer;
+General merchandise ;
+PSA Online;
+Loan payment; 
+kiosk in mall;
+Hospital;
+Streaming Services;
+Pet shop;
+St Peter;
+COFFEE SHOP;
+Tiktok shop;
+LOADING STATION (NET)<Q>;
+`     Loading Station;
+`     Buy load;
+DELIVERY/ORDER (NET)<Q>;
+`     Delivery ;
+`     If I have an order;
+UNSPECIFIED STORE (NET)<Q>;
+`     Store;
+UNSPECIFIED FOOD (NET)<Q>;
+`     PAYMENT FOOD;
+NONE;
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+
+
+
+
+if ($Q42021/nb+$Q12022/NB+$Q22022/NB+$Q32022/NB+$Q42022/NB+$Q12023/NB+$Q22023/NB+$Q32023/NB), OM $TQ29a_REG = $xQ29a_REG/
+1,
+2,
+3,
+4+1004+1062,
+5+1028+1042,
+6,
+7+1081,
+8,
+9+1029+1059,
+10+1061,
+11+1064,
+12+1006+1009+1024+1072+1082,
+13+1026+1080,
+14,
+15+1060,
+16,
+17,
+18,
+19+1015,
+20,
+21+1007,
+22+1066,
+23,
+24,
+25,
+26,
+27,
+28,
+29,
+1001,
+1002+1027+1030+1053,
+1003,
+1005,
+1008,
+1011,
+1012,
+1013+1052,
+1016+1056,
+1017,
+1018,
+1019,
+1022,
+1023,
+1025,
+1032+1034+1035+1054,
+1036,
+1037+1031,
+1038,
+1039,
+1040,
+1041,
+1050,
+1051,
+1055,
+1057,
+1058,
+1063,
+1065,
+1066,
+1067,
+1068,
+1069,
+1070,
+1073,
+1074,
+1075,
+1076,
+1077,
+1078,
+1079,
+1083,
+1084,
+1085,
+1086,
+1087,
+1088,
+1010+1021,
+1010,
+1021,
+1014+1020,
+1014,
+1020,
+1033,
+1033,
+1071,
+1071,
+9999,
+R,
+F,
+VT = "Q29a. TYPE OF STORE/ MERCHANT USUALLY BUY AND PAY ONLINE - REGARDLESS",
+V = $TQ29aR1,
+
+
+if $Q32021/nb, then,
+[*DOA=1:BR]
+if $Filter29a_[a]/nb, OM $TQ29a_REG = $TQ29aR[A]/1-89,
+V = $TQ29aR1,
+[*enda]
+end if,
+
+
+
+
+[*DOA=1:BR]
+[*DOB=1:BP]
+OM $xQ29d_REGALL = $xI_[ROWBRAND.a]_T_Q29d_[B],
+OM $xQ29d_REG[B] = $xI_[ROWBRAND.a]_T_Q29d_[B],
+
+DM $TQ29dH[A]R[B] = $xI_[ROWBRAND.a]_T_Q29d_[B]/
+1010+1012+1007+1006+1005+1004+1003+1002+1150+1013+1001,
+1013,
+1010,
+1012,
+1007,
+1006,
+1005,
+1004,
+1003,
+1002+1150,
+1001,
+2+1109+1008+1011+1014,
+3+1020+1050+1200,
+4+1104+1009+1015,
+5+1100,
+6+1108,
+7,
+8,
+9,
+R,
+F,
+VT = "Q29d. FREQUENCY OF BUYING OR PAYING WITHIN THE SAME WEBSITE OR APP OF THE STORE VIA ONLINE IN THE PAST 2 MONTHS - [BRAND.A] - [BOPAID.B]",
+V = $Frequency,
+[*ENDB]
+[*ENDA]
+
+
+
+
+
+[*DOB=1:BP]
+DM $TQ29d_REG[B] = $xQ29d_REG[B]/
+1010+1012+1007+1006+1005+1004+1003+1002+1150+1013+1001,
+1013,
+1010,
+1012,
+1007,
+1006,
+1005,
+1004,
+1003,
+1002+1150,
+1001,
+2+1109+1008+1011+1014,
+3+1020+1050+1200,
+4+1104+1009+1015,
+5+1100,
+6+1108,
+7,
+8,
+9,
+R,
+F,
+VT = "Q29d. FREQUENCY OF BUYING OR PAYING WITHIN THE SAME WEBSITE OR APP OF THE STORE VIA ONLINE IN THE PAST 2 MONTHS - ([BOPAID.B]) REGARDLESS OF BRANDS",
+V = $Frequency,
+[*ENDB]
+
+
+DM $TQ29d_REGALL = $xQ29d_REGALL/
+1010+1012+1007+1006+1005+1004+1003+1002+1150+1013+1001,
+1013,
+1010,
+1012,
+1007,
+1006,
+1005,
+1004,
+1003,
+1002+1150,
+1001,
+2+1109+1008+1011+1014,
+3+1020+1050+1200,
+4+1104+1009+1015,
+5+1100,
+6+1108,
+7,
+8,
+9,
+R,
+F,
+VT = "Q29d. FREQUENCY OF BUYING OR PAYING WITHIN THE SAME WEBSITE OR APP OF THE STORE VIA ONLINE IN THE PAST 2 MONTHS - REGARDLESS OF BRANDS AND MERCHANT",
+V = $Frequency,
+
+
+
+[*sk1]
+[*DOA=1:BR]
+[*DOB=1:BP]
+OM $Q29e_REGALL = $xI_[a]_T_Q29e_[B],
+OM $Q29e_REG[B] = $xI_[a]_T_Q29e_[B],
+DM $TQ29eH[A]R[B] = $xI_[a]_T_Q29e_[B]/1-[AT],
+[*ENDB]
+[*ENDA]
+[*1]
+
+

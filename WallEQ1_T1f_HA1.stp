@@ -1,0 +1,482 @@
+START CONTROL,
+*PROJECT WALL-E
+
+
+!C = P_WALLE_2022Q1.ASC;P_WALLE_2022Q2.ASC;P_WALLE_2022Q3.ASC;P_WALLE_2022Q4.ASC;P_WALLE_2023Q1.ASC;P_WALLE_2023Q2_PUNCHED.ASC,
+
+!C = P_WALLE_2023Q2_PUNCHED.ASC,
+
+!C = WALLE_Q2_APR_MAINONLY_CODED.asc,
+
+
+
+!C = WALLEQ1_MAINONLY_PUNCHED.ASC,
+
+!C = P_WALLE_2022Q2.ASC,
+
+C = P_WALLE_2023Q3.ASC,
+
+Y,
+CEP,
+CSVR2,
+OLDNAMES,
+FINISH CONTROL,
+
+START DATA,
+ORDER1234567890XV,
+SERIAL NUMBER IN COLUMNS 1-10,
+CARD CHARACTERS BINARY 300000,
+TEMPORARY /99999999/,
+
+DI $RESP = $1-10,
+
+di $blank = 0,
+di $Blankamt = $299996-300000,
+
+[*INSERT WallE_insertGlobal]
+[*INSERT WallE_oesoe]
+
+[*INSERT WallE_resp]
+
+[*INSERT walle_cardcol_banner]
+[*INSERT walle_cardcol_p1]
+[*INSERT WallE_insertAlign_pickup]
+[*INSERT WallE_insertAlign1]
+
+
+
+[*INSERT WallE_stubs_pickup]
+[*INSERT WallE_stubs1]
+
+!*INSERT WallE_insertAligna
+
+
+!*INSERT walle_cardcol_p2
+!*INSERT walle_cardcol_p3
+
+
+
+!*INSERT WallE_stubsa1
+
+
+
+[*INSERT WALLE_HEADERS_Trend]
+!*INSERT WALLE_HEADERS_Trend_BACKUP
+
+
+[*INSERT WALL_E_NEWWTS]
+
+
+
+DM $GCASH_USER = $xA_Q17e/1,
+DM $USER = $xQ17i/1,
+
+
+if ($Q32021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $F53 = $TQ8bR2/5.($xA_Q53/1..3),
+if ($Q42021/nb), 			OM $F53 = $TQ8bR2/5.($TQ53/1..3),
+
+if ($Q32021/nb+$Q42021/nb), OM $FQ18R2 = $Q18/2,
+if ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $FQ18R2 = $TQ18/2,
+
+if ($Q32021/nb+$Q42021/nb), OM $FQ18R3 = $Q18/3,
+if ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $FQ18R3 = $TQ18/3,
+
+
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/nb), OM $FQ18R4 = $Q18/4,
+if ($Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $FQ18R4 = $TQ18/4,
+
+
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/nb), OM $FQ18R5 = $Q18/5,
+if ($Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $FQ18R5 = $TQ18/5,
+
+
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/nb), OM $FQ18R6 = $Q18/6,
+if ($Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $FQ18R6 = $TQ18/6,
+!
+
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb), 	OM $FQ18R1 = $Q18/1,
+if ($Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), 			OM $FQ18R1 = $TQ18/1,
+
+
+OM $Q2JUNE16_ONWARDS = $T_SEC01x02_1/220616+220617+220618+220619+220620+220621+220622+220623+220624+220625+220626+220627+220628+220629+220630+220701+220702,
+OM $Q2JUNE16_ONWARDS = $Q32022/nb,
+
+
+
+if $Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, DM $FQ8A = $A_Q8A/10..12,
+if $Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, DM $FQ8A_10 = $A_Q8A/10,
+if $Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, DM $FQ8A_11 = $A_Q8A/11,
+if $Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, DM $FQ8A_12 = $A_Q8A/12,
+
+
+[*DOA=1:BRX]
+if $Q32021/nb, 				OM $F46_[a] = $TQ16d/[A],
+if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), OM $F46_[a] = $TQ16d/[A].($TQ45R[A]/1+2),
+
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/NB), 	OM $FQ19AR[a] = ($TQ19aR[a]/2..6),
+if ($Q32022/NB+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), 	OM $FQ19AR[a] = ($TQ19aR[a]/2..7),
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/NB), 	OM $FQ21BR[a] = ($TQ21bR[a]/2..6),
+if ($Q32022/NB+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), 	OM $FQ21BR[a] = ($TQ21bR[a]/2..7),
+[*ENDA]
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/NB), 	OM $FQ19AREG = $TQ19a_REG/2..6,
+if ($Q32022/NB+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), 	OM $FQ19AREG = $TQ19a_REG/2..7,
+
+if ($Q32021/nb+$Q42021/nb+$Q12022/nb+$Q22022/NB), 	OM $FQ21BREG = $TQ21b_REG/2..6,
+if ($Q32022/NB+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), 	OM $FQ21BREG = $TQ21b_REG/2..7,
+
+
+
+
+if $Q32021/nb, 				dm $FQ60 = $A_Q16d/1..98 . $A_Q17a/(99),
+if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), dm $FQ60 = ($TQ16d/1..[BRX]).$A_Q17a/99,
+
+om $F9a = $TQ8bR1/1..11,
+
+
+DM $F2023NB = $Q22023/nb+$Q32023/nb,
+DM $F2023B = $Q12022/nb+$Q22022/NB+$Q32022/NB+$Q42022/nb+$Q12023/nb+$Q32023/nb,
+
+
+[*sk1]
+[*doa=1:9]
+IF ($FQ70/5).($F74A/[a]), CK $xQ170a_[a]/
+1+1001+1020+1022+1023+
+2+1002+
+3+1003+
+4+
+5+1005+
+6+
+7+
+8+
+9+
+10+
+11+
+1021+
+1021+
+1024+1025+1026+
+1024+
+1025+
+1026+
+9999,
+
+[*enda]
+
+IF $TQ70/3+4, Then,
+CK $XQ174/
+2..4+
+2+
+3+
+4+
+6..9+
+6+
+7+
+8+
+9+
+11..13+
+11+
+12+
+13+
+15..16+
+15+
+16+
+17+
+18+
+19+
+1020+
+1020+
+99,
+
+endif,
+
+
+[*setn=D175.#]
+[*doa=1:n]
+
+IF $FILTER174/[a], CK $xT_Q177a_[a]/1..99,
+[*enda]
+
+
+
+
+
+
+IF $FQ70/3+4, CK $xA_Q178/
+2..5+
+2+
+3+
+4+
+5+
+8..9+
+8+
+9+
+1020+1021+1022+
+1020+
+1021+
+1022,
+[*1]
+
+
+
+DM $HTOT = 
+T,
+ht = "Header TOTAL",
+h = "
+TOTAL",
+
+
+
+FINISH DATA,
+START TABLES,
+
+
+!!!!!!!!!!!!!!!!
+!!!!!FORMAT!!!!!
+!!!!!!!!!!!!!!!!
+
+
+
+
+
+GLOBAL IT # = '<JL>Wall-E',
+
+
+
+!======FOR QPS WINDOWS (% + raw - for datachecking)
+F= CTU'='/CAZ'-'/CZP'-'/SDV/UCH/NPGN/NPTC/TID/RLW30/LBB1/TOC/SPL250/CNZ'*'/URS/
+  DPR1/PCS/BRS/BCS/PRC/BTS/LPP55/NSER/CLG1/RNC1/NDAT/NPGN/BAL/RBL/BCS/BTS/CLW9/PBL/MOD,
+
+F=SDV,		! ------ PRINT STD DEVIATION
+F=DPR4,		! ------ DECIMAL %
+F=DPT0,		! ------ DECIMAL RAW COUNT
+F=DPA4,		! ------ DECIMAL MEAN,SUM..
+F=DPS4,	        ! ------ DECIMAL STD,
+F=MOD,		! ------ DISPLAY MODE
+F=MED,		! ------ DISPLAY MEDIAN
+!F=MCB29,          ! ------ Less than 30 base
+F=BTS,                  ! ------ Blank Tables Suppress
+F=BCS,                  ! ------ Blank Column Suppress
+F=NBRS,                  ! ------ Blank Row Suppress
+F=PBL/MOD,
+
+%AVG = 'Mean score<D2>',
+%DAT = '<&DD>/<&MONTH>/<&YY>',
+%RTH = '<ML3>ROW %',
+%RTV = '<ML3>COL %',
+%PRC = '<ML3>COUNT',
+%SER = '<ML3>STD ERR OF MEAN',
+%SDV ='STANDARD DEVIATION',
+%PTR = "TOTAL",
+!%AVG ='MEAN SCORE',
+%SDV ='STANDARD DEVIATION',
+%MED = '<ML7>MEDIAN            ',
+%UNR = '<ML7>(UNWEIGHTED BASE)',
+
+
+  
+F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+
+!F=NRTV, ! ------- ONLY COUNT
+!F=NPRC, ! -------- ONLY %
+
+
+
+!SELECT WR $newwts,
+
+
+F=BRS,
+
+
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HI2T,HI3T,HI4T,HJT,HKT,HLT,HMT,HNT]
+
+[*DATA HX=
+HA1T,
+HET,
+HIT,
+HKT,
+HLT,
+HMT,
+HNT,
+HOT]
+!
+
+[*SET T = 0]
+
+
+DM $AVALOAN = (($QTR/1..8).$FQ70/5)+(($QTR/NB.N(1..8)).$A_QL2/NB.N99), 
+DM $AVAINVP = (($QTR/1..8).($FQ70/3+4))+(($QTR/NB.N(1..8)).$A_QINV2/NB.N99), 
+
+
+
+
+
+
+
+
+[*DATA HX=HTOT]
+
+
+
+
+
+
+
+
+[*DOX=1:1]
+T [+T] = $TQL2 * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+T [+T] = $TQINV2 * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+
+
+[*DOX=1:1]
+IF $AVALOAN/NB, T [+T] = $TQ165 * $[HX.X],
+BT = "Among Who currently availed of loan",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+IF $AVALOAN/NB, T [+T] = $TQ74A * $[HX.X],
+BT = "Among Who currently availed of loan",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+IF $AVALOAN/NB, T [+T] = $TQ74B * $[HX.X],
+BT = "Among Who currently availed of loan",
+[*ENDX]
+
+
+[*setn=D166.#]
+[*doa=1:n]
+[*DOX=1:1]
+IF $AVALOAN/NB.($F74A/[a]), T [+T] = $TQ170aR[a] * $[HX.X],
+BT = "Among Who currently availed of loan - [D166.a]",
+[*ENDX]
+[*ENDA]
+
+
+
+[*DOX=1:1]
+IF $AVALOAN/NB.($F74A/1..[n]), T [+T] = $TQ170aREG * $[HX.X],
+BT = "Among Who currently availed of loan",
+[*ENDX]
+
+
+	
+!!-- DELETED Q3 2023
+[*SK1]
+[*DOX=1:1]
+IF $FQ70/3+4, T [+T] = $TQ174 * $[HX.X],
+BT = "Among Who currently availed of Investment Products/Insurance",
+[*ENDX]
+[*1]
+
+
+[*setn=D175.#]
+
+[*doa=1:n]
+[*DOX=1:1]
+IF $FILTER174/[a], T [+T] = $TQ175R[a] * $[HX.X],
+BT = "Among Who currently availed of Investment Products/Insurance - [D175.a]",
+[*ENDX]
+[*ENDA]
+
+
+[*setn=D175.#]
+[*DOX=1:1]
+IF $FILTER174/1..[n], T [+T] = $TQ175REG * $[HX.X],
+BT = "Among Who currently availed of Investment Products/Insurance - REGARDLESS",
+[*ENDX]
+
+
+
+
+
+
+[*setn=D175.#]
+
+[*doa=1:n]
+[*DOX=1:1]
+IF $FILTER174/[a], T [+T] = $TQ176R[a] * $[HX.X],
+BT = "Among Who currently availed of Investment Products/Insurance - [D175.a]",
+[*ENDX]
+[*ENDA]
+
+
+[*setn=D175.#]
+[*DOX=1:1]
+IF $FILTER174/1..[n], T [+T] = $TQ176REG * $[HX.X],
+BT = "Among Who currently availed of Investment Products/Insurance - REGARDLESS",
+[*ENDX]
+
+
+
+
+
+[*setn=D175.#]
+[*doa=1:n]
+[*DOX=1:1]
+IF $FILTER174/[a], T [+T] = $TQ177R[a] * $[HX.X],
+BT = "Among Who currently availed of Investment Products/Insurance - [D175.a]",
+[*ENDX]
+[*ENDA]
+
+
+[*setn=D175.#]
+[*DOX=1:1]
+IF $FILTER174/1..[n], T [+T] = $TQ177REG * $[HX.X],
+BT = "Among Who currently availed of Investment Products/Insurance - REGARDLESS",
+[*ENDX]
+
+
+
+
+
+[*setn=D175.#]
+[*doa=1:n]
+[*DOX=1:1]
+IF $FILTER174/[a], T [+T] = $TQ177aR[a] * $[HX.X],
+BT = "Among Who currently availed of Investment Products/Insurance - [D175.a]",
+[*ENDX]
+[*ENDA]
+
+
+[*setn=D175.#]
+[*DOX=1:1]
+IF $FILTER174/1..[n], T [+T] = $TQ177aREG * $[HX.X],
+BT = "Among Who currently availed of Investment Products/Insurance - REGARDLESS",
+[*ENDX]
+
+
+
+
+
+[*DOX=1:1]
+IF $AVAINVP/NB, T [+T] = $TQ178 * $[HX.X],
+BT = "Among Who currently availed of Investment Products/Insurance",
+[*ENDX]
+
+
+
+
+FINISH TABLES,
+
+

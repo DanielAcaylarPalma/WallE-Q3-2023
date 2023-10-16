@@ -1,0 +1,378 @@
+
+[*DOA=1:BR]
+OM $xQ30a_REG = $xI_[ROWBRAND.A]_A_Q30a,
+DM $TQ30aR[A] = $xI_[ROWBRAND.A]_A_Q30a/
+1,
+2,
+3+1008+1011+1026+1030+1036+1041+1044+1047,
+4+1004+1042,
+5,
+6,
+7+1006+1007+1012+1019+1015+1022+1035+1023+1052,
+8,
+9+1001+1017+1014+1027+1032+1037+1039+1045,
+10,
+11+1016+1031+1038,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+19,
+20,
+21,
+22,
+23,
+24,
+25,
+26,
+27,
+28,
+29,
+30,
+31,
+32,
+33,
+1003,
+1005,
+1009,
+1010,
+1018+1033,
+1013+1046+1043+1048,
+1020,
+1021,
+1024,
+1025,
+1028,
+1034,
+1040,
+1050,
+1051,
+1054,
+1055,
+1056,
+9999,
+R,F,
+VT = "Q30a. TYPE OF BILLS USUALLY PAID IN THE PAST 2 MONTHS - [BRAND.A]",
+V = "
+Association dues;
+Credit Card;
+Electric Bills;
+Government Agencies;
+Insurance;
+Investment;
+Loans;
+Taxes;
+Telecom (internet, phone) or cable;
+Transportation (e.g. RFID, airlines);
+Water Bills;
+SSS;
+Pag-ibig;
+BIR;
+Philhealth;
+Car loans;
+Home loans;
+Student loans;
+Calamity loans;
+Educational loans;
+Internet;
+Phone;
+Cable;
+Stocks;
+Cryptocurrency;
+Mutual Funds;
+Bonds;
+Index Funds;
+Real Estate;
+Healthcare;
+Schools;
+Payment Solutions;
+Subscription Bills (Netflix, Spotify, etc.);
+Medicines,vitamins;
+Online transaction/top submeter;
+Tuition;
+Converting money;
+Rent;
+Entertainment bills (e.g. Netflix);
+Skin care product;
+Load;
+Grocery;
+Payments for shoes andclothes;
+Gasoline;
+Games;
+Shop online;
+Solar;
+Accessory;
+Conference;
+Order delivery;
+E-Commerce;
+NONE;
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+
+DM $TQ30a_REG = $xQ30a_REG/
+1,
+2,
+3+1008+1011+1026+1030+1036+1041+1044+1047,
+4+1004+1042,
+5,
+6,
+7+1006+1007+1012+1019+1015+1022+1035+1023+1052,
+8,
+9+1001+1017+1014+1027+1032+1037+1039+1045,
+10,
+11+1016+1031+1038,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+19,
+20,
+21,
+22,
+23,
+24,
+25,
+26,
+27,
+28,
+29,
+30,
+31,
+32,
+33,
+1003,
+1005,
+1009,
+1010,
+1018+1033,
+1013+1046+1043+1048,
+1020,
+1021,
+1024,
+1025,
+1028,
+1034,
+1040,
+1050,
+1051,
+1054,
+1055,
+1056,
+9999,
+R,F,
+VT = "Q30a. TYPE OF BILLS USUALLY PAID IN THE PAST 2 MONTHS - REGARDLESS",
+V = $TQ30aR1,
+
+
+
+
+
+
+!--- Note: sideby ito sa $Frequency 
+
+[*DOA=1:BR]
+[*DOB=1:BL]
+OM $xQ30d_REGALL = $xI_[ROWBRAND.a]_T_Q30d_[B],
+OM $xQ30d_REG[B] = $xI_[ROWBRAND.a]_T_Q30d_[B],
+
+DM $TQ30dH[A]R[B] = $xI_[ROWBRAND.A]_T_Q30d_[B]/
+1010+1012+1007+1006+1005+1004+1003+1002+1150+1013+1001,
+1013,
+1010,
+1012,
+1007,
+1006,
+1005,
+1004,
+1003,
+1002+1150,
+1001,
+2+1109+1008+1011+1014,
+3+1020+1050+1200,
+4+1104+1009+1015,
+5+1100,
+6+1108,
+7,
+8,
+9,
+n(1010+1007+1006+1005+1004+1003+1002+1150+1013+1001+2+3+1020+1050+1200+4+5+1100+6+7+8+9),
+R,F,
+VT = "Q30d. FREQUENCY OF PAYING BILLS FOR EACH TYPE OF BILLS PAID IN THE PAST 2 MONTHS - [BRAND.A] - [BILLS.B]",
+V = "
+More often than once a day<Q>;
+`     300 <V300>;
+`     10 <V10>;
+`     8 <V8>;
+`     7 <V7>;
+`     6 <V6>;
+`     5 <V5>;
+`     4 <V4>;
+`     3 <V3>;
+`     2 <V2>;
+`     1 <V1>;
+Everyday (1)<V1>;
+2 - 3 times a week (0.4)<V0.4>;
+Once a week (0.14)<V0.14>;
+Once every 2 - 3 weeks (0.06)<V0.06>;
+Once a month (0.03)<V0.03>;
+Once in 2 months (0.02)<V0.02>;
+Once in 3 months (0.01)<V0.01>;
+Less often than once in 3 months (0.006)<V0.006>;
+No Answer;
+Missing answers<Z>;
+Total count<C>",
+[*ENDB]
+[*ENDA]
+
+
+
+[*DOB=1:BL]
+DM $TQ30d_REG[B] = $xQ30d_REG[B]/
+1010+1012+1007+1006+1005+1004+1003+1002+1150+1013+1001,
+1013,
+1010,
+1012,
+1007,
+1006,
+1005,
+1004,
+1003,
+1002+1150,
+1001,
+2+1109+1008+1011+1014,
+3+1020+1050+1200,
+4+1104+1009+1015,
+5+1100,
+6+1108,
+7,
+8,
+9,
+n(1010+1007+1006+1005+1004+1003+1002+1150+1013+1001+2+3+1020+1050+1200+4+5+1100+6+7+8+9),
+R,F,
+VT = "Q30d. FREQUENCY OF PAYING BILLS FOR EACH TYPE OF BILLS PAID IN THE PAST 2 MONTHS - [BILLS.B] REGARDLESS OF BRANDS",
+V = $TQ30dH1R1,
+[*ENDB]
+
+
+DM $TQ30d_REGALL = $xQ30d_REGALL/
+1010+1012+1007+1006+1005+1004+1003+1002+1150+1013+1001,
+1013,
+1010,
+1012,
+1007,
+1006,
+1005,
+1004,
+1003,
+1002+1150,
+1001,
+2+1109+1008+1011+1014,
+3+1020+1050+1200,
+4+1104+1009+1015,
+5+1100,
+6+1108,
+7,
+8,
+9,
+n(1010+1007+1006+1005+1004+1003+1002+1150+1013+1001+2+3+1020+1050+1200+4+5+1100+6+7+8+9),
+R,F,
+VT = "Q30d. FREQUENCY OF PAYING BILLS FOR EACH TYPE OF BILLS PAID IN THE PAST 2 MONTHS - REGARDLESS OF BRANDS AND MERCHANT",
+V = $TQ30dH1R1,
+
+
+
+
+
+[*DOA=1:BR]
+[*DOB=1:BL]
+OM $xQ30e_REGALL = $xI_[ROWBRAND.a]_T_Q30e_[B],
+OM $xQ30e_REG[B] = $xI_[ROWBRAND.a]_T_Q30e_[B],
+
+DM $TQ30eH[A]R[B] = $xI_[ROWBRAND.A]_T_Q30e_[B]/
+1-[AT],
+n(1..[AT]),
+
+R,F,
+VT = "Q30e. AVERAGE AMOUNT SPENT PER TRANSACTION FOR BILLS PAYMENT IN THE PAST 2 MONTHS - [BRAND.A] - [BILLS.B]",
+V = "
+[*DOV=1:AT]
+P[AMOUNT.V]<V[AMOUNT.V]>;
+[*ENDV]
+No Answer;
+Missing answers<Z>;
+Total count<C>",
+[*ENDB]
+[*ENDA]
+
+
+[*DOB=1:BL]
+DM $TQ30e_REG[B] = $xQ30e_REG[B]/
+1-[AT],
+n(1..[AT]),
+R,F,
+VT = "Q30e. AVERAGE AMOUNT SPENT PER TRANSACTION FOR BILLS PAYMENT IN THE PAST 2 MONTHS - [BILLS.B] REGARDLESS OF BRANDS",
+V = $TQ30eH1R1,
+[*ENDB]
+
+
+DM $TQ30e_REGALL = $xQ30e_REGALL/
+1-[AT],
+n(1..[AT]),
+R,F,
+VT = "Q30e. AVERAGE AMOUNT SPENT PER TRANSACTION FOR BILLS PAYMENT IN THE PAST 2 MONTHS - REGARDLESS OF BRANDS AND MERCHANT",
+V = $TQ30eH1R1,
+
+
+
+
+
+[*DOA=1:BR]
+[*DOB=1:BL]
+OM $xQ30f2_REGALL = $xI_[ROWBRAND.a]_T_Q30f2_[B],
+OM $xQ30f2_REG[B] = $xI_[ROWBRAND.a]_T_Q30f2_[B],
+
+DM $TQ30fH[A]R[B] = $xI_[ROWBRAND.A]_T_Q30f2_[B]/
+1,
+2,
+n(1+2),
+R,F,
+VT = "Q30f. MODE OF PAYMENT FOR BILLS PAYMENT PAID IN THE PAST 2 MONTHS - [BRAND.A] - [BILLS.B]",
+V = "
+Yes;
+No;
+No Answer;
+Missing answers<Z>;
+Total count<C>",
+[*ENDB]
+[*ENDA]
+
+
+[*DOB=1:BL]
+DM $TQ30f2_REG[B] = $xQ30f2_REG[B]/
+1,
+2,
+n(1+2),
+R,F,
+VT = "Q30f. MODE OF PAYMENT FOR BILLS PAYMENT PAID IN THE PAST 2 MONTHS - [BILLS.B] REGARDLESS OF BRANDS",
+V = $TQ30fH1R1,
+[*ENDB]
+
+
+DM $TQ30f2_REGALL = $xQ30f2_REGALL/
+1,
+2,
+n(1+2),
+R,F,
+VT = "Q30f. MODE OF PAYMENT FOR BILLS PAYMENT PAID IN THE PAST 2 MONTHS - REGARDLESS OF BRANDS AND MERCHANT",
+V = $TQ30fH1R1,
+
+
+

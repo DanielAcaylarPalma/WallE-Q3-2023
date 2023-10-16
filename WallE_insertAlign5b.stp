@@ -1,0 +1,54 @@
+[*DOD=1:BR]
+[*DOS=91:92]
+IF $xQ17a_[S]_oth/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_A_Q34f = $xI_[S]_A_Q34f,
+
+[*DOB=1:21]
+IF $xQ17a_[S]_oth/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q34g_[B] = $xI_[S]_T_Q34g_[B],
+[*ENDB]
+IF $xQ17a_[S]_oth/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q34g_91 = $xI_[S]_T_Q34g_91,
+
+[*DOB=1:21]
+IF $xQ17a_[S]_oth/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q34h_[B] = $xI_[S]_T_Q34h_[B],
+[*ENDB]
+IF $xQ17a_[S]_oth/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q34h_91 = $xI_[S]_T_Q34h_91,
+
+[*DOB=1:21]
+IF $xQ17a_[S]_oth/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q34j2_[B] = $xI_[S]_T_Q34j2_[B],
+[*ENDB]
+IF $xQ17a_[S]_oth/[SOEBRAND.D], ORDM $xI_[ROWBRAND.D]_T_Q34j2_91 = $xI_[S]_T_Q34j2_91,
+
+
+[*ENDS]
+[*ENDD]
+
+
+
+!{=============== SEND/RECEIVE ===============}!
+
+[*DOA=1:47]
+[*DOB=1:XSR3]
+
+IF $xI_[A]_A_Q34f/[SOESENDREC3.B], DM $xI_[A]_T_Q34g_[ROWSENDREC3.B] = $xI_[A]_T_Q34g_91,
+IF $xI_[A]_A_Q34f/[SOESENDREC3.B], DM $xI_[A]_T_Q34h_[ROWSENDREC3.B] = $xI_[A]_T_Q34h_91,
+IF $xI_[A]_A_Q34f/[SOESENDREC3.B], DM $xI_[A]_T_Q34j2_[ROWSENDREC3.B] = $xI_[A]_T_Q34j2_91,
+
+[*ENDB]
+[*ENDA]
+
+
+
+
+
+[*DOA=1:BR]
+[*DOB=1:XSR3]
+
+IF $xI_[ROWBRAND.A]_A_Q34f/[SOESENDREC3.B], DM $xI_[ROWBRAND.A]_T_Q34g_[ROWSENDREC3.B] = $xI_[ROWBRAND.A]_T_Q34g_91,
+IF $xI_[ROWBRAND.A]_A_Q34f/[SOESENDREC3.B], DM $xI_[ROWBRAND.A]_T_Q34h_[ROWSENDREC3.B] = $xI_[ROWBRAND.A]_T_Q34h_91,
+IF $xI_[ROWBRAND.A]_A_Q34f/[SOESENDREC3.B], DM $xI_[ROWBRAND.A]_T_Q34j2_[ROWSENDREC3.B] = $xI_[ROWBRAND.A]_T_Q34j2_91,
+
+
+
+[*ENDB]
+[*ENDA]
+
+

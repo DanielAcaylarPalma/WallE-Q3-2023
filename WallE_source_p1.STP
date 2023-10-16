@@ -1,0 +1,416 @@
+START CONTROL,
+*PROJECT WALL-E
+!C =CORR_WALLE_QTR4_MERGED_V2.asc;PUNCHED_WALLE_QTR3_MERGED.asc;CORR_WALLE_QTR1_MERGED.asc,
+
+C = P_WALLE_Q4_2022.asc,
+
+Y,
+CEP,
+CSVR2,
+OLDNAMES,
+FINISH CONTROL,
+
+START DATA,
+ORDER1234567890XV,
+SERIAL NUMBER IN COLUMNS 1-10,
+CARD CHARACTERS BINARY 300000,
+TEMPORARY /99999999/,
+
+DI $RESP = $1-10,
+di $blank = 0,
+di $Blankamt = $299996-300000,
+[*INSERT WallE_insertGlobal]
+[*INSERT WallE_oesoe]
+
+
+[*INSERT WallE_resp]
+
+[*INSERT walle_cardcol_banner]
+[*INSERT walle_cardcol_p1]
+[*INSERT WallE_insertAlign_pickup]
+[*INSERT WallE_insertAlign1]
+
+[*INSERT WallE_stubs_pickup]
+[*INSERT WallE_stubs1]
+[*INSERT WallE_source_stub1]
+
+
+
+
+
+[*INSERT WALLE_HEADERS]
+
+
+
+
+DM $Tq9bsrc = 
+($T_Q8b_1/n1..7.n91..92)+($TQ9a/6),
+VT = "Q9B. Source",
+V = "Among No Digital/Online or Platforms/Channels financial transactions",
+!
+
+
+OM $TQ8B_R1R2 =
+$TQ8bR1/1+$TQ8bR2/1,
+$TQ8bR1/2+$TQ8bR2/2,
+$TQ8bR1/3+$TQ8bR2/3,
+$TQ8bR1/4+$TQ8bR2/4,
+$TQ8bR1/5+$TQ8bR2/5,
+$TQ8bR1/6+$TQ8bR2/6,
+$TQ8bR1/7+$TQ8bR2/7,
+$TQ8bR1/8+$TQ8bR2/8,
+$TQ8bR1/9+$TQ8bR2/9,
+$TQ8bR1/10+$TQ8bR2/10,
+$TQ8bR1/8..10+$TQ8bR2/8..10,
+$TQ8bR1/11+$TQ8bR2/11,
+
+VT = "Q8a. Source",
+V = "
+Buy mobile load/ e-load;
+Buy and pay from any store, bank, establishments;
+Buy and pay within the same website or app of the store via online;
+Pay bills;
+Save money;
+Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+Buying gaming pins;
+Borrow money or avail of a loan from other people (acquaintances/friends, relatives, `"bumbay/turko`", etc.);
+Borrow money or avail of a loan from bank or other institutions (including credit card, pawning, lending apps etc.);
+Pay off a loan;
+PROFILE OF LOANERS;
+None",
+
+OM $TQ8B_R1R2 = $XQ8A/
+1+1024,
+2+1006+1012+1013+1021+1031+1042,
+3+1008,
+4+1001+1022,
+5+1009,
+6+1003+1002+1005+1010+1011+1023+1027+1020+1025+1026,
+7,
+10,
+11,
+12,
+10..12,
+9999+1016+1100+1040+1041,
+VT = "Q8a. Source",
+V = "
+Buy mobile load/ e-load;
+Buy and pay from any store, bank, establishments;
+Buy and pay within the same website or app of the store via online;
+Pay bills;
+Save money;
+Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+Buying gaming pins;
+Borrow money or avail of a loan from other people (acquaintances/friends, relatives, `"bumbay/turko`", etc.);
+Borrow money or avail of a loan from bank or other institutions (including credit card, pawning, lending apps etc.);
+Pay off a loan;
+PROFILE OF LOANERS;
+None",
+
+FINISH DATA,
+
+
+START TABLES,
+
+
+!!!!!!!!!!!!!!!!
+!!!!!FORMAT!!!!!
+!!!!!!!!!!!!!!!!
+
+
+
+
+
+GLOBAL IT # = '<JL>Wall-E',
+
+
+
+!======FOR QPS WINDOWS (% + raw - for datachecking)
+F= CTU'='/CAZ'-'/CZP'-'/SDV/UCH/NPGN/NPTC/TID/RLW30/LBB1/TOC/SPL250/CNZ'*'/URS/
+  DPR1/PCS/BRS/BCS/PRC/BTS/LPP55/NSER/CLG1/RNC1/NDAT/NPGN/BAL/RBL/BCS/BTS/CLW9/PBL/MOD,
+
+F=SDV,		! ------ PRINT STD DEVIATION
+F=DPR4,		! ------ DECIMAL %
+F=DPT0,		! ------ DECIMAL RAW COUNT
+F=DPA4,		! ------ DECIMAL MEAN,SUM..
+F=DPS4,	        ! ------ DECIMAL STD,
+F=MOD,		! ------ DISPLAY MODE
+F=MED,		! ------ DISPLAY MEDIAN
+!F=MCB29,          ! ------ Less than 30 base
+F=BTS,                  ! ------ Blank Tables Suppress
+F=BCS,                  ! ------ Blank Column Suppress
+F=NBRS,                  ! ------ Blank Row Suppress
+F=PBL/MOD,
+
+%AVG = 'Mean score<D2>',
+%DAT = '<&DD>/<&MONTH>/<&YY>',
+%RTH = '<ML3>ROW %',
+%RTV = '<ML3>COL %',
+%PRC = '<ML3>COUNT',
+%SER = '<ML3>STD ERR OF MEAN',
+%SDV ='STANDARD DEVIATION',
+%PTR = "TOTAL",
+!%AVG ='MEAN SCORE',
+%SDV ='STANDARD DEVIATION',
+%MED = '<ML7>MEDIAN            ',
+%UNR = '<ML7>(UNWEIGHTED BASE)',
+
+
+  
+F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+
+!F=NRTV, ! ------- ONLY COUNT
+!F=NPRC, ! -------- ONLY %
+
+
+
+!SELECT WR $newwts,
+
+
+F=BRS,
+
+
+[*DATA HX=HA,HB,HC,HD,HE,HF,HG,HH,HI,HJ,HK,HL,HM,HN]
+
+
+
+[*SET T = 0]
+
+
+
+
+[*DOX=1:1]
+T [+T] = $TQAge * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TSEC21 * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ4 * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ1_LS * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TC_Q17D * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TQ8B_R1R2 * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ8B * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+T [+T] = $Tq9bsrc * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ75src * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TQ9_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ16hcon * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TQ17_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ19AC_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ103AB_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TQ20AB_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ21ABD_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ23_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ24_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ26_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ40Q41_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ16D_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TQ46_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TQ46_SRCREG * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+[*DOX=1:1]
+T [+T] = $TQ47_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TQ53a1_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TQ53G_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TQ6061_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:1]
+T [+T] = $TQ62_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+
+
+
+
+
+[*setn=stub8b.#]
+[*DOA=1:n]
+[*DOX=1:1]
+T [+T] = $TQ8b_SRC[A] * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+[*ENDA]
+
+
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ76SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:1]
+T [+T] = $TQ8C_SRC * $[HX.X],
+BT = "All respondents",
+[*ENDX]
+
+
+
+
+
+
+
+
+
+
+FINISH TABLES,
+
+
+

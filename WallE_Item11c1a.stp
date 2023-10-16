@@ -1,0 +1,770 @@
+START CONTROL,
+*PROJECT WALL-E
+
+C = P_WALLE_2022Q1.ASC;P_WALLE_2022Q2.ASC;P_WALLE_2022Q3.ASC;P_WALLE_2022Q4.ASC;P_WALLE_2023Q1.ASC;P_WALLE_2023Q2_PUNCHED.ASC,
+Y,
+CEP,
+CSVR2,
+OLDNAMES,
+FINISH CONTROL,
+
+START DATA,
+ORDER1234567890XV,
+SERIAL NUMBER IN COLUMNS 1-10,
+CARD CHARACTERS BINARY 300000,
+TEMPORARY /99999999/,
+
+DI $RESP = $1-10,
+
+di $blank = 0,
+di $blankamt = 0,
+
+
+[*INSERT WallE_insertGlobal]
+[*INSERT WallE_oesoe]
+
+
+[*INSERT WallE_resp]
+
+[*INSERT walle_cardcol_banner]
+
+
+
+
+[*INSERT walle_cardcol_p1]
+[*INSERT walle_cardcol_p3a]
+[*INSERT walle_cardcol_p3b]
+!*INSERT walle_cardcol_p3c
+
+[*INSERT WallE_insertAlign_pickup]
+[*INSERT WallE_insertAlign1]
+[*INSERT WallE_insertAlign3a]
+!*INSERT WallE_insertAlign3b
+!*INSERT WallE_insertAlign3c
+
+
+
+[*INSERT WallE_stubs_pickup]
+
+
+[*INSERT WALLE_HEADERS_trend]
+[*INSERT WALL_E_NEWWTS]
+
+DM $GCASH_USER = $xA_Q17e/1,
+DM $USER = $xQ17i/1,
+
+
+
+DM $TQ53 = $xA_Q53/
+1+1014,
+2+1012,
+3+1002+1016,
+4+1008+1011+1013,
+1001,
+1003,
+1004,
+1005,
+1006,
+1007+1009+1010,
+1015,
+1017,
+9999,
+R,F,
+
+
+! ============ BUYING MOBILE LOAD ============== !
+Om $xQ32_Q53a1 = $xQ32_REG,
+Om $xQ32_Q53a1 = $Q53a1/1-9,$blank/10-9999,
+
+
+DM $TQ32_Q53a1 = $xQ32_Q53a1/
+1,
+2,
+3,
+R,F,
+VT = "Q32/Q53A1. OWNER OF SAVINGS ACCOUNT FOR OFFLINE DEPOSIT FOR SAVINGS - (ONLINE/OFFLINE)",
+V = "
+My personal savings account;
+Account of other people;
+Both to my personal account and account of other people;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+! --------------- Q32a + Q53a ----------------- !
+
+DM $TQ53a = $xA_Q53a/
+1+1117,
+2+1038+1103,
+3+1070+1113,
+4+1112,
+5+1097,
+6+1039,
+7,
+8,
+9,
+10+1001+1029,
+11+1042,
+12,
+13,
+14,
+15+1095,
+16+1040,
+17+1105,
+18,
+19,
+20+1108,
+21+1002+1052,
+22+1057+1058,
+23,
+24,
+25+1020+1016,
+26,
+1004+1041,
+1005+1073+1074,
+1006,
+1007,
+1008,
+1011,
+1014+1026,
+1015,
+1017+1036,
+1019,
+1021,
+1022+1104,
+1024,
+1025,
+1030,
+1031,
+1033,
+1034,
+1035,
+1037,
+1043,
+1046,
+1049,
+1050,
+1051,
+1054,
+1061,
+1072+1081,
+1075,
+1076,
+1077,
+1078,
+1079,
+1080,
+1083,
+1084,
+1085,
+1086,
+1087,
+1088,
+1089,
+1091,
+1093,
+1098,
+1101,
+1106,
+1107,
+1110,
+1114,
+1115,
+1116,
+1118,
+1119,
+1120,
+1121,
+1122,
+1123,
+1126,
+1127,
+1128,
+1129,
+1130,
+1133,
+1134,
+1045+1047+1048+1053+1055+1071+1082+1094+1099+1100+1132+1135,
+1045,
+1047,
+1048,
+1053,
+1055,
+1071,
+1082,
+1094,
+1099,
+1100,
+1132,
+1135,
+1003+1009+1012+1013+1131,
+1003,
+1009,
+1012,
+1013,
+1131,
+1023+1027+1028+1032+1044+1090+1102+1109,
+1023,
+1027,
+1028,
+1032,
+1044,
+1090,
+1102,
+1109,
+1092+1111+1124+1125,
+1092,
+1111,
+1124,
+1125,
+9997,
+9999+1056+1059+1060+1096,
+R,
+F,
+
+
+[*DOA=1:BR]
+OM $xQ32a_REG = $xI_[ROWBRAND.A]_A_Q32a,
+[*enda]
+dm $xQ32a_Q53a = $xQ32a_REG .or. $xA_Q53a,
+
+
+DM $TQ32a_Q53a = $xQ32a_Q53a/
+1+1117,
+2+1038+1103,
+3+1070+1113,
+4+1112,
+5+1097,
+6+1039,
+7,
+8,
+9,
+10+1001+1029,
+11+1042,
+12,
+13,
+14,
+15+1095,
+16+1040,
+17+1105,
+18,
+19,
+20+1108,
+21+1002+1052,
+22+1057+1058,
+23,
+24,
+25+1020+1016,
+26,
+1004+1041,
+1005+1073+1074,
+1006,
+1007,
+1008,
+1011,
+1014+1026,
+1015,
+1017+1036,
+1019,
+1021,
+1022+1104,
+1024,
+1025,
+1030,
+1031,
+1033,
+1034,
+1035,
+1037,
+1043,
+1046,
+1049,
+1050,
+1051,
+1054,
+1061,
+1072+1081,
+1075,
+1076,
+1077,
+1078,
+1079,
+1080,
+1083,
+1084,
+1085,
+1086,
+1087,
+1088,
+1089,
+1091,
+1093,
+1098,
+1101,
+1106,
+1107,
+1110,
+1114,
+1115,
+1116,
+1118,
+1119,
+1120,
+1121,
+1122,
+1123,
+1126,
+1127,
+1128,
+1129,
+1130,
+1133,
+1134,
+1045+1047+1048+1053+1055+1071+1082+1094+1099+1100+1132+1135,
+1045,
+1047,
+1048,
+1053,
+1055,
+1071,
+1082,
+1094,
+1099,
+1100,
+1132,
+1135,
+1003+1009+1012+1013+1131,
+1003,
+1009,
+1012,
+1013,
+1131,
+1023+1027+1028+1032+1044+1090+1102+1109,
+1023,
+1027,
+1028,
+1032,
+1044,
+1090,
+1102,
+1109,
+1092+1111+1124+1125,
+1092,
+1111,
+1124,
+1125,
+9997,
+9999+1056+1059+1060+1096,
+R,
+F,
+VT = "Q32A/Q53A. TYPE OF ACCOUNT ON OFFLINE MONEY TRANSFER/DEPOSIT FOR PERSONAL SAVINGS - (ONLINE/OFFLINE)",
+V = "
+AUB (Asia United Bank);
+BDO;
+BPI / BPI Savings;
+China Bank;
+Citibank;
+CIMB Bank;
+EastWest;
+HSBC;
+ING Philippines;
+Landbank;
+Metrobank Mobile / Online;
+Philippine Bank of Communications (PBCOM);
+PNB;
+PSBank;
+RCBC;
+Security Bank;
+Unionbank;
+UCPB;
+OTHERS19<s>;
+Coins.ph;
+Gsave by GCash;
+PayMaya;
+PayPal;
+OTHERS24<s>;
+Cooperative;
+SeaBank;
+Dbp;
+Cebuana;
+CARD BANK;
+Maselco  Office;
+Cebuana Lhuillier 24k Plus;
+Ml Wallet;
+Mlr Card Bank;
+Summit Bank ;
+CARD INK;
+Producers Bank;
+Raffy/Microfinance;
+Rizal Rural Bank;
+One Network Bank;
+JMH microfinance;
+Robinsons Bank;
+Smi Card Bank;
+Cfi Bank;
+Farmers Insurance;
+Home Credit;
+Asa;
+Card Bank Microfinance;
+Flexi Finance;
+Card Inc;
+Sun Life;
+Tam An;
+May Bank;
+Ofbank;
+Card SME Bank;
+Konek2card;
+QUEEN BANK;
+AURORA BANK;
+Ficco;
+Ardci;
+Bank of commerce;
+Ginvest by GCash;
+Palawan;
+AMSLAI;
+Ecom;
+Bank of Florida;
+Life bank;
+Sterling Bank of Asia;
+Truelife;
+RSPI BANK;
+HelloMoney;
+GCredit by GCash;
+St. Peter Life Insurance;
+SUNLIFE;
+Manulife;
+Aimcoop;
+MRI CARD BANK;
+ORO savings;
+RANG AY BANK;
+LUGIAN;
+PSSB;
+Philippine Business Bank;
+Praxis;
+TSPI;
+Tayemco Cooperative;
+PHCCI;
+NGO;
+Basey Cooperative;
+GSAC Cooperative;
+Veterance Bank;
+OIC;
+RURAL BANK (NET)<q>;
+`   Montalban Bank;
+`   Mount Carmel;
+`   Rural Bank;
+`   Legazpi Savings Bank;
+`   Rural Bank Of Baguio;
+`   Marayo Bank;
+`   QCRB;
+`   Bank of Makati;
+`   RBGI;
+`   Mactan Rural Bank;
+`   Angeles Rural Bank;
+`   Gotyme Bank;
+SAVING NOT DEPOSITED (NET)<Q>;
+`   Personal Savings Only;
+`   Cabinet;
+`   Wallet;
+`   House;
+`   Piggy bank;
+LENDING (NET)<q>;
+`   Rolly Lending;
+`   Asa Philipines Lending Co;
+`   Masagana Lending Co;
+`   Card Bank Lending;
+`   Lending Unspecified;
+`   GoodLife Microlending;
+`   PMPC;
+`   Callaway Lending Corporation; 
+GOVERNMENT (NET)<q>;
+`   Pag-ibig loan;
+`   GSIS LOAN;
+`   Social Action;
+`   SSS Loan;
+REFUSED;
+NONE;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+if $Q32021/nb, OM $F53 = $TQ8bR2/5.($xA_Q53/1..3),
+if $Q42021/nb+$Q12022/nb+$Q22022/nb, OM $F53 = $TQ8bR2/5.($TQ53/1..3),
+
+
+
+! ========= C2
+
+DM $TQ53f = $xA_Q53f/
+1+1117,
+2+1038+1103,
+3+1070+1113,
+4+1112,
+5+1097,
+6+1039,
+7,
+8,
+9,
+10+1001+1029,
+11+1042,
+12,
+13,
+14,
+15+1095,
+16+1040,
+17+1105,
+18,
+19,
+20+1108,
+21+1002+1052,
+22+1057+1058,
+23,
+24,
+25+1020+1016,
+26,
+1004+1041,
+1005+1073+1074,
+1006,
+1007,
+1008,
+1011,
+1014+1026,
+1015,
+1017+1036,
+1019,
+1021,
+1022+1104,
+1024,
+1025,
+1030,
+1031,
+1033,
+1034,
+1035,
+1037,
+1043,
+1046,
+1049,
+1050,
+1051,
+1054,
+1061,
+1072+1081,
+1075,
+1076,
+1077,
+1078,
+1079,
+1080,
+1083,
+1084,
+1085,
+1086,
+1087,
+1088,
+1089,
+1091,
+1093,
+1098,
+1101,
+1106,
+1107,
+1110,
+1114,
+1115,
+1116,
+1118,
+1119,
+1120,
+1121,
+1122,
+1123,
+1126,
+1127,
+1128,
+1129,
+1130,
+1133,
+1134,
+1045+1047+1048+1053+1055+1071+1082+1094+1099+1100+1132+1135,
+1045,
+1047,
+1048,
+1053,
+1055,
+1071,
+1082,
+1094,
+1099,
+1100,
+1132,
+1135,
+1003+1009+1012+1013+1131,
+1003,
+1009,
+1012,
+1013,
+1131,
+1023+1027+1028+1032+1044+1090+1102+1109,
+1023,
+1027,
+1028,
+1032,
+1044,
+1090,
+1102,
+1109,
+1092+1111+1124+1125,
+1092,
+1111,
+1124,
+1125,
+9997,
+9999+1056+1059+1060+1096,
+R,
+F,
+VT = "Q53f. TYPE OF ACCOUNT OFFLINE MONEY TRANSFER/DEPOSIT FOR SAVINGS FOR OTHER PEOPLE",
+V = $TQ32a_Q53a,
+
+
+
+
+
+
+
+FINISH DATA,
+
+
+START TABLES,
+
+
+!!!!!!!!!!!!!!!!
+!!!!!FORMAT!!!!!
+!!!!!!!!!!!!!!!!
+
+
+
+
+
+GLOBAL IT # = '<JL>Wall-E',
+
+
+
+!======FOR QPS WINDOWS (% + raw - for datachecking)
+F= CTU'='/CAZ'-'/CZP'-'/SDV/UCH/NPGN/NPTC/TID/RLW30/LBB1/TOC/SPL250/CNZ'*'/URS/
+  DPR1/PCS/BRS/BCS/PRC/BTS/LPP55/NSER/CLG1/RNC1/NDAT/NPGN/BAL/RBL/BCS/BTS/CLW9/PBL/MOD,
+
+F=SDV,		! ------ PRINT STD DEVIATION
+F=DPR4,		! ------ DECIMAL %
+F=DPT0,		! ------ DECIMAL RAW COUNT
+F=DPA4,		! ------ DECIMAL MEAN,SUM..
+F=DPS4,	        ! ------ DECIMAL STD,
+F=MOD,		! ------ DISPLAY MODE
+F=MED,		! ------ DISPLAY MEDIAN
+!F=MCB29,          ! ------ Less than 30 base
+F=BTS,                  ! ------ Blank Tables Suppress
+F=BCS,                  ! ------ Blank Column Suppress
+F=NBRS,                  ! ------ Blank Row Suppress
+F=PBL/MOD,
+
+%AVG = 'Mean score<D2>',
+%DAT = '<&DD>/<&MONTH>/<&YY>',
+%RTH = '<ML3>ROW %',
+%RTV = '<ML3>COL %',
+%PRC = '<ML3>COUNT',
+%SER = '<ML3>STD ERR OF MEAN',
+%SDV ='STANDARD DEVIATION',
+%PTR = "TOTAL",
+!%AVG ='MEAN SCORE',
+%SDV ='STANDARD DEVIATION',
+%MED = '<ML7>MEDIAN            ',
+%UNR = '<ML7>(UNWEIGHTED BASE)',
+
+
+  
+F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+
+!F=NRTV, ! ------- ONLY COUNT
+!F=NPRC, ! -------- ONLY %
+
+
+
+
+SELECT WR $newwts,
+
+
+F=BRS,
+
+
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HJT,HKT,HLT,HMT,HNT]
+
+[*DATA HX=
+HA1T,
+HET]
+[*SET T = 0]
+
+
+
+
+[*DOX=1:2]
+if ($Filter27F5_REG/NB)+($F53/NB), T [+T] = $TQ32_Q53a1 * $[HX.X],
+BT = "AMONG WHO SAVE MONEY IN P2M - ONLINE/OFFLINE",
+[*ENDX]
+!
+[*DOX=1:2]
+if $TQ17i/1, then,
+if ($Filter27F5_REG/NB)+($F53/NB), T [+T] = $TQ32_Q53a1 * $[HX.X],
+BT = "AMONG USERS OF FINTECH APPS AND WHO SAVE MONEY IN P2M - ONLINE/OFFLINE",
+end if,
+[*ENDX]
+!
+[*DOX=1:2]
+if $TQ17i/2, then,
+if ($Filter27F5_REG/NB)+($F53/NB), T [+T] = $TQ32_Q53a1 * $[HX.X],
+BT = "AMONG NON-USERS OF FINTECH APPS AND WHO SAVE MONEY IN P2M - ONLINE/OFFLINE",
+end if,
+[*ENDX]
+
+
+
+
+
+[*DOX=1:2]
+if (($Filter27F5_REG/nb).($TQ32_REG/1+3)) + (($TQ8BR2/5).($TQ53/1..3).($Q53a1/1+3)), T [+T] = $TQ32a_Q53a * $[HX.X],
+BT = "AMONG WHO HAVE PERSONAL SAVINGS IN P2M - ONLINE/OFFLINE",
+[*ENDX]
+!
+[*DOX=1:2]
+if $TQ17i/1, then,
+if (($Filter27F5_REG/nb).($TQ32_REG/1+3)) + (($TQ8BR2/5).($TQ53/1..3).($Q53a1/1+3)), T [+T] = $TQ32a_Q53a * $[HX.X],
+BT = "AMONG USERS OF FINTECH APPS AND WHO HAVE PERSONAL SAVINGS IN P2M - ONLINE/OFFLINE",
+end if,
+[*ENDX]
+!
+[*DOX=1:2]
+if $TQ17i/2, then,
+if (($Filter27F5_REG/nb).($TQ32_REG/1+3)) + (($TQ8BR2/5).($TQ53/1..3).($Q53a1/1+3)), T [+T] = $TQ32a_Q53a * $[HX.X],
+BT = "AMONG NON-USERS OF FINTECH APPS AND WHO HAVE PERSONAL SAVINGS IN P2M - ONLINE/OFFLINE",
+end if,
+[*ENDX]
+
+
+
+
+
+
+
+
+
+
+FINISH TABLES,
+
+
+
+
+

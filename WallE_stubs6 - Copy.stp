@@ -1,0 +1,5849 @@
+
+
+
+! ========== Q1 2023 ============= !
+
+[*DOA=1:3]
+DM $TQ189AR[a] = $xT_Q189a_[a]/
+1+1024,
+2+1006+1012+1013+1021+1031+1042,
+3+1008+1101+1108,
+4+1001+1022+1102,
+5+1009,
+6+1003+1002+1005+1010+1011+1023+1027+1020+1025+1026,
+7+1007,
+10,
+11,
+12,
+13,
+9999+1016+1100+1040+1041,
+R,
+F,
+VT = "Q189AR[a]. GENERAL FINANCIAL TRANSACTIONS EVER DONE - [L8B.A]",
+V = "
+Bought load (mobile load, prepaid broadband load, game credits, KUMU coins, PayTV, prepaid kit, Tinder, prepaid insurance, kuryente prepaid, etc.);
+Buy and pay from any store, bank, establishments;
+Buy and pay within the same website or app of the store via online;
+Pay bills;
+Save money;
+Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+Buying gaming pins;
+Borrow money or avail of a loan from other people (acquaintances/friends, relatives, `"bumbay/turko`", etc.);
+Borrow money or avail of a loan from bank or other institutions (including credit card, pawning, lending apps etc.);
+Pay off a loan;
+Investing in investment products and services; 
+None;
+NO TRANSACTION<Z>;
+Total count<C>",
+[*ENDA]
+
+
+
+
+[*DATA D189CODE = 
+1+1024,
+2+1006+1012+1013+1021+1031+1042,
+3+1008+1101+1108,
+4+1001+1022+1102,
+5+1009,
+6+1003+1002+1005+1010+1011+1023+1027+1020+1025+1026]
+
+[*DATA VT189 (;) = 
+Bought load;
+Buy and pay from any store, bank, establishments;
+Buy and pay within the same website or app of the store via online;
+Pay bills;
+Save money;
+Send/ receive remittance or `"padala`" OR money transfer for any purposes]
+
+[*SETN=VT189.#]
+[*DOA=1:N]
+DM $TQ189A_[a] = 
+$xT_Q189a_1/[D189CODE.a],
+$xT_Q189a_2/[D189CODE.a],
+$xT_Q189a_3/[D189CODE.a],
+VT = "Q189AR[a]. GENERAL FINANCIAL TRANSACTIONS EVER DONE - [VT189.A]",
+V = "
+Digital/Online;
+Non-digital/Offline;
+Did not do this transaction",
+[*ENDA]
+
+
+
+
+
+DM $TQ8d = $xQ8d/1,2,R,F,
+VT = "Q8d. P2M TRANSACTION INCIDENCE",
+V = "
+Did transaction in P2M;
+Did not do transaction in P2M;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+DM $TQ192 = $xQ192/
+1,
+2,
+3,
+4+5,
+6,
+7+14,
+9,
+10,
+11,
+12,
+13,
+15,
+16,
+17,
+18,
+19,
+20,
+21,
+22,
+23,
+8,
+8,
+9999,
+R,F,
+VT = "Q192. REASONS FOR NOT DOING TRANSACTION IN P2M",
+V = "
+Im just at work;
+Delayed sending remittance;
+No one sending;
+Did not transact;
+Not knowledgable on remittance;
+Someone else pays the bills;
+Just here inside the house taking care;
+My siblings are the one who use it;
+Get in Palawan express;
+Have no online service paid for the past 2 months;
+No budget;
+Student;
+No account;
+I'm not much into online stuff;
+Underage;
+No money left;
+Cellphone was broken;
+It can't fully verify my ID is blurred;
+My children are the one who use it;
+No valid ID;
+VAGUE (NET)<Q>;
+`     I can't use anything online;
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+[*data d190 (;) = 
+Food Expenditures;
+Alcoholic Beverages;
+Tobacco;
+Other vegetables-based products;
+Clothing and Footwear;
+Furnishings and Routine household maintenance;
+Water, Electricity, Gas, and other Fuels;
+House Rent/Rental Value;
+Transport;
+Communication;
+Recreation and Culture;
+Health;
+Education;
+Miscellaneous goods and services;
+Durable furniture and equipment;
+Special family occasions;
+Accommodations and services;
+Others]
+
+
+[*doX=1:18]
+DM $TQ190r[x] = $xT_Q190_[x]/0,1-100,R,F,
+VT = "Q190. MONTHLY SHARE OF WALLET PER SPENDING ITEM - [d190.x]",
+V = "
+0;
+[*DOA=1:100]
+[A]<V[A]>;
+[*ENDA]
+Missing answers<Z>;
+Total count<C>",
+[*ENDX]
+
+
+
+! ==== Q190a
+[*DATA DMODE (;) = 
+Cash;
+Credit Card;
+Debit card;
+GCash;
+Maya/Paymaya;
+ShopeePay;
+Other ewallet/digital platform;
+Other physical and digital bank;
+Other Financial Apps/Websites]
+
+[*DATA EXPEND (;) = 
+Food Expenditures;
+Alcoholic Beverages;
+Tobacco;
+Other vegetables-based products;
+Clothing and Footwear;
+Furnishings and Routine household maintenance.;
+Water, Electricity, Gas, and other Fuels;
+House Rent/Rental Value;
+Transport;
+Communication;
+Recreation and Culture;
+Health;
+Education;
+Miscellaneous goods and services;
+Durable furniture and equipment;
+Special family occasions;
+Accommodations and services;
+Others]
+
+
+
+
+
+[*doX=1:18]
+[*doa=1:9]
+OM $Q190ar[x] = $I_[x]_Q190[&a],
+
+DM $TQ190ar[x]h[a] = $I_[x]_Q190[&a]/1-[ATM],R,F,
+VT = "Q190[&a]. MONTHLY SHARE OF WALLET PER SPENDING ITEM - [EXPEND.x] - [DMODE.a]",
+V = "
+[*DOV=1:ATM]
+P[AMT190.V]<V[AMT190.V]>;
+[*ENDV]
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+[*ENDX]
+
+
+[*doX=1:18]
+DM $TQ190ar[x] = $Q190ar[x]/1-[ATM],R,F,
+VT = "Q190. MONTHLY SHARE OF WALLET PER SPENDING ITEM - [EXPEND.x] - REGARDLESS OF MODE OF PAYMENT",
+V = $TQ190ar1h1,
+[*ENDX]
+
+
+
+	
+
+
+
+
+
+
+
+
+DM $TQ191 = $xQ191/1,2,R,F,
+VT = "Q191. INCIDENCE OF HAVING OFW FAMILY MEMBER",
+V = "
+Yes;
+No;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+DM $TQ10_2 = $xA_Q10_2/
+1+1001,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+19,
+20,
+21,
+22,
+23,
+24,
+25,
+26,
+27,
+28,
+29,
+30,
+31,
+32,
+33,
+34,
+35,
+36,
+37,
+38,
+39,
+40,
+41+1041,
+42,
+43,
+44,
+45,
+46,
+47,
+1050,
+1051,
+99+9999,
+R,F,
+VT = "Q10_2. AWARENESS OF E-WALLET/MOBILE MONEY/MOBILE BANK/E-REMITTANCE/ANY FINANCIAL APPS OR WEBSITES",
+V = "
+GCash;
+PayMaya/ Maya;
+Coins.ph;
+PayPal;
+TrueMoney;
+DragonPay;
+GrabPay;
+AliPay;
+WeChat Pay;
+Beep;
+CLIQQ;
+BPI Mobile/ Online;
+BDO Mobile/ Online;
+ECPay;
+ING Philippines;
+Landbank Mobile/ Online;
+Metrobank Mobile/ Online;
+CIMB Bank;
+Unionbank Mobile/ Online;
+Security Bank Mobile/ Online;
+DiskarTech;
+BDO Pay;
+ShoppeePay;
+LazWallet;
+ML Wallet;
+eCebuana;
+SquidPay;
+Bayad Center Online / App;
+Tonik;
+BancNet Online;
+Moneygment;
+Payoneer;
+RCBC mobile;
+StarPay;
+Maybank's Isave;
+HelloMoney;
+Eon;
+Komo;
+OFBank;
+PBCOMobile;
+PSBank Mobile;
+Touch Pay;
+SeaBank;
+Remitly;
+Xendpay;
+GoTyme;
+Vybe by BPI;
+Palawan/Palawan Express;
+Lazada;
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+DM $TQ194a = $xQ194a/
+1+1001,
+2+1002+1062,
+3,
+4,
+5,
+6,
+7+1007,
+8,
+9+1009,
+10+1010,
+21+2100,
+11,
+12,
+13+1013,
+14,
+15,
+16+1016,
+17,
+18,
+19,
+20,
+22,
+1050+1051,
+1052,
+1053,
+1054,
+1055,
+1056,
+1057,
+1058,
+1059,
+1060,
+1061,
+1063,
+1064,
+1065,
+1066,
+1067,
+1068,
+1069,
+9999+99,
+R,F,
+VT = "Q194a. GCASH SERVICES: TOM AWARENESS",
+V = "
+Buy load;
+Send Money (as payment);
+Pay QR / STP;
+Webpay;
+GLife;
+A+ rewards;
+Pay bills;
+GInsure;
+GSave;
+Send Money (as remittance);
+Receive Money (as remittance);
+Bank transfer;
+GCash Padala;
+GLoan;
+GCredit;
+GGives;
+GInvest/GFunds;
+GCrypto;
+Global GStocks;
+PH GStocks;
+Request Money;
+GForest;
+Cash in/ Cash out;
+Money transfer;
+Gaming Pins;
+Payment from customer;
+Rewards;
+Send allowance;
+Savings;
+For Tuition fee;
+Scan QR Code;
+Gscore;
+Top up joy  rider;
+Transportation;
+Business;
+Pay for food;
+Purchasing Online;
+Balance;
+To order in shoppe and shoppe;
+Raffle points for Cigarettes;
+NONE;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+DM $TQ194b = $xA_Q194b/
+1+1001,
+2+1002+1062,
+3,
+4,
+5,
+6,
+7+1007,
+8,
+9+1009,
+10+1010,
+21+2100,
+11,
+12,
+13+1013,
+14,
+15,
+16+1016,
+17,
+18,
+19,
+20,
+22,
+1050+1051,
+1052,
+1053,
+1054,
+1055,
+1056,
+1057,
+1058,
+1059,
+1060,
+1061,
+1063,
+1064,
+1065,
+1066,
+1067,
+1068,
+1069,
+9999+99,
+R,F,
+VT = "Q194b. GCASH SERVICES: OTHER SPONT AWARENESS",
+V = $TQ194a,
+
+
+
+
+
+DM $TQ194c = $xA_Q194c/
+1+1001,
+2+1002+1062,
+3,
+4,
+5,
+6,
+7+1007,
+8,
+9+1009,
+10+1010,
+21+2100,
+11,
+12,
+13+1013,
+14,
+15,
+16+1016,
+17,
+18,
+19,
+20,
+22,
+1050+1051,
+1052,
+1053,
+1054,
+1055,
+1056,
+1057,
+1058,
+1059,
+1060,
+1061,
+1063,
+1064,
+1065,
+1066,
+1067,
+1068,
+1069,
+9999+99,
+R,F,
+VT = "Q194c. GCASH SERVICES: AIDED AWARENESS",
+V = $TQ194a,
+
+
+
+
+
+DM $TQ194d = $xA_Q194d/
+1+1001,
+2+1002+1062,
+3,
+4,
+5,
+6,
+7+1007,
+8,
+9+1009,
+10+1010,
+21+2100,
+11,
+12,
+13+1013,
+14,
+15,
+16+1016,
+17,
+18,
+19,
+20,
+22,
+1050+1051,
+1052,
+1053,
+1054,
+1055,
+1056,
+1057,
+1058,
+1059,
+1060,
+1061,
+1063,
+1064,
+1065,
+1066,
+1067,
+1068,
+1069,
+9999+99,
+R,F,
+VT = "Q194d. TOTAL GCASH SERVICES AWARENESS",
+V = $TQ194a,
+
+
+
+
+DM $TQ195a = $xA_Q195a/
+1+1001,
+2+1002+1062,
+3,
+4,
+5,
+6,
+7+1007,
+8,
+9+1009,
+10+1010,
+21+2100,
+11,
+12,
+13+1013,
+14,
+15,
+16+1016,
+17,
+18,
+19,
+20,
+22,
+1050+1051,
+1052,
+1053,
+1054,
+1055,
+1056,
+1057,
+1058,
+1059,
+1060,
+1061,
+1063,
+1064,
+1065,
+1066,
+1067,
+1068,
+1069,
+9999+99,
+R,F,
+VT = "Q195a. GCASH SERVICES EVER USED",
+V = $TQ194a,
+
+
+
+
+DM $TQ195b = $xA_Q195b/
+1+1001,
+2+1002+1062,
+3,
+4,
+5,
+6,
+7+1007,
+8,
+9+1009,
+10+1010,
+21+2100,
+11,
+12,
+13+1013,
+14,
+15,
+16+1016,
+17,
+18,
+19,
+20,
+22,
+1050+1051,
+1052,
+1053,
+1054,
+1055,
+1056,
+1057,
+1058,
+1059,
+1060,
+1061,
+1063,
+1064,
+1065,
+1066,
+1067,
+1068,
+1069,
+9999+99,
+R,F,
+VT = "Q195b. GCASH SERVICES USED IN THE PAST 2 MONTHS",
+V = $TQ194a,
+
+
+
+
+DM $TQ195c = $xA_Q195c/
+1+1001,
+2+1002+1062,
+3,
+4,
+5,
+6,
+7+1007,
+8,
+9+1009,
+10+1010,
+21+2100,
+11,
+12,
+13+1013,
+14,
+15,
+16+1016,
+17,
+18,
+19,
+20,
+22,
+1050+1051,
+1052,
+1053,
+1054,
+1055,
+1056,
+1057,
+1058,
+1059,
+1060,
+1061,
+1063,
+1064,
+1065,
+1066,
+1067,
+1068,
+1069,
+9999+99,
+R,F,
+VT = "Q195c. GCASH SERVICES USED IN THE PAST 4 WEEKS",
+V = $TQ194a,
+
+
+
+
+
+DM $TQ196 = $xA_Q196/
+1+1001,
+2+1002+1062,
+3,
+4,
+5,
+6,
+7+1007,
+8,
+9+1009,
+10+1010,
+21+2100,
+11,
+12,
+13+1013,
+14,
+15,
+16+1016,
+17,
+18,
+19,
+20,
+22,
+1050+1051,
+1052,
+1053,
+1054,
+1055,
+1056,
+1057,
+1058,
+1059,
+1060,
+1061,
+1063,
+1064,
+1065,
+1066,
+1067,
+1068,
+1069,
+9999+99,
+R,F,
+VT = "Q196. CONSIDERATION IN USING GCASH SERVICES",
+V = $TQ194a,
+
+
+
+
+
+
+DM $TQ27a = $xA_Q27a/1,2,3,R,F,
+VT = "Q27a. BUY AND PAY WITHIN GCASH",
+V = "
+Webpay (a payment in a website/app by inputting GCash as payment and getting an OTP to confirm payment);
+GLife;
+A+ Rewards;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+DM $TQ27b = $xA_Q27b/1,2,3,R,F,
+VT = "Q27b. SEND/RECEIVE REMITTANCE WITHIN GCASH",
+V = "
+Send Money;
+Bank Transfer;
+GCash Padala;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+DM $FQ193X = 
+[*Doa=1:11](($TQ8bR1/[A]).($TQ8bR2/[A]))[*SLE]+[*ENDA],
+
+DM $FQ193 =
+($TQ8bR1/1.$TQ8bR2/1)+
+($TQ8bR1/2.$TQ8bR2/2)+
+($TQ8bR1/3.$TQ8bR2/3)+
+($TQ8bR1/4.$TQ8bR2/4)+
+($TQ8bR1/5.$TQ8bR2/5)+
+($TQ8bR1/6.$TQ8bR2/6)+
+($TQ8bR1/7.$TQ8bR2/7)+
+($TQ8bR1/8.$TQ8bR2/8)+
+($TQ8bR1/9.$TQ8bR2/9)+
+($TQ8bR1/10.$TQ8bR2/10)+
+($TQ8bR1/11.$TQ8bR2/11),
+
+
+DM $TQ193 = $xQ193/
+33+44+45+30+12+24+16+20+10+13+47,
+33+44+45,
+30,
+12,
+24+16,
+20,
+10,
+13,
+47,
+1+2+3+4+5+6+7+8+9+11+14+15+17+18+19+21+22+23+25+26+27+28+29+31+32+34+35+36+37+38+39+40+41+42+43+46+48+49+50+51+52+53+54+55+56+57+58,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+11,
+14,
+15,
+17,
+18,
+19,
+21,
+22,
+23,
+25,
+26,
+27,
+28,
+29,
+31,
+32,
+34,
+35,
+36,
+37,
+38,
+39,
+40,
+41,
+42,
+43,
+46,
+48,
+49,
+50,
+51,
+52,
+53,
+54,
+55,
+56,
+57,
+58,
+9999,
+R,F,
+VT = "Q193. TRIGGERS IN USING BOTH ONLINE AND OFFLINE MODE OF TRANSACTION",
+V = "
+CONVENIENT (NET)<q>;
+`     Easy to use;
+`     More convenient;
+`     Convenient for both;
+`     Offline is more convenient;
+`     Online is more convenient;
+`     Online is more convenient because sometimes the internet log is lost so I use it offline;
+`     Whichever is more convenient;
+`     Hassle free;
+OTHERS (NET)<q>;
+`     When gcash is empty, therefore  use cash;
+`     More fast transaction;
+`     If gcash is under maintenance;
+`     It used to be Palawan, now it's just gcash;
+`     Online it's fast and offline it's slow;
+`     When other transactions are offline, of course I'm there for the offline transaction;
+`     Gcash balance is not enough;
+`     Easy to get in Palawan/gcash;
+`     Online transaction is more easy no need to line up;
+`     USING GCASH IS MORE ACCESSIBLE THAN OFFLINE YOU JUST GO TO THE STORE I ALWAYS BUY;
+`     If you don't have an internet you have other option;
+`     For loan purposes;
+`     More applicable effortless when there is no choice;
+`     Payment for work;
+`     WHEN VEHICLES ARE NOT AVAILABLE ONLINE WHEN VEHICLES ARE AVAILABLE OFFLINE;
+`     When im outside I use offline;
+`     More comfortable;
+`     Depends on the situation;
+`     Here are often bills that come;
+`     Afraid of losing money in gcash;
+`     Payment for my appliances/grocery;
+`     To prevent hacking;
+`     Just to be aware of the delay;
+`     Used to it;
+`     It's just the same;
+`     No time to go outside;
+`     That is the choice of the sender;
+`     Online for my husband's salary;
+`     Offline for physical bank invesment;
+`     Safety;
+`     Save time;
+`     Whatever is availble;
+`     used gcash if I have money there;
+`     For emergency purposes;
+`     To save;
+`     Remmitance is near to us;
+`     Using family member's verified Gcash account;
+`     If online is not available I use offline;
+`     Basic transaction;
+`     If I have no cash I use online transaction;
+`     Sometime I forgot my cellphone;
+`     Preffered cash, I used Gcash for receive money only;
+`     My gcash is new;
+`     I used ofline transaction to make sure that the money I sent to my family would arrive;
+`     Don't have Gcash in our province yet;
+`     To get points using online;
+`     I used cash so that I can't use my money on my gcash;
+NONE;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+
+
+
+
+
+
+DM $TQ197 = $xI_1_A_Q197/
+1+1016,
+2+1017,
+3+4+5+6+7+8+9,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+1010+1011+1013+1015+1018,
+1010,
+1011,
+1013,
+1015,
+1018,
+1012+1014,
+1012,
+1014,
+9999,
+R,F,
+VT = "Q197. TYPE OF LOAD BOUGHT IN THE PAST 2 MONTHS",
+V = "
+Mobile;
+Broadband;
+Non Telco (NET)<Q>;
+`     Game Credits;
+`     KUMU Coins;
+`     PayTV;
+`     Prepaid Kit;
+`     Tinder;
+`     Prepaid Insurance;
+`     Kuryente Prepaid;
+OTHERS (NET)<Q>;
+`     Cignal load TV;
+`     TV load;
+`     Globe prepaid;
+`     Pocket Wifi;
+`     Loan;
+VAGUE (NET)<Q>;
+`     No cellphone;
+`     Saving for money;
+NONE;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+DM $TQ198 = $xA_Q198/
+1+1016,
+2+1017,
+3+4+5+6+7+8+9,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+1010+1011+1013+1015+1018,
+1010,
+1011,
+1013,
+1015,
+1018,
+1012+1014,
+1012,
+1014,
+9999,
+R,F,
+VT = "Q198. TYPE OF LOAD BOUGHT OFFLINE",
+V = $TQ197,
+
+
+
+
+
+
+
+
+DM $TQ200 = $xQ200/
+1,
+2,
+R,F,
+VT = "Q200. CONTROL FOR INCIDENCE AND MAIN SAMPLE",
+V = "
+Incidence;
+Main Sample;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+DM $TQ202 = $xQ202/
+1,
+2,
+3,
+R,F,
+VT = "Q202. AD RECOGNITION",
+V = "
+Yes;
+No;
+Don't Know / Not Sure;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+DM $TQ203 = $xQ203/
+1,
+2,
+3,
+4,
+R,F,
+VT = "Q203. AD VIEWED FREQUENCY",
+V = "
+Once;
+Twice;
+Thrice;
+4 times and more;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+DM $TQ204 = $xA_Q204/
+1+1016,
+2,
+3,
+4,
+5,
+1018,
+1019,
+1020+1021+1022+1024+1025+1026+1028,
+1020,
+1021,
+1022,
+1024,
+1025,
+1026,
+1028,
+1010+1011+1012+1013+1014+1015+1017+1023+1027,
+1010,
+1011,
+1012,
+1013,
+1014,
+1015,
+1017,
+1023,
+1027,
+9997,
+9998,
+9999,
+R,
+F,
+VT = "Q204. BRAND LINK",
+V = "
+GCash;
+PayMaya/Maya;
+BPI;
+BDO;
+ShopeePay;
+NESCAFE;
+ONLINE TRANSACTION/ONLINE PAYMENT;
+ONLINE PAYMENT (NET)<Q>;
+`     `"Palamig`";
+`     QR CODE;
+`     Sim card;
+`     Globe;
+`     Paypal;
+`     E= Wallet;
+`     Palawan;
+OTHERS (NET)<Q>;
+`     About sa business;
+`     Cacao;
+`     Chocolate drink promo;
+`     Coffee;
+`     Coffee brand;
+`     Milk;
+`     Milk tea;
+`     Ice cream;
+`     Ads about Cellphone;
+Cant recall/ No idea;
+Don't know;
+NONE;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+DM $TQ205 = $xA_Q205/
+2,
+4,
+5,
+6,
+7,
+8,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+19,
+1020,
+1021,
+9997,
+R,
+F,
+VT = "Q205. SOURCES OF AD AWARENESS",
+V = "
+Company Website (Official Website);       
+Events;
+Family/relatives;
+Friends/colleagues;      
+Online articles (blogs, reviews, news);
+Online videos (including ads);
+Social media (including ads) (NET);
+Facebook (including ads);
+Facebook Post;
+Facebook Fanpage;
+Twitter (including ads);
+Instagram (including ads);  
+YouTube (including ads);
+TikTok (including ads);
+OOH;
+Influencers;
+TV COMMERCIAL;
+Mall ads;
+Cant recall;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+
+
+
+
+
+DM $TQ206 = $xQ206/
+24+33+34+4+10+26+27+37+89+104+107+123+124+129+130+150+152,
+24+33+34,
+4,
+10,
+26,
+27,
+37,
+89,
+104,
+107,
+123,
+124,
+129,
+130,
+150,
+152,
+3+13+73+96+97+112+114+126+11+6+30+106+113+148+5+127+133+99+100+154,
+3,
+13,
+73,
+96,
+97,
+112,
+114,
+126,
+11+6,
+30+106+113+148,
+5+127+133,
+99+100,
+154,
+2+16+17+35+46+50+51+52+53+54+55+80+83+85+131+132+146,
+2,
+16,
+17,
+35,
+46,
+50,
+51,
+52,
+53,
+54,
+55,
+80,
+83,
+85,
+131,
+132,
+146,
+41+49,
+41,
+49,
+58+134+135,
+58,
+134,
+135,
+101+103+139,
+101,
+103,
+139,
+1+7+18+21+22+59+93+102+120+140+147+111+122+20+110+23+121+42+119,
+1,
+7,
+18,
+21,
+22,
+59,
+93,
+102,
+120,
+140,
+147,
+111+122,
+20+110,
+23+121,
+42+119,
+12+19+94+98,
+12,
+19,
+94,
+98,
+28+32+36+38+47+48+108+117+125+136+153,
+28,
+32,
+36,
+38,
+47,
+48,
+108,
+117,
+125,
+136,
+153,
+8+29+57+74+76+77+78+79+81+86+138+62+63+9+14+31+15+82+84,
+8+29+57+74+76+77+78+79+81+86+138+62+63+9+14+31,
+8,
+29,
+57,
+74,
+76,
+77,
+78,
+79,
+81,
+86,
+138,
+62+63,
+9+14+31,
+15+82+84,
+15,
+82+84,
+39+40+45+56+60+61+69+88,
+39,
+40,
+45,
+56,
+60,
+61,
+69,
+88,
+43+44+64+66+70+71+72+75+87+90+91+92+95+105+109+115+116+118+128+137+141+142+143+144+145+149+151+155,
+43,
+44,
+64,
+66,
+70,
+71,
+72,
+75,
+87,
+90,
+91,
+92,
+95,
+105,
+109,
+115,
+116,
+118,
+128,
+137,
+141,
+142,
+143,
+144,
+145,
+149,
+151,
+155,
+25+65+67+68,
+25,
+65,
+67,
+68,
+9995,
+9996,
+9997,
+9999,
+9998,
+R,
+F,
+VT = "Q206. DETAILED RECALL OF AD - MESSAGE DELIVERY",
+V = "
+ABOUT GCASH NET<Q>;
+`     GCash advertising;
+`     Can use Cash in / Cash out;
+`     About Gcash;
+`     GCash;
+`     GCash advertising;
+`     It shows how to used gcash;
+`     Want to have an account like gcash;
+`     Always use Gcash;
+`     Gcash is ahead than others because it has more apps and users;
+`     Gcash has many features;
+`     Gcash has many services;
+`     Gcash has many users;
+`     Gcash has many outlets;
+`     To know more about Gcash;
+`     Encouraging people to use Gcash;
+CAN DO DIFFERENT TRANSACTIONS VIA GCASH NET<Q>;
+`     Can do transactions via Gcash (unspecified);
+`     Can loan in GCash;
+`     Savings with Gcash;
+`     All-in-one;
+`     Can buy load;
+`     Anyone can use the online transaction;
+`     You can do anything with Gcash;
+`     Payment in Gcash is now available at selected establishments;
+`     Can use for payments;
+`     Can use for remittance;
+`     Can Scan for QR code;
+`     Can use for bills payment;
+`     Has new transactions that can be used wih gcash;
+INSPIRATIONAL/ VALUES MESSAGE NET<Q>;
+`     Working hard and trusting yourself;
+`     Frugality;
+`     Persistence;
+`     Hopeful;
+`     Be hardworking;
+`     Be resourceful in life;
+`     be diligent in life;
+`     be enthusiastic about life;
+`     Be hardworking;
+`     Be patient;
+`     Wake up on reality;
+`     It seems that life is difficult because someone is crying;
+`     No matter what the job is, as long as it is legal, it is meaningful.;
+`     Work for your family not for the others;
+`     Learn about everything you've never experienced;
+`     No guts no glory;
+`     Helps the family;
+AVOID SCAMS NET<Q>;
+`     Beware of scams;
+`     Always be careful;
+TRUST NET<Q>;
+`     Trust E wallet;
+`     Safe transaction;
+`     Secure;
+TRANSACTION (GENERAL) NET<Q>;
+`     Connection in transaction;
+`     Use for school tuition fees;
+`     Cellphone can be used to pay for transaction;
+CONVENIENCE NET<Q>;
+`     Convenience;
+`     Ease of transaction with Gcash;
+`     Cashless payment;
+`     Easy online transaction;
+`     Easy payment method;
+`     Hassle free;
+`     Make life more easier;
+`     Easy to use;
+`     Qiuck payment of bills;
+`     Can borrow/ loan money from GCash;
+`     Paying through online is more efficient;
+`     Even at home you can pay bills, no need to queque;
+`     Easy to pay online;
+`     Easy to transfer money;
+`     Fast transaction;
+ACCESSIBILITY NET<Q>;
+`     GCash can be found anywhere;
+`     Can be used anywhere;
+`     Accessible;
+`     Gcash can use anytime;
+BRAND IMAGE NET<Q>;
+`     GCash is the best;
+`     GCash is inclusive;
+`     Importance of using GCash;
+`     Reliable;
+`     Nice;
+`     GCash service is good;
+`     Enjoyable;
+`     Gcash is legit;
+`     Reliable;
+`     Many benefits when used it;
+`     Happiness;
+ABOUT BUSINESS NET<Q>;
+`     BUSINESS (IN GENERAL) SUBNET<Q>;
+`          About business (unspecified);
+`          Making milk tea;
+`          Do business while you are young;
+`          Big business also starts from small;
+`          Entrepreneurship;
+`          Online business;
+`          Selling using a cellphone;
+`          Ice cream and Milk tea busines;
+`          People can succed in business;
+`          The man selling street food on the road;
+`          Can start business;
+`          Seller;
+`          About Coffee Business;
+`      BUSINESS TRANSACTIONS VIA GCASH SUBNET<Q>;
+`          Can do business transactions using GCash;
+`          Can do business transactions using GCash;
+ABOUT COFFEE NET<Q>;
+`     Everywhere there is coffee;
+`     Coffee;
+`     Order coffee in shopee;
+`     Have coffee and send money;
+`     Making a coffee;
+`     Selling take out n coffee;
+`     Relax while coffee;
+`     Showing off being a barista;
+RETAIN NET<Q>;
+`     Apply;
+`     Give an opinion;
+`     was able to work;
+`     Food (wants to show the food to buy);
+`     To save money;
+`     For nature;
+`     banking insurance;
+`     Promotion of the product;
+`     About money;
+`     Use pay maya;
+`     Gives additonal knowledge;
+`     Tax payment technology is better;
+`     Receive notfification;
+`     provides additonal information;
+`     Try downloading the apps;
+`     Fund your study;
+`     Update the Gcash;
+`     Long distance transaction;
+`     Ewallet;
+`     Picture taken;
+`     Unity;
+`     Cellphone;
+`     Youtube;
+`     Good example to observers;
+`     Advisible watching;
+`     Communication is easier;
+`     To improve the marketing strategy;
+`     Use for emergency;
+VAGUE NET<Q>;
+`     facebook;
+`     Cacao is natural product;
+`     Get rid of the problem;
+`     To improve gcash;
+No idea;
+Not yet seen;
+Cant say;
+None;
+don't know;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+[*data d207 (;) = 
+Made me want to use GCash more in my transactions;
+I became more interested in other GCash features;
+I will likely recommend GCash to other people;
+Made me want to use GCash over other brands for my transactions;
+Made me want to stay hopeful and pursue progress with GCash]
+
+
+[*DOA=1:5]
+DM $TQ207R[A] = $xT_Q207_[A]/
+1,
+2,
+3,
+R,
+F,
+VT = "Q207. ACTION AFTER AD - ",
+V = "
+[d207.A]\
+`     Agree Strongly (3)<v3>;
+`     Agree Somewhat (2)<v2>;
+`     Disagree (1)<v1>;
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+
+
+
+[*data d208 (;) = 
+The ad is unique and different;
+The ad was very enjoyable to watch;
+The ad told me something new;
+What was told in the ad is relevant to me;
+The ad increased my interest in the brand;
+You found it difficult to believe what the said;
+The ad is meaningful for me;
+This ad is fit for the brand]
+
+
+[*DOA=1:8]
+DM $TQ208R[A] = $xT_Q208_[A]/
+1,
+2,
+3,
+R,
+F,
+VT = "Q208. AD EVALUATION METRICS - [d208.A]",
+V = "
+Agree Strongly (3)<v3>;
+Agree Somewhat (2)<v2>;
+Disagree (1)<v1>;
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+
+
+
+
+DM $TQ202 = $xQ202/
+1,
+2,
+3,
+R,F,
+VT = "Q202. AD RECOGNITION",
+V = "
+Yes;
+No;
+Don't Know / Not Sure;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+! ============ TACK-ON =========== !
+
+DM $TQ210 = $Q210/1-3,
+R,F,
+XT = "Q210. AD RECOGNITION",
+X = "
+Yes;
+No;
+Don't Know / Not Sure;
+Missing answers<z>;
+Total count<c>",
+
+
+DM $TQ211 = $Q211/1-4,
+R,F,
+XT = "Q211. AD VIEWED FREQUENCY",
+X = "
+Once;
+Twice;
+Thrice;
+4 times and more;
+Missing answers<z>;
+Total count<c>",
+
+
+
+
+DM $TQ212 = $xA_Q212/1-5,6..8,9,
+R,F,
+XT = "Q212. BRAND LINK",
+X = "
+GCash;
+PayMaya/Maya;
+BPI;
+BDO;
+ShopeePay;
+
+Others;
+Don't Know;
+
+Missing answers<z>;
+Total count<c>",
+
+DM $TQ213 = $xA_Q213/2,4-8,10-20,91,
+R,F,
+XT = "Q213. SOURCES OF AD AWARENESS",
+X = "
+Company Website (Official Website);
+Events;
+Family/relatives;
+Friends/colleagues;
+Online articles (blogs, reviews, news);
+Online videos (including ads);
+Social media (including ads);
+Facebook (including ads);
+Facebook Post;
+Facebook Fanpage;
+Twitter (including ads);
+Instagram (including ads);
+YouTube (including ads);
+TikTok (including ads);
+OOH;
+influencers;
+TV;
+Others;
+
+Missing answers<z>;
+Total count<c>",
+
+!Q214 OE
+!Q214 OE
+DM $TQ214 = $xQ214/
+24+33+34+4+10+26+27+37+89+104+107+123+124+129+130+150+152,
+24+33+34,
+4,
+10,
+26,
+27,
+37,
+89,
+104,
+107,
+123,
+124,
+129,
+130,
+150,
+152,
+3+13+73+96+97+112+114+126+11+6+30+106+113+148+5+127+133+99+100+154,
+3,
+13,
+73,
+96,
+97,
+112,
+114,
+126,
+11+6,
+30+106+113+148,
+5+127+133,
+99+100,
+154,
+2+16+17+35+46+50+51+52+53+54+55+80+83+85+131+132+146,
+2,
+16,
+17,
+35,
+46,
+50,
+51,
+52,
+53,
+54,
+55,
+80,
+83,
+85,
+131,
+132,
+146,
+41+49,
+41,
+49,
+58+134+135,
+58,
+134,
+135,
+101+103+139,
+101,
+103,
+139,
+1+7+18+21+22+59+93+102+120+140+147+111+122+20+110+23+121+42+119,
+1,
+7,
+18,
+21,
+22,
+59,
+93,
+102,
+120,
+140,
+147,
+111+122,
+20+110,
+23+121,
+42+119,
+12+19+94+98,
+12,
+19,
+94,
+98,
+28+32+36+38+47+48+108+117+125+136+153,
+28,
+32,
+36,
+38,
+47,
+48,
+108,
+117,
+125,
+136,
+153,
+8+29+57+74+76+77+78+79+81+86+138+62+63+9+14+31+15+82+84,
+8+29+57+74+76+77+78+79+81+86+138+62+63+9+14+31,
+8,
+29,
+57,
+74,
+76,
+77,
+78,
+79,
+81,
+86,
+138,
+62+63,
+9+14+31,
+15+82+84,
+15,
+82+84,
+39+40+45+56+60+61+69+88,
+39,
+40,
+45,
+56,
+60,
+61,
+69,
+88,
+43+44+64+66+70+71+72+75+87+90+91+92+95+105+109+115+116+118+128+137+141+142+143+144+145+149+151+155,
+43,
+44,
+64,
+66,
+70,
+71,
+72,
+75,
+87,
+90,
+91,
+92,
+95,
+105,
+109,
+115,
+116,
+118,
+128,
+137,
+141,
+142,
+143,
+144,
+145,
+149,
+151,
+155,
+25+65+67+68,
+25,
+65,
+67,
+68,
+9995,
+9996,
+9997,
+9999,
+9998,
+R,F,
+XT = "Q214. DETAILED RECALL OF AD - MESSAGE DELIVERY",
+X = "
+ABOUT GCASH NET<Q>;
+`     GCash advertising;
+`     Can use Cash in / Cash out;
+`     About Gcash;
+`     GCash;
+`     GCash advertising;
+`     It shows how to used gcash;
+`     Want to have an account like gcash;
+`     Always use Gcash;
+`     Gcash is ahead than others because it has more apps and users;
+`     Gcash has many features;
+`     Gcash has many services;
+`     Gcash has many users;
+`     Gcash has many outlets;
+`     To know more about Gcash;
+`     Encouraging people to use Gcash;
+CAN DO DIFFERENT TRANSACTIONS VIA GCASH NET<Q>;
+`     Can do transactions via Gcash (unspecified);
+`     Can loan in GCash;
+`     Savings with Gcash;
+`     All-in-one;
+`     Can buy load;
+`     Anyone can use the online transaction;
+`     You can do anything with Gcash;
+`     Payment in Gcash is now available at selected establishments;
+`     Can use for payments;
+`     Can use for remittance;
+`     Can Scan for QR code;
+`     Can use for bills payment;
+`     Has new transactions that can be used wih gcash;
+INSPIRATIONAL/ VALUES MESSAGE NET<Q>;
+`     Working hard and trusting yourself;
+`     Frugality;
+`     Persistence;
+`     Hopeful;
+`     Be hardworking;
+`     Be resourceful in life;
+`     be diligent in life;
+`     be enthusiastic about life;
+`     Be hardworking;
+`     Be patient;
+`     Wake up on reality;
+`     It seems that life is difficult because someone is crying;
+`     No matter what the job is, as long as it is legal, it is meaningful.;
+`     Work for your family not for the others;
+`     Learn about everything you've never experienced;
+`     No guts no glory;
+`     Helps the family;
+AVOID SCAMS NET<Q>;
+`     Beware of scams;
+`     Always be careful;
+TRUST NET<Q>;
+`     Trust E wallet;
+`     Safe transaction;
+`     Secure;
+TRANSACTION (GENERAL) NET<Q>;
+`     Connection in transaction;
+`     Use for school tuition fees;
+`     Cellphone can be used to pay for transaction;
+CONVENIENCE NET<Q>;
+`     Convenience;
+`     Ease of transaction with Gcash;
+`     Cashless payment;
+`     Easy online transaction;
+`     Easy payment method;
+`     Hassle free;
+`     Make life more easier;
+`     Easy to use;
+`     Qiuck payment of bills;
+`     Can borrow/ loan money from GCash;
+`     Paying through online is more efficient;
+`     Even at home you can pay bills, no need to queque;
+`     Easy to pay online;
+`     Easy to transfer money;
+`     Fast transaction;
+ACCESSIBILITY NET<Q>;
+`     GCash can be found anywhere;
+`     Can be used anywhere;
+`     Accessible;
+`     Gcash can use anytime;
+BRAND IMAGE NET<Q>;
+`     GCash is the best;
+`     GCash is inclusive;
+`     Importance of using GCash;
+`     Reliable;
+`     Nice;
+`     GCash service is good;
+`     Enjoyable;
+`     Gcash is legit;
+`     Reliable;
+`     Many benefits when used it;
+`     Happiness;
+ABOUT BUSINESS NET<Q>;
+`     BUSINESS (IN GENERAL) SUBNET<Q>;
+`          About business (unspecified);
+`          Making milk tea;
+`          Do business while you are young;
+`          Big business also starts from small;
+`          Entrepreneurship;
+`          Online business;
+`          Selling using a cellphone;
+`          Ice cream and Milk tea busines;
+`          People can succed in business;
+`          The man selling street food on the road;
+`          Can start business;
+`          Seller;
+`          About Coffee Business;
+`      BUSINESS TRANSACTIONS VIA GCASH SUBNET<Q>;
+`          Can do business transactions using GCash;
+`          Can do business transactions using GCash;
+ABOUT COFFEE NET<Q>;
+`     Everywhere there is coffee;
+`     Coffee;
+`     Order coffee in shopee;
+`     Have coffee and send money;
+`     Making a coffee;
+`     Selling take out n coffee;
+`     Relax while coffee;
+`     Showing off being a barista;
+RETAIN NET<Q>;
+`     Apply;
+`     Give an opinion;
+`     was able to work;
+`     Food (wants to show the food to buy);
+`     To save money;
+`     For nature;
+`     banking insurance;
+`     Promotion of the product;
+`     About money;
+`     Use pay maya;
+`     Gives additonal knowledge;
+`     Tax payment technology is better;
+`     Receive notfification;
+`     provides additonal information;
+`     Try downloading the apps;
+`     Fund your study;
+`     Update the Gcash;
+`     Long distance transaction;
+`     Ewallet;
+`     Picture taken;
+`     Unity;
+`     Cellphone;
+`     Youtube;
+`     Good example to observers;
+`     Advisible watching;
+`     Communication is easier;
+`     To improve the marketing strategy;
+`     Use for emergency;
+VAGUE NET<Q>;
+`     facebook;
+`     Cacao is natural product;
+`     Get rid of the problem;
+`     To improve gcash;
+No idea;
+Not yet seen;
+Cant say;
+None;
+don't know;
+Missing answers<z>;
+Total count<c>",
+
+[*DATA ACTION (;) = 
+Made me want to use GCash more in my transactions;
+I became more interested in other GCash features;
+I will likely recommend GCash to other people;
+Made me want to use GCash over other brands for my transactions;
+Made me want to stay hopeful and pursue progress with GCash;
+Made me want to use GCash for everything, not just payments]
+
+[*DO A = 1:6]
+DM $TQ215_[A] = $T_Q215_[A]/1-3,
+R,F,
+XT = "Q215. ACTION AFTER AD",
+X = "
+[ACTION.A]\
+`     Agree Strongly;
+`     Agree Somewhat;
+`     Disagree;
+Missing answers<z>;
+Total count<c>",
+[*END A]
+
+[*DATA METRICS (;) =
+The ad is unique and different;
+The ad was very enjoyable to watch;
+The ad told me something new;
+What was told in the ad is relevant to me;
+The ad increased my interest in the brand;
+You found it difficult to believe what the said;
+The ad is meaningful for me;
+This ad is fit for the brand]
+
+[*DO A = 1:8]
+DM $TQ216_[A] = $T_Q216_[A]/1-3,
+R,F,
+XT = "Q216. AD EVALUATION METRICS - ",
+X = "
+[METRICS.A]\
+`     Agree Strongly;
+`     Agree Somewhat;
+`     Disagree;
+Missing answers<z>;
+Total count<c>",
+[*END A]
+
+
+!!================== ALMA ==================!
+
+DM $APRIL26_Onwards = $Date/
+29648524+
+29650980+
+29650981+
+29652065+
+29652066+
+29652653+
+29661517+
+29661519+
+29662016+
+29662102+
+29662265+
+29662652+
+29662653+
+29662810+
+29664967+
+29665399+
+29665400+
+29665831+
+29665832+
+29667332+
+29667333+
+29667334+
+29667931+
+29667932+
+29667933+
+29667934+
+29667935+
+29667936+
+29668117+
+29668118+
+29668119+
+29669140+
+29669141+
+29669142+
+29669947+
+29669948+
+29669949+
+29669950+
+29670378+
+29670379+
+29670380+
+29670381+
+29670829+
+29671523+
+29671612+
+29671660+
+29672456+
+29672459+
+29674102+
+29674103+
+29674133+
+29674134+
+29674226+
+29674227+
+29674463+
+29674627+
+29674628+
+29674629+
+29674649+
+29675179+
+29675181+
+29675183+
+29675184+
+29675186+
+29678243+
+29678244+
+29680929+
+29680930+
+29682105+
+29682106+
+29682107+
+29682157+
+29682176+
+29682178+
+29682193+
+29682194+
+29682289+
+29683113+
+29683114+
+29683115+
+29683116+
+29684508+
+29685297+
+29686149+
+29686150+
+29687709+
+29688437+
+29688438+
+29688439+
+29688440+
+29691230+
+29691296+
+29691657+
+29692092+
+29692656+
+29697185+
+29697187+
+29699643+
+29699644+
+29699645+
+29699646+
+29699647+
+29699648+
+29699649+
+29699757+
+29701586+
+29701587+
+29701588+
+29703520+
+29703521+
+29703563+
+29704507+
+29704509+
+29713736+
+29715339+
+29715340+
+29715341+
+29715342+
+29717727+
+29723545+
+29724812+
+29724813+
+29727238+
+29727239+
+29727392+
+29727393+
+29727394+
+29728003+
+29729264+
+29729673+
+29729674+
+29729675+
+29729676+
+29729677+
+29729932+
+29730793+
+29731062+
+29731141+
+29732313+
+29732891+
+29732916+
+29732917+
+29732918+
+29732919+
+29734233+
+29734569+
+29735268+
+29735628+
+29738201+
+29738203+
+29739375+
+29739376+
+29739653+
+29739654+
+29739902+
+29739903+
+29740777+
+29742614+
+29742615+
+29742616+
+29745019+
+29745020+
+29745021+
+29745240+
+29745242+
+29745243+
+29745244+
+29745396+
+29745453+
+29754940+
+29754941+
+29754942+
+29756640+
+29756641+
+29756642+
+29756643+
+29757212+
+29757213+
+29757270+
+29757271+
+29757350+
+29757623+
+29757624+
+29758174+
+29758175+
+29758176+
+29758356+
+29758357+
+29758358+
+29758359+
+29759047+
+29760844+
+29760845+
+29760852+
+29761911+
+29764226+
+29765632+
+29765671+
+29767648+
+29769574+
+29770222+
+29770967+
+29770968+
+29770969+
+29770970+
+29770971+
+29771212+
+29771214+
+29771215+
+29771273+
+29771274+
+29772120+
+29772121+
+29772873+
+29774444+
+29774445+
+29774446+
+29774447+
+29774601+
+29774602+
+29775269+
+29775270+
+29777376+
+29780630+
+29781182+
+29781183+
+29781185+
+29781186+
+29781187+
+29782501+
+29782502+
+29785400+
+29786292+
+29786293+
+29786294+
+29786295+
+29788414+
+29788415+
+29788416+
+29788417+
+29789873+
+29789874+
+29791628+
+29792735+
+29793157+
+29793752+
+29793753+
+29799174+
+29799175+
+29800838+
+29801267+
+29801268+
+29801269+
+29801270+
+29801271+
+29801272+
+29801477+
+29801478+
+29804297+
+29804298+
+29804400+
+29804452+
+29804493+
+29804555+
+29805645+
+29805646+
+29806586+
+29811338+
+29812783+
+29814240+
+29815058+
+29815059+
+29815060+
+29815061+
+29815493+
+29815494+
+29821327+
+29821328+
+29821329+
+29821330+
+29821651+
+29832870+
+29833627+
+30159122+
+30159123,
+
+
+
+
+
+
+
+DM $TQ217 = $Q217/1,2,3,
+R,F,
+XT = "Q217. AD RECOGNITION",
+X = "
+Yes;
+No;
+Don't Know / Not Sure;
+Missing answers<z>;
+Total count<c>",
+
+
+DM $TQ218 = $Q218/1-4,
+R,F,
+XT = "Q218. AD VIEWED FREQUENCY",
+X = "
+Once;
+Twice;
+Thrice;
+4 times and more;
+Missing answers<z>;
+Total count<c>",
+
+
+DM $TQ219  = $xA_Q219/
+1+1016,
+2,
+3,
+4,
+5,
+1018,
+1019,
+1020+1021+1022+1024+1025+1026+1028,
+1020,
+1021,
+1022,
+1024,
+1025,
+1026,
+1028,
+1010+1011+1012+1013+1014+1015+1017+1023+1027,
+1010,
+1011,
+1012,
+1013,
+1014,
+1015,
+1017,
+1023,
+1027,
+9997,
+9+9998,
+9999,
+R,F,
+XT = "Q219. BRAND LINK",
+X = "
+GCash;
+PayMaya/Maya;
+BPI;
+BDO;
+ShopeePay;
+NESCAFE;
+ONLINE TRANSACTION/ONLINE PAYMENT;
+ONLINE PAYMENT (NET)<q>;
+`     `"Palamig`";
+`     QR CODE;
+`     Sim card;
+`     Globe;
+`     Paypal;
+`     E-Wallet;
+`     Palawan;
+OTHERS (NET)<q>;
+`     About sa business;
+`     Cacao;
+`     Chocolate drink promo;
+`     Coffee;
+`     Coffee brand;
+`     Milk;
+`     Milk tea;
+`     Ice cream;
+`     Ads about Cellphone;
+Cant Recall/ No idea;
+Don't Know;
+None;
+Missing answers<z>;
+Total count<c>",
+
+DM $TQ220 = $xA_Q220/
+2,
+4,
+5,
+6,
+7,
+13+1025,
+14,
+15,
+16,
+17+1029,
+18,
+19,
+20+1020,
+1021,
+1022,
+1023,
+1024,
+8+10+11+12+1008+1010+1011+1026+1027+1028,
+8,
+10,
+11,
+12,
+1008,
+1010+1011,
+1026,
+1027,
+1028,
+9997,
+R,
+F,
+XT = "Q220. SOURCES OF AD AWARENESS",
+X = "
+Company Website (Official Website);
+Events;
+Family/relatives;
+Friends/colleagues;
+Online articles (blogs, reviews, news);
+Facebook Fanpage;
+Twitter (including ads);
+Instagram (including ads);  
+YouTube (including ads);
+TikTok (including ads);
+OOH;
+Influencers;
+TV/TV COMMERCIAL;
+Mall ads;
+Sari - sari store;
+Radio;
+Cellphone;
+E-WALLET APP<q>;
+`     Online videos (including ads);
+`     Social media (including ads) (NET) (HIDE);
+`     Facebook (including ads) (HIDE);
+`     Facebook Post;
+`     Gcash Application;
+`     Gcash;
+`     Puretuber;
+`     Google;
+`     Poster;
+Cant Recall;
+Missing answers<z>;
+Total count<c>",
+
+
+!Q221 OE
+DM $TQ221 = $xQ221/
+1+2+3+4+43+5+6+7+8+44+45,
+1,
+2,
+3,
+4+43,
+5,
+6,
+7,
+8,
+44,
+45,
+
+9+10,
+9,
+10,
+
+11+12+13+14+15+48,
+11,
+12,
+13,
+14,
+15,
+48,
+
+16+17,
+16,
+17,
+
+18+19+20+21+22+23+24,
+18,
+19,
+20,
+21,
+22,
+23,
+24,
+
+25+26+27,
+25,
+26,
+27,
+
+28+29+30,
+28,
+29,
+30,
+
+31+32+33+34+35,
+31,
+32,
+33,
+34,
+35,
+
+36+37,
+36,
+37,
+
+38+39+40,
+38,
+39,
+40,
+
+46,
+46,
+
+500+41+43,
+500,
+41,
+43,
+
+47,
+47,
+
+
+
+9999+9998,
+9999,
+9998,
+9997,
+
+
+R,F,
+XT = "Q221. DETAILED RECALL OF AD - MESSAGE DELIVERY",
+X = "
+CAN DO DIFFERENT TRANSACTIONS IN GCASH (NET) <Q>;
+`     Can loan using Gcash;
+`     Can send and receive money;
+`     Can invest in Gcash;
+`     Can use GCash in transactions (unspecified);
+`     Can buy load;
+`     Can use to pay;
+`     Can use to pay bills;
+`     Encouraging people to use online transactions;
+`     Pay through QR Code;
+`     Receive notification from Gcash;
+
+AD IS PROMOTING TO USE GCASH (NET) <Q>;
+`     Ad is promoting to use Gcash;
+`     Buy their products;
+
+CAN HELP PEOPLE IN NEED (NET) <Q>;
+`     Can send money to people who are in need;
+`     GCash is willing to help people who are in need;
+`     Can use GCash to help people who are in need;
+`     Easy to help people who are in need;
+`     Easy to help people who are in need because of GCash;
+`     More blessings will get back to you if your're being kind to people;
+
+
+CAN HELP DURING EMERGENCIES (NET) <Q>;
+`     Easy when there is an emergency because you can use GCash;
+`     Can use GCash in emergencies;
+
+CONVENIENCE (NET) <Q>;
+`     Easy to use;
+`     Convenience;
+`     Easy to send money;
+`     Easy to receive money in GCash;
+`     Easy to transact with;
+`     Easy to use online;
+`     Easy to use GCash in paying bills;
+
+FAST TRANSACTION (NET) <Q>;
+`     Can pay quickly;
+`     Fast transaction;
+`     Can quickly send or receive money;
+
+ACCESSIBILITY (NET) <Q>;
+`     Easy to access;
+`     Can access anywhere;
+`     Can use GCash anytime and anywhere;
+
+DONATION (NET) <Q>;
+`     Call for donation;
+`     Can donate using GCash;
+`     Easy to donate;
+`     Encouraging people to donate;
+`     Can use GCash to raise funds/ donations;
+
+COMMENT ON THE AD ITSELF (NET) <Q>;
+`     Ad looks good and has a twist;
+`     Marketing strategy;
+
+HELPS CONNECT THE FAMILY  (NET) <Q>;
+`     Ease of communication with family;
+`     Sent money to mother;
+`     Concern for parents;
+
+TRUST NET<Q>;
+`     Trust Gcash;
+
+
+VAGUE RESPONSES (NET) <Q>;
+`     Vague;
+`     Happy;
+`     Lost his money from Gcash;
+
+OTHERS (NET) <Q>;
+`     Can connect to others;
+
+
+NONE (NET) <Q>;
+`     None;
+`     Don't know;
+`     No Idea;
+
+Missing answers<z>;
+Total count<c>",
+
+
+[*DATA Q222ACTION (;) = 
+Made me want to use GCash more in my transactions;
+I became more interested in other GCash features;
+I will likely recommend GCash to other people;
+Made me want to use GCash over other brands for my transactions;
+Made me want to stay hopeful and pursue progress with GCash]
+
+
+[*DO A = 1:5]
+DM $TQ222_[A] = $T_Q222_[A]/1-3,
+R,F,
+XT = "Q222. ACTION AFTER AD - [Q222ACTION.A]",
+X = "
+Agree Strongly;
+Agree Somewhat;
+Disagree;
+
+Missing answers<z>;
+Total count<c>",
+[*END A]
+
+[*DATA METRICS (;) =
+The ad is unique and different;
+The ad was very enjoyable to watch;
+The ad told me something new;
+What was told in the ad is relevant to me;
+The ad increased my interest in the brand;
+You found it difficult to believe what the said;
+The ad is meaningful for me;
+This ad is fit for the brand]
+
+[*DO A = 1:8]
+DM $TQ223_[A] = $T_Q223_[A]/1-3,
+R,F,
+XT = "Q223. AD EVALUATION METRICS - [METRICS.A]",
+X = "
+Agree Strongly;
+Agree Somewhat;
+Disagree;
+
+Missing answers<z>;
+Total count<c>",
+[*END A]
+
+
+
+
+
+
+
+! == NEW Qs Source == !
+DM $TNEW = 
+$T_Q27_1/4,
+$T_Q27_1/6,
+($FQ193/nb),
+$TQ27_REG/1,
+
+VT = "NEW Questions Source",
+V = "
+Q27a. Source;
+Q27b. Source;
+Q193. Source;
+Q197. Source",
+
+
+
+
+
+
+DM $DUMMY = T,
+VT = "DUMMY",
+V = "Total<S>",
+
+
+
+
+!{=================================================}!
+!{==================== Q3 2023 ====================}!
+!{=================================================}!
+
+DM $TQ40b = $Q40b/
+1+48+68,
+1,
+48,
+68,
+8+14+73,
+8,
+14,
+73,
+12+63,
+12,
+63,
+46,
+46,
+13+10+23+78,
+13+10,
+23,
+78,
+20+28+54,
+20,
+28+54,
+51,
+51,
+53,
+53,
+70+83,
+70,
+83,
+32,
+32,
+35,
+35,
+38,
+38,
+2+4+7+9+17+19+47+21+24+25+31+45+57+61+62+72,
+2,
+4,
+7,
+9,
+17,
+19+47,
+21,
+24,
+25,
+31,
+45,
+57,
+61,
+62,
+72,
+43,
+43,
+50+56,
+50,
+56,
+71,
+71,
+33,
+33,
+59,
+59,
+3+44+5+6+22+36+55+58+74,
+3+44,
+5,
+6+22,
+36,
+55,
+58,
+74,
+11+15+16+18+26+30+37+27+41+42+60+64+65+76+80+81,
+11,
+15,
+16,
+18,
+26+30+37,
+27,
+41,
+42,
+60,
+64,
+65,
+76,
+80,
+81,
+40,
+40,
+29,
+29,
+34+39+49+52+66+67+69+75+77+79+82,
+34,
+39,
+49,
+52,
+66,
+67,
+69,
+75,
+77,
+79,
+82,
+R,F,
+VT = "Q40b. REASONS FOR USING GCASH REGULARLY IN THE PAST 2 MONTHS",
+V = "
+TO SEND MONEY NET<Q>;
+`     Allowance;
+`     Sending money;
+`     Need to send money in Gcash for budgets;
+LOW SERVICE CHARGE FEE/ SERVICE CHARGE IS CHEAP NET<Q>;
+`     The charge is cheaper;
+`     No charge for loading;
+`     No need to pay charges;
+TO SAVE MONEY NET<Q>;
+`     To save money;
+`     You can save your cash if you are using online transaction;
+CAN USE IF NO CASH NET<Q>;
+`     If no cash;
+TO PAY BILLS NET<Q>;
+`     Payment of bills;
+`     Debt payment;
+`     For Medical purposes and Tobacco;
+SECURITY NET<Q>;
+`     Money is secured in Gcash;
+`     Safe to send money;
+FOR SCHOOL NET<Q>;
+`     For the school to facilitate the transaction;
+TO RECEIVE PAYMENT FROM CUSTOMERS NET<Q>;
+`     Payment from customer;
+TO PAY FOR ONLINE GAMES NET<Q>;
+`     Pay for online games;
+`     For Casino;
+CASHLESS NET<Q>;
+`     Cashless;
+FOR PAYROLL/ SALARY NET<Q>;
+`     Send my salary in Gcash;
+HAS VARIETY OF SERVICES NET<Q>;
+`     Many services;
+CONVENIENCE NET<Q>;
+`     Convenient;
+`     Efficient;
+`     Easy to receive money / Claim;
+`     Easy way to buy load;
+`     Gcash is esier to use compared with remitance centers;
+`     Hassle free;
+`     Easy transaction;
+`     Easy to use;
+`     Less time consumed;
+`     Easy to cash in/ Cash out;
+`     No need to pay fares and stand in line to pay bills;
+`     Effortless;
+`     Much better because in one click your transaction well done;
+`     Just receive no need going outside for cash out;
+`     Makes life easier using Gcash;
+SAFETY NET<Q>;
+`     Money is safe because you don't have to carry in you hand;
+TO AVAIL PROMOS NET<Q>;
+`     For registered in 7 days promo;
+`     More promos;
+FOR PAYMENT NET<Q>;
+`     Grab payment;
+FOR EMERGENCY NET<Q>;
+`     For emergency purposes;
+FOR LOANING/ BORROWING MONEY NET<Q>;
+`     Easy loan without deduction charges;
+FAST TRANSACTION NET<Q>;
+`     Fast transaction;
+`     Quick payment of purchase;
+`     Fast to transfer/send money;
+`     Fast Receiving of money;
+`     Quick Payment using Gcash;
+`     Easy to pay online;
+`     The order is fast;
+ACCESSIBILITY NET<Q>;
+`     Accessible even I use my cellphone;
+`     Can cash out anywhere;
+`     No need go to town becasuse there are many Gcash centers here;
+`     You won't go to the store to load more when you have GCASH;
+`     Can use Anytime;
+`     Can use Anywhere;
+`     Most of the stablishment accepting;
+`     Gcash is more available than other;
+`     It is easier to pay because you don’t need to line up and bring a jeep;
+`     No need to go to store;
+`     No need to go to outside at home;
+`     Stable internet;
+`     Comfortable;
+`     Reliable;
+ACCURACY NET<Q>;
+`     Accurate;
+VAGUE NET<Q>;
+`     New account;
+OTHERS NET<Q>;
+`     Have lots scammer;
+`     Save on shipping fee;
+`     To save costs;
+`     Personal use;
+`     I use to it to contact my friends;
+`     Very important;
+`     My account is only Gcash;
+`     No need reference number;
+`     Complete apps;
+`     Because of Toda obligatory;
+`     No need Valid ID;
+Missing answers<z>;
+Total count<c>",
+
+
+DM $TQ40c = $Q40c/
+1+22+26,
+1,
+22,
+26,
+5,
+5,
+6+11+17,
+6,
+11,
+17,
+10,
+10,
+20,
+20,
+23,
+23,
+2+8+16+18,
+2,
+8,
+16,
+18,
+3+12,
+3,
+12,
+4+9,
+4,
+9,
+7+13+14+15+19+21+24+25,
+7,
+13,
+14,
+15,
+19,
+21,
+24,
+25,
+9999,
+9998,
+R,F,
+VT = "Q40c. DRIVERS TO USE GCASHMONTHS",
+V = "
+ACCOUNT NET<Q>;
+`     If Fully verifed;
+`     When I get Cellphone;
+`     If I have valid ID;
+ACCESS NET<Q>;
+`     If have stable internet connection;
+FOR PAYMENT NET<Q>;
+`     For online payment only;
+`     Easier process for payment;
+`     Pay bills;
+FOR SAVINGS NET<Q>;
+`     Savings;
+GOOD SERVICE NET<Q>;
+`     If can be sure that the Gcash service is good;
+RECOMMENDED NET<Q>;
+`     When my friend recommend it to me;
+FOR SENDING MONEY NET<Q>;
+`     Need for sending money;
+`     Easy to transfer money;
+`     When I send money;
+`     To receive money when someone sends;
+TO BUY LOAD NET<Q>;
+`     Load purchase;
+`     Convenient in loading;
+FOR TRANSACTIONS NET<Q>;
+`     When I have transaction;
+`     For Cash out / Cash in;
+OTHERS NET<Q>;
+`     If needed;
+`     When my Gcash has money;
+`     When I learned to use it;
+`     If someone sends money regularly;
+`     My Gcash is empty;
+`     I want Gcash to have an Atm;
+`     Has Pay Maya account;
+`     When I feel safe;
+None;
+Don't know;
+Missing answers<z>;
+Total count<c>",
+
+
+
+DM $TMBC4 = $MBC4/
+1+20+23+27+33+34+2+3+4+5+6+46+47+48+50,
+1,
+20,
+23,
+27,
+33,
+34,
+2,
+3,
+4,
+5,
+6,
+46,
+47,
+48,
+50,
+7+8+36+37+39+39+40+41+45,
+7,
+8,
+36,
+37,
+39,
+39,
+40,
+41,
+45,
+9,
+9,
+10+11+31+38+44,
+10,
+10,
+11+31+38+44,
+11,
+31,
+38,
+44,
+12,
+12,
+13+14+35,
+13,
+14,
+35,
+19,
+19,
+30+32,
+30,
+32,
+15+16+17+18+22+25+26+42+43+44+49+60,
+15,
+16,
+17,
+18,
+22,
+25,
+26,
+42,
+43,
+44,
+49,
+60,
+21+28+51+52+53+54+55+56+57+58+59+61+62+63+64+65+66+67+68+69+70+71+72+73+74+75+76+77+78+79+80+81,
+21,
+28,
+51,
+52,
+53,
+54,
+55,
+56,
+57,
+58,
+59,
+61,
+62,
+63,
+64,
+65,
+66,
+67,
+68,
+69,
+70,
+71,
+72,
+73,
+74,
+75,
+76,
+77,
+78,
+79,
+80,
+81,
+9997+9998+9995,
+9997,
+9998,
+9995,
+9999+29,
+R,F,
+VT = "MBC4. SPONTANEOUS KEY MESSAGE TAKE OUT",
+V = "
+AD IS PROMOTING TO CHOOSE/ USE A BANK OR E-WALLET FOR ONLINE TRANSACTIONS (NO MENTIONS OF MAYA BANK) NET<Q>;
+`     Ad is promoting to use/ choose a bank or e-wallet for online transactions;
+`     Download apps;
+`     Make sure you choose where you deposit money;
+`     Online Banking;
+`     Money is secure;
+`     Money transfer;
+`     Choose a bank that you like and is trustworthy;
+`     Buy their product;
+`     Liked by everyone;
+`     Preferred by people;
+`     No interest rate;
+`     Cashless;
+`     cash of the town not my bank;
+`     Crush of the town;
+`     Cash Credit;
+AD IS PROMOTING TO CHOOSE/ USE MAYA BANK NET<Q>;
+`     Ad is promoting to use/ choose Maya Bank for transactions;
+`     Ad is promoting Paymaya/ Maya Bank;
+`     PayMaya can be used anywhere;
+`     Maya is like a bank;
+`     Pay Maya is online where you can also send money;
+`     Pay Maya is well known;
+`     Pay maya gives fast transaction;
+`     Pay maya is a digital banking / All in one;
+`     Better to used Paymaya;
+AD IS PROMOTING TO CHOOSE/ USE GCASH NET<Q>;
+`     GCash can help even if you're only using data;
+AD BEING COMPARED TO GCASH NET<Q>;
+`     AD BEING COMPARED TO GCASH (NO MENTIONS OF MAYA) SUBNET<Q>;
+`          Convenient in paying bills, like GCash;
+`     AD BEING COMPARED TO GCASH (WITH MENTIONS OF MAYA) SUBNET<Q>;
+`          Can also send money using Paymaya, like Gcash;
+`          What GCash can do, PayMaya can do even more;
+`          swich to maya;
+`          New maya;
+EASE OF TRANSACTION USING E-WALLET (MENTIONS OF BOTH MAYA AND GCASH) NET<Q>;
+`     Ease of transaction using E-Wallet;
+EASE OF TRANSACTION (NO MENTIONS OF ANY BRAND) NET<Q>;
+`     Easy to save money;
+`     Easy to send and receive money;
+`     Faster sending of money;
+ABOUT BUSINESS<Q>;
+`     For those who have business;
+MESSAGE ASSOCIATED WITH MAYA (NEGATIVE)<Q>;
+`     Ad is not favorable to Maya;
+`     PayMaya is not a bank;
+VAGUE RESPONSES<Q>;
+`     For the mass;
+`     Access/ Financial Transactions;
+`     E-Wallet;
+`     Subscribe;
+`     Drinking Coffee;
+`     Just for coffe , no money to pay for coffee;
+`     Show how to drink coffee;
+`     Actor;
+`     Pay maya Is already here;
+`     Crush of town;
+`     Relax;
+`     Not my Bank;
+OTHERS (NET)<Q>;
+`     Well known;
+`     Endorsed;
+`     It was shown to people that they need to use maya;
+`     Put their money in the bank;
+`     Can pay in Paymaya;
+`     Convince to download the apps;
+`     Remitances;
+`     She can use a Cellphone;
+`     He introduces the new apps now;
+`     Use pay maya;
+`     Easy to use just like relaxing;
+`     Everyone uses Paymaya;
+`     Convince to download the apps;
+`     She can use a Cellphone;
+`     He introduces the new apps now;
+`     No hastle for Cash;
+`     It seems to have a strong human appeal;
+`     Save maoney on Paymaya;
+`     Money is safer;
+`     Launching the sparrow;
+`     About e wallet;
+`     Sad becuase he got pay maya;
+`     Self Confident;
+`     With the availability of pay maya you can get a discount for using it;
+`     encouraging others to have paymaya;
+`     Pay maya's product can be used at restaurant or fiesta;
+`     New technologies to be tried in transaction payments and financial innovations;
+`     Most people like;
+`     Won't crash the system of maya;
+`     The message of the photo is clear;
+`     Its like paymaya apps are being tested on everyone;
+`     She wants to be happy;
+CAN'T SAY/ DON'T KNOW<Q>;
+`     Can't say;
+`     Don't know;
+`     Cant recall/ No idea;
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+DM $TMBC3 = $MBC3/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+19,
+20,
+21,
+22,
+23,
+24,
+25,
+26,
+27,
+28,
+29,
+30,
+31,
+32,
+33,
+34,
+35,
+36,
+37,
+38,
+39,
+40,
+41,
+42,
+43,
+44,
+45,
+46,
+47,
+1030,
+1031,
+1032,
+1033,
+1034,
+1035,
+1036,
+1037,
+1038,
+1039,
+99,
+R,F,
+VT = "MBC3. SPONTANEOUSLY MENTION THE BRAND",
+V = "
+Gcash;
+PayMaya/ Maya;
+Coins.ph;
+PayPal;
+TrueMoney;
+DragonPay;
+GrabPay;
+AliPay;
+WeChat Pay;
+Beep;
+CLIQQ;
+BPI Mobile/ Online;
+BDO Mobile/ Online;
+ECPay;
+Landbank Mobile/ Online;
+Metrobank Mobile/ Online;
+CIMB Bank;
+Unionbank Mobile/ Online;
+Security Bank Mobile/ Online;
+DiskarTech;
+BDO Pay;
+ShopeePay;
+LazWallet;
+ML Wallet;
+eCebuana;
+SquidPay;
+Bayad Center Online / App;
+Tonik;
+BancNet Online;
+Moneygment;
+Payoneer;
+RCBC mobile;
+StarPay;
+Maybank's Isave;
+HelloMoney;
+Eon;
+Komo;
+OFBank;
+PBCOMobile;
+PSBank Mobile;
+Touch Pay;
+SeaBank;
+Remitly;
+Xendpay;
+GoTyme;
+Vybe by BPI;
+PalawanPay;
+Cellphone;
+Smart;
+Coffee;
+Globe;
+Pepsi;
+Twitter;
+Internet;
+Bank;
+Gigalite;
+Nescafe;
+Don't know;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+DM $TMBC1 = $MBC1/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+19,
+20,
+21,
+22,
+23,
+24,
+25,
+26,
+27,
+28,
+29,
+30,
+31,
+32,
+33,
+34,
+35,
+36,
+37,
+38,
+39,
+40,
+41,
+42,
+43,
+44,
+45,
+46,
+47,
+1030,
+1031,
+1032,
+1033,
+1034,
+1035,
+1036,
+1037,
+1038,
+1039,
+99,
+R,F,
+VT = "MBC1. SPONTANEOUSLY MENTION THE BRAND",
+V = $TMBC3,
+
+
+
+
+DM $TDB17 = $DB17/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+1030+1031,
+1030,
+1031,
+99,
+R,F,
+VT = "DB17. LIKES PER DIGITAL BANK",
+V = "
+Safe and secure to use;
+Easy and convenient to use;
+App is easy to navigate;
+High interest rate;
+Easy to deposit money;
+Easy to withdraw money;
+Provides physical card for free/ with minimal fee;
+Recommended/ used by family/ friends;
+Easy to open an account;
+App is user-friendly;
+Has many product features and services that are relevant or suitable to my needs;
+X1;
+OTHERS (NET);
+`     Has Rewards points;
+`     Has free 10 pesos;
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+DM $TDB1 = $DB1/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+1030+1031+1032+1033,
+1030,
+1031,
+1032,
+1033,
+R,F,
+VT = "DB1. SOURCES OF BRAND AWARENESS",
+V = "
+Maya Savings;
+CIMB Bank PH;
+GoTyme;
+UNOBank;
+SEABank;
+Tonik;
+Overseas Filipino Bank (OFBank);
+UnionDigital Bank;
+ING Philipines;
+DiskarTech;
+Komo;
+GSave (bank partner unspecified);
+GSave by CIMB;
+#MySaveUp by BPI;
+EzySave+ by Maybank;
+#UNOReady@GCash by UNO Digital Bank;
+OTHERS (NET);
+`     BDO;
+`     Union Bank;
+`     Gcash;
+`     Net Bank;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+DM $TDB2 = $DB2/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+19,
+21,
+22,
+23,
+24,
+1030+1033+1034+1035+1036+1037+1039,
+1030,
+1033,
+1034,
+1035,
+1036,
+1037,
+1039,
+1031+1032+1038,
+1031,
+1032,
+1038,
+R,F,
+VT = "DB2. SOURCES OF BRAND AWARENESS",
+V = "
+Banners or tarps on waiting sheds, inside the malls, terminals/ stop-overs, etc.;
+Billboards;
+Blog (Blogger endorsements);
+Branded delivery trucks;
+Celebrity endorser;
+Cinemas;
+Company website;
+Email blasts;
+Events/Activations;
+Heard from family/ relatives;
+Heard from friend/colleagues/workmates;
+In-store materials (i.e. posters, price tags, streamers, stickers, brochures, etc.);
+Newspapers/Magazines;
+Product Displays in Stores;
+Radio;
+Samples/leaflets;
+Transit ads;
+TV;
+Facebook;
+Instagram;
+Twitter;
+Youtube;
+Tiktok;
+OTHERS (NET);
+`     Malls;
+`     Someone offered;
+`     Company;
+`     Union Bank Teller;
+`     Sa Bayan Nova;
+`     Google;
+`     Sari- Sari store;
+WITIN THE E- WALLET APP (NET);
+`     Feature GCash;
+`     Gcash;
+`     Maya's Apps;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+
+DM $TDB14 = $DB14/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+1030+1031,
+1030,
+1031,
+R,F,
+VT = "DB14. MODE OF MONEY TRANSFER TO DIGITAL BANKS FOR PERSONAL SAVINGS",
+V = "
+Maya Savings;
+GSave by CIMB;
+#MySaveUp by BPI;
+EzySave+ by Maybank;
+#UNOReady@GCash by UNO Digital Bank;
+CIMB Bank PH;
+GoTyme;
+UNOBank;
+SEABank;
+Tonik;
+OTHERS (NET);
+`     Through store with pay maya;
+`     Paymaya;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+DM $TDB18 = $DB18/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+1030,
+1030,
+99,
+R,F,
+VT = "DB18. DISLIKES PER DIGITAL BANK",
+V = "
+Not as safe and secure to use as other digital banks;
+Not as safe and secure to use as traditional banks with physical branches;
+There are no physical branches that I can go to if I have any issues or concerns;
+Customer service is not responsive;
+App and website are too difficult or complicated to use;
+App is not user-friendly;
+Low interest rate;
+Difficult to deposit money;
+Difficult to withdraw;
+Not used by my family and friends;
+Has system downtime often;
+App is always down;
+Has high service fees and charges;
+Has  Heard negative reviews/ feedback from others;
+OTHERS (NET)<Q>;
+`     Signal if no data;
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+DM $TDB20 = $DB20/
+1,
+2,
+3,
+4,
+5,
+6,
+1030,
+1030,
+9995,
+R,F,
+VT = "DB20. AD ENDORSER RECALL",
+V = "
+Liza Soberano;
+James Reid;
+Cong TV;
+Macoy Dubs;
+Donny Pangilinan;
+Mimiyuuuh;
+OTHERS (NET);
+`     Just text;
+Cant recall/ No idea;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TB22 = $B22/
+1+13+16+23+26,
+1,
+13,
+16,
+23,
+26,
+2+6+7+3+4+8,
+2+6+7,
+3,
+4,
+8,
+5,
+5,
+9+10+11+14+21,
+9+10+11+14+21,
+12+17+18+20+24+25,
+12+17+18+20+24+25,
+19,
+19,
+15+22+27,
+15,
+22,
+27,
+9998,
+9997,
+R,F,
+VT = "B22. ",
+V = "
+TRANSACTION NET;
+`     Cashless;
+`     Can use in pay bills;
+`     There are many transactions that can be done in paymaya;
+`     Not your ordinary bank its all in bank you pay bills;
+`     Can Use pay maya in all transaction;
+EASE OF TRANSACTION/ CONVENIENCE NET;
+`     Ease of transaction;
+`     Ease of saving money;
+`        Easy to save;
+`        'Most Convenient;
+ACCESSIBILITY NET;
+`     Accesible;
+HIGH INTEREST RATE NET;
+`     Has high interest rate;
+PROMOS/ REWARDS/ REFFERAL FEE NET;
+`     Has refferal fee;
+BRAND IMAGE NET;
+`     Using a trusted brand is more safe and more services;
+OTHERS NET;
+`     Low interest;
+`     Not my bank;
+`     Subscribe pay maya;
+Don't know;
+Can't say;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TS3 = $S3/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8+1049,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+1001,
+1002,
+1003,
+1004,
+1005,
+1006,
+1007,
+1008,
+1009,
+1010,
+1011,
+1012,
+1013,
+1014,
+1015,
+1016,
+1017,
+1018,
+1019,
+1020,
+1021,
+1022,
+1023,
+1024,
+1025,
+1026,
+1027,
+1028,
+1029,
+1030,
+1031,
+1032,
+1033,
+1034,
+1035,
+1036,
+1037,
+1038,
+1039,
+1040,
+1041,
+1042,
+1043,
+1044,
+1045,
+1046,
+1047,
+1048,
+9999,
+R,F,
+VT = "S3. REASONS FOR LESS FREQUENT USAGE OF GCASH",
+V = "
+I've reduced my expenses due to budget constraints;
+I asked other people (other family member/ friends) to do financial transactions that I usually do;
+I don't have stable internet connection / need data to do GCash transactions;
+I have multiple GCash accounts and using this account less frequently;
+I have been having difficultie;
+Had a recent experience wherein my transaction was unsuccessful;
+I switched back to cash/ COD or use offline channels more such as 7-Eleven, Bayad Center, Remittance Center, etc.;
+I now use other digital modes of payment more such as Maya or Online Banking than GCash;
+GCash is often on maintenance when I need it;
+I was scammed in GCas;
+My perception on GCash changed due to the recent security incident;
+I no longer trust GCash with my transactions and funds;
+I hear a lot of negative feedback about GCash on social media and/or from other people;
+Difficult to reach the customer service of GC;
+Customer Service was not able to resolve my concerns / issues;
+New Account;
+On Vacation Rarely send;
+Brank transfer Frequently;
+Underage;
+Afraid to hack my account;
+Busy on my work;
+Don't have own account;
+I don't use bank transfer;
+I don’t know how to use;
+I don't need it right now, when I'm in a pinch before I go to gloan.;
+Not yet Verified my account;
+Because of scam;
+My Cellphone is keypad;
+If necessary when the relatives ask;
+Charge is expensive;
+Easier cash load;
+Sometimes my gcash is empty;
+My account is close;
+My gcash app got deleted;
+My husband/ wife moves white playing games;
+My Cellphone is broken;
+Lost sim;
+Change number;
+No account;
+None user ewallet;
+Being lazy;
+Use for payment of my small business;
+Don't have savings;
+Don’t have Gcash;
+I have not use anything;
+No smart phone;
+I don't have any transaction in Gcash;
+No Valid ID;
+No use yet;
+i dont to cash out frequently due to the easiness of gcash;
+Can't try use Gloan;
+On vacation;
+I made a bank transfer;
+I only use gcash on other people because I don't have an account and I don't have a smart cellphone;
+Busy on my work;
+Can't download app;
+Full Storage;
+Stop on my `"Paluwagan`";
+Difficult to registered;
+The store need our home;
+Lack of money;
+Because I was'nt paid anything;
+No smart phone;
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TS4 = $S4/
+1,
+2,
+3,
+4,
+5,
+6+1049,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+1001,
+1002,
+1003,
+1004,
+1005,
+1006,
+1007,
+1008,
+1009,
+1010,
+1011,
+1012,
+1013,
+1014,
+1015,
+1016,
+1017,
+1018,
+1019,
+1020,
+1021,
+1022,
+1023,
+1024,
+1025,
+1026,
+1027,
+1028,
+1029,
+1030,
+1031,
+1032,
+1033,
+1034,
+1035,
+1036,
+1037,
+1038,
+1039,
+1040,
+1041,
+1042,
+1043,
+1044,
+1045,
+1046,
+1047,
+1048,
+9999,
+R,F,
+VT = "S4. REASONS FOR LESS FREQUENT USAGE OF GCASH",
+V = "
+I've reduced my expenses due to budget constraints;
+I asked other people (other family member/ friends) to do financial transactions that I usually do;
+I have been having difficultie;
+Had a recent experience wherein my transaction was unsuccessful;
+I switched back to cash/ COD or use offline channels more such as 7-Eleven, Bayad Center, Remittance Center, etc.;
+I now use other digital modes of payment more such as Maya or Online Banking than GCash;
+I don't feel safe anymore to transact high amount in GCash;
+I was scammed in GCas;
+My perception on GCash changed due to the recent security incident;
+I no longer trust GCash with my transactions and funds;
+I hear a lot of negative feedback about GCash on social media and/or from other people;
+Difficult to reach the customer service of GC;
+Customer Service was not able to resolve my concerns / issues;
+New Account;
+On Vacation Rarely send;
+Brank transfer Frequently;
+Underage;
+Afraid to hack my account;
+Busy on my work;
+Don't have own account;
+I don't use bank transfer;
+I don’t know how to use;
+I don't need it right now, when I'm in a pinch before I go to gloan.;
+Not yet Verified my account;
+Because of scam;
+My Cellphone is keypad;
+If necessary when the relatives ask;
+Charge is expensive;
+Easier cash load;
+Sometimes my gcash is empty;
+My account is close;
+My gcash app got deleted;
+My husband/ wife moves white playing games;
+My Cellphone is broken;
+Lost sim;
+Change number;
+No account;
+None user ewallet;
+Being lazy;
+Use for payment of my small business;
+Don't have savings;
+Don’t have Gcash;
+I have not use anything;
+No smart phone;
+I don't have any transaction in Gcash;
+No Valid ID;
+No use yet;
+i dont to cash out frequently due to the easiness of gcash;
+Can't try use Gloan;
+On vacation;
+I made a bank transfer;
+I only use gcash on other people because I don't have an account and I don't have a smart cellphone;
+Busy on my work;
+Can't download app;
+Full Storage;
+Stop on my `"Paluwagan`";
+Difficult to registered;
+The store need our home;
+Lack of money;
+Because I was'nt paid anything;
+No smart phone;
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TDO1 = $DO1/
+3,
+4,
+5,
+1+2,
+1001+1002+1003+1004+1005+1006+1007+1008+1009+1010+1061+1062+1204+1316+1317+1370+1371,
+1001,
+1002,
+1003,
+1004,
+1005,
+1006,
+1007,
+1008,
+1009,
+1010,
+1061,
+1062,
+1204,
+1316,
+1317,
+1370,
+1371,
+1011+1012+1053+1054+1055+1056+1057+1309+1311+1312+1313+1361+1362+1363+1364+1365,
+1011,
+1012,
+1053,
+1054,
+1055,
+1056,
+1057,
+1309,
+1311,
+1312,
+1313,
+1361,
+1362,
+1363,
+1364,
+1365,
+1013+1014+1015+1016+1058+1059+1060+1314+1315+1366+1367+1368,
+1013,
+1014,
+1015,
+1016,
+1058,
+1059,
+1060,
+1314,
+1315,
+1366,
+1367,
+1368,
+1017+1018+1019+1020+1021+1022+1091+1092+1093+1094+1119+1319+1335+1355+1356+1388+1389+1390+1391+1392+1410,
+1017,
+1018,
+1019,
+1020,
+1021,
+1022,
+1091,
+1092,
+1093,
+1094,
+1119,
+1319,
+1335,
+1355,
+1356,
+1388,
+1389,
+1390,
+1391,
+1392,
+1410,
+1023+1024+1050+1067+1080+1081+1082+1083+1084+1085+1086+1087+1088+1089+1090+1201+1207+1208+1330+1331+1332+1333+1334+1386+1387,
+1023,
+1024,
+1050,
+1067,
+1080,
+1081,
+1082,
+1083,
+1084,
+1085,
+1086,
+1087,
+1088,
+1089,
+1090,
+1201,
+1207,
+1208,
+1330,
+1331,
+1332,
+1333,
+1334,
+1386,
+1387,
+1025+1026+1027+1028+1029+1030+1031+1032+1033+1095+1096+1097+1098+1099+1100+1101+1102+1103+1104+1105+1209+1308+1336+1337+1338+1339+1340+1341+1342+1343+1344+1345+1346+1347+1360+1393+1394+1395+1396+1397+1398+1399+1400,
+1025,
+1026,
+1027,
+1028,
+1029,
+1030,
+1031,
+1032,
+1033,
+1095,
+1096,
+1097,
+1098,
+1099,
+1100,
+1101,
+1102,
+1103,
+1104,
+1105,
+1209,
+1308,
+1336,
+1337,
+1338,
+1339,
+1340,
+1341,
+1342,
+1343,
+1344,
+1345,
+1346,
+1347,
+1360,
+1393,
+1394,
+1395,
+1396,
+1397,
+1398,
+1399,
+1400,
+1034+1035+1036+1037+1038+1039+1040+1108+1109+1110+1111+1112+1113+1114+1115+1116+1117+1118+1302+1303+1304+1305+1306+1350+1351+1352+1353+1354+1357+1404+1405+1406+1407+1408+1409,
+1034,
+1035,
+1036,
+1037,
+1038,
+1039,
+1040,
+1108,
+1109,
+1110,
+1111,
+1112,
+1113,
+1114,
+1115,
+1116,
+1117,
+1118,
+1302,
+1303,
+1304,
+1305,
+1306,
+1350,
+1351,
+1352,
+1353,
+1354,
+1357,
+1404,
+1405,
+1406,
+1407,
+1408,
+1409,
+1041+1042+1043+1044+1045+1046+1049+1069+1070+1071+1072+1073+1074+1075+1076+1077+1078+1200+1205+1206+1307+1321+1322+1323+1324+1325+1326+1327+1374+1375+1376+1377+1378+1379+1380+1381+1382+1383,
+1041,
+1042,
+1043,
+1044,
+1045,
+1046,
+1049,
+1069,
+1070,
+1071,
+1072,
+1073,
+1074,
+1075,
+1076,
+1077,
+1078,
+1200,
+1205,
+1206,
+1307,
+1321,
+1322,
+1323,
+1324,
+1325,
+1326,
+1327,
+1374,
+1375,
+1376,
+1377,
+1378,
+1379,
+1380,
+1381,
+1382,
+1383,
+1079+1328+1329+1384,
+1079,
+1328,
+1329,
+1384,
+1047+1048+1106+1202+1300+1348+1349+1401+1402,
+1047,
+1048,
+1106,
+1202,
+1300,
+1348,
+1349,
+1401,
+1402,
+1107,
+1107,
+1051,
+1051,
+1052+1359,
+1052,
+1359,
+1063+1064+1065+1066+1310,
+1063,
+1064,
+1065,
+1066,
+1310,
+1068,
+1068,
+1203,
+1203,
+1301,
+1301,
+1318,
+1318,
+1320+1373,
+1320,
+1373,
+1358,
+1358,
+1369,
+1369,
+1372,
+1372,
+1385,
+1385,
+1403,
+1403,
+99,
+R,F,
+VT = "DO1. MOBILE DEVICE OWNERSHIP",
+V = "
+Feature Phone (It has internet capabilities, supports 3G, it can have a touchpad/touchscreen but not an OS. Can't download apps.);
+Basic/Keypad Phone (It has no internet capabilities.);
+Tablet with or without SIM;
+Smartphone (NET)<Q>;
+`     IPHONE/APPLE (NET)<Q>;
+`          I PHONE;
+`          5s iphone;
+`          I phone14 promax;
+`          IPHONE 11;
+`          Iphone 12;
+`          IPHONE 13;
+`          iPhone 14 pro;
+`          IPHONE 6S+;
+`          iPhone xr;
+`          iPhone8+;
+`          IPHONE 6;
+`          IPhone 7;
+`          iPhone 13 pro;
+`          IPhone 10;
+`          IPhone 7+;
+`          iPhone 14;
+`          iPhone 6+;
+`     HUAWEI (NET)<Q>;
+`          Huawei;
+`          Huawei Y Pro 9;
+`          Huawei Nova 3i;
+`          Huawei Nova 95E;
+`          Huawei Y5 Lite;
+`          Huawei Y6;
+`          Huawei Y72019;
+`          Honorx6;
+`          Huawei Nova 7i;
+`          Huawei Y6 Pro;
+`          Huawie Nova8i;
+`          honor;
+`          Huawei 360;
+`          Huawei C4;
+`          Huawei Nova;
+`          Huawei Y52;
+`     INFINIX (NET)<Q>;
+`          infinix;
+`          infinix 30i;
+`          infinix hot30i;
+`          INIFINIX NOTE 12;
+`          Infinix hot 10;
+`          INFINIX HOT 11;
+`          Infinix smart7;
+`          Infinix 4;
+`          Infinix smart 5;
+`          Infinix zero 5g;
+`          Infinix hot 9;
+`          Infinix 11;
+`     XIAOMI (NET)<Q>;
+`          Xiaomi;
+`          Xiaomi 11 5gNe;
+`          Xiaomi 11T;
+`          Redmi 9c;
+`          Redme;
+`          Redmi Note 12 pro;
+`          Redme 9;
+`          Redmi 5 pro;
+`          Redmi note9;
+`          Redmi 10;
+`          Xiaomi Redmi;
+`          MIUI;
+`          Redmi Note11 pro;
+`          Xiaomi c6;
+`          Xiaomi 10T pro;
+`          Redmi M10 plus;
+`          Xiaomi Redmi 6a;
+`          Redmi 7a;
+`          Redmi 8 Pro;
+`          REDMI 9A;
+`          Xiaomi Redmi note 10;
+`     REAL ME (NET)<Q>;
+`          real me;
+`          REALME C35;
+`          Real Me c25;
+`          Realme Narzo 20;
+`          Real me 6;
+`          Real me C11;
+`          Realme C30;
+`          Realme Dizo;
+`          Realme 5i;
+`          Realme 6i;
+`          Realme C22;
+`          Realme C12;
+`          Realme C21y;
+`          Realme 7;
+`          Realme C55;
+`          Realme C53;
+`          Realme 8;
+`          Realme C3;
+`          Realme 10 pro;
+`          Realme c15;
+`          Realme c2;
+`          Realme c32;
+`          Realme c33;
+`          Realme c3;
+`          Realme X2 Pro;
+`     SAMSUNG (NET)<Q>;
+`          Samsung;
+`          SAMSUNG A10S;
+`          SAMSUNG A30;
+`          SAMSUNG A73;
+`          Samsung galary pro7;
+`          Samsung galaxy s6;
+`          Samsung galaxya80;
+`          Samsung j12;
+`          SamsungA1;
+`          Samsung Galaxy;
+`          Samsung a32;
+`          Samsung a4;
+`          Samsung a50;
+`          Samsung a51;
+`          Samsung as21;
+`          Samsung J2 Prime;
+`          Samsung J4;
+`          Samsung M11;
+`          Samsung s7 edge;
+`          Samsung a20;
+`          Samsung a5;
+`          Samsung Galaxy a02s;
+`          Samsung Galazy a12;
+`          Samsung a17;
+`          Samsung a3;
+`          Samsung Galazy a42;
+`          Samsung Galaxy dous;
+`          Samsung Galaxy a23;
+`          Samsung Galaxy a04e;
+`          Samsung Galaxy A13;
+`          Samsung Galaxy J6;
+`          Samsung Galaxy s9+;
+`          Samsung j12;
+`          Samsung Note 8;
+`          Samsung galaxy M02;
+`          Samsung galaxy J7;
+`          Samsung a31;
+`          Samsung galaxy a11;
+`          Samsung a14;
+`          Samsung Galaxy a23;
+`          Samsung Galaxy j5;
+`          Samsung  j1;
+`          Samsung note;
+`     VIVO (NET)<Q>;
+`          Vivo;
+`          Vivoy20i;
+`          Vivo Y02;
+`          Vivo Y11;
+`          Vivo Y12;
+`          Vivo Y16;
+`          Vivo 11;
+`          Vivo a16;
+`          Vivo 1806;
+`          Vivo 27e;
+`          Vivo Y1;
+`          Vivo Y14;
+`          Vivo Y15;
+`          Vivo Y19;
+`          Vivo Y20;
+`          Vivo Y21;
+`          Vivo Y35;
+`          Vivo Y6;
+`          Vivo Y02;
+`          Vivo;
+`          Vivo  Y83;
+`          Vivo  1808;
+`          Vivo 32;
+`          Vivo Y33s;
+`          Vivo y76;
+`          Vivo Y91;
+`          Vivo1906;
+`          Vivo91c;
+`          Vivo s1 pro;
+`          Vivo S1;
+`          Vivo v25;
+`          Vivo y22;
+`          Vivo y27;
+`          Vivo Y30;
+`          Vivo T10;
+`     OPPO (NET)<Q>;
+`          Oppo;
+`          OPPO 5G;
+`          OPPO A15S;
+`          oppo a5s;
+`          OPPO A94;
+`          OPPO S28;
+`          Reno S7;
+`          Oppo 12a;
+`          Oppo a16;
+`          Oppo a16k;
+`          Oppo A31;
+`          OPPO A37;
+`          Oppo A3s;
+`          Oppo a53;
+`          Oppo a54;
+`          Oppo a57;
+`          Oppo 17k;
+`          Oppo a46;
+`          Oppo a71;
+`          Oppo a96;
+`          Oppo A33;
+`          Oppo A23;
+`          Oppo a83;
+`          Oppo a95;
+`          Oppo CPH2083;
+`          Oppo Reno;
+`          Oppoa55;
+`          Oppo F9 pro;
+`          Oppo A2;
+`          Oppo a32;
+`          Oppo a35;
+`          Oppo a92;
+`          Oppo F11;
+`          Oppo F5;
+`          Oppo Reno 8;
+`          Oppo a7;
+`          Oppo F3;
+`          Oppo reno 10;
+`     POCO (NET)<Q>;
+`          Poco c40;
+`          Poco Fone f2;
+`          Poco M4;
+`          Pocco;
+`     TECHNO (NET)<Q>;
+`          Techno;
+`          Tecno 804A;
+`          Techno  Spark;
+`          Techno  Air6;
+`          Techno  k5;
+`          Techno Camon 16;
+`          Techno pova;
+`          Techno Camon 20;
+`          Techno Pop Lite 5;
+`     ULEFONE (NET)<Q>;
+`          Ulefone;
+`     AZUS (NET)<Q>;
+`          Azus;
+`     CHERRY MOBILE (NET)<Q>;
+`          Cherry Mobile;
+`          cherry mobile flare;
+`     ITEL (NET)<Q>;
+`          Itel;
+`          Itel A57;
+`          itel P37;
+`          itel Vision;
+`          Itel4g;
+`     NOKIA (NET)<Q>;
+`          Nokia;
+`     TCL (NET)<Q>;
+`          TCL;
+`     VFONE (NET)<Q>;
+`          Vfone;
+`     LG (NET)<Q>;
+`          LG;
+`     MY PHONE (NET)<Q>;
+`          Myphone my96;
+`          My Phone;
+`     ASUS (NET)<Q>;
+`          Asus;
+`     INTEL (NET)<Q>;
+`          Intel;
+`     LENOVO (NET)<Q>;
+`          Lenovo note 6;
+`     QNET (NET)<Q>;
+`          Qnet;
+`     UMIDIGI (NET)<Q>;
+`          Umidig a75;
+None, I do not have a personal mobile device;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TT3 = $T3/
+1+1016 +1032 +1034+1035,
+2,
+3,
+4,
+5,
+1030,
+1031,
+1033,
+1036,
+9998,
+9999,
+R,F,
+VT = "T3. WHAT BRAND WAS THIS AD FOR?",
+V = "
+GCash;
+PayMaya/Maya;
+BPI;
+BDO;
+ShopeePay;
+Globe;
+Simcard;
+Cebuana;
+Lazada;
+Cant recall / No Idea;
+Don't know;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TLM3 = $LM3/
+1+1016 +1032 +1034+1035,
+2,
+3,
+4,
+5,
+1030,
+1031,
+1033,
+1036,
+9998,
+9999,
+R,F,
+VT = "LM3. WHAT BRAND WAS THIS AD FOR?",
+V = $TT3,
+
+
+
+
+
+
+
+DM $TT5 = $T5/
+1+2+6+7+28+31,
+1+2+6+7+28+31,
+1,
+2,
+6,
+7,
+28,
+31,
+3+4+8+10+11+19+24+37+5+9,
+3+4+8+10+11+19+24+37,
+3,
+4,
+8,
+10,
+11,
+19,
+24,
+37,
+5+9,
+5,
+9,
+13+14+16+18+20+21+25+43+58+45+51+60+52+54+61+63+66+12+15+65,
+13,
+14,
+16,
+18,
+20,
+21,
+25,
+43+58,
+45,
+51+60,
+52,
+54,
+61,
+63,
+66,
+12+15+65,
+12,
+15,
+65,
+17+22+34+35+38+56+47+62,
+17,
+22,
+34,
+35,
+38+56,
+47+62,
+33,
+33,
+36+42+46+59+50+49+64,
+36,
+42,
+46,
+59+50,
+49,
+64,
+23+26+27+29+30+32+40+41+44+48+53+55+57,
+23,
+26,
+27,
+29,
+30,
+32,
+40,
+41,
+44,
+48,
+53,
+55,
+57,
+R,F,
+VT = "T5. DETAILED RECALL OF AD - MESSAGE DELIVERY",
+V = "
+TRANSACTION NET<Q> ;
+`     PROMOTION/ AD FOR GCASH SUBNET<Q>;
+`          Advertisement;
+`          Promotion for Gcash;
+`          Gcash;
+`          Download Gcash to play scatter and send money;
+`          Gcash helps;
+`          Show how to use gcash;
+INSPIRATIONAL MESSAGE NET<Q>;
+`     RESILIENCE SUBNET<Q>;
+`          Any challenge in life can we solved;
+`          As long as we have gcash, life will be easier, no matter how hard it is, we will fight;
+`          No matter your job is, you can handle it as long as it's for the family;
+`          Even if life is difficult, as long as there is effort and hard work, all dreams can come true;
+`          Where there is a problem there is always a solution;
+`          Resourceful in life;
+`          There is hope in life , there are many more ways to think of;
+`          Need to work hard even in a hard life , there is gcash to depend on;
+`     FAMILY SUBNET<Q>;
+`          Family bond;
+`          Any job will be done or hired as long as it is for the family;
+CONVENIENCE NET<Q>;
+`     Fast Transaction;
+`     Easy to use;
+`     Easy to ask for money;
+`     Trust the transaction will be easier;
+`     Convenience in all the time;
+`     Easy access to finacial transactions;
+`     Convince to use gcash;
+`     Loading is fast;
+`     Shows the excitement of using for fast money transactions;
+`     Easy to loan;
+`     More Efficient;
+`     Can do everywhere the transactions;
+`     Fast approve;
+`     Less Hastle;
+`     Can travel even don’t have cash;
+`     EASE OF SENDING MONEY TO FAMILY SUBNET<Q>;
+`          When the family needs it, it's easy to send through  Gcash;
+`          Easy send money to family through Gcash;
+`          Future saving for family;
+SEND/ RECEIVE MONEY NET<Q>;
+`     Send online;
+`     Sending money is easier if you have gcash;
+`     Showing the easier of remittance;
+`     Receiving money evern far from sending money;
+`     Easy to send and receive money;
+`     Transfer money;
+SAFETY NET<Q>;
+`     Safe to invest money in gcash;
+GCASH TRANSACTIONS NET<Q>;
+`     Buy using gcash online;
+`     Ways to earn money and pay using gcash;
+`     Saving Gcash;
+`     Pay through online;
+`     Bills payment;
+`     Can use to purchase;
+OTHERS NET<Q>;
+`     It's Features are becoming more innovative;
+`     Receive s shipment of but through gcash;
+`     Encourage;
+`     He won online and sent everything to his gcash;
+`     Official full film in gcash;
+`     Cash in / Cash out;
+`     Went live and many people sent him on gcash;
+`     No discrimination here;
+`     The syle seems to make you happy;
+`     About online loan;
+`     Acceptance for everyone;
+`     Can use in business;
+`     Easy transaction in Gcash;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TLM5 = $LM5/
+1+2+6+7+28+31,
+1+2+6+7+28+31,
+1,
+2,
+6,
+7,
+28,
+31,
+3+4+8+10+11+19+24+37+5+9,
+3+4+8+10+11+19+24+37,
+3,
+4,
+8,
+10,
+11,
+19,
+24,
+37,
+5+9,
+5,
+9,
+13+14+16+18+20+21+25+43+58+45+51+60+52+54+61+63+66+12+15+65,
+13,
+14,
+16,
+18,
+20,
+21,
+25,
+43+58,
+45,
+51+60,
+52,
+54,
+61,
+63,
+66,
+12+15+65,
+12,
+15,
+65,
+17+22+34+35+38+56+47+62,
+17,
+22,
+34,
+35,
+38+56,
+47+62,
+33,
+33,
+36+42+46+59+50+49+64,
+36,
+42,
+46,
+59+50,
+49,
+64,
+23+26+27+29+30+32+40+41+44+48+53+55+57,
+23,
+26,
+27,
+29,
+30,
+32,
+40,
+41,
+44,
+48,
+53,
+55,
+57,
+R,F,
+VT = "LM5. DETAILED RECALL OF AD - MESSAGE DELIVERY",
+V = $TT5,
+
+
+
+
+
+
+
+DM $TQF15 = $QF15/
+1+2+6+7+28+31,
+1+2+6+7+28+31,
+1,
+2,
+6,
+7,
+28,
+31,
+3+4+8+10+11+19+24+37+5+9,
+3+4+8+10+11+19+24+37,
+3,
+4,
+8,
+10,
+11,
+19,
+24,
+37,
+5+9,
+5,
+9,
+13+14+16+18+20+21+25+43+58+45+51+60+52+54+61+63+66+12+15+65,
+13,
+14,
+16,
+18,
+20,
+21,
+25,
+43+58,
+45,
+51+60,
+52,
+54,
+61,
+63,
+66,
+12+15+65,
+12,
+15,
+65,
+17+22+34+35+38+56+47+62,
+17,
+22,
+34,
+35,
+38+56,
+47+62,
+33,
+33,
+36+42+46+59+50+49+64,
+36,
+42,
+46,
+59+50,
+49,
+64,
+23+26+27+29+30+32+40+41+44+48+53+55+57,
+23,
+26,
+27,
+29,
+30,
+32,
+40,
+41,
+44,
+48,
+53,
+55,
+57,
+R,F,
+VT = "QF15. DETAILED RECALL OF AD - MESSAGE DELIVERY",
+V = $TT5,
+
+
+
+
+
+
+
+DM $TSA1 = $SA1/
+1+2+3+1032+4+5+6+7+8+9,
+1,
+2,
+3+1032,
+4,
+5,
+6,
+7,
+8,
+9,
+1030,
+1031,
+R,F,
+VT = "SA1. REASONS FOR HAVING BASIC ACCOUNT ONLY IN GCASH",
+V = "
+TRANSACTION NET<Q>;
+`     Not relevant in my daily financial transactions;
+`     No money / funds to use the app;
+`     I don’t have an available valid ID;
+`     I don't feel safe with GCash;
+`     I don't trust GCash and/or with other similar apps;
+`     I encountered a problem while verifying their GCash account;
+`     I don't know how to verify my account;
+`     I don't want to share personal information/ ID to GCash;
+`     I am contented with the current services offered for unverified account;
+Did not reflects on the cellphone fade when it captured;
+Not yet legal age;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+DM $TTP1 = $TP1/
+1+2+3+4+5+6+7+8+9,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+11+12+13+14+15+16+17+18+19+20+21+22,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+19,
+20,
+21,
+22,
+23+24,
+23,
+24,
+25+26+1001,
+25,
+26+1001,
+R,F,
+VT = "TP1. MODE OF TRANSPORTATION USED IN THE PAST 2 MONTHS",
+V = "
+PUBLIC TRANSPORTATION (NET)<Q>;
+`     Jeepney;
+`     Tricycle;
+`     UV Express or Taxi;
+`     Bus;
+`     Carousel;
+`     Train (MRT, LRT, and PNR);
+`     LRT-1 or LRT-2;
+`     PNR;
+`     Taxi;
+RIDE HAILING APPS/ TVNS (NET)<Q>;
+`     Motorcycle (e.g., Joyride, Angkas, etc);
+`     Car (e.g., Grab, Joyride Car, Carpool, Toktokgo, etc);
+`     Grab;
+`     TokTokGo;
+`     AVIS;
+`     ePickMeUp;
+`     OWTO;
+`     Snappy;
+`     Hype;
+`     Go Lag;
+`     Hirna;
+`     MiCab;
+OTHER MODES OF TRANSPORTATION (NET)<Q>;
+`     Airplane;
+`     Ferry;
+PERSONAL (NET)<Q>;
+`     I have my own car;
+`     I have my own motorcycle;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+DM $TP3_1 = $T_TP3_1 .OR. $T_TP3_2 .OR. $T_TP3_3 .OR. $T_TP3_4 .OR. $T_TP3_5 .OR. $T_TP3_6 .OR. $T_TP3_7 .OR. $T_TP3_8 .OR. $T_TP3_9,
+DM $TP3_2 = $T_TP3_1,
+DM $TP3_3 = $T_TP3_2,
+DM $TP3_4 = $T_TP3_3,
+DM $TP3_5 = $T_TP3_4,
+DM $TP3_6 = $T_TP3_5,
+DM $TP3_7 = $T_TP3_6,
+DM $TP3_8 = $T_TP3_7,
+DM $TP3_9 = $T_TP3_8,
+DM $TP3_10 = $T_TP3_9,
+DM $TP3_11 = $T_TP3_11 .OR. $T_TP3_12 .OR. $T_TP3_13 .OR. $T_TP3_14 .OR. $T_TP3_15 .OR. $T_TP3_16 .OR. $T_TP3_17 .OR. $T_TP3_18 .OR. $T_TP3_19 .OR. $T_TP3_20 .OR. $T_TP3_21 .OR. $T_TP3_22,
+DM $TP3_12 = $T_TP3_11,
+DM $TP3_13 = $T_TP3_12,
+DM $TP3_14 = $T_TP3_13,
+DM $TP3_15 = $T_TP3_14,
+DM $TP3_16 = $T_TP3_15,
+DM $TP3_17 = $T_TP3_16,
+DM $TP3_18 = $T_TP3_17,
+DM $TP3_19 = $T_TP3_18,
+DM $TP3_20 = $T_TP3_19,
+DM $TP3_21 = $T_TP3_20,
+DM $TP3_22 = $T_TP3_21,
+DM $TP3_23 = $T_TP3_22,
+DM $TP3_24 = $T_TP3_23 .OR. $T_TP3_24,
+DM $TP3_25 = $T_TP3_23,
+DM $TP3_26 = $T_TP3_24,
+DM $TP3_27 = $T_TP3_25 .OR. $T_TP3_26 .OR. $T_TP3_1001,
+DM $TP3_28 = $T_TP3_25,
+DM $TP3_29 = $T_TP3_26 .OR. $T_TP3_1001,
+
+[*DATA LTP3(;)=
+PUBLIC TRANSPORTATION (NET)<Q>;
+Jeepney;
+Tricycle;
+UV Express or Taxi;
+Bus;
+Carousel;
+Train (MRT, LRT, and PNR);
+LRT-1 or LRT-2;
+PNR;
+Taxi;
+RIDE HAILING APPS/ TVNS (NET)<Q>;
+Motorcycle (e.g., Joyride, Angkas, etc);
+Car (e.g., Grab, Joyride Car, Carpool, Toktokgo, etc);
+Grab;
+TokTokGo;
+AVIS;
+ePickMeUp;
+OWTO;
+Snappy;
+Hype;
+Go Lag;
+Hirna;
+MiCab;
+OTHER MODES OF TRANSPORTATION (NET)<Q>;
+Airplane;
+Ferry;
+PERSONAL (NET)<Q>;
+I have my own car;
+I have my own motorcycle]
+
+[*DOA=1:[LTP3.#]]
+DM $TTP3_[A] = $TP3_[A]/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+1003,
+1002,
+1001,
+R,F,
+VT = "TP3. FREQUENCY OF PAYING FOR TRANSPORTATION OFFLINE/PHYSICAL IN THE PAST 2 MONTHS - [LTP3.A]",
+V = "
+More often than once a day;
+Everyday;
+2 - 3 times a week;
+Once a week;
+Once every 2 - 3 weeks;
+Once a month;
+Once in 2 months;
+Once in 3 months;
+Less often than once in 3 months;
+3;
+2;
+1;
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+
+
+
+
+
+
+
+DM $TH2 = $H2/
+1+1004+1007+1015+1016+1017,
+2+1003,
+3+1009,
+4+1013,
+5,
+6,
+7,
+8+1002,
+9,
+10,
+11,
+12,
+13+1012,
+14,
+1001,
+1005,
+1006,
+1008,
+1010,
+1011,
+1014,
+99+9999,
+R,F,
+VT = "H2. ITEMS USUALLY PURCHASED DURING THE HOLIDAY SEASON",
+V = "
+Clothing, footwear and accessories;
+Consumer electronics and Computers/ Gadgets;
+Cosmetics and beauty products;
+Jewelry and Watches;
+Ebooks, applications, digital music, online video games and Software;
+Books, CDs and DVDs;
+Baby and children’s supplies/ products;
+Toys and hobbies;
+Sports and outdoor equipment;
+Travel bookings (e.g., Bus/Plane tickets, Accommodation, Tour packages, etc);
+Home, Kitchen and Tools/ Appliances;
+Office products;
+Automobiles and Automotive Products;
+Tickets for sports, concerts, theatre, arts, and broadway shows;
+Gift;
+Food;
+Family;
+Cash;
+Chritsmas Card;
+Groceries;
+Movie;
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TT4 = $T4/
+1,
+2,
+4,
+5,
+6,
+7,
+8+1005,
+10,
+11+1003,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+1001,
+1002,
+1004,
+9999,
+9998,
+R,F,
+VT = "T4. SOURCES OF AD AWARENESS",
+V = "
+Ads while browsing internet/Website ads (excluding social media);
+Company Website (Official Website);
+Events;
+Family/relatives;
+Friends/colleagues;
+Online articles (blogs, reviews, news);
+Online videos (including ads);
+Social media (including ads) (NET) (HIDE);
+Facebook (including ads) (HIDE);
+Facebook Post;
+Facebook Fanpage;
+Twitter (including ads);
+Instagram (including ads);
+YouTube (including ads);
+TikTok (including ads);
+Influencers;
+TV;
+Online Games;
+Novel Apps;
+None;
+Cant recall/ No idea;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TQ187 = $Q187a/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+1001,
+1002,
+1003,
+9999,
+R,F,
+VT = "Q187a. BARRIERS FOR NOT USING GCASH JR.",
+V = "
+Concerns with hacking and data breaches;
+Fears of loss of money;
+Fears surrounding scam/ fraud;
+Lack of knowledge on features;
+Negative experiences from friends;
+Negative feedback regarding customer service;
+No smartphone/ my phone is unable to access GCash app;
+No convenient or nearby means to cash-in;
+No convenient or nearby means to cash-out;
+Not open to learning how to use financial apps;
+Registration process is tedious;
+No valid documents for registration;
+Uncertainty with success of transactions;
+No consistent access to internet/ Unstable internet connection;
+Doubts with capability of the financial app to provide strong security for my account;
+No available channels or sources to learn how to use the financial app;
+Brgy Permit;
+Tricycle Driver;
+Handcraft;
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TQ190b = $Q190b/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+1030,
+1031,
+R,F,
+VT = "Q190b. MONTHLY HOUSEHOLD EXPENDITURE",
+V = "
+Food Expenditures (i.e. groceries, restaurants, sari-sari store, convenience store);
+Alcoholic Beverages (i.e., Liquor, wine, and beer);
+Tobacco (i.e., cigarettes containing tobacco, cigars, and other chewing tobacco);
+Other vegetables-based products (i.e. Betel leaves, betel nuts, mint leaf and lime, etc);
+Clothing and Footw;
+Furnishings and Routine household maintenance (i.e., lighting equipment, carperts and other floor coverings, repair of furniture and floor coverings, repair of household appliances, household utensils, cleaning and maintenance products, and household services);
+Water, Electricity, Gas, and other Fuels;
+House Rent/Rental Value;
+Transport (i.e. commute via bus, tricycle, taxi, bus, Grab, Angkas, etc.);
+Communication (i.e. mobile load, telecommunications/phone bill);
+Recreation and Culture (i.e. concerts, plays,  shows, etc.);
+Health (i.e., medical products, therapeutic aids, medical services, dental services, and hospital services);
+Education;
+Miscellaneous goods and services (i.e. salon and beauty parlor services, barber shop, etc.);
+Durable furniture and equipment (Furnitures such as dining table/dining chairs, sala set /sofa sets/ beds, cabinets, computer table, shoe rack, TV rack, etc. Major household appliances such as refrigerator, washing machine, cooking range/ stove, aircon, etc. Small electric household appliances such as electric fan, rice cooker, flat iron, toaster, etc. Audio visual equaipments such as radio, TV, desktop computers, etc);
+Special family occasions;
+Accommodations and services (i.e. hotel);
+Online Gaming;
+Allowance for house;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TEM1 = $EM1/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+1030+1033,
+1031,
+1032,
+1035,
+1036,
+1037,
+99+1038,
+R,F,
+VT = "EM1. TREE PLANTING MOVEMENTS AWARE OF",
+V = "
+Haribon Foundation;
+Philippine Native Plants Conservation Society;
+Green Convergence Philippines;
+Arbor Day Foundation (Philippines):;
+DENR (Department of Environment and Natural Resources);
+LGU-led tree planting projects;
+World Wide Fund for Nature (WWF) Philippines;
+The Philippine Business for Social Progress (PBSP);
+Masungi Georeserve;
+Greenpeace;
+Plant for the planet;
+ReforestAction;
+Conservation International;
+Trees for the Future;
+One Tree Planted;
+Forest Foundation;
+GCash GForest;
+Own Planting;
+Brgy tree panting;
+Church tree planting;
+Mangroove;
+Department of Agriculture;
+Outdoor Huba;
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $TLM4 = $LM4/
+1,
+2,
+4,
+5,
+6,
+7,
+8,
+10,
+11,
+12,
+13,
+14 +1003,
+15,
+16,
+17,
+18,
+19,
+20+1001,
+1002,
+1004,
+9999,
+R,F,
+VT = "LM4. SOURCES OF AD AWARENESS",
+V = "
+Ads while browsing internet/Website ads (excluding social media);
+Company Website (Official Website);
+Events;
+Family/relatives;
+Friends/colleagues;
+Online articles (blogs, reviews, news);
+Online videos (including ads);
+Social media (including ads) (NET) (HIDE);
+Facebook (including ads) (HIDE);
+Facebook Post;
+Facebook Fanpage;
+Twitter (including ads);
+Instagram (including ads);
+YouTube (including ads);
+TikTok (including ads);
+Out-of-Home (OOH) (e.g., billboards and posters);
+Influencers;
+TV;
+From people;
+Street;
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+[*DATA LQ46(;)=
+GCash;
+PayMaya/Maya;
+Coins.ph;
+PayPal;
+TrueMoney;
+DragonPay;
+GrabPay;
+AliPay;
+WeChat Pay;
+Beep;
+CLIQQ;
+BPI Mobile/ Online;
+BDO Mobile/ Online;
+ECPay;
+ING Philippines;
+Landbank Mobile/ Online;
+Metrobank Mobile/ Online;
+CIMB Bank;
+Unionbank Mobile/ Online;
+Security Bank Mobile/ Online;
+DiskarTech;
+BDO Pay;
+ShopeePay;
+LazWallet;
+ML Wallet;
+eCebuana;
+SquidPay;
+Bayad Center Online / App;
+Tonik;
+BancNet Online;
+Moneygment;
+Payoneer;
+RCBC mobile;
+StarPay;
+Maybank's Isave;
+HelloMoney;
+Eon;
+Komo;
+OFBank;
+PBCOMobile;
+PSBank Mobile;
+Touch Pay;
+SeaBank;
+Remitly;
+Xendpay;
+Go Tyme;
+Vybe by BPI;
+PalawanPay]
+
+DM $Q46R1 = T_Q46_1 .OR. $T_Q46_1030,
+DM $Q46R2 = T_Q46_2,
+DM $Q46R3 = T_Q46_3,
+DM $Q46R4 = T_Q46_4,
+DM $Q46R5 = T_Q46_5,
+DM $Q46R6 = T_Q46_6,
+DM $Q46R7 = T_Q46_7,
+DM $Q46R8 = T_Q46_8,
+DM $Q46R9 = T_Q46_9,
+DM $Q46R10 = T_Q46_10,
+DM $Q46R11 = T_Q46_11,
+DM $Q46R12 = T_Q46_12,
+DM $Q46R13 = T_Q46_13,
+DM $Q46R14 = T_Q46_14,
+DM $Q46R15 = T_Q46_15,
+DM $Q46R16 = T_Q46_16,
+DM $Q46R17 = T_Q46_17,
+DM $Q46R18 = T_Q46_18,
+DM $Q46R19 = T_Q46_19,
+DM $Q46R20 = T_Q46_20,
+DM $Q46R21 = T_Q46_21,
+DM $Q46R22 = T_Q46_22,
+DM $Q46R23 = T_Q46_23,
+DM $Q46R24 = T_Q46_24,
+DM $Q46R25 = T_Q46_25,
+DM $Q46R26 = T_Q46_26,
+DM $Q46R27 = T_Q46_27,
+DM $Q46R28 = T_Q46_28,
+DM $Q46R29 = T_Q46_29,
+DM $Q46R30 = T_Q46_30,
+DM $Q46R31 = T_Q46_31,
+DM $Q46R32 = T_Q46_32,
+DM $Q46R33 = T_Q46_33,
+DM $Q46R34 = T_Q46_34,
+DM $Q46R35 = T_Q46_35,
+DM $Q46R36 = T_Q46_36,
+DM $Q46R37 = T_Q46_37,
+DM $Q46R38 = T_Q46_38,
+DM $Q46R39 = T_Q46_39,
+DM $Q46R40 = T_Q46_40,
+DM $Q46R41 = T_Q46_41,
+DM $Q46R42 = T_Q46_42,
+DM $Q46R43 = T_Q46_43,
+DM $Q46R44 = T_Q46_44,
+DM $Q46R45 = T_Q46_45,
+DM $Q46R46 = T_Q46_46,
+DM $Q46R47 = T_Q46_47,
+DM $Q46R48 = T_Q46_48,
+
+
+[*DOA=1:[LQ46.$]]
+DM $TQ46R[A] = $Q46R[A]/
+1,
+2,
+3,
+4,
+5,
+6,
+R,F,
+VT = "Q46. WILLINGNESS TO PAY PRICE PREMIUM - [LQ46.A]",
+V = "
+I wouldn't use this brand at all;
+Only if its charges are the same as the most competitive bran;
+Even if its charges are slightly less competitive than the most competitive b;
+Even if its charges are much less competitive than the most competit;
+Even if its charges are less competitive than any other brands;
+Whatever l charges are;
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+
+
+
+
+
+DM $T = $/
+
+R,F,
+VT = "",
+V = "
+
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $T = $/
+
+R,F,
+VT = "",
+V = "
+
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $T = $/
+
+R,F,
+VT = "",
+V = "
+
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $T = $/
+
+R,F,
+VT = "",
+V = "
+
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $T = $/
+
+R,F,
+VT = "",
+V = "
+
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $T = $/
+
+R,F,
+VT = "",
+V = "
+
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $T = $/
+
+R,F,
+VT = "",
+V = "
+
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $T = $/
+
+R,F,
+VT = "",
+V = "
+
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $T = $/
+
+R,F,
+VT = "",
+V = "
+
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $T = $/
+
+R,F,
+VT = "",
+V = "
+
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+
+DM $T = $/
+
+R,F,
+VT = "",
+V = "
+
+Missing answers<Z>;
+Total count<C>",
+
+
+

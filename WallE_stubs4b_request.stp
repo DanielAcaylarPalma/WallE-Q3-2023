@@ -1,0 +1,25 @@
+
+
+
+
+[*DOB=1:SRA]
+OM $xQ33e2_REGALL = $xI_[ROWBRAND.A]_T_Q33e2_[B],
+OM $xQ33e2_GCASH = $xI_1_T_Q33e2_[B],
+[*ENDB]
+
+DM $TQ33e2_GCASH = $xQ33e2_GCASH/
+1-[AT],
+R,F,
+VT = "Q33e2. AVERAGE AMOUNT RECEIVED PER TRANSACTION FOR REMITTANCE - Regardless of Type/Store - GCash",
+V = "
+[*DOV=1:AT]
+P[AMOUNT.V]<V[AMOUNT.V]>;
+[*ENDV]
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
