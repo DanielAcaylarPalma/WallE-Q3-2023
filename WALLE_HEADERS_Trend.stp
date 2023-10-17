@@ -2348,8 +2348,20 @@ H =
 		Q4 2022 *(c);
 		Q1 2023 *(d);
 		Q2 2023 *(e);
-		Q3 2023 *(f)[*SLE];[*ENDA]",		
-
+		Q3 2023 *(f)[*SLE];[*ENDA]",	
+		
+DM $HLADTmonth(9),
+HT = "BRAND HEADER - SIDE BY SIDE",
+H = "
+GCASH *(a);
+Paymaya/ Maya *(b);
+BDO Mobile/Online *(c);
+BPI Mobile/Online *(d);
+CLIQQ *(e);
+Coins.ph *(f);
+GrabPay *(g);
+Paypal *(h);
+ShopeePay *(i)",
 
 !!!!!!!!!!!!!!!!!!HEADER CLIENT REQUEST
 Dm $xT_Q47_1 = $171166-171167/1-99,
