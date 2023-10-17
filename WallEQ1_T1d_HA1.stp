@@ -1636,7 +1636,7 @@ BT = "All respondents - 2021'Q4 Onwards",
 
 [*DOX=1:1]
 if $TQ17i/1, then,
-IF ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb), T [+T] = $TQQ3 * $[HX.X],
+IF ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), T [+T] = $TQQ3 * $[HX.X],
 BT = "Among Users of FinTech Apps - 2021'Q4 Onwards",
 End if,
 [*ENDX]
@@ -1644,7 +1644,7 @@ End if,
 
 [*DOX=1:1]
 if $TQ17i/2, then,
-IF ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb), T [+T] = $TQQ3 * $[HX.X],
+IF ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), T [+T] = $TQQ3 * $[HX.X],
 BT = "Among Non-users of FinTech Apps - 2021'Q4 Onwards",
 End if,
 [*ENDX]
@@ -1654,7 +1654,7 @@ End if,
 
 
 [*DOX=1:1]
-IF ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb), then,
+IF ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), then,
 T [+T] = $TQQ4R1 * $[HX.X],
 BT = "All respondents - 2021'Q4 Onwards",
 +T [+T] = $TQQ4R2 * $[HX.X],
@@ -1664,7 +1664,7 @@ end if,
 
 [*DOX=1:1]
 if $TQ17i/1, then,
-IF ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb), then,
+IF ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), then,
 T [+T] = $TQQ4R1 * $[HX.X],
 BT = "Among Users of FinTech Apps - 2021'Q4 Onwards",
 +T [+T] = $TQQ4R2 * $[HX.X],
@@ -1674,7 +1674,7 @@ end if,
 
 [*DOX=1:1]
 if $TQ17i/2, then,
-IF ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb), then,
+IF ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb), then,
 T [+T] = $TQQ4R1 * $[HX.X],
 BT = "Among Non-users of FinTech Apps - 2021'Q4 Onwards",
 +T [+T] = $TQQ4R2 * $[HX.X],

@@ -64,6 +64,55 @@ SEC\
 USERSHIP\
 	USER*(n);
 	NON-USER*(o)",
+	
+	
+DM $HE_RR = 
+T,
+$Q4/1,
+$Q4/2,
+
+$Q3/1,
+
+($Q3/2+3+4+5),
+($Q3/2+3+4+5).$Q4/1,
+($Q3/2+3+4+5).$Q4/2,
+
+($Q3/6+7+8),
+($Q3/6+7+8).$Q4/1,
+($Q3/6+7+8).$Q4/2,
+
+($Q3/9+10+11),
+($Q3/9+10+11).$Q4/1,
+($Q3/9+10+11).$Q4/2,
+
+($Q3/12+13+14+15+16+17),
+($Q3/12+13+14+15+16+17).$Q4/1,
+($Q3/12+13+14+15+16+17).$Q4/2,
+
+
+HT = "Header E. Locale & Region",
+h = "
+TOTAL\
+   TOTAL *(a);
+   
+REGION & LOCALE\
+	Urban (NET) *(b);
+	Rural (NET) *(c);
+	NCR (NET) *(d);
+	NCL (NET) *(e);
+	NCL Urban *(f);
+	NCL Rural *(g);
+	SL (NET) *(h);
+	SL Urban *(i);
+	SL Rural *(j);
+	Visayas (NET) *(k);
+	Visayas Urban *(l);
+	Visayas Rural *(m);
+	Mindanao (NET) *(n);
+	Mindanao Urban *(o);	
+	Mindanao Rural *(p)",
+
+	
 DM $HA1 = 
 T,
 $Q2/1,
@@ -2142,6 +2191,18 @@ TOTAL^
 		Q2 2023 *(i);		
 		Q3 2023 *(j)",		
 
+
+DM $HORB_RR(6), 
+HT = "Header O. Role in Sending/Receiving Remittance (Rebased2)",
+H = "
+TOTAL\
+TOTAL *(a);
+ROLE IN SENDING/RECEIVING REMITTANCE\
+SENDER ONLY *(b);
+RECEIVER ONLY *(c);
+BOTH SENDER/RECEIVER *(d);
+SENDER + BOTH *(e);
+RECEIVER + BOTH *(f)",		
 
 
 DM $HOTRB(60), 
