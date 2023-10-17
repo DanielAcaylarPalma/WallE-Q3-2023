@@ -200,14 +200,14 @@ F=PBL/MOD,
 
 
   
-!F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
 
 
 
-!SELECT WR $newwts,
+SELECT WR $newwts,
 
 
 F=BRS,
@@ -216,8 +216,8 @@ F=BRS,
 [*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HI2T,HI3T,HI4T,HJT,HKT,HLT,HMT,HNT]
 
 [*DATA HX=
-HA1T,
-HET,
+HA1_RR,
+HE_RR,
 HIT,
 HLT,
 HOT]
@@ -228,657 +228,7 @@ HOT]
 
 
 
-[*DATA HX=HTOT]
-
-
-
-
-[*DOX=1:1]
-T [+T] = $TQ16a * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ16a * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ16a * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-
-
-
-[*DOX=1:1]
-T [+T] = $TQ16b * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ16b * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ16b * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-
-
-
-[*DOX=1:1]
-T [+T] = $TQ16c * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ16c * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ16c * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-
-[*DOX=1:1]
-T [+T] = $TQ16d * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ16d * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ16d * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-	
-[*DOX=1:1]
-T [+T] = $TQ16e * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ16e * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ16e * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-
-[*setn=NOMIBRAND.#]
-[*doa=1:n]
-[*DOX=1:1]
-if $Q16hcon/[a],	T [+T] = $TQ16h * $[HX.X],
-BT = "Among aware of Financial App/Website (Nominated brand) - [NOMIBRAND.a]",
-[*ENDX]
-[*ENDA]
-
-
-[*doa=1:n]
-[*DOX=1:1]
-if $TQ17i/1, then,
-if $Q16hcon/[a],	T [+T] = $TQ16h * $[HX.X],
-BT = "Among Users of FinTech Apps AND Aware of Financial App/Website (Nominated brand) - [NOMIBRAND.a]",
-END IF,
-[*ENDX]
-[*ENDA]
-
-
-[*doa=1:n]
-[*DOX=1:1]
-if $TQ17i/2, then,
-if $Q16hcon/[a],	T [+T] = $TQ16h * $[HX.X],
-BT = "Among Non-users of FinTech Apps AND Aware of Financial App/Website (Nominated brand) - [NOMIBRAND.a]",
-END IF,
-[*ENDX]
-[*ENDA]
-
-
-
-
-
-[*DOX=1:1]
-if $Q16hcon/1..[n],	T [+T] = $TQ16h * $[HX.X],
-BT = "Among aware of Financial App/Website (Nominated brand) - REGARDLESS",
-[*ENDX]
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-if $Q16hcon/1..[n],	T [+T] = $TQ16h * $[HX.X],
-BT = "Among Users of FinTech Apps AND Aware of Financial App/Website (Nominated brand) - REGARDLESS",
-END IF,
-[*ENDX]
-
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-if $Q16hcon/1..[n],	T [+T] = $TQ16h * $[HX.X],
-BT = "Among Non-users of FinTech Apps AND Aware of Financial App/Website (Nominated brand) - REGARDLESS",
-END IF,
-[*ENDX]
-
-
-
-
-
-! JC  - Base should be All Respo
-[*DOX=1:1]
-T [+T] = $TQ16f * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ16f * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ16f * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-! JC  - Base should be All Respo
-[*DOX=1:1]
-T [+T] = $TQ16g * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ16g * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ16g * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-
-[*DOX=1:1]
-T [+T] = $TQ17a * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ17a * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ17a * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-
-
-! -- JC All respo sa Qtr3
-[*DOX=1:1]
-T [+T] = $TQ17b * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ17b * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ17b * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-! -- JC All respo sa Qtr3
-[*DOX=1:1]
-T [+T] = $TQ17c * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ17c * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ17c * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-if $Q42022/nb+$Q12023/nb, then,
-
-[*DOX=1:1]
-T [+T] = $TQ17k * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ17k * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ17k * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-end if,
-
-
-
-
-[*DOX=1:1]
-T [+T] = $TQ17e * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ17e * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ17e * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-
-
-[*DOX=1:1]
-T [+T] = $TQ17f * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ17f * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ17f * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-
-! -- JC All respo sa Qtr3
-[*DOX=1:1]
-T [+T] = $TQ17g * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ17g * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ17g * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-
-[*DOX=1:1]
-T [+T] = $TQ17d * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $TQ17d * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $TQ17d * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-
-
-
-[*DOA=1:BRX]
-[*DOX=1:1]
-if $TQ17d/[a],	T [+T] = $TQ17hR[A] * $[HX.X],
-BT = "Among who have existing account - [BRANDNONE.A]",
-[*ENDX]
-[*ENDA]
-
-
-[*DOA=1:BRX]
-[*DOX=1:1]
-if $TQ17i/1, then,
-if $TQ17d/[a],	T [+T] = $TQ17hR[A] * $[HX.X],
-BT = "Among Users of FinTech Apps AND Who have existing account - [BRANDNONE.A]",
-END IF,
-[*ENDX]
-[*ENDA]
-
-
-[*DOA=1:BRX]
-[*DOX=1:1]
-if $TQ17i/2, then,
-if $TQ17d/[a],	T [+T] = $TQ17hR[A] * $[HX.X],
-BT = "Among Non-users of FinTech Apps AND Who have existing account - [BRANDNONE.A]",
-END IF,
-[*ENDX]
-[*ENDA]
-
-
-
-
-
-
-
-
-[*DOX=1:1]
-if $TQ17d/1..[BRX],	T [+T] = $TQ17H_REG * $[HX.X],
-BT = "Among who have existing account - REGARDLESS",
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-if $TQ17d/1..[BRX],	T [+T] = $TQ17H_REG * $[HX.X],
-BT = "Among Users of FinTech Apps AND Who have existing account - REGARDLESS",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-if $TQ17d/1..[BRX],	T [+T] = $TQ17H_REG * $[HX.X],
-BT = "Among Non-users of FinTech Apps AND Who have existing account - REGARDLESS",
-END IF,
-[*ENDX]
-
-
-
-
-
-
-
-
-
-
-[*DOX=1:1]
-T [+T] = $TQ17i * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-
-
-
-
-
-! --- ITEM 13
-[*setn=Q17C.#]
-[*DOA=1:N]
-[*DOX=1:1]
-T [+T] = $ave17_[A] * $[HX.X],
-BT = "ALL RESPONDENT",
-[*ENDx]
-[*ENDA]
-
-if $TQ17i/1, then,
-[*DOA=1:N]
-[*DOX=1:1]
-T [+T] = $ave17_[A] * $[HX.X],
-BT = "Among Users of FinTech Apps",
-[*ENDx]
-[*ENDA]
-end if,
-
-
-if $TQ17i/2, then,
-[*DOA=1:N]
-[*DOX=1:1]
-T [+T] = $ave17_[A] * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-[*ENDx]
-[*ENDA]
-end if,
-
-
-
-
-!*sk808
-
-
-[*DOX=1:1]
-T [+T] = $BRAND_SUMM * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $BRAND_SUMM * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $BRAND_SUMM * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-[*DOX=1:1]
-T [+T] = $BRAND_LAD * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-
-
-[*DOX=1:1]
-if $TQ17i/1, then,
-T [+T] = $BRAND_LAD * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:1]
-if $TQ17i/2, then,
-T [+T] = $BRAND_LAD * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-
-
-
-
-[*setn=NOMIBRANDSBS.#]
-T # [+T] = $NOM_LAD1 * $HLADT,
-BT = "ALL RESPONDENT",
-[*SETS=0]
-[*DO A = 1:n]
-T # [T] = $NOM_LAD[a] * [+S],
-if $Q32021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q42021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q12022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q22022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q32022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q42022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q12023/nb,  T # [T] = $NOM_LAD[a] * [+S],
-[*END A]
-
-
-
-
-
-if $TQ17i/1, then,
-T # [+T] = $NOM_LAD1 * $HLADT,
-BT = "Among Users of FinTech Apps",
-[*SETS=0]
-[*DO A = 1:n]
-T # [T] = $NOM_LAD[a] * [+S],
-if $Q32021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q42021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q12022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q22022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q32022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q42022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q12023/nb,  T # [T] = $NOM_LAD[a] * [+S],
-[*END A]
-end if,
-
-
-
-
-
-if $TQ17i/2, then,
-T # [+T] = $NOM_LAD1 * $HLADT,
-BT = "Among Non-users of FinTech Apps",
-[*SETS=0]
-[*DO A = 1:n]
-T # [T] = $NOM_LAD[a] * [+S],
-if $Q32021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q42021/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q12022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q22022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q32022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q42022/nb,  T # [T] = $NOM_LAD[a] * [+S],
-if $Q12023/nb,  T # [T] = $NOM_LAD[a] * [+S],
-[*END A]
-end if,
-
-
-
-
-
-
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ63R1 * $[HX.X],
 BT = "All respondents",
 [*FORA=3:4:5:6:7:8:10:11:12:13:14:16:17:20:21:22:23:24:25]
@@ -894,7 +244,7 @@ if $TQ63R[A]/1..5,	+T [+T] = $TQ63R[A] * $[HX.X],
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 T [+T] = $TQ63R1 * $[HX.X],
 BT = "Among Users of FinTech Apps",
@@ -911,7 +261,7 @@ End if,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 T [+T] = $TQ63R1 * $[HX.X],
 BT = "Among Non-users of FinTech Apps",
@@ -932,19 +282,19 @@ End if,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ63_TB * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 T [+T] = $TQ63_TB * $[HX.X],
 BT = "Among Users of FinTech Apps",
 End if,
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 T [+T] = $TQ63_TB * $[HX.X],
 BT = "Among Non-users of FinTech Apps",
@@ -958,19 +308,19 @@ End if,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ63_T2B * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 T [+T] = $TQ63_T2B * $[HX.X],
 BT = "Among Users of FinTech Apps",
 End if,
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 T [+T] = $TQ63_T2B * $[HX.X],
 BT = "Among Non-users of FinTech Apps",
@@ -985,7 +335,7 @@ End if,
 
 
 [*DOA=1:9]
-[*DOX=1:1]
+[*DOX=1:2]
 IF $F64/[A], THEN,
 T [+T] = $TQ64R[A] * $[HX.X],
 BT = "Among aware of [NOMBANKS.A]",
@@ -994,7 +344,7 @@ END IF,
 [*ENDA]
 
 [*DOA=1:9]
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 IF $F64/[A], T [+T] = $TQ64R[A] * $[HX.X],
 BT = "Among Users of FinTech Apps AND Aware of [NOMBANKS.A]",
@@ -1003,7 +353,7 @@ END IF,
 [*ENDA]
 
 [*DOA=1:9]
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 IF $F64/[A], T [+T] = $TQ64R[A] * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Aware of [NOMBANKS.A]",

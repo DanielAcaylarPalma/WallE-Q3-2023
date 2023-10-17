@@ -6,4 +6,6 @@
 *.rpt
 *.tab
 *.toc
+*.sav
+*.sps
 kfile/
