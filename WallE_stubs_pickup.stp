@@ -53,7 +53,8 @@ Buying gaming pins;
 Borrow money or avail of a loan from other people (acquaintances/friends, relatives, `"bumbay/turko`", etc.);
 Borrow money or avail of a loan from bank or other institutions (including credit card, pawning, lending apps etc.);
 Pay off a loan;
-Investing in investment products and services]
+Investing in investment products and services;
+Payment for transportation]
 
 [*DATA CODE8B1 = 
 1+1024,
@@ -66,7 +67,8 @@ Investing in investment products and services]
 10,
 11,
 12,
-13]
+13,
+8]
 
 IF $Q22023/NB+$Q32023/NB, THEN,
 DM $Q8B1_NONE = 
@@ -188,24 +190,29 @@ Non-digital/Offline;
 Did not do this transaction]
 
 
+[*DATA Q8bnewcode (;)=
+1+2+7;
+3+4+5+6;
+8]
 
 
 
 [*DOA=1:3]
 om $q8b = $T_Q8b_[A],
-DM $TQ8bR[A] = $T_Q8b_[A]/
-1+1024,
-2+1006+1012+1013+1021+1031+1042,
-3+1008+1101+1108,
-4+1001+1022+1102,
-5+1009,
-6+1003+1002+1005+1010+1011+1023+1027+1020+1025+1026,
-7+1007,
-10,
-11,
-12,
-13,
-9999+1016+1100+1040+1041,
+OM $TQ8bR[A] = 
+$T_Q8b_[A]/1+1024+$TQ8b1R1/[Q8bnewcode.A],
+$T_Q8b_[A]/2+1006+1012+1013+1021+1031+1042+$TQ8b1R2/[Q8bnewcode.A],
+$T_Q8b_[A]/3+1008+1101+1108+$TQ8b1R3/[Q8bnewcode.A],
+$T_Q8b_[A]/4+1001+1022+$TQ8b1R4/[Q8bnewcode.A],
+$T_Q8b_[A]/5+1009+$TQ8b1R5/[Q8bnewcode.A],
+$T_Q8b_[A]/6+1003+1002+1005+1010+1011+1023+1027+1020+1025+1026+$TQ8b1R6/[Q8bnewcode.A],
+$T_Q8b_[A]/7+1007+$TQ8b1R7/[Q8bnewcode.A],
+$T_Q8b_[A]/10+$TQ8b1R8/[Q8bnewcode.A],
+$T_Q8b_[A]/11+$TQ8b1R9/[Q8bnewcode.A],
+$T_Q8b_[A]/12+$TQ8b1R10/[Q8bnewcode.A],
+$T_Q8b_[A]/13+$TQ8b1R11/[Q8bnewcode.A],
+$T_Q8b_[A]/8+$TQ8b1R12/[Q8bnewcode.A],
+$T_Q8b_[A]/9999+1016+1100+1040+1041+(($TQ8b1R12/[Q8bnewcode.A])),
 R,
 F,
 VT = "Q8b. GENERAL FINANCIAL TRANSACTIONS METHODS (P2M) - [L8B.A]",
@@ -220,7 +227,8 @@ Buying gaming pins;
 Borrow money or avail of a loan from other people (acquaintances/friends, relatives, `"bumbay/turko`", etc.);
 Borrow money or avail of a loan from bank or other institutions (including credit card, pawning, lending apps etc.);
 Pay off a loan;
-Investing in investment products and services; 
+Investing in investment products and services;
+Payment for transportation;
 None;
 Missing answers<Z>;
 Total count<C>",
@@ -241,7 +249,8 @@ Buying gaming pins;
 Borrow money or avail of a loan from other people (acquaintances/friends, relatives, `"bumbay/turko`", etc.);
 Borrow money or avail of a loan from bank or other institutions (including credit card, pawning, lending apps etc.);
 Pay off a loan;
-Investing in investment products and services]
+Investing in investment products and services;
+Payment for transportation]
 [*setn=stub8b.#]
 
 if ($Q32021/nb+$Q42021/nb), then,
@@ -295,7 +304,7 @@ $TQ8bR1/9+$TQ8bR2/9,
 $TQ8bR1/10+$TQ8bR2/10,
 $TQ8bR1/11+$TQ8bR2/11,
 $TQ8bR1/12+$TQ8bR2/12,
-
+$TQ8bR1/13+$TQ8bR2/13,
 
 ! ---- SOURCE FOR Q160-Q162
 [*doa=1:n]
@@ -346,6 +355,7 @@ $TQ8bR1/9+$TQ8bR2/9,
 $TQ8bR1/10+$TQ8bR2/10,
 $TQ8bR1/11+$TQ8bR2/11,
 $TQ8bR1/12+$TQ8bR2/12,
+$TQ8bR1/13+$TQ8bR2/13,
 
 
 ! ---- SOURCE FOR Q160-Q162
