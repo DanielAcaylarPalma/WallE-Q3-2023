@@ -363,21 +363,19 @@ HPT]
 
 
 
-
 [*DOA=1:BRX]
 [*DOX=1:2]
 IF $TQ16d/[A], THEN,
-T [+T] = $TQ45R[A] * $[HX.X],
+T [+T] = $TQ46R[A] * $[HX.X],
 BT = "Among aware of [BRANDNONE.A]",
 END IF,
 [*ENDX]
 [*ENDA]
 
-
 [*DOA=1:BRX]
 [*DOX=1:2]
 if $TQ17i/1, then,
-IF $TQ16d/[A], T [+T] = $TQ45R[A] * $[HX.X],
+IF $TQ16d/[A], T [+T] = $TQ46R[A] * $[HX.X],
 BT = "Among Users of FinTech Apps AND Aware of [BRANDNONE.A]",
 END IF,
 [*ENDX]
@@ -386,7 +384,7 @@ END IF,
 [*DOA=1:BRX]
 [*DOX=1:2]
 if $TQ17i/2, then,
-IF $TQ16d/[A], T [+T] = $TQ45R[A] * $[HX.X],
+IF $TQ16d/[A], T [+T] = $TQ46R[A] * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Aware of [BRANDNONE.A]",
 END IF,
 [*ENDX]
@@ -397,30 +395,23 @@ END IF,
 
 
 
-
-
-
-
-
-
-
 [*DOX=1:2]
 IF $TQ16d/1..[BRX], THEN,
-T [+T] = $TQ45_REG * $[HX.X],
+T [+T] = $TQ46_REG * $[HX.X],
 BT = "Among aware of REGARDLESS",
 END IF,
 [*ENDX]
 
 [*DOX=1:2]
 if $TQ17i/1, then,
-IF $TQ16d/1..[BRX], T [+T] = $TQ45_REG * $[HX.X],
+IF $TQ16d/1..[BRX], T [+T] = $TQ46_REG * $[HX.X],
 BT = "Among Users of FinTech Apps AND Aware of REGARDLESS",
 END IF,
 [*ENDX]
 
 [*DOX=1:2]
 if $TQ17i/2, then,
-IF $TQ16d/1..[BRX], T [+T] = $TQ45_REG * $[HX.X],
+IF $TQ16d/1..[BRX], T [+T] = $TQ46_REG * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Aware of REGARDLESS",
 END IF,
 [*ENDX]
