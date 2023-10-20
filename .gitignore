@@ -1,4 +1,11 @@
 *.ASC
 *.lst
 *.log
+*.xlsx
+*.csv
+*.rpt
+*.tab
+*.toc
+*.sav
+*.sps
 kfile/
