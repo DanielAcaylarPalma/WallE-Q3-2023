@@ -222,24 +222,16 @@ F=BRS,
 
 
 
-[*DATA HX=
-HA1T,
-HET,
-HIT,
-HLT,
-HOT,
-HPT]
-
 
 !
 [*SET T = 0]
 
 
-
-
-[*DATA HX=HTOT]
-
-
+[*DATA HX=
+HA1_RR,
+HE,
+HO]
+!
 
 
 

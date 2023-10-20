@@ -220,20 +220,13 @@ F=BRS,
 
 
 [*DATA HX=
-HA1T,
-HET,
-HIT,
-HLT,
-HOT,
-HPT]
+HA1_RR,
+HE,
+HO]
 !
-!
+
+
 [*SET T = 0]
-
-
-[*DATA HX=HTOT]
-
-
 
 
 

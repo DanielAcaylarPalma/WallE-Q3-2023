@@ -1,7 +1,7 @@
 START CONTROL,
 *PROJECT VECTOR
 
-IDF='C:\Users\ojvi7001\Downloads\z_others\WallE2\SPECS\kfile\WallEQ1_T6_HALL.IDF',
+IDF='C:\Users\ojvi7001\Downloads\z_others\WallE2\SPECS V2\kfile\WallEQ1_T1a_Q8abc_HALL.IDF',
 
 CEP,
 CSV2R,
@@ -168,7 +168,12 @@ IF $QFI1/1.$TQFI5/72, LCSV (H) $resp.$TQFI5,
 
 
 
-IF ($Q184a/2+$Q184b/2).$TQ187/21, LCSV (H) $resp.$TQ187,
+[*DOX=1:1]
+IF $A_Q17d/1.$TQ17a/N1.$TQ40CE/13, THEN,
+lcsv (H) $resp.$TQ40CE,
+END IF,
+[*ENDX]
+
 
 
 

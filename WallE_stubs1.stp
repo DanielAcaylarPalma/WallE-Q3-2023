@@ -393,7 +393,7 @@ end if,
 
 
 
-if ($Q12022/nb+$Q22022/nb+$q32022/NB+$q42022/NB+$q12023/NB), then,
+if ($Q12022/nb+$Q22022/nb+$q32022/NB+$q42022/NB+$q12023/NB+$q22023/NB+$q32023/NB), then,
 [*DOA=1:3]
 DM $FTQ8bR[A] = $T_Q8b_[A]/
 1+1024,
@@ -4594,34 +4594,109 @@ Total count<C>",
 
 
 DM $TQ40CE = $xQ40_CE/
-1,
+1020+1021,
+1020,
+1021,
+1030+1031,
+1030,
+1031,
+1040+1050,
+1040,
+1050,
+1060+1061+1062,
+1060+1061+1062,
+1060,
+1061,
+1062,
+1070+1071+1072+1073+1074,
+1070,
+1071,
+1072,
+1073,
+1074,
+1080,
+1080,
+1090+1091,
+1090,
+1091,
+1101+1102+1103+1104+1105+1106+1107+1108+1109+1110+1111+1+1001+2+3+4+5+6+1006+7+8+1008+9+10+11+12+1012,
+1101,
+1102,
+1103,
+1104,
+1105,
+1106,
+1107,
+1108,
+1109,
+1110,
+1111,
+1+1001,
 2,
 3,
 4,
 5,
-6,
+6+1006,
 7,
-8,
+8+1008,
 9,
 10,
 11,
-12,
+12+1012,
+9999,
 R,F,
 VT = "Q40. REASONS FOR NOT USING GCASH IN THE PAST 2 MONTHS",
 V = "
-No transactions for me to use GCash (e.g., no need to send/receive money, don't play online games anymore, etc);
-My GCash account is not fully verified;
-I don't know how to use GCash;
-Unable to cash-in/ I can't load my GCash;
-I forgot the password of my GCash account;
-Problems with account (e.g. cannot open);
-Weak signal/ no internet connection in my area to access my GCash account;
-I currently don't own a personal mobile phone;
-I don't have a valid ID;
-Stores or places where I can cash in is far from my area;
-I am afraid of being scammed;
-I have no money to put in GCash;
-
+<G1B>TECHNICAL CONCERN (NET)<Q>;
+`     <G2B><G1P>Account was hacked;
+`     <G2E><G1P>Gcash system is always down;
+FEE/ CHARGES (NET)<Q>;
+`     <G2B><G1P>High transaction charges;
+`     <G2E><G1P>Cash-in transaction fee;
+REQUIREMENTS - NON-DOCUMENTS (NET)<Q>;
+`     <G2B><G1P>No account due to bad internet connection in the area;
+`     <G2E><G1P>Haven't installed app to new cellphone yet;
+RELEVANCE (NET)<Q>;
+`     No transactions (subnet)<Q>;
+`          <G2B><G1P>No one sends money;
+`          <G1P>Don't use it because I don't play online games anymore;
+`          <G2E><G1P>No more online sabong;
+AVAILABILITY OF ALTERNATIVES (NET)<Q>;
+`     <G2B><G1P>Have Paymaya already;
+`     <G1P>Have smart padala account;
+`     <G1P>Palawan Remittance is the most used;
+`     <G1P>Money is safer in BPI;
+`     <G2E><G1P>Getting money from the bank;
+ACCESSIBILITY (NET)<Q>;
+`     <G1P>Difficult to find cash out outlet;
+<G1E>BUSY (NET)<Q>;
+`     <G2B><G1P>Busy at work;
+`     <G2E><G1P>Busy making module;
+OTHERS (NET)<Q>;
+`     <G2B><G1P>Just heard it;
+`     <G1P>Just newly registered;
+`     <G1P>Deleted already my Gcash account;
+`     <G1P>Ask someone else with Gcash;
+`     <G1P>Account is not under my name;
+`     <G1P>I prefer cash transaction;
+`     <G1P>Hassle when it comes to payment especially when the internet is slow;
+`     <G1P>It can't be used because it's blocked;
+`     <G1P>My Sim card is deactivated because it has not been loaded for a long time;
+`     <G1P>My cellphone is broken;
+`     <G1P>Don't have a job;
+`     <G1P>No transactions for me to use GCash (e.g., no need to send/receive money, don't play online games anymore, etc);
+`     <G1P>My GCash account is not fully verified;
+`     <G1P>I don't know how to use GCash;
+`     <G1P>Unable to cash-in/ I can't load my GCash;
+`     <G1P>I forgot the password of my GCash account;
+`     <G1P>Problems with account (e.g. cannot open);
+`     <G1P>Weak signal/ no internet connection in my area to access my GCash account;
+`     <G1P>I currently don't own a personal mobile phone;
+`     <G1P>I don't have a valid ID;
+`     <G1P>Stores or places where I can cash in is far from my area;
+`     <G1P>I am afraid of being scammed;
+`     <G2E><G1P>I have no money to put in GCash;
+None<Q>;
 Missing answers<Z>;
 Total count<C>",
 
@@ -4968,48 +5043,338 @@ Total count<C>",
 
 
 DM $TQ41CE = $xQ41_CE/
-1,
+1030+1031,
+1030,
+1031,
+1040+1041+1042+1043,
+1040,
+1041,
+1042,
+1043,
+1050+1051+1052+1053+1054+1055+1056+1057+1058+1059+1060+1061+1062+1063+1064+1065+1066,
+1050,
+1051,
+1052,
+1053,
+1054,
+1055,
+1056,
+1057,
+1058,
+1059,
+1060,
+1061,
+1062,
+1063,
+1064,
+1065,
+1066,
+1080+1081+1082,
+1080,
+1081,
+1082,
+1090+1091+1092+1093+1094,
+1090,
+1091,
+1092,
+1093,
+1094,
+1101+1102+1103+1104+1105+1106+1120+1121+1122+1123+1124+1125+1126+1127+1128+1129,
+1101,
+1102,
+1103,
+1104,
+1105,
+1106,
+1120+1121+1122+1123+1124+1125+1126+1127+1128+1129,
+1120,
+1121,
+1122,
+1123,
+1124,
+1125,
+1126,
+1127,
+1128,
+1129,
+1200+1201,
+1200,
+1201,
+1220+1221+1222+1223+1224,
+1220,
+1221,
+1222,
+1223,
+1224,
+1230+1231+1232,
+1230,
+1231,
+1232,
+1240+1241+1242+1243+1244+1245+1246+1247+1248+1249,
+1240,
+1241,
+1242,
+1243,
+1244,
+1245,
+1246,
+1247,
+1248,
+1249,
+1260+1261+1262+1263+1264+1265+1266+1267+1268,
+1260,
+1261,
+1262,
+1263,
+1264,
+1265,
+1266,
+1267,
+1268,
+1280+1281+1282+1283+1284+1285,
+1280,
+1281,
+1282,
+1283,
+1284,
+1285,
+1300+1301+1302+1303+1304,
+1300,
+1301,
+1302,
+1303,
+1304,
+1330+1331,
+1330,
+1331,
+1400+1401+1402+1403+1404+1405+1406+1407+1408+1409+1410+1411+1412+1413+1414+1415+1416+1417+1418+1419+1420+1421+1422+1423+1424+1425+1426+1427+1428+1429+1430+1431+1432+1433+1434+1435+1436+1+1001+2+3+1003+4+5+1005+6+1006+7+1007+8+1008+9+1009+10+11+1011+12+1012+13+14+15+1015+16+1016+17+1017+18+19,
+1400,
+1401,
+1402,
+1403,
+1404,
+1405,
+1406,
+1407,
+1408,
+1409,
+1410,
+1411,
+1412,
+1413,
+1414,
+1415,
+1416,
+1417,
+1418,
+1419,
+1420,
+1421,
+1422,
+1423,
+1424,
+1425,
+1426,
+1427,
+1428,
+1429,
+1430,
+1431,
+1432,
+1433,
+1434,
+1435,
+1436,
+1+1001,
 2,
-3,
+3+1003,
 4,
-5,
-6,
-7,
-8,
-9,
+5+1005,
+6+1006,
+7+1007,
+8+1008,
+9+1009,
 10,
-11,
-12,
+11+1011,
+12+1012,
 13,
 14,
-15,
-16,
-17,
+15+1015,
+16+1016,
+17+1017,
 18,
 19,
+1500,
+1500,
+9999,
 R,
 F,
 VT = "Q41. REASONS FOR NOT HAVING GCASH ACCOUNT",
 V = "
-I do not know how to use GCash;
-I do not know what are the different features of Gcash;
-I have no valid ID to create an account;
-I don't know how to download the app;
-Weak or no signal/ internet connection in my area;
-I don't have a smartphone;
-I don't have a personal mobile phone;
-I don't need GCash/ I do not have the need for it;
-I don't send/receive money;
-I have other family members who already have a GCash account;
-I prefer to do cash or offline/physical transactions;
-I don't do any transactions that require online payment;
-Registration process to make a GCash account is too complicated;
-I don't know how to register or create a GCash account;
-My account is not fully verified yet;
-I have no money cash-in/ to put to GCash;
-I am afraid of losing money/ being scammed;
-Difficult to find where to cash-in;
-Difficult to find where to cash out;
+<G1B>USAGE-RELATED CONCERNS (NET)<Q>;
+`     <G2B><G1P>Find it difficult to use;
+`     <G2E><G1P>Not used to using digital;
+Requirements - Documents (NET)<Q>;
+`     <G2B><G1P>Underage;
+`     <G1P>I'm not yet alllowed ;
+`     <G1P>Student;
+`     <G2E><G1P>ID was lost;
+Requirements - Non Documents (NET)<Q>;
+`     <G2B><G1P>Do not know how to use mobile phone;
+`     <G1P>Outdated (I'm old, out of fashion);
+`     <G1P>App hasn't been updated yet;
+`     <G1P>Cellphone is shared gadget at home;
+`     <G1P>No globe sim card;
+`     <G1P>still needs load to access gcash;
+`     <G1P>No new simcard;
+`     <G1P>Can't download apps on phone;
+`     <G1P>Lost old sim card;
+`     <G1P>Still needs an internet;
+`     <G1P>Rarely use the internet;
+`     <G1P>I'm not techy;
+`     <G1P>Cellphone was broken;
+`     <G1P>No documents;
+`     <G1P>Cellphone was lost;
+`     <G1P>I use keypad Cellphone;
+`     <G2E><G1P>I just got a cellphone;
+ACCESSiBILITY (NET)<Q>;
+`     <G2B><G1P>Gcash store is far away;
+`     <G1P>Smart padala is near to us;
+`     <G2E><G1P>Hassle to cash in long line in 7/11;
+FEES/ CHARGES (NET)<Q>;
+`     <G2B><G1P>With charges when receiving money;
+`     <G1P>Has hidden charges;
+`     <G1P>Has transaction fees;
+`     <G1P>High transaction fee;
+`     <G2E><G1P>Has limit when cash in;
+DO NOT HAVE THE NEED FOR IT (NET)<Q>;
+`     <G2B><G1P>Have Paymaya already;
+`     <G1P>Not priority yet;
+`     <G1P>NO ONE WILL SEND/SEND;
+`     <G1P>No reason to use gcash;
+`     <G1P>Not fond of using cellphone;
+`     <G1P>Have plan but not now;
+`     <G2E><G1P>Other family members already have it (subnet)<Q>;
+`          <G3B><G2P><G1P>Husband already has an account;
+`          <G2P><G1P>My childrens already have it;
+`          <G2P><G1P>My Mother already have it;
+`          <G2P><G1P>only my brother usually uses it;
+`          <G2P><G1P>My grand father already have it;
+`          <G2P><G1P>My sister alrady have it;
+`          <G2P><G1P>I only use my sibling's gcash account when I need it;
+`          <G2P><G1P>My wife already has it;
+`          <G2P><G1P>My sister in law already have it;
+`          <G3E><G2P><G1P>My elder already have it;
+ACCOUNT OPENING/REGISTRATION CONCERNS (NET)<Q>;
+`     <G2B><G1P>Someone else is registered using my cellphone# ;
+`     <G2E><G1P>Its difficult to have many accounts;
+ACCOUNT REGISTRATION/VERIFICATION CONCERNS (NET)<Q>;
+`     <G2B><G1P>Need to delete some apps to download it;
+`     <G1P>DIFFICULT TO DOWNLOAD;
+`     <G1P>Has not downloaded apps yet;
+`     <G1P>Not yet activated;
+`     <G2E><G1P>Can't be able to install Full storage;
+FORGOT LOG-IN DETAILS (NET)<Q>;
+`     <G2B><G1P>Forgot my gmail password for registration;
+`     <G1P>Forgot my gcash password;
+`     <G2E><G1P>forgot account number;
+TRUST ISSUE (NET)<Q>;
+`     <G2B><G1P>It's scary to use;
+`     <G1P>Not comfortable to use;
+`     <G1P>Don't trust the app;
+`     <G1P>Afraid of being scammed;
+`     <G1P>Hears a lot of bad feedback;
+`     <G1P>Not sure if it is safe;
+`     <G1P>hear negative rumors about the e wallet, for example, paying bills sometimes not in;
+`     <G1P>Scared of data hacking;
+`     <G1P>Money runs out quickly;
+`     <G2E><G1P>For privacy;
+AVAILABILITY OF ALTERNATIVES (NET)<Q>;
+`     <G2B><G1P>Have other means (e.g. Palawan);
+`     <G1P>Goes to the bank directly;
+`     <G1P>Have other account same like gcash;
+`     <G1P>Must preffered Smart padala;
+`     <G1P>Smart padala has been easier for me;
+`     <G1P>Direct paying bills;
+`     <G1P>Want cash savings same as ECebuana;
+`     <G1P>Must prefered online banking;
+`     <G2E><G1P>Must prefered BPI bank;
+TECHNICAL CONCERNS (NET)<Q>;
+`     <G2B><G1P>usually offline;
+`     <G1P>under maintenance;
+`     <G1P>Can't open even after a few tries;
+`     <G1P>Often makes errors;
+`     <G1P>Not favor in gcash because it has tendency of sending wrong;
+`     <G2E><G1P>Cant received OTP;
+NO MONEY FOR CASH IN (NET)<Q>;
+`     <G2B><G1P>No work/income;
+`     <G1P>Do not have enough money;
+`     <G1P>No stable Job;
+`     <G1P>Pension is not financially reliable for I am undergoing a dialysis;
+`     <G2E><G1P>Financial crisis;
+<G1E>BRAND AWARENESS (NET)<Q>;
+`     <G2B><G1P>Not yet aware of gcash brand;
+`     <G2E><G1P>I just hear from someone;
+OTHERS (NET)<Q>;
+`     <G2B><G1P>Not interested with Gcash;
+`     <G1P>Too busy to register;
+`     <G1P>Children deleted app;
+`     <G1P>Not lucky for that;
+`     <G1P>Do not have an account;
+`     <G1P>not yet offered;
+`     <G1P>Not allowed to go out;
+`     <G1P>Don't want to go out just to cash in or cash out;
+`     <G1P>Haven't registered yet;
+`     <G1P>My children are the ones knowledgeable about online transactions;
+`     <G1P>Haven't tried yet;
+`     <G1P>Not here in the Philippines, working abroad;
+`     <G1P>My children don't want it, might spend a lot;
+`     <G1P>Not yet familiar;
+`     <G1P>Have no plan yet;
+`     <G1P>Still thinking about using it;
+`     <G1P>No time to use it;
+`     <G1P>Faster spending of money;
+`     <G1P>I only instruct my children to use apps when I really need them;
+`     <G1P>For personal used only;
+`     <G1P>Still want to learn how to use;
+`     <G1P>Old account was deleted;
+`     <G1P>Just got here, I haven't applied yet;
+`     <G1P>No one suggest Gcash;
+`     <G1P>No time to install gcash;
+`     <G1P>Still lazy to use;
+`     <G1P>Don't want to use;
+`     <G1P>De activated number already;
+`     <G1P>Always out of the country not applicable on Ship;
+`     <G1P>Hassle transaction;
+`     <G1P>I didn't email;
+`     <G1P>No points;
+`     <G1P>Sim was bloked;
+`     <G1P>Simcard nor working properly;
+`     <G1P>On Maternity leave;
+`     <G1P>The tablet is broken;
+`     <G1P>When creating own account has appear different name;
+`     <G1P>I do not know how to use GCash;
+`     <G1P>I do not know what are the different features of Gcash;
+`     <G1P>I have no valid ID to create an account;
+`     <G1P>I don't know how to download the app;
+`     <G1P>Weak or no signal/ internet connection in my area;
+`     <G1P>I don't have a smartphone;
+`     <G1P>I don't have a personal mobile phone;
+`     <G1P>I don't need GCash/ I do not have the need for it;
+`     <G1P>I don't send/receive money;
+`     <G1P>I have other family members who already have a GCash account ;
+`     <G1P>I prefer to do cash or offline/physical transactions;
+`     <G1P>I don't do any transactions that require online payment;
+`     <G1P>Registration process to make a GCash account is too complicated;
+`     <G1P>I don't know how to register or create a GCash account;
+`     <G1P>My account is not fully verified yet;
+`     <G1P>I have no money cash-in/ to put to GCash;
+`     <G1P>I am afraid of losing money/ being scammed;
+`     <G1P>Difficult to find where to cash-in;
+`     <G2E><G1P>Difficult to find where to cash out;
+VAGUE (NET)<Q>;
+`     <G1P>have;
+None<Q>;
 Missing answers<Z>;
 Total count<C>",
 
@@ -6435,6 +6800,7 @@ DM $TQ154 = $xA_Q154/
 1034,
 1036,
 1038,
+1041,
 1032+1037+1040,
 1032,
 1037,
@@ -6462,6 +6828,7 @@ Agent;
 Relative;
 School accounts;
 Neighbor;
+pharmacy;
 REMITTANCE CENTER (NET)<q>;
 `     Palawan;
 `     M Lhuillier;
@@ -6553,21 +6920,20 @@ V = $TQ50IR1,
 
 
 
-
 DM $TQ53 = $xA_Q53/
 1+1014,
-2+1012+1019,
+2+1012+1019+1083,
 3+1002+1016,
 4+1008+1011+1013,
 1001,
 1003,
 1004,
-1005,
+1005+1044,
 1006,
 1007+1009+1010,
-1015,
+1015+1020,
 1017,
-1018,
+1018+1131,
 9999,
 R,F,
 VT = "Q53. HOW SAVINGS ARE KEPT",
@@ -6723,12 +7089,12 @@ DM $TQ53a = $xA_Q53a/
 1012,
 1013,
 1131,
-1023+1027+1028+1032+1044+1090+1102+1109,
+1023+1027+1028+1032+1044+1138+1090+1102+1109,
 1023,
 1027,
 1028,
 1032,
-1044,
+1044+1138,
 1090,
 1102,
 1109,

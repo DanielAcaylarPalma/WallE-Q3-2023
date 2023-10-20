@@ -12,7 +12,7 @@ START CONTROL,
 
 !C = P_WALLE_2022Q2.ASC,
 
-C = P_WALLE_2023Q3.ASC,
+C = P_WALLE_2023Q3_V2.ASC,
 
 Y,
 CEP,
@@ -119,20 +119,17 @@ F=BRS,
 
 
 
+
 [*DATA HX=
-HA1T,
-HET,
-HIT,
-HLT,
-HOT]
+HA1_RR,
+HE,
+HO]
 !
 
-[*DATA HX=HTX]
-
-
+!
 [*SET T = 0]
 
-
+[*sk1]!DELETED IN Q3 2023
 [*DOA=1:BR]
 [*DOX=1:1]
 IF $Filter27F6_[A]/NB.$TQ105R[a]/2..3, T [+T] = $TQ34R[A] * $[HX.X],
@@ -145,6 +142,7 @@ IF $Filter27F6_REG/NB.$TQ105_REG/2..3, T [+T] = $TQ34_REG * $[HX.X],
 BT = "Among Who Send/ receive electronic money in P2M - REGARDLESS",
 [*ENDX]
 
+[*1]
 
 
 

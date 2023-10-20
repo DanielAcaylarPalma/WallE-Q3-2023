@@ -18,6 +18,61 @@ TOTAL\
 
 
 
+
+DM $HA1_RR = 
+T,
+$Q2/1,
+$Q2/2,
+
+$T_Q1_1/1..21,
+$T_Q1_1/22..29,
+$T_Q1_1/30..34,
+$T_Q1_1/35..44,
+$T_Q1_1/45..99,
+
+$xQ102/1,
+$xQ102/2,
+$xQ102/1..2,
+$xQ102/3,
+$xQ102/4,
+
+$xQ17i/1,
+$xQ17i/2,
+
+
+HT = "Header A1. General Profile",
+h = "
+TOTAL\
+   TOTAL *(a);
+   
+GENDER\
+   Male *(b);
+   Female *(c);
+
+LIFESTAGE\
+	STUDENTS (21yo and below)*(d);
+	YUPPIES (22-29yo)*(e);
+	TRANSITIONERS (30-34yo)*(f);
+	BALANCERS (35-44yo)*(g);
+	RETIREES (45yo and above)*(h);
+
+SEC\
+	AB*(i);
+	C1*(j);
+	ABC1*(k);
+	C2*(l);
+	D*(m);
+
+USERSHIP\
+	USER*(n);
+	NON-USER*(o)",
+	
+	
+	
+	
+	
+
+
 DM $HA1 = 
 T,
 $Q2/1,
