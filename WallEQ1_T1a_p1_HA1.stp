@@ -1000,7 +1000,6 @@ BT = "Among Non-users of FinTech Apps AND Digital/Online financial transactions"
 END IF,
 [*ENDX]
 
-[*1]
 
 
 
@@ -1025,13 +1024,14 @@ BT = "Among Non-users of FinTech Apps AND NO Digital/Online or Platforms/Channel
 END IF,
 [*ENDX]
 
+[*1]
 
 
 
 
 
 
-
+[*SK 1]
 [*DOX=1:1]
 T [+T] = $TQ101 * $[HX.X],
 BT = "All respondents",
@@ -1052,7 +1052,6 @@ T [+T] = $TQ101 * $[HX.X],
 BT = "Among Non-users of FinTech Apps",
 END IF,
 [*ENDX]
-
 
 
 
@@ -1085,6 +1084,7 @@ END IF,
 
 
 
+[*1]
 
 
 
