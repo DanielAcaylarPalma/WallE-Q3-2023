@@ -203,14 +203,14 @@ F=PBL/MOD,
 
 
   
-F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
 
 
 
-!SELECT WR $newwts,
+SELECT WR $newwts,
 
 
 F=BRS,
@@ -220,8 +220,8 @@ F=BRS,
 
 
 [*DATA HX=
-HA1T,
-HET,
+HA1_RR,
+HE_RR,
 HIT,
 HLT,
 HOT,
@@ -231,7 +231,6 @@ HPT]
 [*SET T = 0]
 
 
-[*DATA HX=HTOT]
 
 
 
@@ -240,14 +239,15 @@ HPT]
 
 
 
-[*DOX=1:1]
+
+[*DOX=1:2]
 IF (($F2023NB/NB).($Q8B1_78910/5).($TQ53/4)) + (($F2023B/NB).($TQ8BR2/5).($TQ53/4)), THEN,
 T [+T] = $TQ53d1 * $[HX.X],
 bt = "Among those who save money at home",
 END IF,
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 IF (($F2023NB/NB).($Q8B1_78910/5).($TQ53/4)) + (($F2023B/NB).($TQ8BR2/5).($TQ53/4)), T [+T] = $TQ53d1 * $[HX.X],
 BT = "Among Users of FinTech Apps AND those who save money at home",
@@ -255,7 +255,7 @@ END IF,
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 IF (($F2023NB/NB).($Q8B1_78910/5).($TQ53/4)) + (($F2023B/NB).($TQ8BR2/5).($TQ53/4)), T [+T] = $TQ53d1 * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND those who save money at home",
@@ -268,21 +268,21 @@ END IF,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF (($F2023NB/NB).($Q8B1_78910/5).($TQ53/4)) + (($F2023B/NB).($TQ8BR2/5).($TQ53/4)), THEN,
 T [+T] = $TQ53e1 * $[HX.X],
 bt = "Among those who save money at home",
 END IF,
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 IF (($F2023NB/NB).($Q8B1_78910/5).($TQ53/4)) + (($F2023B/NB).($TQ8BR2/5).($TQ53/4)), T [+T] = $TQ53e1 * $[HX.X],
 BT = "Among Users of FinTech Apps AND those who save money at home",
 END IF,
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 IF (($F2023NB/NB).($Q8B1_78910/5).($TQ53/4)) + (($F2023B/NB).($TQ8BR2/5).($TQ53/4)), T [+T] = $TQ53e1 * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND those who save money at home",
@@ -293,26 +293,26 @@ END IF,
 
 
 
+! (($F2023NB/NB).($Q8B1_78910/5))
 
-
-[*DOX=1:1]
-IF (($F2023NB/NB).($Q8B1_78910/5)) . (($F2023B/NB).($TQ8BR2/6)), THEN,
+[*DOX=1:2]
+IF (($F2023B/NB).($TQ8BR2/6)), THEN,
 T [+T] = $TQ106 * $[HX.X],
 BT = "Among who send/receive remittance offline or Over-the Counter Money Transfer",
 END IF,
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
-IF (($F2023NB/NB).($Q8B1_78910/5)) . (($F2023B/NB).($TQ8BR2/6)), T [+T] = $TQ106 * $[HX.X],
+IF  (($F2023B/NB).($TQ8BR2/6)), T [+T] = $TQ106 * $[HX.X],
 BT = "Among Users of FinTech Apps AND Who send/receive remittance offline or Over-the Counter Money Transfer",
 END IF,
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
-IF (($F2023NB/NB).($Q8B1_78910/5)) . (($F2023B/NB).($TQ8BR2/6)), T [+T] = $TQ106 * $[HX.X],
+IF (($F2023B/NB).($TQ8BR2/6)), T [+T] = $TQ106 * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Who send/receive remittance offline or Over-the Counter Money Transfer",
 END IF,
 [*ENDX]
