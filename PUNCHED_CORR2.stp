@@ -691,6 +691,17 @@ if $resp/32129725, then, D $211958-211958=0, endif,
 if $resp/31505240, then, D $171591-171591=6, endif,
 
 
+if $resp/30962051, then, D $214126-214130=01000, endif,
+if $resp/31058384, then, D $214192-214192=6, endif,
+if $resp/31154939, then, D $214126-214130=01000, endif,
+if $resp/31154940, then, D $214126-214130=01000, endif,
+if $resp/31157961, then, D $214192-214192=6, endif,
+if $resp/31159975, then, D $214126-214130=01000, endif,
+if $resp/31171872, then, D $214126-214130=01000, endif,
+if $resp/31185299, then, D $214192-214192=6, endif,
+if $resp/31187111, then, D $214192-214192=6, endif,
+
+
 
 PUNCH $1-300000,
 FINISH DATA,

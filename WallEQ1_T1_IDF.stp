@@ -1,7 +1,7 @@
 START CONTROL,
 *PROJECT VECTOR
 
-IDF='C:\Users\ojvi7001\Downloads\z_others\WallE2\SPECS V2\kfile\WallEQ1_T1a_Q8abc_HALL.IDF',
+IDF='C:\Users\ojvi7001\Downloads\z_others\WallE2\SPECS V3\kfile\WallEQ1_T1d_HA1.IDF',
 
 CEP,
 CSV2R,
@@ -11,168 +11,13 @@ FINISH CONTROL,
 
 START TABLES,
 
-
-[*sk1]
-!IF $TQ16e/105, LCSV (H) $resp.$A_Q16e,
-
-!if ($Q16hcon/1..9).$TQ16h/62, LCSV (H) $resp.$A_Q16e,
-
-IF (($F2023NB/NB).($Q8B1_78910/1)) + (($F2023B/NB).($TQ8bR2/1)), THEN,
-IF $TQ50h/22, LCSV (H) $resp,
-END IF,
-
-if $TQ17i/2, then,
-IF (($F2023NB/NB).($Q8B1_78910/1)) + (($F2023B/NB).($TQ8bR2/1)).$TQ50h/22, LCSV (H) $resp,
-END IF,
-
-
-[*DOA=1:100]
-IF (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/[A])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/[A])), THEN,
-DI $Brands = [A],
-IF $TQ55dR[A]/20, LCSV (H) $resp.$Brands,
-END IF,
-[*ENDA]
-
-[*DOA=1:102]
-IF (($F2023NB/NB).($Q106/1+3).($Q55/2+3).($TQ55f/[A])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/2+3).($TQ55f/[A])), THEN,
-DI $Brands = [A],
-IF $TQ55gR[A]/20, LCSV (H) $resp.$Brands.$TQ55gR[A],
-END IF,
-[*ENDA]
-
-
-[*DOA=1:100]
-IF (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/[A])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/[A])), THEN,
-DC $QNO = 'Q55e',
-DI $Brands = [A],
-IF $TQ55eR[A]/829, LCSV (H) $resp.$QNO.$Brands.$TQ55eR[A],
-END IF,
-[*ENDA]
-
-
-
-
-[*DOA=1:102]
-IF (($F2023NB/NB).($Q106/1+3).($Q55/2+3).($TQ55f/[A])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/2+3).($TQ55f/[A])), THEN,
-DC $QNO = 'Q55h',
-DI $Brands = [A],
-IF $TQ55hR[A]/829, LCSV (H) $resp.$QNO.$Brands.$TQ55hR[A],
-END IF,
-[*ENDA]
-
-
-
 [*DOA=1:91]
-if $Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
-IF (($F2023NB/NB).($Q106/1+3).($Q55/2+3).($TQ55f/[A])) + (($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb).($TQ8BR2/6).($Q106/1+3).($Q55/2+3).($TQ55f/[A])), THEN,
-DC $QNO = 'Q158b',
+IF (($F2023NB/NB).($Q106/1+3).($Q55/2+3).($TQ55f/[A])) + 
+(($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q32023/nb).($TQ8BR2/6).($Q106/1+3).($Q55/2+3).($TQ55f/[A])).$TQ158bR[A]/51, THEN,
 DI $Brands = [A],
-IF $TQ158bR[A]/51, LCSV (H) $resp.$QNO.$Brands.$TQ158bR[A],
+LCSV (H) $SbjNum.$Brands.&$TQ158bR[A],
 END IF,
-end if,
 [*ENDA]
-
-
-IF $TQ66ab/725, LCSV (H) $resp.$TQ66ab,
-
-
-
-IF $TQ70/5.$TQ73e/129, LCSV (H) $resp.$TQ73e,
-
-
-IF $TQ17a/105, LCSV (H) $resp.&$TQ17a,
-
-IF $FQ70/5.$TQ165/23, LCSV (H) $resp.&$TQ165,
-
-
-IF $FQ70/5.$TQ74A/88, LCSV (H) $resp.&$TQ74A,
-
-[*DATA ROWBRAND=
-13,
-12,
-11,
-3,
-1,
-7,
-2,
-4,
-23]
-[*DOA=1:9]
-DC $CHAR[A] = '$xI_[ROWBRAND.A]_Q28f',
-IF $Filter28bdef_[a]/NB.$TQ28fR[A]/3, LCSV (H) $resp.$CHAR[A].$TQ28fR[A],
-[*ENDA]
-
-
-[*DATA ROWBRAND=
-13,
-12,
-11,
-3,
-1,
-7,
-2,
-4,
-23]
-[*DOA=1:9]
-[*DOB=1:100]
-DI $CHAR[A] = 0,
-DI $CHBR[A] = 0,
-IF $Filter27F6_[A]/NB.($TQ33R[A]/1+3).$TQ33a1R[A]/[B].$TQ33d1H[A]R[B]/20, THEN,
-DI $CHAR[A] = [ROWBRAND.A],
-DI $CHBR[A] = [ROWBRAND.A],
-DC $CHCR[A]C[B] = '$XI_[ROWBRAND.A]_T_Q33d1_[B]',
-LCSV (H) $resp.$CHAR[A].$CHAR[A].$CHBR[A].$CHCR[A]C[B].$TQ33d1H[A]R[B],
-ENDIF,
-[*ENDB]
-[*ENDA]
-
-
-[*DATA ROWBRAND=
-13,
-12,
-11,
-3,
-1,
-7,
-2,
-4,
-23]
-[*DOA=5:9]
-[*DOB=1:100]
-DI $CHAR[A] = 0,
-DI $CHBR[A] = 0,
-IF $Filter27F6_[A]/NB.($TQ33R[A]/1+3).$TQ33a2R[A]/[B].$TQ33e2H[A]R[B]/865, THEN,
-DI $CHAR[A] = [ROWBRAND.A],
-DI $CHBR[A] = [ROWBRAND.A],
-DC $CHCR[A]C[B] = '$XI_[ROWBRAND.A]_T_Q33e2_[B]',
-LCSV (H) $resp.$CHAR[A].$CHAR[A].$CHBR[A].$CHCR[A]C[B].$TQ33e2H[A]R[B],
-ENDIF,
-[*ENDB]
-[*ENDA]
-
-
-
-IF $JUL2023/nb.$Q210/1.$TQ212/8, LCSV (H) $resp,
-
-
-IF $QLM1/1.$TLM3/12, LCSV (H) $resp.$TLM3,
-
-IF $QLM1/1.$TLM5/72, LCSV (H) $resp.$TLM5,
-
-
-IF $QFI1/1.$TQFI5/72, LCSV (H) $resp.$TQFI5,
-
-
-[*1]
-
-
-
-
-[*DOX=1:1]
-IF $A_Q17d/1.$TQ17a/N1.$TQ40CE/13, THEN,
-lcsv (H) $resp.$TQ40CE,
-END IF,
-[*ENDX]
 
 
 

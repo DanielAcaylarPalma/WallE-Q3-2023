@@ -142,7 +142,7 @@ IF $Filter27F6_REG/NB.$TQ105_REG/2..3, T [+T] = $TQ34_REG * $[HX.X],
 BT = "Among Who Send/ receive electronic money in P2M - REGARDLESS",
 [*ENDX]
 
-[*1]
+
 
 
 
@@ -205,7 +205,7 @@ BT = "Among Who Personally Send electronic money in P2M - [BRAND.A] - [SENDREC2.
 
 
 
-
+[*1]
 
 
 
