@@ -106,7 +106,7 @@ F=PBL/MOD,
 
 
   
-F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
@@ -114,21 +114,20 @@ F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 
 
-!SELECT WR $newwts,
+SELECT WR $newwts,
 
 
 F=BRS,
 
 
 [*DATA HX=
-HA1T,
-HET,
+HA1_RR,
+HE_RR,
 HIT,
 HLT,
 HOT,
 HPT]
 !
-[*DATA HX=HTX]
 
 [*SET T = 0]
 
@@ -138,7 +137,7 @@ HPT]
 
 [*DOA=1:4]
 [*DOB=1:SRA]
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Filter27F6_[A]/NB.($TQ33R[A]/2+3).$TQ33a2R[A]/[B], THEN,
 T [+T] = $TQ33e2H[A]R[B] * $[HX.X],
 BT = "Among who Receive remittance in P2M - [BRAND.A] - [SENDRECA.B]",
