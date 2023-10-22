@@ -132,7 +132,7 @@ HOT]
 
 [*SET T = 0]
 
-
+[*sk1]!DELETED IN Q3 2023
 [*DOA=1:BR]
 [*DOX=1:1]
 IF $Filter27F6_[A]/NB.$TQ105R[a]/2..3, T [+T] = $TQ34R[A] * $[HX.X],
@@ -144,6 +144,7 @@ BT = "Among Who Send/ receive electronic money in P2M - [BRAND.A]",
 IF $Filter27F6_REG/NB.$TQ105_REG/2..3, T [+T] = $TQ34_REG * $[HX.X],
 BT = "Among Who Send/ receive electronic money in P2M - REGARDLESS",
 [*ENDX]
+[*1]
 
 
 
