@@ -1,0 +1,308 @@
+START CONTROL,
+*PROJECT WALL-E
+
+! C = P_WALLE_2022Q1.ASC;P_WALLE_2022Q2.ASC;P_WALLE_2022Q3.ASC;P_WALLE_2022Q4.ASC;P_WALLE_2023Q1.ASC;P_WALLE_2023Q2_PUNCHED.ASC,
+
+! c = P_WALLE_2023Q2_PUNCHED.ASC,
+
+C = P_WALLE_2023Q3.ASC,
+
+
+Y,
+CEP,
+BIG,
+TIDY,
+TERSE,
+CSVR2,
+OLDNAMES,
+FINISH CONTROL,
+
+START DATA,
+ORDER1234567890XV,
+SERIAL NUMBER IN COLUMNS 1-10,
+CARD CHARACTERS BINARY 300000,
+TEMPORARY /99999999/,
+
+DI $RESP = $1-10,
+
+di $blank = 0,
+di $Blankamt = $299996-300000,
+[*INSERT WallE_insertGlobal]
+[*INSERT WallE_oesoe]
+
+[*INSERT WallE_resp]
+
+[*INSERT walle_cardcol_banner]
+[*INSERT walle_cardcol_p1] !always need
+[*INSERT walle_cardcol_p2b] !Q104a Q51a
+
+[*INSERT WallE_insertAlign_pickup]
+[*INSERT WallE_insertAlign1] !always need
+[*INSERT WallE_insertAlign2b] !Q104a Q51a
+
+
+[*INSERT WallE_stubs_pickup]
+
+
+[*INSERT WALLE_HEADERS_Trend]
+[*INSERT WALL_E_NEWWTS]
+!ITEM 20 Q2 2022
+
+! guide
+! label;subordinate count below;hierarchy;code
+[*SET Q104row = 0]
+[*DATA Q104stubs[+Q104row] (;) = Movie tickets;0;1;18]
+[*DATA Q104stubs[+Q104row] (;) = Personal Care/Beauty Stores;0;1;19+1015]
+[*DATA Q104stubs[+Q104row] (;) = Personal Services (e.g. Barber Shop/Salon, Spa, etc);0;1;20]
+[*DATA Q104stubs[+Q104row] (;) = Alcoholic Beverages;0;1;27]
+[*DATA Q104stubs[+Q104row] (;) = Tobacco;0;1;28]
+[*DATA Q104stubs[+Q104row] (;) = Mobile Load;0;1;1001]
+[*DATA Q104stubs[+Q104row] (;) = Bills Payment;0;1;1002+1027+1030+1053]
+[*DATA Q104stubs[+Q104row] (;) = Apps Money;0;1;1003]
+[*DATA Q104stubs[+Q104row] (;) = Play Store;0;1;1005]
+[*DATA Q104stubs[+Q104row] (;) = Food Panda;0;1;1008]
+[*DATA Q104stubs[+Q104row] (;) = Individual Person;0;1;1011]
+[*DATA Q104stubs[+Q104row] (;) = Express Pay Remittance Center;0;1;1012]
+[*DATA Q104stubs[+Q104row] (;) = Bank Outlet;0;1;1013+1052]
+[*DATA Q104stubs[+Q104row] (;) = Online Games;0;1;1016+1056]
+[*DATA Q104stubs[+Q104row] (;) = Payment For My Customer;0;1;1017]
+[*DATA Q104stubs[+Q104row] (;) = Re Sealer Clothes;0;1;1018]
+[*DATA Q104stubs[+Q104row] (;) = Tuition;0;1;1019]
+[*DATA Q104stubs[+Q104row] (;) = Transfer Money To Gcash;0;1;1022]
+[*DATA Q104stubs[+Q104row] (;) = Payment For Online Business;0;1;1023]
+[*DATA Q104stubs[+Q104row] (;) = Personal Purposes;0;1;1025]
+[*DATA Q104stubs[+Q104row] (;) = Online Seller Supplier;0;1;1032+1034+1035+1054]
+[*DATA Q104stubs[+Q104row] (;) = Payment For Friend;0;1;1036]
+[*DATA Q104stubs[+Q104row] (;) = Facebook;0;1;1037+1031]
+[*DATA Q104stubs[+Q104row] (;) = SSS;0;1;1038]
+[*DATA Q104stubs[+Q104row] (;) = Canteen;0;1;1039]
+[*DATA Q104stubs[+Q104row] (;) = Motor Shop;0;1;1040]
+[*DATA Q104stubs[+Q104row] (;) = Cash In To My Gcash;0;1;1041]
+[*DATA Q104stubs[+Q104row] (;) = Meat vendor;0;1;1050]
+[*DATA Q104stubs[+Q104row] (;) = Cignal;0;1;1051]
+[*DATA Q104stubs[+Q104row] (;) = Market;0;1;1055]
+[*DATA Q104stubs[+Q104row] (;) = Payment for online Sabong;0;1;1057]
+[*DATA Q104stubs[+Q104row] (;) = HARDWARE;0;1;1058]
+[*DATA Q104stubs[+Q104row] (;) = Globe store;0;1;1063]
+[*DATA Q104stubs[+Q104row] (;) = Coda shop;0;1;1065]
+[*DATA Q104stubs[+Q104row] (;) = Crypto currency;0;1;1066]
+[*DATA Q104stubs[+Q104row] (;) = School;0;1;1067]
+[*DATA Q104stubs[+Q104row] (;) = Rolling store;0;1;1068]
+[*DATA Q104stubs[+Q104row] (;) = Gas Station;0;1;1069]
+[*DATA Q104stubs[+Q104row] (;) = Milktea shop;0;1;1070]
+[*DATA Q104stubs[+Q104row] (;) = Bookstore;0;1;1073]
+[*DATA Q104stubs[+Q104row] (;) = SM;0;1;1074]
+[*DATA Q104stubs[+Q104row] (;) = Fund transfer;0;1;1075]
+[*DATA Q104stubs[+Q104row] (;) = General merchandise ;0;1;1076]
+[*DATA Q104stubs[+Q104row] (;) = PSA Online;0;1;1077]
+[*DATA Q104stubs[+Q104row] (;) = Loan payment;0;1;1078]
+[*DATA Q104stubs[+Q104row] (;) = kiosk in mall;0;1;1079]
+[*DATA Q104stubs[+Q104row] (;) = Hospital;0;1;1083]
+[*DATA Q104stubs[+Q104row] (;) = Streaming Services;0;1;1084]
+[*DATA Q104stubs[+Q104row] (;) = Pet shop;0;1;1085]
+[*DATA Q104stubs[+Q104row] (;) = St Peter;0;1;1086]
+[*DATA Q104stubs[+Q104row] (;) = COFFEE SHOP;0;1;1087]
+[*DATA Q104stubs[+Q104row] (;) = Tiktok shop;0;1;1088]
+[*DATA Q104stubs[+Q104row] (;) = LOADING STATION (NET)<Q>;0;1;1010+1021]
+[*DATA Q104stubs[+Q104row] (;) = Loading Station;0;2;1010]
+[*DATA Q104stubs[+Q104row] (;) = Buy load;0;2;1021]
+[*DATA Q104stubs[+Q104row] (;) = DELIVERY/ORDER (NET)<Q>;0;1;1014+1020]
+[*DATA Q104stubs[+Q104row] (;) = Delivery;0;2;1014]
+[*DATA Q104stubs[+Q104row] (;) = If I have an order;0;2;1020]
+[*DATA Q104stubs[+Q104row] (;) = UNSPECIFIED STORE (NET)<Q>;0;1;1033]
+[*DATA Q104stubs[+Q104row] (;) = Store;0;2;1033]
+[*DATA Q104stubs[+Q104row] (;) = UNSPECIFIED FOOD (NET)<Q>;0;1;1071]
+[*DATA Q104stubs[+Q104row] (;) = PAYMENT FOOD;0;2;1071]
+[*DATA Q104stubs[+Q104row] (;) = TRADITIONAL TRADE (NET)<Q>;3;1;]
+[*DATA Q104stubs[+Q104row] (;) = Carinderia;0;2;3]
+[*DATA Q104stubs[+Q104row] (;) = Market Stalls;0;2;16]
+[*DATA Q104stubs[+Q104row] (;) = Sari-sari Store;0;2;21+1007]
+[*DATA Q104stubs[+Q104row] (;) = EVERYDAY NEEDS/ NECESSITIES - MODERN TRADE (NET)<Q>;7;1;]
+[*DATA Q104stubs[+Q104row] (;) = Convenience Store;0;2;4+1004+1062]
+[*DATA Q104stubs[+Q104row] (;) = Department stores;0;2;5+1028+1042]
+[*DATA Q104stubs[+Q104row] (;) = Drugstore;0;2;7+1081]
+[*DATA Q104stubs[+Q104row] (;) = Fastfood/Casual Dining Restaurant;0;2;9+1029]
+[*DATA Q104stubs[+Q104row] (;) = Garments/Footwear Retail Stores;0;2;11+1064]
+[*DATA Q104stubs[+Q104row] (;) = General e-Commerce (e.g. Lazada, Shopee, etc);0;2;12+1006+1009+1024+1072+1082]
+[*DATA Q104stubs[+Q104row] (;) = Grocery/Supermarket;0;2;13+1026+1080]
+[*DATA Q104stubs[+Q104row] (;) = TRANSPORTATION (NET)<Q>;5;1;]
+[*DATA Q104stubs[+Q104row] (;) = Transportation (e.g. car rental, bus ticket, train tickets);0;2;23]
+[*DATA Q104stubs[+Q104row] (;) = Personal car expense;0;2;24]
+[*DATA Q104stubs[+Q104row] (;) = Transportation (e.g. car rental, bus ticket, train tickets);0;2;23]
+[*DATA Q104stubs[+Q104row] (;) = Personal car expense;0;2;24]
+[*DATA Q104stubs[+Q104row] (;) = TVNS/Transportation Apps;0;2;25]
+[*DATA Q104stubs[+Q104row] (;) = DELIVERY SERVICE (NET)<Q>;1;1;]
+[*DATA Q104stubs[+Q104row] (;) = Delivery service;0;2;26]
+[*DATA Q104stubs[+Q104row] (;) = BIG PURCHASE/ TICKET (NET)<Q>;8;1;]
+[*DATA Q104stubs[+Q104row] (;) = Airline;0;2;1]
+[*DATA Q104stubs[+Q104row] (;) = Appliance Center;0;2;2]
+[*DATA Q104stubs[+Q104row] (;) = Insurance (one time payment);0;2;15+1060]
+[*DATA Q104stubs[+Q104row] (;) = Gadget Stores;0;2;10+1061]
+[*DATA Q104stubs[+Q104row] (;) = Tour/Travel Packages;0;2;22+1066]
+[*DATA Q104stubs[+Q104row] (;) = Furniture store;0;2;29]
+[*DATA Q104stubs[+Q104row] (;) = Hotel/Accommodation Booking;0;2;14]
+[*DATA Q104stubs[+Q104row] (;) = Events (e.g. concerts);0;2;8]
+[*DATA Q104stubs[+Q104row] (;) = OTHERS (NET)<Q>;4;1;]
+[*DATA Q104stubs[+Q104row] (;) = Donations (e.g. church, charity, etc.);0;2;6]
+[*DATA Q104stubs[+Q104row] (;) = Events (e.g. concerts);0;2;8]
+[*DATA Q104stubs[+Q104row] (;) = Hotel/Accommodation Booking;0;2;14]
+[*DATA Q104stubs[+Q104row] (;) = Medical Services (e.g. Doctor, Dentist);0;2;17]
+
+
+
+! ============ Buy and Pay from Any Store ============== !
+[*DOA=1:BR]
+OM $xQ104a_REG = $xI_[ROWBRAND.a]_A_Q104a,
+[*ENDA]
+
+dm $xQ104a_Q51a = $xQ104a_REG .or. $xA_Q51a,
+
+
+
+DM $TQ104a_Q51a = $xQ104a_Q51a/
+[*DO A = 1:Q104row]
+[*BLOCK 333 ON [Q104stubs[A].2].GT.0][*DO B = A+1:[A+[Q104stubs[A].2]]][Q104stubs[B].4][*SLE]+[*END B][*333][Q104stubs[A].4],
+[*END A]
+9999,
+R,F,
+XT = "Q104A/Q51A. TYPE OF STORE/ MERCHANT BOUGHT AND PAID OFFLINE FROM ANY STORE/BANK/ESTABLISHMENT IN THE PAST 2 MONTHS - (ONLINE/OFFLINE)",
+X = "
+[*DO A = 1:Q104row]
+[*SK 333 ON [Q104stubs[A].3].EQ.1]` [*333][*SK 333 ON [Q104stubs[A].3].EQ.1][*DO Y = 1:[[Q104stubs[A].3]-1]]    [*END Y][*333][Q104stubs[A].1];
+[*END A]
+NONE;
+Missing answers<Z>;
+Total count<C>",
+
+[*SETn=CODE8B1.#]
+[*doa=1:n]
+DM $Q8b1_[A] = 
+$TQ8b1R[A]/1+2+7,
+$TQ8b1R[A]/3+4+5+6,
+[*enda]
+DM $TQ104a_Q51a_NEW = [*DO A = 1:Q104row]
+                      $TQ104a_Q51a/[A],
+                      $TQ104a_Q51a/[A].(($TQ8bR1/2.$TQ8bR2/N2)+($Q8b1_2/1.$Q8b1_2/N2)),
+                      $TQ104a_Q51a/[A].(($TQ8bR1/N2.$TQ8bR2/2)+($Q8b1_2/N1.$Q8b1_2/2)),
+                      $TQ104a_Q51a/[A].(($TQ8bR1/2.$TQ8bR2/2)+($Q8b1_2/1.$Q8b1_2/2)),
+                      [*END A]
+
+XT = "Q104A/Q51A. TYPE OF STORE/ MERCHANT BOUGHT AND PAID OFFLINE FROM ANY STORE/BANK/ESTABLISHMENT IN THE PAST 2 MONTHS - (ONLINE/OFFLINE)",
+X = "
+[*DO A = 1:Q104row]
+[*SK 333 ON [Q104stubs[A].3].EQ.1]` [*333][*SK 333 ON [Q104stubs[A].3].EQ.1][*DO Y = 1:[[Q104stubs[A].3]-1]]    [*END Y][*333][Q104stubs[A].1];
+` [*DO Y = 1:[Q104stubs[A].3]]    [*END Y]Digital only;
+` [*DO Y = 1:[Q104stubs[A].3]]    [*END Y]Non-Digital only;
+` [*DO Y = 1:[Q104stubs[A].3]]    [*END Y]Hybrid Payment[*SLE];
+[*END A]",
+
+! --- FILTERS ONLY ---- !
+[*DATA f2a = xA_Q51a,xQ104a_REG]
+[*DATA f2b = TQ51a,TQ104a_REG]
+[*doa=1:2]
+DM $[f2b.a] = $[f2a.a]/
+[*DO C = 1:Q104row]
+[*BLOCK 333 ON [Q104stubs[C].2].GT.0][*DO B = C+1:[C+[Q104stubs[C].2]]][Q104stubs[B].4][*SLE]+[*END B][*333][Q104stubs[C].4],
+[*END C]
+9999,
+R,F,
+[*enda]
+
+
+FINISH DATA,
+START TABLES,
+
+
+!!!!!!!!!!!!!!!!
+!!!!!FORMAT!!!!!
+!!!!!!!!!!!!!!!!
+
+
+
+
+
+GLOBAL IT # = '<JL>Wall-E',
+
+
+
+!======FOR QPS WINDOWS (% + raw - for datachecking)
+F= CTU'='/CAZ'-'/CZP'-'/SDV/UCH/NPGN/NPTC/TID/RLW30/LBB1/TOC/SPL250/CNZ'*'/URS/
+  DPR1/PCS/BRS/BCS/PRC/BTS/LPP55/NSER/CLG1/RNC1/NDAT/NPGN/BAL/RBL/BCS/BTS/CLW9/PBL/MOD,
+
+F=SDV,		! ------ PRINT STD DEVIATION
+F=DPR4,		! ------ DECIMAL %
+F=DPT0,		! ------ DECIMAL RAW COUNT
+F=DPA4,		! ------ DECIMAL MEAN,SUM..
+F=DPS4,	        ! ------ DECIMAL STD,
+F=MOD,		! ------ DISPLAY MODE
+F=MED,		! ------ DISPLAY MEDIAN
+!F=MCB29,          ! ------ Less than 30 base
+F=BTS,                  ! ------ Blank Tables Suppress
+F=BCS,                  ! ------ Blank Column Suppress
+F=NBRS,                  ! ------ Blank Row Suppress
+F=PBL/MOD,
+
+%AVG = 'Mean score<D2>',
+%DAT = '<&DD>/<&MONTH>/<&YY>',
+%RTH = '<ML3>ROW %',
+%RTV = '<ML3>COL %',
+%PRC = '<ML3>COUNT',
+%SER = '<ML3>STD ERR OF MEAN',
+%SDV ='STANDARD DEVIATION',
+%PTR = "TOTAL",
+!%AVG ='MEAN SCORE',
+%SDV ='STANDARD DEVIATION',
+%MED = '<ML7>MEDIAN            ',
+%UNR = '<ML7>(UNWEIGHTED BASE)',
+
+
+  
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+
+!F=NRTV, ! ------- ONLY COUNT
+!F=NPRC, ! -------- ONLY %
+
+
+
+SELECT WR $newwts,
+
+
+F=BRS,
+
+
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HJT,HKT,HLT,HMT,HNT]
+
+[*DATA HX=
+HA1_RR,
+HE_RR,
+HIT,
+HLT,
+HOT]
+
+
+[*SET T = 0]
+
+!ITEM 21 Q3 2022
+!ITEM 20 Q2 2022
+[*do X = 1:2]
+IF ($Filter27F2_REG/NB)+($TQ8bR2/2)+($Q8b1_2/2), T [+T] = $TQ104a_Q51a_NEW * $[HX.X],
+BT = "AMONG THOSE WHO BUY/PAY OFFLINE FROM ANY STORE/BANK/ESTABLISHMENT ONLINE/OFFLINE",
+[*ENDX]
+!
+[*do X = 1:2]
+if $TQ17i/1, then,
+IF ($Filter27F2_REG/NB)+($TQ8bR2/2)+($Q8b1_2/2), T [+T] = $TQ104a_Q51a_NEW * $[HX.X],
+BT = "AMONG USERS OF FINTECH APPS AND THOSE WHO BUY/PAY OFFLINE FROM ANY STORE/BANK/ESTABLISHMENT ONLINE/OFFLINE",
+end if,
+[*ENDX]
+!
+[*do X = 1:2]
+if $TQ17i/2, then,
+IF ($Filter27F2_REG/NB)+($TQ8bR2/2)+($Q8b1_2/2), T [+T] = $TQ104a_Q51a_NEW * $[HX.X],
+BT = "AMONG NON-USERS OF FINTECH APPS AND THOSE WHO BUY/PAY OFFLINE FROM ANY STORE/BANK/ESTABLISHMENT ONLINE/OFFLINE",
+end if,
+[*ENDX]
+
+
+
+FINISH TABLES,

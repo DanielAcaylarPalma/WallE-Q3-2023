@@ -1,0 +1,345 @@
+START CONTROL,
+*PROJECT WALL-E
+
+! C = P_WALLE_2022Q1.ASC;P_WALLE_2022Q2.ASC;P_WALLE_2022Q3.ASC;P_WALLE_2022Q4.ASC;WALLEQ1_MAINONLY_PUNCHED.ASC,
+
+!c = CORR_WALLE2022_QTR2_MERGED.asc,
+
+C = P_WALLE_2023Q3.ASC,
+
+Y,
+CEP,
+BIG,
+TIDY,
+TERSE,
+CSVR2,
+OLDNAMES,
+FINISH CONTROL,
+
+START DATA,
+ORDER1234567890XV,
+SERIAL NUMBER IN COLUMNS 1-10,
+CARD CHARACTERS BINARY 300000,
+TEMPORARY /99999999/,
+
+DI $RESP = $1-10,
+
+di $blank = 0,
+di $Blankamt = $299996-300000,
+
+[*INSERT WallE_insertGlobal]
+[*INSERT WallE_oesoe]
+
+[*INSERT WallE_resp]
+
+[*INSERT walle_cardcol_banner]
+[*INSERT walle_cardcol_p1] !always need
+[*INSERT walle_cardcol_p6] !Q35 Q107
+
+[*INSERT WallE_insertAlign_pickup]
+[*INSERT WallE_insertAlign1] !always need
+[*INSERT WallE_insertAlign6] !Q35 Q107
+
+
+[*INSERT WallE_stubs_pickup]
+
+
+[*INSERT WALLE_HEADERS_Trend]
+[*INSERT WALL_E_NEWWTS]
+!ITEM 20 Q2 2022
+
+
+[*SET Q35row = 0]
+[*DATA Q35stubs[+Q35row](;) = Call of Duty;]
+[*DATA Q35stubs[+Q35row](;) = Candy Crush;]
+[*DATA Q35stubs[+Q35row](;) = Clash of Clans;]
+[*DATA Q35stubs[+Q35row](;) = Farmville;]
+[*DATA Q35stubs[+Q35row](;) = Hayday;]
+[*DATA Q35stubs[+Q35row](;) = League of Legends;]
+[*DATA Q35stubs[+Q35row](;) = Minecraft;]
+[*DATA Q35stubs[+Q35row](;) = Mobile Legends;]
+[*DATA Q35stubs[+Q35row](;) = Pokemon Go;]
+[*DATA Q35stubs[+Q35row](;) = Roblox;]
+[*DATA Q35stubs[+Q35row](;) = Subway Surfer;]
+[*DATA Q35stubs[+Q35row](;) = Tong Its Go;]
+[*DATA Q35stubs[+Q35row](;) = Online Sabong;]
+[*DATA Q35stubs[+Q35row](;) = Pusoy Go;]
+[*DATA Q35stubs[+Q35row](;) = Cabal Mobile;]
+[*DATA Q35stubs[+Q35row](;) = Poker;]
+[*DATA Q35stubs[+Q35row](;) = Valorant;]
+[*DATA Q35stubs[+Q35row](;) = Player Unknown Battle Ground;]
+[*DATA Q35stubs[+Q35row](;) = Buzz Break;]
+[*DATA Q35stubs[+Q35row](;) = Queenbet.Cc;]
+[*DATA Q35stubs[+Q35row](;) = Tattoo Online;]
+[*DATA Q35stubs[+Q35row](;) = Sims;]
+[*DATA Q35stubs[+Q35row](;) = Coda Shop;]
+[*DATA Q35stubs[+Q35row](;) = Tile Connect;]
+[*DATA Q35stubs[+Q35row](;) = Crossfire Ph;]
+[*DATA Q35stubs[+Q35row](;) = Big Win Club;]
+[*DATA Q35stubs[+Q35row](;) = Dota;]
+[*DATA Q35stubs[+Q35row](;) = Highrise;]
+[*DATA Q35stubs[+Q35row](;) = Mythic Heroes;]
+[*DATA Q35stubs[+Q35row](;) = Pit Master;]
+[*DATA Q35stubs[+Q35row](;) = Pub G;]
+[*DATA Q35stubs[+Q35row](;) = Axie Infinity;]
+[*DATA Q35stubs[+Q35row](;) = Lineage W;]
+[*DATA Q35stubs[+Q35row](;) = Mobile Unlimited;]
+[*DATA Q35stubs[+Q35row](;) = Mu Art Angel;]
+[*DATA Q35stubs[+Q35row](;) = Free fire;]
+[*DATA Q35stubs[+Q35row](;) = Ragnarok;]
+[*DATA Q35stubs[+Q35row](;) = Zing play;]
+[*DATA Q35stubs[+Q35row](;) = Genshin;]
+[*DATA Q35stubs[+Q35row](;) = MIR4;]
+[*DATA Q35stubs[+Q35row](;) = OPG Treasure;]
+[*DATA Q35stubs[+Q35row](;) = Bingo;]
+[*DATA Q35stubs[+Q35row](;) = Tekken 7;]
+[*DATA Q35stubs[+Q35row](;) = Okbet;]
+[*DATA Q35stubs[+Q35row](;) = Firefly;]
+[*DATA Q35stubs[+Q35row](;) = Steam;]
+
+[*DOA=1:BR]
+if $q32021/nb, OM $xQ35_none[A] = $xI_[ROWBRAND.A]_A_Q35/n(1+1044+2+3+1029+1041+4+5+6+1027+7+1031+8+1026+1028+9+10+11+1001+1002+1045+1003+1004+1005+1006+1007+1008+1009+1010+1011+1012+1013+1014+1015+1016+1033+1017+1018+1019+1020+1021+1022+1023+1024+1025+1030+1032+1033+1034+1035+1036+1037+1038),
+if $q32021/nb, OM $xQ35_nonereg = $xI_[ROWBRAND.A]_A_Q35/n(1+1044+2+3+1029+1041+4+5+6+1027+7+1031+8+1026+1028+9+10+11+1001+1002+1045+1003+1004+1005+1006+1007+1008+1009+1010+1011+1012+1013+1014+1015+1016+1033+1017+1018+1019+1020+1021+1022+1023+1024+1025+1030+1032+1033+1034+1035+1036+1037+1038),
+
+OM $xQ35_REG = $xI_[ROWBRAND.A]_A_Q35,
+
+if $Q32021/nb.($Filter27F7_[A]/NB),	OM $xyQ35REG = $xI_[ROWBRAND.A]_A_Q35,
+if $Q42021/nb,						OM $xyQ35REG = $xI_[ROWBRAND.A]_A_Q35,
+if $Q22022/nb,                     OM $xyQ35REG = $xI_[ROWBRAND.A]_A_Q35,
+if $Q32022/nb,                     OM $xyQ35REG = $xI_[ROWBRAND.A]_A_Q35,
+if $Q42022/nb,                     OM $xyQ35REG = $xI_[ROWBRAND.A]_A_Q35,
+if $Q12023/nb,                     OM $xyQ35REG = $xI_[ROWBRAND.A]_A_Q35,
+
+DM $TQ35R[A] = $xI_[ROWBRAND.A]_A_Q35/
+1+1044,
+2,
+3+1029+1041,
+4,
+5,
+6+1027,
+7+1031,
+8+1026+1028,
+9,
+10,
+11,
+1001,
+1002+1045,
+1003,
+1004,
+1005,
+1006+1038,
+1007,
+1008,
+1009,
+1010,
+1011,
+1012,
+1013,
+1014,
+1015,
+1016+1033,
+1017,
+1018,
+1019,
+1020,
+1021,
+1022,
+1023,
+1024,
+1025,
+1030,
+1032,
+1034,
+1035,
+1036,
+1037,
+1039,
+1040,
+1042,
+1043,
+($xQ35_none[A]/nb)+($xI_[ROWBRAND.A]_A_Q35/9999),
+R,
+F,
+XT = "Q35. ONLINE GAMES WHERE GAMING PINS WERE BOUGHT FOR IN THE PAST 2 MONTHS - [BRAND.A]",
+X = "
+[*DO B = 1:Q35row]
+[Q35stubs[B].1];
+[*END B]
+None;
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+
+
+DM $xQ35_Q107a = $xyQ35REG .or. $xA_Q107a,
+
+DM $TQ35_Q107a = $xQ35_Q107a/
+1+1044,
+2,
+3+1029+1041,
+4,
+5,
+6+1027,
+7+1031,
+8+1026+1028,
+9,
+10,
+11,
+1001,
+1002+1045,
+1003,
+1004,
+1005,
+1006+1038,
+1007,
+1008,
+1009,
+1010,
+1011,
+1012,
+1013,
+1014,
+1015,
+1016+1033,
+1017,
+1018,
+1019,
+1020,
+1021,
+1022,
+1023,
+1024,
+1025,
+1030,
+1032,
+1034,
+1035,
+1036,
+1037,
+1039,
+1040,
+1042,
+1043,
+9999,
+R,
+F,
+XT = "Q35/Q107a. ONLINE GAMES WHERE GAMING PINS BOUGHT FOR IN THE PAST 2 MONTHS - (ONLINE/OFFLINE)",
+X = "
+[*DO B = 1:Q35row]
+[Q35stubs[B].1];
+[*END B]
+None;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+DM $TQ35_Q107a_new = [*DO A = 1:Q35row]
+                 $TQ35_Q107a/[A],
+                 $TQ35_Q107a/[A].$TQ8bR1/7,
+                 $TQ35_Q107a/[A].$TQ8bR2/7, 
+                 [*END A]    
+XT = "Q35/Q107a. ONLINE GAMES WHERE GAMING PINS BOUGHT FOR IN THE PAST 2 MONTHS - (ONLINE/OFFLINE)",
+X = "
+[*DO B = 1:Q35row]
+[Q35stubs[B].1];
+`    Digital;
+`    Non-Digital[*SLE];
+[*END B]",
+FINISH DATA,
+START TABLES,
+
+
+!!!!!!!!!!!!!!!!
+!!!!!FORMAT!!!!!
+!!!!!!!!!!!!!!!!
+
+
+
+
+
+GLOBAL IT # = '<JL>Wall-E',
+
+
+
+!======FOR QPS WINDOWS (% + raw - for datachecking)
+F= CTU'='/CAZ'-'/CZP'-'/SDV/UCH/NPGN/NPTC/TID/RLW30/LBB1/TOC/SPL250/CNZ'*'/URS/
+  DPR1/PCS/BRS/BCS/PRC/BTS/LPP55/NSER/CLG1/RNC1/NDAT/NPGN/BAL/RBL/BCS/BTS/CLW9/PBL/MOD,
+
+F=SDV,		! ------ PRINT STD DEVIATION
+F=DPR4,		! ------ DECIMAL %
+F=DPT0,		! ------ DECIMAL RAW COUNT
+F=DPA4,		! ------ DECIMAL MEAN,SUM..
+F=DPS4,	        ! ------ DECIMAL STD,
+F=MOD,		! ------ DISPLAY MODE
+F=MED,		! ------ DISPLAY MEDIAN
+!F=MCB29,          ! ------ Less than 30 base
+F=BTS,                  ! ------ Blank Tables Suppress
+F=BCS,                  ! ------ Blank Column Suppress
+F=NBRS,                  ! ------ Blank Row Suppress
+F=PBL/MOD,
+
+%AVG = 'Mean score<D2>',
+%DAT = '<&DD>/<&MONTH>/<&YY>',
+%RTH = '<ML3>ROW %',
+%RTV = '<ML3>COL %',
+%PRC = '<ML3>COUNT',
+%SER = '<ML3>STD ERR OF MEAN',
+%SDV ='STANDARD DEVIATION',
+%PTR = "TOTAL",
+!%AVG ='MEAN SCORE',
+%SDV ='STANDARD DEVIATION',
+%MED = '<ML7>MEDIAN            ',
+%UNR = '<ML7>(UNWEIGHTED BASE)',
+
+
+  
+F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+
+!F=NRTV, ! ------- ONLY COUNT
+!F=NPRC, ! -------- ONLY %
+
+
+
+SELECT WR $newwts,
+
+
+F=BRS,
+
+
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HJT,HKT,HLT,HMT,HNT]
+
+[*DATA HX=
+HA1T,
+HET,
+HIT,
+HLT,
+HOT]
+
+[*SET T = 0]
+
+!ITEM 21 Q3 2022
+!ITEM 20 Q2 2022
+
+
+[*do X = 1:5]
+IF ($TQ8BR2/7) + ($Filter27F7_REG/NB), T [+T] = $TQ35_Q107a_new * $[HX.X],
+BT = "AMONG WHO BUY GAMING PINS OR BOUGHT GAMING PINS IN P2M - ONLINE/OFFLINE",
+[*ENDX]
+!
+[*do X = 1:5]
+if $TQ17i/1, then,
+IF ($TQ8BR2/7) + ($Filter27F7_REG/NB), T [+T] = $TQ35_Q107a_new * $[HX.X],
+BT = "AMONG USERS OF FINTECH APPS AND WHO BUY GAMING PINS OR BOUGHT GAMING PINS IN P2M - ONLINE/OFFLINE",
+END IF,
+[*ENDX]
+!
+[*do X = 1:5]
+if $TQ17i/2, then,
+IF ($TQ8BR2/7) + ($Filter27F7_REG/NB), T [+T] = $TQ35_Q107a_new * $[HX.X],
+BT = "AMONG NON-USERS OF FINTECH APPS AND WHO BUY GAMING PINS OR BOUGHT GAMING PINS IN P2M - ONLINE/OFFLINE",
+END IF,
+[*ENDX]
+
+FINISH TABLES,

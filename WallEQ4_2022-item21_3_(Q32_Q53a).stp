@@ -1,0 +1,517 @@
+START CONTROL,
+*PROJECT WALL-E
+
+! C = P_WALLE_2022Q1.ASC;P_WALLE_2022Q2.ASC;P_WALLE_2022Q3.ASC;P_WALLE_2022Q4.ASC;P_WALLE_2023Q1.ASC;P_WALLE_2023Q2_PUNCHED.ASC,
+
+!c = CORR_WALLE2022_QTR2_MERGED.asc,
+
+C = P_WALLE_2023Q3.ASC,
+
+
+Y,
+CEP,
+BIG,
+TIDY,
+TERSE,
+CSVR2,
+OLDNAMES,
+FINISH CONTROL,
+
+START DATA,
+ORDER1234567890XV,
+SERIAL NUMBER IN COLUMNS 1-10,
+CARD CHARACTERS BINARY 300000,
+TEMPORARY /99999999/,
+
+DI $RESP = $1-10,
+
+di $blank = 0,
+di $Blankamt = $299996-300000,
+
+[*INSERT WallE_insertGlobal]
+[*INSERT WallE_oesoe]
+
+[*INSERT WallE_resp]
+
+[*INSERT walle_cardcol_banner]
+[*INSERT walle_cardcol_p1] !always need
+[*INSERT walle_cardcol_p3b] !Q32 Q53a1 Q32a Q53a
+
+[*INSERT WallE_insertAlign_pickup]
+[*INSERT WallE_insertAlign1] !always need
+[*INSERT WallE_insertAlign3b] !Q32 Q53a1 Q32a Q53a
+
+
+[*INSERT WallE_stubs_pickup]
+
+
+[*INSERT WALLE_HEADERS_Trend]
+[*INSERT WALL_E_NEWWTS]
+!ITEM 20 Q2 2022
+
+
+DM $TQ53 = $xA_Q53/
+1+1014,
+2+1012+1019+1083,
+3+1002+1016,
+4+1008+1011+1013,
+1001,
+1003,
+1004,
+1005+1044,
+1006,
+1007+1009+1010,
+1015+1020,
+1017,
+1018+1131,
+9999,
+
+if ($Q32021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/NB+$Q32023/NB), OM $F53 = $TQ8bR2/5.($xA_Q53/1..3),
+if ($Q42021/nb), 			OM $F53 = $TQ8bR2/5.($TQ53/1..3),
+
+! ============ BUYING MOBILE LOAD ============== !
+Om $xQ32_Q53a1 = $xQ32_REG,
+Om $xQ32_Q53a1 = $Q53a1/1-9,$blank/10-9999,
+
+
+DM $TQ32_Q53a1 = $xQ32_Q53a1/
+1,
+2,
+3,
+R,F,
+XT = "Q32/Q53A1. OWNER OF SAVINGS ACCOUNT FOR OFFLINE DEPOSIT FOR SAVINGS - (ONLINE/OFFLINE)",
+X = "
+My personal savings account;
+Account of other people;
+Both to my personal account and account of other people;
+Missing answers<Z>;
+Total count<C>",
+
+DM $TQ32_Q53a1_NEW = [*DO A = 1:3]
+                      $TQ32_Q53a1/[A],
+                      $TQ32_Q53a1/[A].$TQ8bR1/5,
+                      $TQ32_Q53a1/[A].$TQ8bR2/5,
+                      [*END A]
+XT = "Q32/Q53A1. OWNER OF SAVINGS ACCOUNT FOR OFFLINE DEPOSIT FOR SAVINGS - (ONLINE/OFFLINE)",
+X = "
+My personal savings account;
+`    Digital;
+`    Non-Digital;
+Account of other people;
+`    Digital;
+`    Non-Digital;
+Both to my personal account and account of other people;
+`    Digital;
+`    Non-Digital",
+
+
+[*SET Q32row = 0]
+[*DATA Q32stubs[+Q32row] (;) = AUB (Asia United Bank);;`   ]
+[*DATA Q32stubs[+Q32row] (;) = BDO;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = BPI / BPI Savings;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = China Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Citibank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = CIMB Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = EastWest;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = HSBC;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = ING Philippines;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Landbank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Metrobank Mobile / Online;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Philippine Bank of Communications (PBCOM);;`   ]
+[*DATA Q32stubs[+Q32row] (;) = PNB;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = PSBank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = RCBC;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Security Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Unionbank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = UCPB;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = OTHERS19<s>;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Coins.ph;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Gsave by GCash;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = PayMaya;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = PayPal;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = OTHERS24<s>;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Cooperative;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = SeaBank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Dbp;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Cebuana;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = CARD BANK;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Maselco  Office;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Cebuana Lhuillier 24k Plus;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Ml Wallet;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Mlr Card Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Summit Bank ;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = CARD INK;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Producers Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Raffy/Microfinance;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Rizal Rural Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = One Network Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = JMH microfinance;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Robinsons Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Smi Card Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Cfi Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Farmers Insurance;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Home Credit;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Asa;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Card Bank Microfinance;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Flexi Finance;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Card Inc;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Sun Life;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Tam An;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = May Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Ofbank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Card SME Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Konek2card;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = QUEEN BANK;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = AURORA BANK;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Ficco;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Ardci;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Bank of commerce;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Ginvest by GCash;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Palawan;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = AMSLAI;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Ecom;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Bank of Florida;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Life bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Sterling Bank of Asia;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Truelife;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = RSPI BANK;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = HelloMoney;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = GCredit by GCash;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = St. Peter Life Insurance;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = SUNLIFE;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Manulife;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Aimcoop;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = MRI CARD BANK;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = ORO savings;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = RANG AY BANK;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = LUGIAN;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = PSSB;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Philippine Business Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Praxis;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = TSPI;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Tayemco Cooperative;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = PHCCI;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = NGO;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Basey Cooperative;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = GSAC Cooperative;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Veterance Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = OIC;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Katipunan Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = king Coop;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Wealth Development Bank;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = RURAL BANK (NET)<q>;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Montalban Bank;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Mount Carmel;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Rural Bank;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Legazpi Savings Bank;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Rural Bank Of Baguio;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Marayo Bank;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = QCRB;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Bank of Makati;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = RBGI;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Mactan Rural Bank;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Angeles Rural Bank;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Gotyme Bank;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = SAVING NOT DEPOSITED (NET)<Q>;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Personal Savings Only;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Cabinet;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Wallet;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = House;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Piggy bank;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = LENDING (NET)<q>;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Rolly Lending;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Asa Philipines Lending Co;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Masagana Lending Co;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Card Bank Lending;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Lending Unspecified;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = GoodLife Microlending;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = PMPC;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Callaway Lending Corporation;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = GOVERNMENT (NET)<q>;;`   ]
+[*DATA Q32stubs[+Q32row] (;) = Pag-ibig loan;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = GSIS LOAN;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = Social Action;`   ;`      ]
+[*DATA Q32stubs[+Q32row] (;) = SSS Loan;`   ;`      ]
+
+! --------------- Q32a + Q53a ----------------- !
+[*DOA=1:BR]
+OM $xQ32a_REG = $xI_[ROWBRAND.A]_A_Q32a,
+[*enda]
+dm $xQ32a_Q53a = $xQ32a_REG .or. $xA_Q53a,
+
+DM $TQ32a_Q53a = $xQ32a_Q53a/
+1+1117,
+2+1038+1103,
+3+1070+1113,
+4+1112,
+5+1097,
+6+1039,
+7,
+8,
+9,
+10+1001+1029,
+11+1042,
+12,
+13,
+14,
+15+1095,
+16+1040,
+17+1105,
+18,
+F,
+20+1108,
+21+1002+1052,
+22+1057+1058,
+23,
+F,
+25+1020+1016,
+26,
+1004+1041,
+1005+1073+1074,
+1006,
+1007,
+1008,
+1011,
+1014+1026,
+1015,
+1017+1036,
+1019,
+1021,
+1022+1104,
+1024,
+1025,
+1030,
+1031,
+1033,
+1034,
+1035,
+1037,
+1043,
+1046,
+1049,
+1050,
+1051,
+1054,
+1061,
+1072+1081,
+1075,
+1076,
+1077,
+1078,
+1079,
+1080,
+1083,
+1084,
+1085,
+1086,
+1087,
+1088,
+1089,
+1091,
+1093,
+1098,
+1101,
+1106,
+1107,
+1110,
+1114,
+1115,
+1116,
+1118,
+1119,
+1120,
+1121,
+1122,
+1123,
+1126,
+1127,
+1128,
+1129,
+1130,
+1133,
+1134,
+1136,
+1137,
+1139,
+1045+1047+1048+1053+1055+1071+1082+1094+1099+1100+1132+1135,
+1045,
+1047,
+1048,
+1053,
+1055,
+1071,
+1082,
+1094,
+1099,
+1100,
+1132,
+1135,
+1003+1009+1012+1013+1131,
+1003,
+1009,
+1012,
+1013,
+1131,
+1023+1027+1028+1032+1044+1090+1102+1109,
+1023,
+1027,
+1028,
+1032,
+1044,
+1090,
+1102,
+1109,
+1092+1111+1124+1125,
+1092,
+1111,
+1124,
+1125,
+9997,
+9999+1056+1059+1060+1096,
+R,F,
+XT = "Q32A/Q53A. TYPE OF ACCOUNT ON OFFLINE MONEY TRANSFER/DEPOSIT FOR PERSONAL SAVINGS - (ONLINE/OFFLINE)",
+X = "
+[*DO A = 1:Q32row]
+[Q32stubs[A].2][Q32stubs[A].1];
+[*END A]
+REFUSED;
+NONE;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+DM $TQ32a_Q53a_NEW = [*DO A = 1:Q32row]
+                      $TQ32a_Q53a/[A],
+                      $TQ32a_Q53a/[A].$TQ8bR1/5,
+                      $TQ32a_Q53a/[A].$TQ8bR2/5,
+                      [*END A]
+
+XT = "Q32A/Q53A. TYPE OF ACCOUNT ON OFFLINE MONEY TRANSFER/DEPOSIT FOR PERSONAL SAVINGS - (ONLINE/OFFLINE)",
+X = "
+[*DO A = 1:Q32row]
+[Q32stubs[A].2][Q32stubs[A].1];
+[Q32stubs[A].3]Digital;
+[Q32stubs[A].3]Non-Digital[*SLE];
+[*END A]",
+
+
+FINISH DATA,
+START TABLES,
+
+
+!!!!!!!!!!!!!!!!
+!!!!!FORMAT!!!!!
+!!!!!!!!!!!!!!!!
+
+
+
+
+
+GLOBAL IT # = '<JL>Wall-E',
+
+
+
+!======FOR QPS WINDOWS (% + raw - for datachecking)
+F= CTU'='/CAZ'-'/CZP'-'/SDV/UCH/NPGN/NPTC/TID/RLW30/LBB1/TOC/SPL250/CNZ'*'/URS/
+  DPR1/PCS/BRS/BCS/PRC/BTS/LPP55/NSER/CLG1/RNC1/NDAT/NPGN/BAL/RBL/BCS/BTS/CLW9/PBL/MOD,
+
+F=SDV,		! ------ PRINT STD DEVIATION
+F=DPR4,		! ------ DECIMAL %
+F=DPT0,		! ------ DECIMAL RAW COUNT
+F=DPA4,		! ------ DECIMAL MEAN,SUM..
+F=DPS4,	        ! ------ DECIMAL STD,
+F=MOD,		! ------ DISPLAY MODE
+F=MED,		! ------ DISPLAY MEDIAN
+!F=MCB29,          ! ------ Less than 30 base
+F=BTS,                  ! ------ Blank Tables Suppress
+F=BCS,                  ! ------ Blank Column Suppress
+F=NBRS,                  ! ------ Blank Row Suppress
+F=PBL/MOD,
+
+%AVG = 'Mean score<D2>',
+%DAT = '<&DD>/<&MONTH>/<&YY>',
+%RTH = '<ML3>ROW %',
+%RTV = '<ML3>COL %',
+%PRC = '<ML3>COUNT',
+%SER = '<ML3>STD ERR OF MEAN',
+%SDV ='STANDARD DEVIATION',
+%PTR = "TOTAL",
+!%AVG ='MEAN SCORE',
+%SDV ='STANDARD DEVIATION',
+%MED = '<ML7>MEDIAN            ',
+%UNR = '<ML7>(UNWEIGHTED BASE)',
+
+
+  
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+
+!F=NRTV, ! ------- ONLY COUNT
+!F=NPRC, ! -------- ONLY %
+
+
+
+SELECT WR $newwts,
+
+
+F=BRS,
+
+
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HJT,HKT,HLT,HMT,HNT]
+
+[*DATA HX=
+HA1_RR,
+HE_RR,
+HIT,
+HLT,
+HOT]
+
+
+[*SET T = 0]
+
+!ITEM 21 Q3 2022
+!ITEM 20 Q2 2022
+
+[*do X = 1:2]
+if ($Filter27F5_REG/NB)+($F53/NB), T [+T] = $TQ32_Q53a1_new * $[HX.X],
+BT = "AMONG WHO SAVE MONEY IN P2M - ONLINE/OFFLINE",
+[*ENDX]
+!
+[*do X = 1:2]
+if $TQ17i/1, then,
+if ($Filter27F5_REG/NB)+($F53/NB), T [+T] = $TQ32_Q53a1_new * $[HX.X],
+BT = "AMONG USERS OF FINTECH APPS AND WHO SAVE MONEY IN P2M - ONLINE/OFFLINE",
+end if,
+[*ENDX]
+!
+[*do X = 1:2]
+if $TQ17i/2, then,
+if ($Filter27F5_REG/NB)+($F53/NB), T [+T] = $TQ32_Q53a1_new * $[HX.X],
+BT = "AMONG NON-USERS OF FINTECH APPS AND WHO SAVE MONEY IN P2M - ONLINE/OFFLINE",
+end if,
+[*ENDX]
+
+
+
+[*do X = 1:2]
+if (($Filter27F5_REG/nb).($TQ32_REG/1+3).($Q22023/B.$Q32023/B)) + (($Filter27F5_REG/nb).($Q22023/NB+$Q32023/NB)) + (($TQ8BR2/5).($TQ53/1..3).($Q53a1/1+3).($Q22023/B.$Q32023/B)) + (($TQ8BR2/5).($TQ53/1..3).($Q22023/NB+$Q32023/NB)), T [+T] = $TQ32a_Q53a_new * $[HX.X],
+BT = "AMONG WHO HAVE PERSONAL SAVINGS IN P2M - ONLINE/OFFLINE",
+[*ENDX]
+!
+[*do X = 1:2]
+if $TQ17i/1, then,
+if (($Filter27F5_REG/nb).($TQ32_REG/1+3).($Q22023/B.$Q32023/B)) + (($Filter27F5_REG/nb).($Q22023/NB+$Q32023/NB)) + (($TQ8BR2/5).($TQ53/1..3).($Q53a1/1+3).($Q22023/B.$Q32023/B)) + (($TQ8BR2/5).($TQ53/1..3).($Q22023/NB+$Q32023/NB)), T [+T] = $TQ32a_Q53a_new * $[HX.X],
+BT = "AMONG USERS OF FINTECH APPS AND WHO HAVE PERSONAL SAVINGS IN P2M - ONLINE/OFFLINE",
+end if,
+[*ENDX]
+!
+[*do X = 1:2]
+if $TQ17i/2, then,
+if (($Filter27F5_REG/nb).($TQ32_REG/1+3).($Q22023/B.$Q32023/B)) + (($Filter27F5_REG/nb).($Q22023/NB+$Q32023/NB)) + (($TQ8BR2/5).($TQ53/1..3).($Q53a1/1+3).($Q22023/B.$Q32023/B)) + (($TQ8BR2/5).($TQ53/1..3).($Q22023/NB+$Q32023/NB)), T [+T] = $TQ32a_Q53a_new * $[HX.X],
+BT = "AMONG NON-USERS OF FINTECH APPS AND WHO HAVE PERSONAL SAVINGS IN P2M - ONLINE/OFFLINE",
+end if,
+[*ENDX]
+
+
+
+FINISH TABLES,

@@ -1,0 +1,254 @@
+START CONTROL,
+*PROJECT WALL-E
+
+! C = P_WALLE_2022Q1.ASC;P_WALLE_2022Q2.ASC;P_WALLE_2022Q3.ASC;P_WALLE_2022Q4.ASC;P_WALLE_2023Q1.ASC;P_WALLE_2023Q2_PUNCHED.ASC,
+
+!c = CORR_WALLE2022_QTR2_MERGED.asc,
+
+C = P_WALLE_2023Q3.ASC,
+
+
+Y,
+CEP,
+BIG,
+TIDY,
+TERSE,
+CSVR2,
+OLDNAMES,
+FINISH CONTROL,
+
+START DATA,
+ORDER1234567890XV,
+SERIAL NUMBER IN COLUMNS 1-10,
+CARD CHARACTERS BINARY 300000,
+TEMPORARY /99999999/,
+
+DI $RESP = $1-10,
+
+di $blank = 0,
+di $Blankamt = $299996-300000,
+
+[*INSERT WallE_insertGlobal]
+[*INSERT WallE_oesoe]
+
+[*INSERT WallE_resp]
+
+[*INSERT walle_cardcol_banner]
+[*INSERT walle_cardcol_p1] !always need
+[*INSERT walle_cardcol_p3a] !Q30a 52a
+
+[*INSERT WallE_insertAlign_pickup]
+[*INSERT WallE_insertAlign1] !always need
+[*INSERT WallE_insertAlign3a] !Q30a 52a
+
+[*INSERT WallE_stubs_pickup]
+
+
+[*INSERT WALLE_HEADERS_Trend]
+[*INSERT WALL_E_NEWWTS]
+!ITEM 20 Q2 2022
+
+
+
+[*DOA=1:BR]
+OM $xQ30a_REG = $xI_[ROWBRAND.A]_A_Q30a,
+[*enda]
+dm $xQ30a_Q52a = $xQ30a_REG .or. $xA_Q52a,
+
+
+
+[*SET Q30row = 0]
+[*DATA Q30stubs[+Q30row] (;) = Government Agencies;0;1;4+1004+1042]
+[*DATA Q30stubs[+Q30row] (;) = Investment;0;1;6]
+[*DATA Q30stubs[+Q30row] (;) = Loans;0;1;7+1006+1007+1012+1019+1015+1022+1035+1023+1052]
+[*DATA Q30stubs[+Q30row] (;) = Telecom (internet, phone) or cable;0;1;9+1001+1017+1014+1027+1032+1037+1039+1045]
+[*DATA Q30stubs[+Q30row] (;) = Philhealth;0;1;15]
+[*DATA Q30stubs[+Q30row] (;) = Medicines,vitamins;0;1;1003]
+[*DATA Q30stubs[+Q30row] (;) = Online transaction/top submeter;0;1;1005]
+[*DATA Q30stubs[+Q30row] (;) = Tuition;0;1;1009]
+[*DATA Q30stubs[+Q30row] (;) = Converting money;0;1;1010]
+[*DATA Q30stubs[+Q30row] (;) = Rent;0;1;1018+1033]
+[*DATA Q30stubs[+Q30row] (;) = Entertainment bills (e.g. Netflix);0;1;1013+1046+1043+1048]
+[*DATA Q30stubs[+Q30row] (;) = Skin care product;0;1;1020]
+[*DATA Q30stubs[+Q30row] (;) = Load;0;1;1021]
+[*DATA Q30stubs[+Q30row] (;) = Grocery;0;1;1024]
+[*DATA Q30stubs[+Q30row] (;) = Payments for shoes andclothes;0;1;1025]
+[*DATA Q30stubs[+Q30row] (;) = Gasoline;0;1;1028]
+[*DATA Q30stubs[+Q30row] (;) = Games;0;1;1034]
+[*DATA Q30stubs[+Q30row] (;) = Shop online;0;1;1040]
+[*DATA Q30stubs[+Q30row] (;) = Solar;0;1;1050]
+[*DATA Q30stubs[+Q30row] (;) = Accessory;0;1;1051]
+[*DATA Q30stubs[+Q30row] (;) = Conference;0;1;1054]
+[*DATA Q30stubs[+Q30row] (;) = Order delivery;0;1;1055]
+[*DATA Q30stubs[+Q30row] (;) = E-Commerce;0;1;1056]
+[*DATA Q30stubs[+Q30row] (;) = UTILITIES (NET)<Q>;3;1;]
+[*DATA Q30stubs[+Q30row] (;) = Electric Bills;0;2;3+1008+1011+1026+1030+1036+1041+1044+1047]
+[*DATA Q30stubs[+Q30row] (;) = Water Bills;0;2;11+1016+1031+1038]
+[*DATA Q30stubs[+Q30row] (;) = Association dues;0;2;1]
+[*DATA Q30stubs[+Q30row] (;) = Telecom (NET)<Q>;4;1;]
+[*DATA Q30stubs[+Q30row] (;) = Internet;0;2;21]
+[*DATA Q30stubs[+Q30row] (;) = Phone;0;2;22]
+[*DATA Q30stubs[+Q30row] (;) = Cable;0;2;23]
+[*DATA Q30stubs[+Q30row] (;) = Subscription Bills (Netflix, Spotify, etc.);0;2;33]
+[*DATA Q30stubs[+Q30row] (;) = GOVERNMENT AGENCIES (NET)<Q>;3;1;]
+[*DATA Q30stubs[+Q30row] (;) = SSS;0;2;12]
+[*DATA Q30stubs[+Q30row] (;) = Pag-ibig;0;2;13]
+[*DATA Q30stubs[+Q30row] (;) = BIR;0;2;14]
+[*DATA Q30stubs[+Q30row] (;) = TRANSPORTATION (NET)<Q>;1;1;]
+[*DATA Q30stubs[+Q30row] (;) = Transportation (e.g. RFID, airlines);0;2;10]
+[*DATA Q30stubs[+Q30row] (;) = LOANS (NET)<Q>;7;1;]
+[*DATA Q30stubs[+Q30row] (;) = Car loans;0;2;16]
+[*DATA Q30stubs[+Q30row] (;) = Home loans;0;2;17]
+[*DATA Q30stubs[+Q30row] (;) = Student loans;0;2;18]
+[*DATA Q30stubs[+Q30row] (;) = Calamity loans;0;2;19]
+[*DATA Q30stubs[+Q30row] (;) = Educational loans;0;2;20]
+[*DATA Q30stubs[+Q30row] (;) = Insurance;0;2;5]
+[*DATA Q30stubs[+Q30row] (;) = Taxes;0;2;8]
+[*DATA Q30stubs[+Q30row] (;) = INVESTMENT (NET)<Q>;6;1;]
+[*DATA Q30stubs[+Q30row] (;) = Stocks;0;2;24]
+[*DATA Q30stubs[+Q30row] (;) = Cryptocurrency;0;2;25]
+[*DATA Q30stubs[+Q30row] (;) = Mutual Funds;0;2;26]
+[*DATA Q30stubs[+Q30row] (;) = Bonds;0;2;27]
+[*DATA Q30stubs[+Q30row] (;) = Index Funds;0;2;28]
+[*DATA Q30stubs[+Q30row] (;) = Real Estate;0;2;29]
+[*DATA Q30stubs[+Q30row] (;) = OTHERS (NET)<Q>;5;1;]
+[*DATA Q30stubs[+Q30row] (;) = Credit Card;0;2;2]
+[*DATA Q30stubs[+Q30row] (;) = Healthcare;0;2;30]
+[*DATA Q30stubs[+Q30row] (;) = Healthcare;0;2;30]
+[*DATA Q30stubs[+Q30row] (;) = Schools;0;2;31]
+[*DATA Q30stubs[+Q30row] (;) = Payment Solutions;0;2;32]
+
+
+DM $TQ30a_Q52a = $xQ30a_Q52a/
+[*DO A = 1:Q30row]
+[*BLOCK 333 ON [Q30stubs[A].2].GT.0][*DO B = A+1:[A+[Q30stubs[A].2]]][Q30stubs[B].4][*SLE]+[*END B][*333][Q30stubs[A].4],
+[*END A]
+9999,
+R,F,
+XT = "Q30A/Q52A. TYPE OF BILLS USUALLY PAID IN THE PAST 2 MONTHS - (ONLINE/OFFLINE)",
+X = "
+[*DO A = 1:Q30row]
+[*SK 333 ON [Q30stubs[A].3].EQ.1]` [*333][*SK 333 ON [Q30stubs[A].3].EQ.1][*DO Y = 1:[[Q30stubs[A].3]-1]]    [*END Y][*333][Q30stubs[A].1];
+[*END A]
+NONE;
+Missing answers<Z>;
+Total count<C>",
+
+[*doa=1:n]
+DM $Q8b1_[A] = 
+$TQ8b1R[A]/1+2+7,
+$TQ8b1R[A]/3+4+5+6,
+[*enda]
+DM $TQ30a_Q52a_NEW = [*DO A = 1:Q30row]
+                      $TQ30a_Q52a/[A],
+                      $TQ30a_Q52a/[A].(($TQ8bR1/4.$TQ8bR2/N4)+($Q8b1_4/1.$Q8b1_4/N2)),
+                      $TQ30a_Q52a/[A].(($TQ8bR1/N4.$TQ8bR2/4)+($Q8b1_4/N1.$Q8b1_4/2)),
+                      $TQ30a_Q52a/[A].(($TQ8bR1/4.$TQ8bR2/4)+($Q8b1_4/1.$Q8b1_4/2)),
+                      [*END A]
+
+XT = "Q30A/Q52A. TYPE OF BILLS USUALLY PAID IN THE PAST 2 MONTHS - (ONLINE/OFFLINE)",
+X = "
+[*DO A = 1:Q30row]
+[*SK 333 ON [Q30stubs[A].3].EQ.1]` [*333][*SK 333 ON [Q30stubs[A].3].EQ.1][*DO Y = 1:[[Q30stubs[A].3]-1]]    [*END Y][*333][Q30stubs[A].1];
+` [*DO Y = 1:[Q30stubs[A].3]]    [*END Y]Digital only;
+` [*DO Y = 1:[Q30stubs[A].3]]    [*END Y]Non-Digital only;
+` [*DO Y = 1:[Q30stubs[A].3]]    [*END Y]Hybrid Payment[*SLE];
+[*END A]",
+
+
+FINISH DATA,
+START TABLES,
+
+
+!!!!!!!!!!!!!!!!
+!!!!!FORMAT!!!!!
+!!!!!!!!!!!!!!!!
+
+
+
+
+
+GLOBAL IT # = '<JL>Wall-E',
+
+
+
+!======FOR QPS WINDOWS (% + raw - for datachecking)
+F= CTU'='/CAZ'-'/CZP'-'/SDV/UCH/NPGN/NPTC/TID/RLW30/LBB1/TOC/SPL250/CNZ'*'/URS/
+  DPR1/PCS/BRS/BCS/PRC/BTS/LPP55/NSER/CLG1/RNC1/NDAT/NPGN/BAL/RBL/BCS/BTS/CLW9/PBL/MOD,
+
+F=SDV,		! ------ PRINT STD DEVIATION
+F=DPR4,		! ------ DECIMAL %
+F=DPT0,		! ------ DECIMAL RAW COUNT
+F=DPA4,		! ------ DECIMAL MEAN,SUM..
+F=DPS4,	        ! ------ DECIMAL STD,
+F=MOD,		! ------ DISPLAY MODE
+F=MED,		! ------ DISPLAY MEDIAN
+!F=MCB29,          ! ------ Less than 30 base
+F=BTS,                  ! ------ Blank Tables Suppress
+F=BCS,                  ! ------ Blank Column Suppress
+F=NBRS,                  ! ------ Blank Row Suppress
+F=PBL/MOD,
+
+%AVG = 'Mean score<D2>',
+%DAT = '<&DD>/<&MONTH>/<&YY>',
+%RTH = '<ML3>ROW %',
+%RTV = '<ML3>COL %',
+%PRC = '<ML3>COUNT',
+%SER = '<ML3>STD ERR OF MEAN',
+%SDV ='STANDARD DEVIATION',
+%PTR = "TOTAL",
+!%AVG ='MEAN SCORE',
+%SDV ='STANDARD DEVIATION',
+%MED = '<ML7>MEDIAN            ',
+%UNR = '<ML7>(UNWEIGHTED BASE)',
+
+
+  
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+
+!F=NRTV, ! ------- ONLY COUNT
+!F=NPRC, ! -------- ONLY %
+
+
+
+SELECT WR $newwts,
+
+
+F=BRS,
+
+
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HJT,HKT,HLT,HMT,HNT]
+
+[*DATA HX=
+HA1_RR,
+HE_RR,
+HIT,
+HLT,
+HOT]
+
+
+[*SET T = 0]
+
+!ITEM 21 Q3 2022
+!ITEM 20 Q2 2022
+[*do X = 1:2]
+if ($Filter27F4_REG/NB)+($TQ8bR2/4)+($Q8b1_4/2), T [+T] = $TQ30a_Q52a_new * $[HX.X],
+BT = "AMONG WHO PAY BILLS IN P2M ONLINE/OFFLINE",
+[*ENDX]
+!
+[*do X = 1:2]
+if $TQ17i/1, then,
+if ($Filter27F4_REG/NB)+($TQ8bR2/4)+($Q8b1_4/2), T [+T] = $TQ30a_Q52a_new * $[HX.X],
+BT = "AMONG USERS OF FINTECH APPS AND WHO PAY BILLS IN P2M ONLINE/OFFLINE",
+end if,
+[*ENDX]
+!
+[*do X = 1:2]
+if $TQ17i/2, then,
+if ($Filter27F4_REG/NB)+($TQ8bR2/4)+($Q8b1_4/2), T [+T] = $TQ30a_Q52a_new * $[HX.X],
+BT = "AMONG NON-USERS OF FINTECH APPS AND WHO PAY BILLS IN P2M ONLINE/OFFLINE",
+end if,
+[*ENDX]
+
+
+FINISH TABLES,
