@@ -20,6 +20,8 @@ C = P_WALLE_2023Q3.ASC,
 Y,
 CEP,
 CSVR2,
+TERSE,
+
 OLDNAMES,
 FINISH CONTROL,
 
@@ -333,23 +335,23 @@ F=PBL/MOD,
 
 
   
-F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
 
 
-!SELECT WR $newwts,
+SELECT WR $newwts,
 
 
 F=BRS,
 
 
-[*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HI2T,HI3T,HI4T,HJT,HKT,HLT,HMT,HNT]
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HE_RR,HFT,HGT,HHT,HIT,HI2T,HI3T,HI4T,HJT,HKT,HLT,HMT,HNT]
 
 [*DATA HX=
-HA1T,
-HET,
+HA1_RR,
+HE_RR,
 HIT,
 HLT,
 HOT,
@@ -369,7 +371,7 @@ HPT]
 
 [*setn=stub8b.#]
 [*DOA=1:n]
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ8b_X[A] * $[HX.X],
 BT = "All respondents",
 [*ENDX]
@@ -380,7 +382,7 @@ BT = "All respondents",
 
 [*setn=stub8b.#]
 [*DOA=1:n]
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 T [+T] = $TQ8b_X[A] * $[HX.X],
 BT = "Among Users of FinTech Apps",
@@ -391,7 +393,7 @@ END IF,
 
 [*setn=stub8b.#]
 [*DOA=1:n]
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 T [+T] = $TQ8b_X[A] * $[HX.X],
 BT = "Among Non-users of FinTech Apps",
@@ -402,19 +404,19 @@ END IF,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ8bR1/1..11,	T [+T] = $ct8a1 * $[HX.X],
 BT = "All respondents who transact using Digital/Online (cashless)",
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 if $TQ8bR1/1..11,	T [+T] = $ct8a1 * $[HX.X],
 BT = "Among Users of FinTech Apps Who transact using Digital/Online (cashless)",
 end if,
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 if $TQ8bR1/1..11,	T [+T] = $ct8a1 * $[HX.X],
 BT = "Among Non-users of FinTech Apps Who transact using Digital/Online (cashless)",
@@ -423,13 +425,13 @@ end if,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ8bR2/1..11,	T [+T] = $ct8a2 * $[HX.X],
 BT = "All respondents who transact using Non-digital/Offline",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 if $TQ8bR2/1..11,	T [+T] = $ct8a2 * $[HX.X],
 BT = "Among Users of FinTech Apps Who transact using Non-digital/Offline",
@@ -437,7 +439,7 @@ end if,
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 if $TQ8bR2/1..11,	T [+T] = $ct8a2 * $[HX.X],
 BT = "Among Non-users of FinTech Apps Who transact using Non-digital/Offline",
@@ -453,13 +455,13 @@ end if,
 ! ---- ITEM 6
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T # [+T] = $ct8a1break * $[HX.X],
 BT = "ALL RESPONDENT",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 T # [+T] = $ct8a1break * $[HX.X],
 BT = "Among Users of FinTech Apps",
@@ -467,7 +469,7 @@ end if,
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 T # [+T] = $ct8a1break * $[HX.X],
 BT = "Among Non-users of FinTech Apps",
@@ -482,13 +484,13 @@ end if,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T # [+T] = $ct8a2break * $[HX.X],
 BT = "ALL RESPONDENT",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 T # [+T] = $ct8a2break * $[HX.X],
 BT = "Among Users of FinTech Apps",
@@ -496,7 +498,7 @@ end if,
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 T # [+T] = $ct8a2break * $[HX.X],
 BT = "Among Non-users of FinTech Apps",
@@ -512,13 +514,13 @@ end if,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $Q8BR1R2/1..11,	T [+T] = $TQ8a * $[HX.X],
 BT = "All respondent who transact using digital/online (cashless) and non-digital/offline (cash/ check)",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 if $Q8BR1R2/1..11,	T [+T] = $TQ8a * $[HX.X],
 BT = "Among Users of FinTech Apps WHO transact using digital/online (cashless) and non-digital/offline (cash/ check)",
@@ -526,7 +528,7 @@ end if,
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 if $Q8BR1R2/1..11,	T [+T] = $TQ8a * $[HX.X],
 BT = "Among Non-users of FinTech Apps WHO transact using digital/online (cashless) and non-digital/offline (cash/ check)",
@@ -544,14 +546,14 @@ end if,
 
 ! ---- ITEM 11
 if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb), then,
-[*DOX=1:1]
+[*DOX=1:2]
 [*DO A = 1:11]
 T # [+T] = $TQ8bR[A]tablex * $[HX.X],
 BT = "ALL RESPONDENT",
 [*END A]
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 [*DO A = 1:11]
 if $TQ17i/1, then,
 T # [+T] = $TQ8bR[A]tablex * $[HX.X],
@@ -560,7 +562,7 @@ END IF,
 [*END A]
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 [*DO A = 1:11]
 if $TQ17i/2, then,
 T # [+T] = $TQ8bR[A]tablex * $[HX.X],
@@ -576,19 +578,19 @@ endif,
 
 if ($Q42021/nb+$Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb), then,
 
-[*DOX=1:1]
+[*DOX=1:2]
 T # [+T] = $TQ8BREG * $[HX.X],
 BT = "ALL RESPONDENT",
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 T # [+T] = $TQ8BREG * $[HX.X],
 BT = "Among Users of FinTech Apps",
 END IF,
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 T # [+T] = $TQ8BREG * $[HX.X],
 BT = "Among Non-users of FinTech Apps",
@@ -601,7 +603,7 @@ endif,
 
 if ($Q22023/nb+$Q32023/nb), then,
 [*SETn=CODE8B1.#]
-[*DOX=1:1]
+[*DOX=1:2]
 [*DO A = 1:N]
 T # [+T] = $TQ8b1R[A] * $[HX.X],
 BT = "ALL RESPONDENT",
@@ -610,7 +612,7 @@ BT = "ALL RESPONDENT",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 [*DO A = 1:N]
 if $TQ17i/1, then,
 T # [+T] = $TQ8b1R[A] * $[HX.X],
@@ -621,7 +623,7 @@ endif,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 [*DO A = 1:N]
 if $TQ17i/2, then,
 T # [+T] = $TQ8b1R[A] * $[HX.X],
@@ -639,7 +641,7 @@ ENDIF,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $BRAND_LAD * $[HX.X],
 BT = "All respondents",
 [*ENDX]
@@ -647,14 +649,14 @@ BT = "All respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 T [+T] = $BRAND_LAD * $[HX.X],
 BT = "Among Users of FinTech Apps",
 END IF,
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 T [+T] = $BRAND_LAD * $[HX.X],
 BT = "Among Non-users of FinTech Apps",

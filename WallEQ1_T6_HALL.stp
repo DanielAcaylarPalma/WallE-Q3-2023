@@ -16,6 +16,8 @@ C = P_WALLE_2023Q3.ASC,
 Y,
 CEP,
 CSVR2,
+TERSE,
+
 OLDNAMES,
 FINISH CONTROL,
 
@@ -240,22 +242,22 @@ F=PBL/MOD,
 
 
   
-F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
 
 
 
-!SELECT WR $newwts,
+SELECT WR $newwts,
 
 F=BRS,
 
 
 
 [*DATA HX=
-HA1T,
-HET,
+HA1_RR,
+HE_RR,
 HIT,
 HLT,
 HOT,
@@ -263,7 +265,7 @@ HPT]
 !
 
 
-[*DATA HX=HTX]
+
 
 
 [*SET T = 0]
@@ -275,7 +277,7 @@ HPT]
 
 [*SETN=VT189.#]
 [*DOA=1:N]
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB),	T [+T] = $TQ189A_[A] * $[HX.X],
 BT = "All Respondents",
 [*ENDX]
@@ -284,21 +286,21 @@ BT = "All Respondents",
 
 
 [*DOA=1:3]
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB),	T [+T] = $TQ189AR[A] * $[HX.X],
 BT = "All Respondents",
 [*ENDX]
 [*ENDA]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB),	T [+T] = $TQ8d * $[HX.X],
 BT = "All Respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$TQ8d/2,	T [+T] = $TQ192 * $[HX.X],
 BT = "Among Did not do transaction in P2M",
 [*ENDX]
@@ -307,7 +309,7 @@ BT = "Among Did not do transaction in P2M",
 
 
 [*doa=1:18]
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB),	T [+T] = $TQ190R[a] * $[HX.X],
 BT = "All Respondents",
 [*ENDx]
@@ -316,7 +318,7 @@ BT = "All Respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB),	T [+T] = $TQ191 * $[HX.X],
 BT = "All Respondents",
 [*ENDX]
@@ -324,7 +326,7 @@ BT = "All Respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$TQ10/2,	T [+T] = $TQ10_2 * $[HX.X],
 BT = "Among Rejector",
 [*ENDX]
@@ -332,27 +334,27 @@ BT = "Among Rejector",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$TQ16d/1,	T [+T] = $TQ194a * $[HX.X],
 BT = "Among aware of Gcash",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$TQ16d/1,	T [+T] = $TQ194b * $[HX.X],
 BT = "Among aware of Gcash",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$TQ16d/1,	T [+T] = $TQ194c * $[HX.X],
 BT = "Among aware of Gcash",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$TQ16d/1,	T [+T] = $TQ194d * $[HX.X],
 BT = "Among aware of Gcash",
 [*ENDX]
@@ -360,21 +362,21 @@ BT = "Among aware of Gcash",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$TQ16d/1,	T [+T] = $TQ195a * $[HX.X],
 BT = "Among aware of Gcash",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$TQ16d/1,	T [+T] = $TQ195b * $[HX.X],
 BT = "Among aware of Gcash",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$TQ16d/1,	T [+T] = $TQ195c * $[HX.X],
 BT = "Among aware of Gcash",
 [*ENDX]
@@ -383,7 +385,7 @@ BT = "Among aware of Gcash",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).($A_Q17a/nb.n1),	T [+T] = $TQ196 * $[HX.X],
 BT = "AMONG GCASH NON-USERS",
 [*ENDX]
@@ -391,7 +393,7 @@ BT = "AMONG GCASH NON-USERS",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if (($Q22023/NB).($T_Q27_1/3) + ($Q12023/NB).($T_Q27_1/4)),	T [+T] = $TQ27a * $[HX.X],
 BT = "Among Buy and pay within the same website or app of the store via online in P2M",
 [*ENDX]
@@ -399,7 +401,7 @@ BT = "Among Buy and pay within the same website or app of the store via online i
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$T_Q27_1/6,	T [+T] = $TQ27b * $[HX.X],
 BT = "Among Save money in P2M",
 [*ENDX]
@@ -407,7 +409,7 @@ BT = "Among Save money in P2M",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB).($FQ193/nb),	T [+T] = $TQ193 * $[HX.X],
 BT = "Among Save money in P2M",
 [*ENDX]
@@ -416,13 +418,13 @@ BT = "Among Save money in P2M",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$TQ27_REG/1,	T [+T] = $TQ197 * $[HX.X],
 BT = "Among Buy Load in P2M",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB).$TQ8bR2/1,	T [+T] = $TQ198 * $[HX.X],
 BT = "Among who Bought Load Non-digital/Offline in P2M",
 [*ENDX]
@@ -430,7 +432,7 @@ BT = "Among who Bought Load Non-digital/Offline in P2M",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB+$Q22023/NB),	T [+T] = $TQ200 * $[HX.X],
 BT = "All Respondents",
 [*ENDX]
@@ -438,14 +440,14 @@ BT = "All Respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $MAR2023/NB,	T [+T] = $TQ202 * $[HX.X],
 BT = "All Respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $MAR2023/NB.$TQ202/1,	T [+T] = $TQ203 * $[HX.X],
 BT = "Among who recognized the AD",
 [*ENDX]
@@ -453,7 +455,7 @@ BT = "Among who recognized the AD",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $MAR2023/NB,	T [+T] = $TQ204 * $[HX.X],
 BT = "All Respondents",
 [*ENDX]
@@ -463,7 +465,7 @@ BT = "All Respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB).($TQ202/1).($TQ204/1),	T [+T] = $TQ205 * $[HX.X],
 BT = "Among who recognized the GCASH AD",
 [*ENDX]
@@ -472,14 +474,14 @@ BT = "Among who recognized the GCASH AD",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB).($TQ202/1).($TQ204/1),	T [+T] = $TQ206 * $[HX.X],
 BT = "Among who recognized the GCASH AD",
 [*ENDX]
 
 
 [*DOA=1:5]
-[*DOX=1:1]
+[*DOX=1:2]
 if ($TQ202/1).($TQ204/1),	T [+T] = $TQ207R[a] * $[HX.X],
 BT = "Among who recognized the GCASH AD",
 [*ENDX]
@@ -488,7 +490,7 @@ BT = "Among who recognized the GCASH AD",
 
 
 [*DOA=1:8]
-[*DOX=1:1]
+[*DOX=1:2]
 if ($Q12023/NB).($TQ202/1).($TQ204/1),	T [+T] = $TQ208R[a] * $[HX.X],
 BT = "Among who recognized the GCASH AD",
 [*ENDX]
@@ -500,7 +502,7 @@ BT = "Among who recognized the GCASH AD",
 
 [*doa=1:18]
 [*dob=1:9]
-[*DOX=1:1]
+[*DOX=1:2]
 if $Q22023/NB,	T [+T] = $TQ190ar[a]h[b] * $[HX.X],
 BT = "All Respondents",
 [*ENDx]
@@ -511,7 +513,7 @@ BT = "All Respondents",
 
 
 [*doa=1:18]
-[*DOX=1:1]
+[*DOX=1:2]
 if $Q22023/NB,	T [+T] = $TQ190ar[a] * $[HX.X],
 BT = "All Respondents",
 [*ENDx]
@@ -525,38 +527,38 @@ BT = "All Respondents",
 
 !ALL RESPONDENTS
 !Q210
-[*DOX=1:1]
+[*DOX=1:2]
 IF $JUL2023/nb, T [+T] = $TQ210 * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 !Q211
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Q210/1, T [+T] = $TQ211 * $[HX.X],
 BT = "Among those who are aware of AD",
 [*ENDX]
 
 !Q212
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Q210/1, T [+T] = $TQ212 * $[HX.X],
 BT = "Among those who are aware of AD",
 [*ENDX]
 
 !Q213
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Q210/1, T [+T] = $TQ213 * $[HX.X],
 BT = "Among those who are aware of AD",
 [*ENDX]
 
 !Q214 OE
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Q210/1, T [+T] = $TQ214 * $[HX.X],
 BT = "Among those who are aware of AD",
 [*ENDX]
 
 
 !Q215
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Q210/1, T [+T] = $DUMMY * $[HX.X],
 VT = "Q215. ACTION AFTER AD",
 BT = "Among those who are aware of AD",
@@ -567,7 +569,7 @@ BT = "Among those who are aware of AD",
 [*ENDX]
 
 !Q216
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Q210/1, T [+T] = $DUMMY * $[HX.X],
 VT = "Q216. AD EVALUATION METRICS",
 BT = "Among those who are aware of AD",
@@ -585,39 +587,39 @@ BT = "Among those who are aware of AD",
 
 !ALL RESPONDENTS
 !Q217
-[*DOX=1:1]
+[*DOX=1:2]
 if $APRIL26_Onwards/nb,	T [+T] = $TQ217 * $[HX.X],
 BT = "All respondents - April 26 Onwards FW",
 [*ENDX]
 
 !Q218
-[*DOX=1:1]
+[*DOX=1:2]
 IF $TQ217/1,  T [+T] = $TQ218 * $[HX.X],
 BT = "AMONG AWARE OF AD",
 [*ENDX]
 
 !Q219
-[*DOX=1:1]
+[*DOX=1:2]
 IF $TQ217/1,  T [+T] = $TQ219 * $[HX.X],
 BT = "AMONG AWARE OF AD",
 [*ENDX]
 
 
 !Q220
-[*DOX=1:1]
+[*DOX=1:2]
 IF $TQ217/1,  T [+T] = $TQ220 * $[HX.X],
 BT = "AMONG AWARE OF AD",
 [*ENDX]
 
 !Q221 OE
-[*DOX=1:1]
+[*DOX=1:2]
 IF $TQ217/1,  T [+T] = $TQ221 * $[HX.X],
 BT = "AMONG AWARE OF AD",
 [*ENDX]
 
 
 !Q222
-[*DOX=1:1]
+[*DOX=1:2]
 [*DO A = 1:5]
 IF $TQ217/1,  T [+T] = $TQ222_[A] * $[HX.X],
 BT = "AMONG AWARE OF AD",
@@ -625,7 +627,7 @@ BT = "AMONG AWARE OF AD",
 [*ENDX]
 
 !Q223
-[*DOX=1:1]
+[*DOX=1:2]
 [*DO A = 1:8]
 IF $TQ217/1,  T [+T] = $TQ223_[A] * $[HX.X],
 BT = "AMONG AWARE OF AD",
@@ -643,14 +645,14 @@ UL $Q32023/NB, GOTO @Q32023,
 [*SK1]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $A_Q17a/1, T [+T] = $TQ40b * $[HX.X],
 BT = "AMONG EXISTING GCASH ACCOUNT BUT USED IN THE PAST 2 MONTHS",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $A_Q17d/1.$A_Q17a/N1,T [+T] = $TQ40c * $[HX.X],
 BT = "AMONG EXISTING GCASH ACCOUNT BUT NOT USED IN THE PAST 2 MONTHS",
 [*ENDX]
@@ -659,7 +661,7 @@ BT = "AMONG EXISTING GCASH ACCOUNT BUT NOT USED IN THE PAST 2 MONTHS",
 
 
 [*DOA=1:23]
-[*DOX=1:1]
+[*DOX=1:2]
 IF $T_S1_[A]/3, T [+T] = $TS3 * $[HX.X],
 VT = "S3. REASONS FOR LESS FREQUENT USAGE OF GCASH - [LS1.A]",
 BT = "AMONG THOSE WHO USE GCASH NOW LESS FREQUENTLY - [LS1.A]",
@@ -668,7 +670,7 @@ BT = "AMONG THOSE WHO USE GCASH NOW LESS FREQUENTLY - [LS1.A]",
 
 
 [*DOA=1:23]
-[*DOX=1:1]
+[*DOX=1:2]
 IF $T_S2_[A]/3, T [+T] = $TS4 * $[HX.X],
 VT = "S4. REASONS FOR LESS FREQUENT USAGE OF GCASH - [LS1.A]",
 BT = "AMONG THOSE WITH LESSER AMOUNT TRANSACTED IN GCASH - [LS1.A]",
@@ -676,56 +678,56 @@ BT = "AMONG THOSE WITH LESSER AMOUNT TRANSACTED IN GCASH - [LS1.A]",
 [*ENDA]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TDO1 * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $QLM1/1, T [+T] = $TLM3 * $[HX.X],
 BT = "AMONG AWARE OF THE AD",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $QLM1/1, T [+T] = $TLM4 * $[HX.X],
 BT = "AMONG AWARE OF THE AD",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $QLM1/1, T [+T] = $TLM5 * $[HX.X],
 BT = "AMONG AWARE OF THE AD",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $QFI1/1, T [+T] = $TQFI3 * $[HX.X],
 BT = "AMONG AWARE OF THE AD",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $QFI1/1, T [+T] = $TQFI5 * $[HX.X],
 BT = "AMONG AWARE OF THE AD",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $A_Q17f/1.$T_Q17j_1/1, T [+T] = $TSA1 * $[HX.X],
 BT = "AMONG THOSE WHO HAVE EVER USED GCASH WITH BASIC ACCOUNT ONLY",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $FILTP1/NB, T [+T] = $TTP1 * $[HX.X],
 BT = "AMONG PAYMENT FOR TRANSPORTATION USED ARE Cash, Check, Debit Card & Credit Card",
 [*ENDX]
 
 
 [*DOA=1:[LTP3.#]]
-[*DOX=1:1]
+[*DOX=1:2]
 IF $FILTP1/NB.$TTP1/[A], T [+T] = $TTP2_[A] * $[HX.X],
 BT = "AMONG MODE OF TRANSPORTATION USED IN THE P2M IS [LTP3.A]",
 [*ENDX]
@@ -735,7 +737,7 @@ BT = "AMONG MODE OF TRANSPORTATION USED IN THE P2M IS [LTP3.A]",
 
 [*DOA=1:[LTP3.#]]
 [*DOB=1:4]
-[*DOX=1:1]
+[*DOX=1:2]
 IF $FILTP1/NB.$TTP1/[A].($TTP2_[A]/[B]), T [+T] = $TTP3_[A] * $[HX.X],
 BT = "AMONG MODE OF TRANSPORTATION USED IN THE P2M IS [LTP3.A] AND PAID USING [LTP2.B]",
 [*ENDX]
@@ -744,33 +746,33 @@ BT = "AMONG MODE OF TRANSPORTATION USED IN THE P2M IS [LTP3.A] AND PAID USING [L
 
 
 [*DOA=1:3]
-[*DOX=1:1]
+[*DOX=1:2]
 IF $A_H1/N99.NB, T [+T] = $TH2_[A] * $[HX.X],
 BT = "AMONG WHO PREPARES FOR CHRISTMAS",
 [*ENDX]
 [*ENDA]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Q184a/2+$Q184b/2, T [+T] = $TQ187 * $[HX.X],
 BT = "AMONG NON-GCASH JR OR PARENTS WHOM KIDS ARE NON-GCASH USERS",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Q187/1, T [+T] = $TQ187d * $[HX.X],
 BT = "AMONG SELF-EMPLOYED/BUSINESS-OWNER",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $FQ76/1+$FQ77/1+2, T [+T] = $TQ190b * $[HX.X],
 BT = "AMONG THE HOUSEHOLD HEAD OR MAIN/CO-DECISION MAKER IN THE HOUSEHOLD",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $AUG2023/nb+$SEP2023/nb, T [+T] = $TEM1 * $[HX.X],
 BT = "All respondents",
 [*ENDX]

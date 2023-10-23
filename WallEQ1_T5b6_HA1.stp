@@ -17,6 +17,8 @@ C = P_WALLE_2023Q3.ASC,
 Y,
 CEP,
 CSVR2,
+TERSE,
+
 OLDNAMES,
 FINISH CONTROL,
 
@@ -104,27 +106,27 @@ F=PBL/MOD,
 
 
   
-F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
 
 
-!SELECT WR $newwts,
+SELECT WR $newwts,
 
 
 F=BRS,
 
 
 [*DATA HX=
-HA1T,
-HET,
+HA1_RR,
+HE_RR,
 HIT,
 HLT,
 HOT]
 !
 
-[*DATA HX=HTX]
+
 
 
 
@@ -135,7 +137,7 @@ HOT]
 
 [*DOA=1:BR]
 [*FORB=1:2:3:4:5:6:7:8:9:10:11:12:13:14:15:16:17:18:19:21:22:23:24:25:26:27:28:29:30:31:32:33:34:35:36:37:38:39:40:41:42:43:44:45:46:47:48:49:50:51:52:53:54:55:56:57:58:59:60:61:62:63:64:65:66:67:68:69:70:71:72:73:74:75:76:77:78:79:80:81:82:83:84:85:86:87:88:89:90:91:92]
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Filter27F6_[A]/NB.($TQ34R[A]/2+3).$TQ34fR[A]/[B], THEN,
 T [+T] = $TQ34jH[A]R[B] * $[HX.X],
 BT = "Among who Personally Receive electronic money in P2M - [BRAND.A] - [SENDREC3.B]",
@@ -150,7 +152,7 @@ END IF,
 
 
 [*FORB=1:2:3:4:5:6:7:8:9:10:11:12:13:14:15:16:17:18:19:21:22:23:24:25:26:27:28:29:30:31:32:33:34:35:36:37:38:39:40:41:42:43:44:45:46:47:48:49:50:51:52:53:54:55:56:57:58:59:60:61:62:63:64:65:66:67:68:69:70:71:72:73:74:75:76:77:78:79:80:81:82:83:84:85:86:87:88:89:90:91:92]
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Filter27F6_REG/NB.($TQ34_REG/2+3).$TQ34f_REG/[B], THEN,
 T [+T] = $TQ34j_REG[B] * $[HX.X],
 BT = "Among who Personally Receive electronic money in P2M - ([SENDREC3.B]) REGARDLESS OF BRANDS",
@@ -164,7 +166,7 @@ END IF,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Filter27F6_REG/NB.($TQ34_REG/2+3).$TQ34f_REG/1..[SR3], THEN,
 T [+T] = $TQ34j_REGALL * $[HX.X],
 BT = "Among who Personally Receive electronic money in P2M - REGARDLESS OF BRANDS AND MERCHANT",

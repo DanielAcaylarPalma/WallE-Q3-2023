@@ -20,6 +20,8 @@ C = P_WALLE_2023Q3.ASC,
 Y,
 CEP,
 CSVR2,
+TERSE,
+
 OLDNAMES,
 FINISH CONTROL,
 
@@ -109,23 +111,23 @@ F=PBL/MOD,
 
 
   
-F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
 
 
 
-!SELECT WR $newwts,
+SELECT WR $newwts,
 
 F=BRS,
 
-[*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HI2T,HI3T,HI4T,HJT,HKT,HLT,HMT,HNT]
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HE_RR,HFT,HGT,HHT,HIT,HI2T,HI3T,HI4T,HJT,HKT,HLT,HMT,HNT]
 
 
 [*DATA HX=
-HA1T,
-HET,
+HA1_RR,
+HE_RR,
 HIT,
 HLT,
 HOT,
@@ -138,7 +140,7 @@ HPT]
 
 
 
-[*DATA HX=HTX]
+
 
 
 
@@ -150,7 +152,7 @@ HPT]
 
 [*DOA=1:4]
 [*DOB=1:BP]
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 IF $Filter29a_[a]/nb.$TQ29aR[A]/[B], T [+T] = $TQ29eH[A]R[B] * $[HX.X],
 BT = "Among Users of FinTech Apps AND Who Buy and pay within the same website or app of the store via online in P2M - [BRAND.A] - [BOPAID.B]",

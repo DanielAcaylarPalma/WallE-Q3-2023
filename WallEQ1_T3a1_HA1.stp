@@ -18,6 +18,8 @@ C = P_WALLE_2023Q3.ASC,
 Y,
 CEP,
 CSVR2,
+TERSE,
+
 OLDNAMES,
 FINISH CONTROL,
 
@@ -103,29 +105,29 @@ F=PBL/MOD,
 
 
   
-F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
 
 
-!SELECT WR $newwts,
+SELECT WR $newwts,
 
 F=BRS,
 
 
-[*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HJT,HKT,HLT,HMT,HNT]
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HE_RR,HFT,HGT,HHT,HIT,HJT,HKT,HLT,HMT,HNT]
 
 [*DATA HX=
-HA1T,
-HET,
+HA1_RR,
+HE_RR,
 HIT,
 HLT,
 HOT,
 HPT]
 
 
-[*DATA HX=HTX]
+
 
 
 [*SET T = 0]
@@ -134,7 +136,7 @@ HPT]
 
 
 [*DOA=1:BR]
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Filter27F4_[A]/NB, T [+T] = $TQ30aR[A] * $[HX.X],
 BT = "Among Who Pay bills in P2M - [BRAND.A]",
 [*ENDX]
@@ -142,7 +144,7 @@ BT = "Among Who Pay bills in P2M - [BRAND.A]",
 
 
 [*DOA=1:BR]
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 IF $Filter27F4_[A]/NB, T [+T] = $TQ30aR[A] * $[HX.X],
 BT = "Among Users of FinTech Apps AND Who Pay bills in P2M - [BRAND.A]",
@@ -152,7 +154,7 @@ END IF,
 
 
 [*DOA=1:BR]
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 IF $Filter27F4_[A]/NB, T [+T] = $TQ30aR[A] * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Who Pay bills in P2M - [BRAND.A]",
@@ -167,12 +169,12 @@ END IF,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Filter27F4_REG/NB, T [+T] = $TQ30a_REG * $[HX.X],
 BT = "Among Who Pay bills in P2M - REGARDLESS",
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 IF $Filter27F4_REG/NB, T [+T] = $TQ30a_REG * $[HX.X],
 BT = "Among Users of FinTech Apps AND Who Pay bills in P2M - REGARDLESS",
@@ -180,7 +182,7 @@ END IF,
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 IF $Filter27F4_REG/NB, T [+T] = $TQ30a_REG * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Who Pay bills in P2M - REGARDLESS",
@@ -200,7 +202,7 @@ END IF,
 
 [*DOA=1:BR]
 [*DOB=1:BL]
-[*DOX=1:1]
+[*DOX=1:2]
 IF ($Filter27F4_[A]/NB).($TQ30aR[A]/[B]), T [+T] = $TQ30dH[A]R[B] * $[HX.X],
 BT = "Among Who Pay bills in P2M - [BRAND.A] - [BILLS.B]",
 [*ENDX]
@@ -209,7 +211,7 @@ BT = "Among Who Pay bills in P2M - [BRAND.A] - [BILLS.B]",
 
 [*DOA=1:BR]
 [*DOB=1:BL]
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 IF ($Filter27F4_[A]/NB).($TQ30aR[A]/[B]), T [+T] = $TQ30dH[A]R[B] * $[HX.X],
 BT = "Among Users of FinTech Apps AND Who Pay bills in P2M - [BRAND.A] - [BILLS.B]",
@@ -221,7 +223,7 @@ END IF,
 
 [*DOA=1:BR]
 [*DOB=1:BL]
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 IF ($Filter27F4_[A]/NB).($TQ30aR[A]/[B]), T [+T] = $TQ30dH[A]R[B] * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Who Pay bills in P2M - [BRAND.A] - [BILLS.B]",
@@ -236,7 +238,7 @@ END IF,
 
 
 [*DOB=1:BL]
-[*DOX=1:1]
+[*DOX=1:2]
 IF ($Filter27F4_REG/NB).($TQ30a_REG/[B]), T [+T] = $TQ30d_REG[B] * $[HX.X],
 BT = "Among Who Pay bills in P2M - [BILLS.B] REGARDLESS OF BRANDS",
 [*ENDX]
@@ -244,7 +246,7 @@ BT = "Among Who Pay bills in P2M - [BILLS.B] REGARDLESS OF BRANDS",
 
 
 [*DOB=1:BL]
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 IF ($Filter27F4_REG/NB).($TQ30a_REG/[B]), T [+T] = $TQ30d_REG[B] * $[HX.X],
 BT = "Among Users of FinTech Apps AND Who Pay bills in P2M - [BILLS.B] REGARDLESS OF BRANDS",
@@ -254,7 +256,7 @@ END IF,
 
 
 [*DOB=1:BL]
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 IF ($Filter27F4_REG/NB).($TQ30a_REG/[B]), T [+T] = $TQ30d_REG[B] * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Who Pay bills in P2M - [BILLS.B] REGARDLESS OF BRANDS",
@@ -267,19 +269,19 @@ END IF,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF ($Filter27F4_REG/NB).($TQ30a_REG/1..[BL]), T [+T] = $TQ30d_REGALL * $[HX.X],
 BT = "Among Who Pay bills in P2M - REGARDLESS OF BRANDS AND MERCHANT",
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/1, then,
 IF ($Filter27F4_REG/NB).($TQ30a_REG/1..[BL]), T [+T] = $TQ30d_REGALL * $[HX.X],
 BT = "Among Users of FinTech Apps AND Who Pay bills in P2M - REGARDLESS OF BRANDS AND MERCHANT",
 END IF,
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 if $TQ17i/2, then,
 IF ($Filter27F4_REG/NB).($TQ30a_REG/1..[BL]), T [+T] = $TQ30d_REGALL * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Who Pay bills in P2M - REGARDLESS OF BRANDS AND MERCHANT",
@@ -292,7 +294,7 @@ END IF,
 
 [*DOA=1:BR]
 [*DOB=1:BL]
-[*DOX=1:1]
+[*DOX=1:2]
 IF ($Filter27F4_[A]/NB).($TQ30aR[A]/[B]), T [+T] = $TQ30eH[A]R[B] * $[HX.X],
 BT = "Among Who Pay bills in P2M - [BRAND.A] - [BILLS.B]",
 [*ENDX]

@@ -17,6 +17,8 @@ C = P_WALLE_2023Q3.ASC,
 Y,
 CEP,
 CSVR2,
+TERSE,
+
 OLDNAMES,
 FINISH CONTROL,
 
@@ -104,27 +106,27 @@ F=PBL/MOD,
 
 
   
-F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
 
 
-!SELECT WR $newwts,
+SELECT WR $newwts,
 
 
 F=BRS,
 
 
 [*DATA HX=
-HA1T,
-HET,
+HA1_RR,
+HE_RR,
 HIT,
 HLT,
 HOT]
 !
 
-[*DATA HX=HTX]
+
 
 
 
@@ -132,7 +134,7 @@ HOT]
 
 
 [*DOA=1:BR]
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Filter27F6_[A]/NB.($TQ34R[A]/2+3).($TQ34fR[A]/1..[SR3]), THEN,
 T [+T] = $TQ34fR[A] * $[HX.X],
 BT = "Among who Personally Receive electronic money in P2M - [BRAND.A]",
@@ -141,7 +143,7 @@ END IF,
 [*ENDA]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 IF $Filter27F6_REG/NB.($TQ34_REG/2+3).($TQ34f_REG/1..[SR3]), THEN,
 T [+T] = $TQ34f_REG * $[HX.X],
 BT = "Among who Personally Receive electronic money in P2M - REGARDLESS",

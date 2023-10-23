@@ -8,6 +8,8 @@ C = P_WALLE_Q4_2022.asc,
 Y,
 CEP,
 CSVR2,
+TERSE,
+
 OLDNAMES,
 FINISH CONTROL,
 
@@ -367,7 +369,7 @@ F=PBL/MOD,
 
 
   
-F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
@@ -386,7 +388,7 @@ F=BRS,
 
 [*SET T = 0]
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $SRC_Q104a * $[HX.X],
 BT = "All Respondents",
 [*ENDX]
@@ -395,7 +397,7 @@ BT = "All Respondents",
 
 
 [*DOA=1:XBRX]
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $SRC_Q104b[A] * $[HX.X],
 BT = "All Respondents",
 [*ENDX]
@@ -404,7 +406,7 @@ BT = "All Respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $SRC_Q28b * $[HX.X],
 BT = "All Respondents",
 [*ENDX]
@@ -412,7 +414,7 @@ BT = "All Respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $SRC_Q28c * $[HX.X],
 BT = "All Respondents",
 [*ENDX]

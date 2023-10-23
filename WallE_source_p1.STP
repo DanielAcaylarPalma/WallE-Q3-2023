@@ -7,6 +7,8 @@ C = P_WALLE_Q4_2022.asc,
 Y,
 CEP,
 CSVR2,
+TERSE,
+
 OLDNAMES,
 FINISH CONTROL,
 
@@ -157,14 +159,14 @@ F=PBL/MOD,
 
 
   
-F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
 
 
 
-!SELECT WR $newwts,
+SELECT WR $newwts,
 
 
 F=BRS,
@@ -179,39 +181,39 @@ F=BRS,
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQAge * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TSEC21 * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ4 * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ1_LS * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TC_Q17D * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ8B_R1R2 * $[HX.X],
 BT = "All respondents",
 [*ENDX]
@@ -220,14 +222,14 @@ BT = "All respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ8B * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $Tq9bsrc * $[HX.X],
 BT = "All respondents",
 [*ENDX]
@@ -237,13 +239,13 @@ BT = "All respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ75src * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ9_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
@@ -252,13 +254,13 @@ BT = "All respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ16hcon * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ17_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
@@ -267,7 +269,7 @@ BT = "All respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ19AC_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
@@ -276,96 +278,96 @@ BT = "All respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ103AB_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ20AB_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ21ABD_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ23_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ24_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ26_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ40Q41_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ16D_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ46_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ46_SRCREG * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ47_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ53a1_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ53G_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ6061_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ62_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
@@ -379,7 +381,7 @@ BT = "All respondents",
 
 [*setn=stub8b.#]
 [*DOA=1:n]
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ8b_SRC[A] * $[HX.X],
 BT = "All respondents",
 [*ENDX]
@@ -389,14 +391,14 @@ BT = "All respondents",
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ76SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
 
-[*DOX=1:1]
+[*DOX=1:2]
 T [+T] = $TQ8C_SRC * $[HX.X],
 BT = "All respondents",
 [*ENDX]
