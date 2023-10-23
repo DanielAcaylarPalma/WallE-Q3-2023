@@ -117,12 +117,14 @@ F=BRS,
 
 
 [*DATA HX=
-HA1_RR,
-HE,
-HO]
+HA1T,
+HET,
+HIT,
+HLT,
+HOT]
 !
-[*SET T = 0]
 
+[*DATA HX=HTX]
 
 
 
