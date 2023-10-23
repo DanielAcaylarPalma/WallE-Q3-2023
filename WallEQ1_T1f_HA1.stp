@@ -311,8 +311,8 @@ HOT]
 [*SET T = 0]
 
 
-DM $AVALOAN = (($QTR/1..8).$FQ70/5)+(($QTR/NB.N(1..8)).$A_QL2/NB.N99), 
-DM $AVAINVP = (($QTR/1..8).($FQ70/3+4))+(($QTR/NB.N(1..8)).$A_QINV2/NB.N99), 
+DM $AVALOAN = (($QTR/1..8).$FQ70/5)+($SEP2023/NB.$A_QL1/N99.$A_QL2/N99), 
+DM $AVAINVP = (($QTR/1..8).($FQ70/3+4))+($SEP2023/NB.$A_QINV1/N99.$A_QINV2/N99), 
 
 
 
@@ -331,14 +331,14 @@ DM $AVAINVP = (($QTR/1..8).($FQ70/3+4))+(($QTR/NB.N(1..8)).$A_QINV2/NB.N99),
 
 
 [*DOX=1:2]
-T [+T] = $TQL2 * $[HX.X],
+IF $SEP2023/NB.$A_QL1/N99, T [+T] = $TQL2 * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 
 
 
 [*DOX=1:2]
-T [+T] = $TQINV2 * $[HX.X],
+IF $SEP2023/NB.$A_QINV1/N99, T [+T] = $TQINV2 * $[HX.X],
 BT = "All respondents",
 [*ENDX]
 

@@ -234,7 +234,7 @@ HPT]
 
 
 
-[*DATA HX=HTOT]
+
 
 
 
@@ -246,7 +246,7 @@ HPT]
 
 
 ! ========= Q4 2022 ========== !
-if $NOV2022/NB+$DEC2022/NB, then,
+if $NOV2022/NB+$DEC2022/NB+$JUL2023/NB, then,
 
 [*DOX=1:2]
 if $TQ16d/1, T [+T] = $TQ181 * $[HX.X],
@@ -275,7 +275,7 @@ endif,
 
 
 ! ========= Q4 2022 ========== !
-if $NOV2022/NB+$DEC2022/NB, then,
+if $NOV2022/NB+$DEC2022/NB+$JUL2023/NB, then,
 
 [*DOX=1:2]
 if $TQ16d/1, T [+T] = $TQ182 * $[HX.X],
@@ -303,7 +303,7 @@ endif,
 
 
 ! ========= Q4 2022 ========== !
-if $NOV2022/NB+$DEC2022/NB, then,
+if $NOV2022/NB+$DEC2022/NB+$JUL2023/NB, then,
 
 [*DOX=1:2]
 if ($T_Q1_1/18..99).($TQ16d/1), T [+T] = $TQ183 * $[HX.X],
@@ -336,7 +336,7 @@ endif,
 
 
 ! ========= Q4 2022 ========== !
-if $NOV2022/NB+$DEC2022/NB, then,
+if $NOV2022/NB+$DEC2022/NB+$JUL2023/NB, then,
 
 [*DOX=1:2]
 if ($T_Q1_1/13..17).($TQ181/1), T [+T] = $TQ184a * $[HX.X],
@@ -365,7 +365,7 @@ endif,
 
 
 ! ========= Q4 2022 ========== !
-if $NOV2022/NB+$DEC2022/NB, then,
+if $NOV2022/NB+$DEC2022/NB+$JUL2023/NB, then,
 
 [*DOX=1:2]
 if ($TQ183/1).($TQ181/1), T [+T] = $TQ184b * $[HX.X],
@@ -398,7 +398,7 @@ endif,
 
 
 ! ========= Q4 2022 ========== !
-if $NOV2022/NB+$DEC2022/NB, then,
+if $NOV2022/NB+$DEC2022/NB+$JUL2023/NB, then,
 
 [*DOX=1:2]
 if ($TQ184a/2).($TQ184b/2), T [+T] = $TQ185 * $[HX.X],
@@ -429,7 +429,7 @@ endif,
 
 
 ! ========= Q4 2022 ========== !
-if $NOV2022/NB+$DEC2022/NB, then,
+if $NOV2022/NB+$DEC2022/NB+$JUL2023/NB, then,
 
 [*DOX=1:2]
 if ($TQ184a/1).($TQ184b/1), T [+T] = $TQ186 * $[HX.X],
@@ -460,7 +460,7 @@ endif,
 
 
 ! ========= Q4 2022 ========== !
-if $NOV2022/NB+$DEC2022/NB, then,
+if $NOV2022/NB+$DEC2022/NB+$JUL2023/NB, then,
 
 [*DOX=1:2]
 if ($TQ184a/2).($TQ184b/2), T [+T] = $TQ187a * $[HX.X],
