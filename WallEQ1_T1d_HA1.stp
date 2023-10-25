@@ -204,7 +204,7 @@ F=PBL/MOD,
 
 
   
-!F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
@@ -234,7 +234,7 @@ HPT]
 
 
 
-[*DATA HX=HTOT]
+
 
 
 
@@ -1144,7 +1144,7 @@ End if,
 
 
 
-
+[*SK 1]
 [*DOX=1:2]
 IF $TQ70/1, THEN,
 T [+T] = $TQ73a * $[HX.X],
@@ -1165,8 +1165,6 @@ IF $TQ70/1, T [+T] = $TQ73a * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND who have Bank Products - Bank Account",
 END IF,
 [*ENDX]
-
-
 
 
 [*DOX=1:2]
@@ -1276,6 +1274,8 @@ BT = "Among who have Bank Products - Loan",
 END IF,
 [*ENDX]
 
+
+[*1]
 
 
 

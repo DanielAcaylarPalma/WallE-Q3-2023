@@ -520,7 +520,6 @@ BT = "All Respondents",
 [*ENDa]
 
 
-[*9]
 
 ! ====== tack-ON ====== !
 
@@ -635,6 +634,7 @@ BT = "AMONG AWARE OF AD",
 [*ENDX]
 
 
+[*9]
 
 !{=================================================}!
 !{==================== Q3 2023 ====================}!
@@ -681,6 +681,15 @@ BT = "AMONG THOSE WITH LESSER AMOUNT TRANSACTED IN GCASH - [LS1.A]",
 [*DOX=1:2]
 T [+T] = $TDO1 * $[HX.X],
 BT = "All respondents",
+[*ENDX]
+
+
+
+[*DOX=1:2]
+[*DO B = 1:[DO2name.#]:1]
+IF $DO1/[B], [+T] = $TDO2_[B] * $[HX.X],
+BT = "All respondents",
+[*END B]
 [*ENDX]
 
 

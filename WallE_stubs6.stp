@@ -3381,7 +3381,7 @@ Total count<C>",
 
 
 
-DM $TDO1 = $XDO1/
+DM $TDO1 = $DO1/
 3,
 4,
 5,
@@ -3927,6 +3927,23 @@ Missing answers<Z>;
 Total count<C>",
 
 
+[*DATA DO2name (;) = 
+5G-capable smartphone;
+4G-capable smartphone;
+Feature Phone (It has internet capabilities, supports 3G, it can have a touchpad/touchscreen but not an OS. Can't download apps.);
+Basic/Keypad Phone (It has no internet capabilities.);  
+Tablet with or without SIM]
+
+[*DO A = 1:5]
+DM $TDO2_[A] =
+VT = "DO2. NUMBER OF MOBILE DEVICES CURRENTLY OWNED - [DO2name.A]",
+V = "
+[*DO B = 1:999]
+[B] ([B]) <v[B]>;
+[*END B]
+Missing answers<Z>;
+Total count<C>",
+[*END A]
 
 
 
