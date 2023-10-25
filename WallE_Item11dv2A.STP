@@ -2,18 +2,15 @@ START CONTROL,
 *PROJECT WALL-E
 
 
-! C = P_WALLE_2022Q1.ASC;P_WALLE_2022Q2.ASC;P_WALLE_2022Q3.ASC;P_WALLE_2022Q4.ASC;P_WALLE_2023Q1.ASC;P_WALLE_2023Q2_PUNCHED.ASC,
+!C = P_WALLE_2022Q1.ASC;P_WALLE_2022Q2.ASC;P_WALLE_2022Q3.ASC;P_WALLE_2022Q4.ASC;P_WALLE_2023Q1.ASC;P_WALLE_2023Q2_PUNCHED.ASC,
 
-!C = P_WALLE_2023Q2_PUNCHED.ASC,
+C = P_WALLE_2023Q3_V2.ASC,
 
-C = P_WALLE_2023Q3.ASC,
 
 
 Y,
 CEP,
 CSVR2,
-TERSE,
-
 OLDNAMES,
 FINISH CONTROL,
 
@@ -726,6 +723,7 @@ DM $F2023B = $Q12022/nb+$Q22022/NB+$Q32022/NB+$Q42022/nb+$Q12023/nb,
 
 
 
+
 FINISH DATA,
 
 
@@ -776,7 +774,7 @@ F=PBL/MOD,
 
 
   
-F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
@@ -789,11 +787,11 @@ SELECT WR $newwts,
 F=BRS,
 
 
-[*DATA HXOLD=HAT,HBT,HCT,HDT,HE_RR,HFT,HGT,HHT,HIT,HJT,HKT,HLT,HMT,HNT]
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HET,HFT,HGT,HHT,HIT,HJT,HKT,HLT,HMT,HNT]
 
 
 [*DATA HX=
-HA1_RR,
+HA1T,
 HET]
 
 
@@ -802,17 +800,22 @@ HET]
 
 
 
+[*DATA HX=
+HTX]
+
+
+
 
 
 
 ! ------------ Q105 + Q106 -------------- !
-[*DOX=1:2]
+[*DOX=1:1]
 if (($Filter27F6_REG/nb)) + (($F2023NB/NB).($Q8B1_78910/5)) . (($F2023B/NB).($TQ8BR2/6)), 
 T [+T] = $TQ105_Q106 * $[HX.X],
 BT = "AMONG WHO SEND/RECEIVE REMITTANCE OFFLINE OR OVER-THE COUNTER MONEY TRANSFER - ONLINE/OFFLINE",
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/1, then,
 if (($Filter27F6_REG/nb)) + (($F2023NB/NB).($Q8B1_78910/5)) . (($F2023B/NB).($TQ8BR2/6)), 
 T [+T] = $TQ105_Q106 * $[HX.X],
@@ -820,7 +823,7 @@ BT = "AMONG USERS OF FINTECH APPS AND WHO SEND/RECEIVE REMITTANCE OFFLINE OR OVE
 end if,
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/2, then,
 if (($Filter27F6_REG/nb)) + (($F2023NB/NB).($Q8B1_78910/5)) . (($F2023B/NB).($TQ8BR2/6)), 
 T [+T] = $TQ105_Q106 * $[HX.X],
@@ -837,13 +840,13 @@ end if,
 
 ! ------------ Q33 + Q55 -------------- !
 
-[*DOX=1:2]
+[*DOX=1:1]
 if (($Filter27F6_REG/NB).($TQ105_REG/1+3)) + (($F2023NB/NB).($Q106/1+3)) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3)), 
 T [+T] = $TQ33_Q55 * $[HX.X],
 BT = "AMONG WHO SEND/RECEIVE REMITTANCE - ONLINE/OFFLINE",
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/1, then,
 if (($Filter27F6_REG/NB).($TQ105_REG/1+3)) + (($F2023NB/NB).($Q106/1+3)) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3)), 
 T [+T] = $TQ33_Q55 * $[HX.X],
@@ -851,7 +854,7 @@ BT = "AMONG USERS OF FINTECH APPS AND WHO SEND/RECEIVE REMITTANCE - ONLINE/OFFLI
 end if,
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/2, then,
 if (($Filter27F6_REG/NB).($TQ105_REG/1+3)) + (($F2023NB/NB).($Q106/1+3)) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3)), 
 T [+T] = $TQ33_Q55 * $[HX.X],
@@ -863,13 +866,13 @@ end if,
 
 
 ! ------------ Q33a1 + Q55a -------------- !
-[*DOX=1:2]
+[*DOX=1:1]
 if (($Filter27F6_REG/NB).($TQ33_REG/1+3)) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3)) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3)), 
 T [+T] = $TQ33a1_Q55a * $[HX.X],
 BT = "AMONG WHO PERSONALLY SEND REMITTANCE IN P2M - ONLINE/OFFLINE",
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/1, then,
 if (($Filter27F6_REG/NB).($TQ33_REG/1+3)) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3)) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3)), 
 T [+T] = $TQ33a1_Q55a * $[HX.X],
@@ -877,7 +880,7 @@ BT = "AMONG USERS OF FINTECH APPS AND WHO PERSONALLY SEND REMITTANCE IN P2M - ON
 end if,
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/2, then,
 if (($Filter27F6_REG/NB).($TQ33_REG/1+3)) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3)) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3)), 
 T [+T] = $TQ33a1_Q55a * $[HX.X],
@@ -892,7 +895,7 @@ end if,
 ! ------------ Q33d1 + Q55d -------------- !
 
 [*DOB=1:SRA]
-[*DOX=1:2]
+[*DOX=1:1]
 if (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/[B])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/[B])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/[B])), 
 T [+T] = $TXQ33d1Q55D_REG[B] * $[HX.X],
 BT = "AMONG WHO PERSONALLY SEND REMITTANCE IN P2M - [SENDRECA.B] REGARDLESS OF BRANDS - ONLINE/OFFLINE",
@@ -901,7 +904,7 @@ BT = "AMONG WHO PERSONALLY SEND REMITTANCE IN P2M - [SENDRECA.B] REGARDLESS OF B
 !
 
 [*DOB=1:SRA]
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/1, then,
 if (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/[B])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/[B])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/[B])), 
 T [+T] = $TXQ33d1Q55D_REG[B] * $[HX.X],
@@ -912,7 +915,7 @@ END IF,
 !
 
 [*DOB=1:SRA]
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/2, then,
 if (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/[B])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/[B])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/[B])), 
 T [+T] = $TXQ33d1Q55D_REG[B] * $[HX.X],
@@ -924,13 +927,13 @@ END IF,
 
 
 ! ---------- REGARDLESS ALL ---------!
-[*DOX=1:2]
+[*DOX=1:1]
 if (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/1..[SRA])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])), 
 T [+T] = $TQ33d1_Q55D * $[HX.X],
 BT = "AMONG WHO PERSONALLY SEND REMITTANCE IN P2M - REGARDLESS OF BRANDS AND MERCHANT - ONLINE/OFFLINE",
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/1, then,
 if (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/1..[SRA])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])), 
 T [+T] = $TQ33d1_Q55D * $[HX.X],
@@ -938,7 +941,7 @@ BT = "AMONG USERS OF FINTECH APPS AND WHO PERSONALLY SEND REMITTANCE IN P2M - RE
 END IF,
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/2, then,
 if (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/1..[SRA])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])), 
 T [+T] = $TQ33d1_Q55D * $[HX.X],
@@ -953,7 +956,7 @@ END IF,
 
 ! ------------ Q33e1 + Q55e -------------- !
 [*DOB=1:SRA]
-[*DOX=1:2]
+[*DOX=1:1]
 IF (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/[B])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/[B])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/[B])), 
 T [+T] = $TQ33e1Q55e_REG[B] * $[HX.X],
 BT = "AMONG WHO PERSONALLY SEND REMITTANCE IN P2M - [SENDRECA.B] REGARDLESS OF BRANDS - ONLINE/OFFLINE",
@@ -961,7 +964,7 @@ BT = "AMONG WHO PERSONALLY SEND REMITTANCE IN P2M - [SENDRECA.B] REGARDLESS OF B
 [*ENDB]
 !
 [*DOB=1:SRA]
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/1, then,
 IF (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/[B])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/[B])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/[B])), 
 T [+T] = $TQ33e1Q55e_REG[B] * $[HX.X],
@@ -971,7 +974,7 @@ END IF,
 [*ENDB]
 !
 [*DOB=1:SRA]
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/2, then,
 IF (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/[B])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/[B])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/[B])), 
 T [+T] = $TQ33e1Q55e_REG[B] * $[HX.X],
@@ -983,13 +986,13 @@ END IF,
 
 ! ---------- REGARDLESS ALL ---------!
 
-[*DOX=1:2]
+[*DOX=1:1]
 IF (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/1..[SRA])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])), 
 T [+T] = $TQ33e1_Q55e * $[HX.X],
 BT = "AMONG WHO PERSONALLY SEND REMITTANCE IN P2M - REGARDLESS OF BRANDS AND MERCHANT - ONLINE/OFFLINE",
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/1, then,
 IF (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/1..[SRA])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])), 
 T [+T] = $TQ33e1_Q55e * $[HX.X],
@@ -997,7 +1000,7 @@ BT = "AMONG USERS OF FINTECH APPS AND WHO PERSONALLY SEND REMITTANCE IN P2M - RE
 END IF,
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/2, then,
 IF (($Filter27F6_REG/NB).($TQ33_REG/1+3).($TQ33a1_REG/1..[SRA])) + (($F2023NB/NB).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/1+3).($TQ55a/1..[SRA])), 
 T [+T] = $TQ33e1_Q55e * $[HX.X],
@@ -1009,13 +1012,13 @@ END IF,
 
 
 ! ------------ Q33a2 + Q55f -------------- !
-[*DOX=1:2]
+[*DOX=1:1]
 IF (($Filter27F6_REG/NB).($TQ33_REG/2+3)) + (($F2023NB/NB).($Q106/1+3).($Q55/2+3)) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/2+3)), 
 T [+T] = $TQ33a2_Q55F * $[HX.X],
 BT = "AMONG WHO PERSONALLY RECEIVE REMITTANCE IN P2M - REGARDLESS OF BRANDS AND MERCHANT - ONLINE/OFFLINE",
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/1, then,
 IF (($Filter27F6_REG/NB).($TQ33_REG/2+3)) + (($F2023NB/NB).($Q106/1+3).($Q55/2+3)) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/2+3)), 
 T [+T] = $TQ33a2_Q55F * $[HX.X],
@@ -1023,7 +1026,7 @@ BT = "AMONG USERS OF FINTECH APPS AND WHO PERSONALLY RECEIVE REMITTANCE IN P2M -
 END IF,
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/2, then,
 IF (($Filter27F6_REG/NB).($TQ33_REG/2+3)) + (($F2023NB/NB).($Q106/1+3).($Q55/2+3)) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/2+3)), 
 T [+T] = $TQ33a2_Q55F * $[HX.X],
@@ -1037,7 +1040,7 @@ END IF,
 
 ! ------------ Q33d2 + Q55g -------------- !
 [*DOB=1:SRA]
-[*DOX=1:2]
+[*DOX=1:1]
 IF (($Filter27F6_REG/NB).($TQ33_REG/2+3).($TQ33a2_REG/[B])) + (($F2023NB/NB).($Q106/1+3).($Q55/2+3).($TQ55f/[B])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/2+3).($TQ55f/[B])), 
 T [+T] = $TQ33D2Q55G_REG[B] * $[HX.X],
 BT = "AMONG WHO PERSONALLY RECEIVE REMITTANCE IN P2M - [SENDRECA.B] REGARDLESS OF BRANDS - ONLINE/OFFLINE",
@@ -1046,7 +1049,7 @@ BT = "AMONG WHO PERSONALLY RECEIVE REMITTANCE IN P2M - [SENDRECA.B] REGARDLESS O
 !
 
 [*DOB=1:SRA]
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/1, then,
 IF (($Filter27F6_REG/NB).($TQ33_REG/2+3).($TQ33a2_REG/[B])) + (($F2023NB/NB).($Q106/1+3).($Q55/2+3).($TQ55f/[B])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/2+3).($TQ55f/[B])), 
 T [+T] = $TQ33D2Q55G_REG[B] * $[HX.X],
@@ -1057,7 +1060,7 @@ END IF,
 !
 
 [*DOB=1:SRA]
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/2, then,
 IF (($Filter27F6_REG/NB).($TQ33_REG/2+3).($TQ33a2_REG/[B])) + (($F2023NB/NB).($Q106/1+3).($Q55/2+3).($TQ55f/[B])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/2+3).($TQ55f/[B])), 
 T [+T] = $TQ33D2Q55G_REG[B] * $[HX.X],
@@ -1069,13 +1072,13 @@ END IF,
 
 
 ! ---------- REGARDLESS ALL ---------!
-[*DOX=1:2]
+[*DOX=1:1]
 IF (($Filter27F6_REG/NB).($TQ33_REG/2+3).($TQ33a2_REG/1..[SRA])) + (($F2023NB/NB).($Q106/1+3).($Q55/2+3).($TQ55f/1..[SRA])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/2+3).($TQ55f/1..[SRA])), 
 T [+T] = $TQ33D2_Q55G * $[HX.X],
 BT = "AMONG WHO PERSONALLY RECEIVE REMITTANCE IN P2M - REGARDLESS OF BRANDS AND MERCHANT - ONLINE/OFFLINE",
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/1, then,
 IF (($Filter27F6_REG/NB).($TQ33_REG/2+3).($TQ33a2_REG/1..[SRA])) + (($F2023NB/NB).($Q106/1+3).($Q55/2+3).($TQ55f/1..[SRA])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/2+3).($TQ55f/1..[SRA])), 
 T [+T] = $TQ33D2_Q55G * $[HX.X],
@@ -1083,7 +1086,7 @@ BT = "AMONG USERS OF FINTECH APPS AND WHO RECEIVE REMITTANCE IN P2M - REGARDLESS
 END IF,
 [*ENDX]
 !
-[*DOX=1:2]
+[*DOX=1:1]
 if $TQ17i/2, then,
 IF (($Filter27F6_REG/NB).($TQ33_REG/2+3).($TQ33a2_REG/1..[SRA])) + (($F2023NB/NB).($Q106/1+3).($Q55/2+3).($TQ55f/1..[SRA])) + (($F2023B/NB).($TQ8BR2/6).($Q106/1+3).($Q55/2+3).($TQ55f/1..[SRA])), 
 T [+T] = $TQ33D2_Q55G * $[HX.X],
