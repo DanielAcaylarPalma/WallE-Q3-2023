@@ -176,8 +176,6 @@ LCSV (H) $resp.$CHARA.$CODES.$CHAR[A].$xT_Q158b_[A],
 end if,
 [*ENDA]
 
-[*1]
-
 
 DI $T_Q62_1 = $172633-172633,
 DI $T_Q62_2 = $172634-172634,
@@ -203,6 +201,19 @@ $T_Q62_10.
 $T_Q62_11.
 $T_Q62_12.
 $T_Q62_13,
+
+[*1]
+
+
+
+
+
+[*DOA=1:WL]
+DI $Brands = [A],
+IF $TQ8bR2/[A].$TQ62R[A]/8, THEN,
+LCSV (H) $resp.$Brands.$TQ62R[A],
+END IF,
+[*ENDA]
 
 
 FINISH DATA,
