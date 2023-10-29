@@ -311,85 +311,10 @@ HOT]
 [*SET T = 0]
 
 
-DM $AVALOAN = (($QTR/1..8).$FQ70/5)+($SEP2023/NB.$A_QL1/N99.$A_QL2/N99), 
-DM $AVAINVP = (($QTR/1..8).($FQ70/3+4))+($SEP2023/NB.$A_QINV1/N99.$A_QINV2/N99), 
 
-
-
-
-
-
-
-
-if $Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/nb, then,
-
+[*DOA=1:BRX]
 [*DOX=1:2]
-T [+T] = $TQ17l * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:2]
-if $TQ17i/1, then,
-T [+T] = $TQ17l * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:2]
-if $TQ17i/2, then,
-T [+T] = $TQ17l * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:2]
-T [+T] = $TQ17m * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:2]
-if $TQ17i/1, then,
-T [+T] = $TQ17m * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:2]
-if $TQ17i/2, then,
-T [+T] = $TQ17m * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-[*DOX=1:2]
-T [+T] = $TQ17n * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-[*DOX=1:2]
-if $TQ17i/1, then,
-T [+T] = $TQ17n * $[HX.X],
-BT = "Among Users of FinTech Apps",
-END IF,
-[*ENDX]
-
-[*DOX=1:2]
-if $TQ17i/2, then,
-T [+T] = $TQ17n * $[HX.X],
-BT = "Among Non-users of FinTech Apps",
-END IF,
-[*ENDX]
-
-
-end if,
-
-*DOA=1:BRX]
-[*DOX=1:2]
-if $TQ17d/[a],	T [+T] = $TQ17JR[A] * $[HX.X],
+if $TQ17f/[a],	T [+T] = $TQ17JR[A] * $[HX.X],
 BT = "Among ever user - [BRANDNONE.A]",
 [*ENDX]
 [*ENDA]
@@ -398,7 +323,7 @@ BT = "Among ever user - [BRANDNONE.A]",
 [*DOA=1:BRX]
 [*DOX=1:2]
 if $TQ17i/1, then,
-if $TQ17d/[a],	T [+T] = $TQ17JR[A] * $[HX.X],
+if $TQ17f/[a],	T [+T] = $TQ17JR[A] * $[HX.X],
 BT = "Among Users of FinTech Apps AND ever user - [BRANDNONE.A]",
 END IF,
 [*ENDX]
@@ -408,7 +333,7 @@ END IF,
 [*DOA=1:BRX]
 [*DOX=1:2]
 if $TQ17i/2, then,
-if $TQ17d/[a],	T [+T] = $TQ17JR[A] * $[HX.X],
+if $TQ17f/[a],	T [+T] = $TQ17JR[A] * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND ever user - [BRANDNONE.A]",
 END IF,
 [*ENDX]
@@ -422,198 +347,30 @@ END IF,
 
 
 [*DOX=1:2]
-if $TQ17d/1..[BRX],	T [+T] = $TQ17J_REG * $[HX.X],
+if $TQ17f/1..[BRX],	T [+T] = $TQ17J_REG * $[HX.X],
 BT = "Among ever user - REGARDLESS",
 [*ENDX]
 
 [*DOX=1:2]
 if $TQ17i/1, then,
-if $TQ17d/1..[BRX],	T [+T] = $TQ17J_REG * $[HX.X],
+if $TQ17f/1..[BRX],	T [+T] = $TQ17J_REG * $[HX.X],
 BT = "Among Users of FinTech Apps AND ever user - REGARDLESS",
 END IF,
 [*ENDX]
 
 [*DOX=1:2]
 if $TQ17i/2, then,
-if $TQ17d/1..[BRX],	T [+T] = $TQ17J_REG * $[HX.X],
+if $TQ17f/1..[BRX],	T [+T] = $TQ17J_REG * $[HX.X],
 BT = "Among Non-users of FinTech Apps AND Who ever user - REGARDLESS",
 END IF,
 [*ENDX]
 
 
 
-
-
-
 [*DOX=1:2]
-IF $SEP2023/NB, T [+T] = $TQL1 * $[HX.X],
-BT = "All respondents",
+IF $TQ17JR1/1, T [+T] = $TSA1 * $[HX.X],
+BT = "AMONG THOSE WHO HAVE EVER USED GCASH WITH BASIC ACCOUNT ONLY",
 [*ENDX]
-
-
-
-[*DOX=1:2]
-IF $SEP2023/NB.$A_QL1/N99, T [+T] = $TQL2 * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-
-[*DOX=1:2]
-IF $SEP2023/NB, T [+T] = $TQINV1 * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-
-[*DOX=1:2]
-IF $SEP2023/NB.$A_QINV1/N99, T [+T] = $TQINV2 * $[HX.X],
-BT = "All respondents",
-[*ENDX]
-
-
-
-
-
-[*DOX=1:2]
-IF $AVALOAN/NB, T [+T] = $TQ165 * $[HX.X],
-BT = "Among Who currently availed of loan",
-[*ENDX]
-
-
-
-[*DOX=1:2]
-IF $AVALOAN/NB, T [+T] = $TQ74A * $[HX.X],
-BT = "Among Who currently availed of loan",
-[*ENDX]
-
-
-
-[*DOX=1:2]
-IF $AVALOAN/NB, T [+T] = $TQ74B * $[HX.X],
-BT = "Among Who currently availed of loan",
-[*ENDX]
-
-
-!TODO 
-!Q159 reminder
-
-[*setn=D166.#]
-[*doa=1:n]
-[*DOX=1:2]
-IF $AVALOAN/NB.($F74A/[a]), T [+T] = $TQ170aR[a] * $[HX.X],
-BT = "Among Who currently availed of loan - [D166.a]",
-[*ENDX]
-[*ENDA]
-
-
-
-[*DOX=1:2]
-IF $AVALOAN/NB.($F74A/1..[n]), T [+T] = $TQ170aREG * $[HX.X],
-BT = "Among Who currently availed of loan",
-[*ENDX]
-
-
-	
-!TODO
-!add Q170	
-	
-!!-- DELETED Q3 2023
-[*SK1]
-[*DOX=1:2]
-IF $FQ70/3+4, T [+T] = $TQ174 * $[HX.X],
-BT = "Among Who currently availed of Investment Products/Insurance",
-[*ENDX]
-[*1]
-
-
-[*setn=D175.#]
-
-[*doa=1:n]
-[*DOX=1:2]
-IF $FILTER174/[a], T [+T] = $TQ175R[a] * $[HX.X],
-BT = "Among Who currently availed of Investment Products/Insurance - [D175.a]",
-[*ENDX]
-[*ENDA]
-
-
-[*setn=D175.#]
-[*DOX=1:2]
-IF $FILTER174/1..[n], T [+T] = $TQ175REG * $[HX.X],
-BT = "Among Who currently availed of Investment Products/Insurance - REGARDLESS",
-[*ENDX]
-
-
-
-
-
-
-[*setn=D175.#]
-
-[*doa=1:n]
-[*DOX=1:2]
-IF $FILTER174/[a], T [+T] = $TQ176R[a] * $[HX.X],
-BT = "Among Who currently availed of Investment Products/Insurance - [D175.a]",
-[*ENDX]
-[*ENDA]
-
-
-[*setn=D175.#]
-[*DOX=1:2]
-IF $FILTER174/1..[n], T [+T] = $TQ176REG * $[HX.X],
-BT = "Among Who currently availed of Investment Products/Insurance - REGARDLESS",
-[*ENDX]
-
-
-
-
-
-[*setn=D175.#]
-[*doa=1:n]
-[*DOX=1:2]
-IF $FILTER174/[a], T [+T] = $TQ177R[a] * $[HX.X],
-BT = "Among Who currently availed of Investment Products/Insurance - [D175.a]",
-[*ENDX]
-[*ENDA]
-
-
-[*setn=D175.#]
-[*DOX=1:2]
-IF $FILTER174/1..[n], T [+T] = $TQ177REG * $[HX.X],
-BT = "Among Who currently availed of Investment Products/Insurance - REGARDLESS",
-[*ENDX]
-
-
-
-
-
-[*setn=D175.#]
-[*doa=1:n]
-[*DOX=1:2]
-IF $FILTER174/[a], T [+T] = $TQ177aR[a] * $[HX.X],
-BT = "Among Who currently availed of Investment Products/Insurance - [D175.a]",
-[*ENDX]
-[*ENDA]
-
-
-[*setn=D175.#]
-[*DOX=1:2]
-IF $FILTER174/1..[n], T [+T] = $TQ177aREG * $[HX.X],
-BT = "Among Who currently availed of Investment Products/Insurance - REGARDLESS",
-[*ENDX]
-
-
-
-
-
-[*DOX=1:2]
-IF $AVAINVP/NB, T [+T] = $TQ178 * $[HX.X],
-BT = "Among Who currently availed of Investment Products/Insurance",
-[*ENDX]
-
-
-
-
 FINISH TABLES,
 
 

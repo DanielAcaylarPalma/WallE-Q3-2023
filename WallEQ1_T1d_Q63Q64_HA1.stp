@@ -11,9 +11,9 @@ START CONTROL,
 
 !C = WALLEQ1_MAINONLY_PUNCHED.ASC,
 
-!C = P_WALLE_2022Q2.ASC,
+C = P_WALLE_2023Q2_PUNCHED.ASC,
 
-C = P_WALLE_2023Q3.ASC,
+! C = P_WALLE_2023Q3.ASC,
 
 Y,
 CEP,
@@ -227,7 +227,7 @@ HOT]
 
 [*SET T = 0]
 
-
+[*SK 888]
 
 
 [*DOX=1:2]
@@ -363,7 +363,7 @@ END IF,
 [*ENDX]
 [*ENDA]
 
-
+[*888]
 
 
 
@@ -411,7 +411,7 @@ USERS,
 NON-USERS]
 
 
-
+[*SK 999]
 
 !TOTAL
 
@@ -439,8 +439,61 @@ IF ($F64/[A]), T # [T] = $TQ64R[a] * [+S],
 END IF,
 [*END Z]
 
+[*999]
 
 
+
+!USER
+
+IF ($F64/1..9).($TQ17i/1), THEN,
+T [+T] = $TQ64R1 * $HLADTMonth,
+VT = "Q64. BRAND ASSOCIATION Side-by-Side",
+BT = "Among TOTAL aware of each brand - USERS",
+[*SETS=0]
+[*FORA=5:7:1:2:3:4:6:8:9]
+IF ($F64/[A]), T # [T] = $TQ64R[a] * [+S],
+[*ENDA]
+END IF,
+
+
+
+[*DO Z = 1:17]
+IF ($F64/1..9).([filters.Z]).($TQ17i/1), THEN,
+T [+T] = $TQ64R1 * $HLADTMonth,
+VT = "Q64. BRAND ASSOCIATION Side-by-Side",
+BT = "Among TOTAL aware of each brand - [Filtername.Z] - USERS",
+[*SETS=0]
+[*FORA=5:7:1:2:3:4:6:8:9]
+IF ($F64/[A]), T # [T] = $TQ64R[a] * [+S],
+[*ENDA]
+END IF,
+[*END Z]
+
+!Non-USER
+
+IF ($F64/1..9).($TQ17i/2), THEN,
+T [+T] = $TQ64R1 * $HLADTMonth,
+VT = "Q64. BRAND ASSOCIATION Side-by-Side",
+BT = "Among TOTAL aware of each brand - NON-USERS",
+[*SETS=0]
+[*FORA=5:7:1:2:3:4:6:8:9]
+IF ($F64/[A]), T # [T] = $TQ64R[a] * [+S],
+[*ENDA]
+END IF,
+
+
+
+[*DO Z = 1:17]
+IF ($F64/1..9).([filters.Z]).($TQ17i/2), THEN,
+T [+T] = $TQ64R1 * $HLADTMonth,
+VT = "Q64. BRAND ASSOCIATION Side-by-Side",
+BT = "Among TOTAL aware of each brand - [Filtername.Z] - NON-USERS",
+[*SETS=0]
+[*FORA=5:7:1:2:3:4:6:8:9]
+IF ($F64/[A]), T # [T] = $TQ64R[a] * [+S],
+[*ENDA]
+END IF,
+[*END Z]
 FINISH TABLES,
 
 

@@ -1034,21 +1034,21 @@ HP]
 !!ITEM 14 - Q4 2021
 !!ITEM 36 - Q3 2021
 [*do X = 1:3]
-T # [+T] = $TQ17ay * $[HX.X],
-VT = "Q17a. P2M Brand Usage with Netting",
+T # [+T] = $TQ17fy * $[HX.X],
+VT = "Q17f. Ever Tried with Netting",
 BT = "All respondents",
 [*END X]
 
 [*do X = 1:3]
-if $TQ17i/1, then, T # [+T] = $TQ17ay * $[HX.X],
-VT = "Q17a. P2M Brand Usage with Netting",
+if $TQ17i/1, then, T # [+T] = $TQ17fy * $[HX.X],
+VT = "Q17f. Ever Tried with Netting",
 BT = "Among Users of FinTech Apps",
 end if,
 [*END X]
 
 [*do X = 1:3]
-if $TQ17i/2, then, T # [+T] = $TQ17ay * $[HX.X],
-VT = "Q17a. P2M Brand Usage with Netting",
+if $TQ17i/2, then, T # [+T] = $TQ17fy * $[HX.X],
+VT = "Q17f. Ever Tried with Netting",
 BT = "Among Non-users of FinTech Apps",
 end if,
 [*END X]

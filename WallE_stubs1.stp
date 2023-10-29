@@ -2217,10 +2217,21 @@ Total count<C>",
 
 
 
+OM $xQ17J_REG = $xT_Q17J_1/1,
+$xT_Q17J_1/2+(($Q32023/NB).($TQ17f/1).($xT_Q17J_1/B)),$blank/3-9,
+DM $TQ17JR1 = $xT_Q17J_1/1,
+$xT_Q17J_1/2+(($Q32023/NB).($TQ17f/1).($xT_Q17J_1/B)),
+R,F,
+VT = "Q17J. STATUS OF E-WALLET/MOBILE MONEY/ANY FINANCIAL APP OR WEBSITE ACCOUNT - [BRANDNONE.1]",
+V = "
+Basic Account;
+Fully Verified/Upgraded/Complete/Premium Account;
+Missing answers<Z>;
+Total count<C>",
 
 
 
-[*DOA=1:BRX]
+[*DOA=2:BRX]
 OM $xQ17J_REG = $xT_Q17J_[A],
 DM $TQ17JR[A] = $xT_Q17J_[A]/1-2,
 R,F,
@@ -2241,6 +2252,37 @@ V = $TQ17JR1,
 
 
 
+
+DM $TSA1 = $XSA1/
+1+2+3+1032+4+5+6+7+8+9,
+1,
+2,
+3+1032,
+4,
+5,
+6,
+7,
+8,
+9,
+1030,
+1031,
+R,F,
+VT = "SA1. REASONS FOR HAVING BASIC ACCOUNT ONLY IN GCASH",
+V = "
+TRANSACTION NET<Q>;
+`     Not relevant in my daily financial transactions;
+`     No money / funds to use the app;
+`     I don't have an available valid ID;
+`     I don't feel safe with GCash;
+`     I don't trust GCash and/or with other similar apps;
+`     I encountered a problem while verifying their GCash account;
+`     I don't know how to verify my account;
+`     I don't want to share personal information/ ID to GCash;
+`     I am contented with the current services offered for unverified account;
+Did not reflects on the cellphone fade when it captured;
+Not yet legal age;
+Missing answers<Z>;
+Total count<C>",
 
 
 
@@ -17810,7 +17852,68 @@ Total count<C>",
 
 
 
-
+DM $TQL1 = $A_QL1/
+1+2+3+4+5+6+7+8,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9+10+11+12+13,
+9,
+10,
+11,
+12,
+13,
+14+15+16,
+14,
+15,
+16,
+17+18,
+17,
+18,
+19+20+21,
+19,
+20,
+21,
+98,
+99,
+R,F,
+VT = "QL1. AWARENESS – LOANS",
+V = "
+FROM BANKS (NET)<Q>;
+`     Housing Loan / Mortgage with bank;
+`     Auto Loan / Car Loan with bank;
+`     Business Loan with bank;
+`     MicroBusiness/SME Loan with bank;
+`     Small and Medium-sized Enterprise (SME) Loan with bank;
+`     Personal Loan with bank;
+`     Salary Loan with bank;
+`     Credit card;
+FROM NON-BANK SOURCES (NET)<Q>;
+`     Loan with Cooperative;
+`     Loan with Non-Stock Savings and Loan Association;
+`     Loan with Microfinance NGO;
+`     Loan with Gov't agencies (i.e. GSIS, SSS, Pag-ibig);
+`     Loan from pawnshop/ pawning;
+`     Loan with lending institutions/Financing companies (e.g. Home Credit, etc) (SUBNET)<Q>;
+`          Loan via Home Credit;
+`          Online Loans (e.g. Robocash, Monily, onlineloanspilipinas);
+`          Loans from Financial Technology/FinTech apps or websites (e.g., GLoan, CashniJuan Payday Loan by Paymaya, Cashalo, etc);
+`     Multi-Purpose Loans from private companies (SUBNET)<Q>;
+`          Car Loan with Dealership's Financing Service;
+`          Housing Loan via Real Estate Developer In-house financing (not via bank);
+`     INFORMAL LOANS (SUBNET)<Q>;
+`          5-6 lending /Bombay/Turko;
+`          Loan from relatives/family/friend/neighbor;
+`          Loan from Sari-sari-store;
+Others;
+NONE;
+Missing answers<Z>;
+Total count<C>",
 
 DM $TQL2 = $A_QL2/
 1+2+3+4+5+6+7+8,
@@ -17875,6 +17978,55 @@ NONE;
 Missing answers<Z>;
 Total count<C>",
 
+
+DM $TQINV1 = $A_QINV1/
+1+2+3,
+1,
+2,
+3,
+4+5+6+7,
+4,
+5,
+6,
+7,
+8+9+10,
+8,
+9,
+10,
+11+12+13+14+15,
+11,
+12,
+13,
+14,
+15,
+98,
+99,
+R,F,
+VT = "QINV1. AWARENESS OF INVESTMENT PRODUCTS/ SERVICES",
+V = "
+INTEREST-BEARING DEPOSIT (NET)<Q>;
+`     Time deposits (interest-bearing bank account that has a pre-set date of maturity.  The money must remain in the account for the fixed term in order to earn the stated interest rate);
+`     Money Market Account (type of savings account offered by banks and credit unions just like regular savings accounts. The difference is that they usually pay higher interest, have higher minimum balance requirements, and only allow three to six withdrawals per month);
+`     Certificate of Deposit Account (bank product that earns interest on a lump-sum deposit that's untouched for a predetermined period of time);
+BROKERED INVESTMENT ACCOUNTS (NET)<Q>;
+`     Mutual fund (type of financial vehicle made up of a pool of money collected from many investors to invest in securities like stocks, bonds, money market instruments, and other assets);
+`     Unit Investment Trust Fund (UITF) (financial instruments managed by professionals. They do not earn through a fixed interest rate but grow in value depending on the assets it carries and the market. UITFs carry a risk of going down in value as the market moves);
+`     Publicly traded stocks  (type of security that gives stockholders a share of ownership in a company);
+`     Publicly traded bonds (fixed income instrument that represents a loan made by an investor to a borrower);
+INVESTMENT-BACKED INSURANCE (NET)<Q>;
+`     Variable Universal Life (VUL) insurance plan (financial product that offers both guaranteed insurance benefit and fund accumulation);
+`     Retirement plan(financial strategies of saving, investments, and ultimately distributing money meant to sustain oneself during retirement);
+`     Educational plan (a savings, insurance, and investment plan that helps parents save funds for their child's college education);
+GOVERNMENT SECURITIES (NET)<Q>;
+`     Treasury bills (short-term secure investments issued by the Philippine government through the Bureau of Treasury (BTr));
+`     Treasury bonds (medium to long-term investments issued by the Philippine government to make securities available to small investors);
+`     Real Estate (e.g., house, land, condominium, etc.);
+`     Cryptocurrency (e.g. Bitcoin, Ethereum, etc) (virtual or digital money that takes the form of tokens or “coins.” While some cryptocurrencies have ventured into the physical world with credit cards or other projects, the large majority remain entirely intangible);
+`     Stockbroker/ Investment Firm (e.g. COL Financial, etc.);
+Others;
+NONE;
+Missing answers<Z>;
+Total count<C>",
 
 DM $TQINV2 = $A_QINV2/
 1+2+3,
