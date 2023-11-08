@@ -227,7 +227,7 @@ HEAD_17to19_4,
 HPT]
 [*SET T = 0]
 
-
+[*SK 1]
 [*do X = 1:3]
 If $Q32022/B.$Q42022/B.$Q12023/B.$Q22023/B.$Q32023/B, THEN,
 T # [+T] = $ITEM24 * $[HX.X],
@@ -239,6 +239,23 @@ T # [T] = $ITEM24_Q32022 * $[HX.X],
 VT = "Internet and Smartphone Penetration",
 BT = "All respondents",
 END IF,
+[*END X]
+[*1]
+
+
+[*do X = 1:3]
+if $TQ17i/2, then,
+If $Q32022/B.$Q42022/B.$Q12023/B.$Q22023/B.$Q32023/B, THEN,
+T # [+T] = $ITEM24 * $[HX.X],
+VT = "Internet and Smartphone Penetration",
+BT = "Among Non-users of FinTech Apps",
+END IF,
+If $Q32022/NB+$Q42022/NB+$Q12023/NB+$Q22023/NB+$Q32023/NB, THEN,
+T # [T] = $ITEM24_Q32022 * $[HX.X],
+VT = "Internet and Smartphone Penetration",
+BT = "Among Non-users of FinTech Apps",
+END IF,
+end if,
 [*END X]
 
 

@@ -271,10 +271,26 @@ HPT]
 
 [*SET T = 0]
 
-
+[*SK 9999]
 [*DOX=1:2]
 T [+T] = $TDO1 * $[HX.X],
 BT = "All respondents",
+[*ENDX]
+
+
+[*DOX=1:2]
+if $TQ17i/1, then,
+T [+T] = $TDO1 * $[HX.X],
+BT = "Among Users of FinTech Apps",
+end if,
+[*ENDX]
+
+
+[*DOX=1:2]
+if $TQ17i/2, then,
+T [+T] = $TDO1 * $[HX.X],
+BT = "Among Non-users of FinTech Apps",
+end if,
 [*ENDX]
 
 
@@ -284,7 +300,61 @@ BT = "All respondents",
 IF $DO1/[B],T [+T] = $TDO2_[B] * $[HX.X],
 BT = "Among Mobile Devices Currently Owned - [DO2name.B]",
 [*END B]
+
+IF $DO1/1+2,T [+T] = $TDO2_1_2 * $[HX.X],
+BT = "Among Mobile Devices Currently Owned - 5G/4G capable smartphone",
 [*ENDX]
+
+
+
+[*DOX=1:2]
+if $TQ17i/1, then,
+[*DO B = 1:[DO2name.#]:1]
+IF $DO1/[B],T [+T] = $TDO2_[B] * $[HX.X],
+BT = "Among Mobile Devices Currently Owned and Users of FinTech Apps - [DO2name.B]",
+[*END B]
+
+IF $DO1/1+2,T [+T] = $TDO2_1_2 * $[HX.X],
+BT = "Among Mobile Devices Currently Owned and Users of FinTech Apps - 5G/4G capable smartphone",
+end if,
+[*ENDX]
+
+
+[*DOX=1:2]
+if $TQ17i/2, then,
+[*DO B = 1:[DO2name.#]:1]
+IF $DO1/[B],T [+T] = $TDO2_[B] * $[HX.X],
+BT = "Among Mobile Devices Currently Owned and Non-Users of FinTech Apps - [DO2name.B]",
+[*END B]
+
+IF $DO1/1+2,T [+T] = $TDO2_1_2 * $[HX.X],
+BT = "Among Mobile Devices Currently Owned and Non-Users of FinTech Apps - 5G/4G capable smartphone",
+end if,
+[*ENDX]
+
+[*9999]
+
+[*DOX=1:2]
+if $TQ17i/2, then,
+T [+T] = $TDO1 * $[HX.X],
+BT = "Among Non-users of FinTech Apps",
+end if,
+[*ENDX]
+
+
+
+[*DOX=1:2]
+if $TQ17i/2, then,
+[*DO B = 1:[DO2name.#]:1]
+IF $DO1/[B],T [+T] = $TDO2_[B] * $[HX.X],
+BT = "Among Mobile Devices Currently Owned and Non-Users of FinTech Apps - [DO2name.B]",
+[*END B]
+
+IF $DO1/1+2,T [+T] = $TDO2_1_2 * $[HX.X],
+BT = "Among Mobile Devices Currently Owned and Non-Users of FinTech Apps - 5G/4G capable smartphone",
+end if,
+[*ENDX]
+
 
 
 

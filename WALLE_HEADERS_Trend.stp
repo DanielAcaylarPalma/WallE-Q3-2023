@@ -64,6 +64,31 @@ D*(m);
 USERSHIP***
 USER*(n);
 NON-USER*(o)",
+
+
+DM $HAC_RR = 
+T,
+
+$TQ183/
+1,
+2,
+
+$SMRTPHrel/1-4,
+
+
+HT = "Header AC. Q187 + MARITAL STATUS",
+h = "
+TOTAL *(a);
+   
+WHETHER HAVE KIDS 7-17 YEARS OLD***
+Has 7-17 years old *(b);
+Has no children aged 7 to 17 years old *(c);
+
+MARITAL STATUS***
+Single *(d);
+Married *(e);
+Live-in *(f);
+Divorced *(g)",
 	
 	
 DM $HE_RR = 

@@ -82,6 +82,21 @@ WORKING STATUS<Q>;
 
 
 
+DM $TQ1 = $T_Q1_1/
+1-99,
+R,F,
+VT = "Q1. ACTUAL AGE",
+V = "
+[*DO A = 1:99]
+[A] years old ([A]) <v[A]>;
+[*END A]
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
 DM $TQAgeRange = $QAgeRange/
 1,
 2,

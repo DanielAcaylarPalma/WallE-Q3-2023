@@ -1744,7 +1744,52 @@ VT = "Q27. FINANCIAL TRANSACTION DONE IN THE PAST 2 MONTHS PER BRAND - REGARDLES
 V = $TQ27R1,
 
 
+[*dob=1:n]
+DM $TQ27RQ8b[B] = 
+[*DOA=1:BR]
+($TQ27R[A]/[B]),
+($TQ27R[A]/[B]).((($TQ8bR[B]list/1.ct($TQ8bR[B]list)/1) + ($TQ8bR[B]list/1.2.ct($TQ8bR[B]list)/2))
++$digitalonly[B]/NB+$hybrid[B]/NB),
 
+($TQ27R[A]/[B]).((($TQ8bR[B]list/1) . (ct($TQ8bR[B]list)/1))+$digitalonly[B]/NB),
+($TQ27R[A]/[B]).((($TQ8bR[B]list/1.2) . (ct($TQ8bR[B]list)/2))+$hybrid[B]/NB),
+[*END A]
+R,F,
+VT = "Q27. BRAND SHARE IN THE PAST 2 MONTHS PER TRANSACTION - [stub8b.B]",
+V = "
+[*DOA=1:BR]
+[BRAND.A];
+`   Digital/Online (Cashless) + Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
+`      Digital/Online (Cashless) ONLY;
+`      Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
+[*END A]
+Missing answers<Z><S>;
+Total count<C>",
+
+OM $Q27RQ8bREG = $TQ27RQ8b[B],
+[*endb]
+
+
+[*SET dum = -1]
+DM $TQ27RQ8bREG = 
+[*DOA=1:BR]
+$Q27RQ8bREG/[1+[4*[+dum]]],
+$Q27RQ8bREG/[2+[4*[dum]]],
+$Q27RQ8bREG/[3+[4*[dum]]],
+$Q27RQ8bREG/[4+[4*[dum]]],
+[*END A]
+
+R,F,
+VT = "Q27. BRAND SHARE IN THE PAST 2 MONTHS PER TRANSACTION - REGARDLESS",
+V = "
+[*DOA=1:BR]
+[BRAND.A];
+`   Digital/Online (Cashless) + Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
+`      Digital/Online (Cashless) ONLY;
+`      Digital/Online (Cashless) AND Non-digital/Offline (Cash/ Check);
+[*END A]
+Missing answers<Z><S>;
+Total count<C>",
 !TODO
 !Q27c reminder
 

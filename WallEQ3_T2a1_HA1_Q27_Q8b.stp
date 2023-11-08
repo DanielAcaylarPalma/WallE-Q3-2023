@@ -1,0 +1,174 @@
+START CONTROL,
+*PROJECT WALL-E
+
+
+
+!C = P_WALLE_2022Q1.ASC;P_WALLE_2022Q2.ASC;P_WALLE_2022Q3.ASC;P_WALLE_2022Q4.ASC;P_WALLE_2023Q1.ASC;P_WALLE_2023Q2_PUNCHED.ASC,
+
+!C = P_WALLE_2023Q2_PUNCHED.ASC,
+
+!C = WALLE_Q2_APR_MAINONLY_CODED.asc,
+
+
+
+!C = WALLEQ1_MAINONLY_PUNCHED.ASC,
+
+!C = P_WALLE_2022Q2.ASC,
+
+C = P_WALLE_2023Q3.ASC,
+
+Y,
+CEP,
+CSVR2,
+TERSE,
+
+OLDNAMES,
+FINISH CONTROL,
+
+START DATA,
+ORDER1234567890XV,
+SERIAL NUMBER IN COLUMNS 1-10,
+CARD CHARACTERS BINARY 300000,
+TEMPORARY /99999999/,
+
+DI $RESP = $1-10,
+
+di $blank = 0,
+
+[*INSERT WallE_insertGlobal]
+[*INSERT WallE_oesoe]
+
+!*INSERT walle_cardcol_p1
+!*INSERT walle_cardcol_p3
+[*INSERT WallE_resp]
+
+[*INSERT walle_cardcol_banner]
+[*INSERT walle_cardcol_p2a]
+[*INSERT WallE_insertAlign_pickup]
+[*INSERT WallE_insertAlign2a]
+
+
+
+[*INSERT WallE_stubs_pickup]
+[*INSERT WallE_stubs2a1]
+
+
+!*INSERT WALLE_HEADERS
+[*INSERT WALLE_HEADERS_Trend]
+
+
+
+[*INSERT WALL_E_NEWWTS]
+
+ 
+FINISH DATA,
+
+
+START TABLES,
+
+
+!!!!!!!!!!!!!!!!
+!!!!!FORMAT!!!!!
+!!!!!!!!!!!!!!!!
+
+
+
+
+
+GLOBAL IT # = '<JL>Wall-E',
+
+
+
+!======FOR QPS WINDOWS (% + raw - for datachecking)
+F= CTU'='/CAZ'-'/CZP'-'/SDV/UCH/NPGN/NPTC/TID/RLW30/LBB1/TOC/SPL250/CNZ'*'/URS/
+  DPR1/PCS/BRS/BCS/PRC/BTS/LPP55/NSER/CLG1/RNC1/NDAT/NPGN/BAL/RBL/BCS/BTS/CLW9/PBL/MOD,
+
+F=SDV,		! ------ PRINT STD DEVIATION
+F=DPR4,		! ------ DECIMAL %
+F=DPT0,		! ------ DECIMAL RAW COUNT
+F=DPA4,		! ------ DECIMAL MEAN,SUM..
+F=DPS4,	        ! ------ DECIMAL STD,
+F=MOD,		! ------ DISPLAY MODE
+F=MED,		! ------ DISPLAY MEDIAN
+!F=MCB29,          ! ------ Less than 30 base
+F=BTS,                  ! ------ Blank Tables Suppress
+F=BCS,                  ! ------ Blank Column Suppress
+F=NBRS,                  ! ------ Blank Row Suppress
+F=PBL/MOD,
+
+%AVG = 'Mean score<D2>',
+%DAT = '<&DD>/<&MONTH>/<&YY>',
+%RTH = '<ML3>ROW %',
+%RTV = '<ML3>COL %',
+%PRC = '<ML3>COUNT',
+%SER = '<ML3>STD ERR OF MEAN',
+%SDV ='STANDARD DEVIATION',
+%PTR = "TOTAL",
+!%AVG ='MEAN SCORE',
+%SDV ='STANDARD DEVIATION',
+%MED = '<ML7>MEDIAN            ',
+%UNR = '<ML7>(UNWEIGHTED BASE)',
+
+
+  
+F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+
+!F=NRTV, ! ------- ONLY COUNT
+!F=NPRC, ! -------- ONLY %
+
+
+
+SELECT WR $newwts,
+
+F=BRS,
+
+[*DATA HXOLD=HAT,HBT,HCT,HDT,HE_RR,HFT,HGT,HHT,HIT,HI2T,HI3T,HI4T,HJT,HKT,HLT,HMT,HNT]
+
+[*DATA HX=
+HA1_RR,
+HE_RR,
+HTX,
+HLT,
+HOT,
+HPT]
+!
+
+[*SET T = 0]
+
+
+
+
+
+[*SETn=CODE8B1.#]
+[*DOA=1:n]
+[*DOX=3:3]
+IF ($TQ17a/13+12+11+3+1+7+2+4+23).($TQ8bR1/[A]), T [+T] = $TQ27RQ8b[A] * $[HX.X],
+BT = "Among P2M user of Financial App/Website - [stub8b.A]",
+[*ENDX]
+[*ENDA]
+
+
+
+
+
+
+
+
+[*DOX=3:3]
+IF ($TQ17a/13+12+11+3+1+7+2+4+23).($TQ8bR1/1..12), T [+T] = $TQ27RQ8bREG * $[HX.X],
+BT = "Among P2M user of Financial App/Website - REGARDLESS",
+[*ENDX]
+
+
+
+
+
+
+
+
+
+
+FINISH TABLES,
+
+
+
