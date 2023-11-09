@@ -610,7 +610,46 @@ OTHERS (NET)<q>;
 Missing answers<Z>;
 Total count<C>",
 
-
+DM $TQ10F1v2 = $xQ10_1/
+1+6+8+10,
+2+17,
+3+4,
+5,
+7+16+25,
+9+11+19+21,
+12,
+13,
+14,
+15,
+20,
+24,
+18+22+23+26,
+18,
+22,
+23,
+26,
+R,F,
+VT = "Q10.1. REASONS FOR BEING A REJECTOR",
+V = "
+Do not know how to use fintech;
+Better to use cash;
+Do not have own phone/ smartphone;
+No valid ID;
+Don't have use for it/ No money to fund e-wallet;
+Fear of Scam/ Fear of loss of money;
+No stable/ reliable internet;
+Other family members have GCash;
+Tedious process to download/ use;
+No time for that;
+Underage;
+Too old for this apps;
+OTHERS (NET) <Q>;
+`        I can't always monitor without deduction;
+`        Full storage cant download the apps;
+`        Lots of negative comments about fintech;
+`        No account;
+Missing answers<Z>;
+Total count<C>",
 
 
 
