@@ -10,7 +10,7 @@ START CONTROL,
 
 !C = P_WALLE_2022Q2.ASC,
 
-C = P_WALLE_2023Q3_V2.ASC,
+C = P_WALLE_2023Q3.ASC,
 
 
 Y,
@@ -37,6 +37,7 @@ DJ $DATE = $190-195,
 [*INSERT WallE_resp]
 
 [*INSERT walle_cardcol_banner]
+[*INSERT walle_cardcol_p1]
 [*INSERT walle_cardcol_p6]
 
 [*INSERT WallE_insertAlign_pickup]
@@ -53,8 +54,151 @@ DJ $DATE = $190-195,
 [*INSERT WALL_E_NEWWTS]
 
 
+[*DOA=1:48]
+ORDM $XI_T_A_TD2 = $XI_[A]_A_TD2,
+[*ENDA]
+[*DOA=91:92:93]
+ORDM $XI_T_A_TD2 = $XI_[A]_A_TD2,
+[*ENDA]
+
+DM $TTD2 = $XI_T_A_TD2/
+1+2+3+4+5+6+11+12+23+24,
+1,
+2,
+3,
+4,
+5,
+6,
+11,
+12,
+23,
+24,
+25+26+27+28,
+25,
+26,
+27,
+28,
+R,F,
+VT = "TD2. USAGE OF DIGITAL CHANNELS TO PAY FOR EACH MODE OF TRANSPORTATION AND SERVICES",
+V = "
+COMMUTE NET<Q>;
+`     Jeepney;
+`     Tricycle;
+`     UV Express or Taxi;
+`     Bus;
+`     Carousel;
+`     Train (MRT, LRT, and PNR);
+`     Motorcycle (e.g., Joyride, Angkas, etc);
+`     Car (e.g., Grab, Joyride Car, Carpool, Toktokgo, etc);
+`     Airplane;
+`     Ferry;
+PERSONAL NET<Q>;
+`     Payment for gas for my car;
+`     Payment for gas for motorcycle;
+`     Payment for or top-up for my RFID;
+`     Payment for toll fee;
+Missing answers<Z>;
+Total count<C>",
 
 
+
+DM $TTP1 = $XTP1/
+1+2+3+4+5+6+11+12+23+24,
+1,
+2,
+3,
+4,
+5,
+6,
+11,
+12,
+23,
+24,
+25+26+1001+27+28,
+25,
+26+1001,
+27,
+28,
+R,F,
+VT = "TP1. MODE OF TRANSPORTATION USED IN THE PAST 2 MONTHS",
+V = "
+COMMUTE NET<Q>;
+`     Jeepney;
+`     Tricycle;
+`     UV Express or Taxi;
+`     Bus;
+`     Carousel;
+`     Train (MRT, LRT, and PNR);
+`     Motorcycle (e.g., Joyride, Angkas, etc);
+`     Car (e.g., Grab, Joyride Car, Carpool, Toktokgo, etc);
+`     Airplane;
+`     Ferry;
+PERSONAL NET<Q>;
+`     Payment for gas for my car;
+`     Payment for gas for motorcycle;
+`     Payment for or top-up for my RFID;
+`     Payment for toll fee;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+[*DOA=1:[LTP3.#]]
+DM $TTDTP2_[A] = 
+$TTD2/[A],
+$XTP2_[A]/1..4,
+$TTD2/[A].($XTP2_[A]/1..4),
+$$/N(1..3).$XTP2_[A]/5,
+R,F,
+VT = "TD2/TP2. MODE OF PAYMENT – TRANSPORTATION AND SERVICES (DIGITAL/OFFLINE/ PHYSICAL) - [LTP3.A]",
+V = "
+Digital Only;
+Offline/ Physical Only;
+Hybrid Payment;
+Not Applicable;
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+[*DOA=1:[LTP3.#]]
+DM $TTDTP3_[A] = $XTPTD3_[A]/
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+1003,
+1002,
+1001,
+R,F,
+VT = "TD3/TP3. FREQUENCY OF PAYING FOR TRANSPORTATION (DIGITAL/OFFLINE/ PHYSICAL) IN THE PAST 2 MONTHS - [LTP3.A]",
+V = "
+More often than once a day;
+Everyday;
+2 - 3 times a week;
+Once a week;
+Once every 2 - 3 weeks;
+Once a month;
+Once in 2 months;
+Once in 3 months;
+Less often than once in 3 months;
+3;
+2;
+1;
+Missing answers<Z>;
+Total count<C>",
+
+[*DATA var (M=P) = XTPTD3_[A]]
+[*DATA finalvar (M=P) = TTDTP3_[A]]
+[*INSERT FREQUENCY_SA]
+VT = "TD3/TP3. FREQUENCY OF PAYING FOR TRANSPORTATION (DIGITAL/OFFLINE/ PHYSICAL) IN THE PAST 2 MONTHS - [LTP3.A] - SA",
+V = $Frequency,
+
+[*ENDA]
 FINISH DATA,
 
 
@@ -112,15 +256,15 @@ F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 
 
-!SELECT WR $newwts,
+SELECT WR $newwts,
 
 F=BRS,
 
 
 
 [*DATA HX=
-HA1T,
-HET,
+HA1_RR,
+HE_RR,
 HIT,
 HLT,
 HOT,
@@ -128,7 +272,6 @@ HPT]
 !
 
 
-[*DATA HX=HTX]
 
 
 [*SET T = 0]
@@ -137,24 +280,24 @@ HPT]
 
 
 [*DOA=1:[LTP3.#]]
-[*DOX=1:1]
-IF ($FILTP1/NB.$TTP1/[A])+($FILTD1/NB.$TTD2/[A]), T [+T] = $TTDTP2_[A] * $[HX.X],
+[*DOX=1:2]
+IF ($FILTP1/NB.$TTP1/[A])+($FILTD1/NB.$TTD2/[A]), T [+T] = $TTDTP2_[A]_SA * $[HX.X],
 BT = "AMONG MODE OF TRANSPORTATION USED IN THE P2M IS [LTP3.A]",
 [*ENDX]
 [*ENDA]
 
 
 [*DOA=1:[LTP3.#]]
-[*DOX=1:1]
-IF ($FILTP1/NB.$TTP1/[A].($TTP2_[A]/1..4))+($FILTD1/NB.$TTD2/[A]), T [+T] = $TTDTP3_[A] * $[HX.X],
+[*DOX=1:2]
+IF ($FILTP1/NB.$TTP1/[A].($TTP2_[A]/1..4))+($FILTD1/NB.$TTD2/[A]), T [+T] = $TTDTP3_[A]_SA * $[HX.X],
 BT = "AMONG MODE OF TRANSPORTATION USED IN THE P2M IS [LTP3.A]",
 [*ENDX]
 [*ENDA]
 
 
 [*DOA=1:[LTP3.#]]
-[*DOX=1:1]
-IF ($FILTP1/NB.$TTP1/[A].($TTP2_[A]/1..4))+($FILTD1/NB.$TTD2/[A]), T [+T] = $TTDTP4_[A] * $[HX.X],
+[*DOX=1:2]
+IF ($FILTP1/NB.$TTP1/[A].($TTP2_[A]/1..4))+($FILTD1/NB.$TTD2/[A]), T [+T] = $TTDTP4_[A]_SA * $[HX.X],
 BT = "AMONG MODE OF TRANSPORTATION USED IN THE P2M IS [LTP3.A]",
 [*ENDX]
 [*ENDA]

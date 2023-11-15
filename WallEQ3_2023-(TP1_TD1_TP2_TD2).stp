@@ -255,7 +255,6 @@ X = "
 ` [*DO Y = 1:[TP1Stubs[A].3]]    [*END Y]Hybrid Payment[*SLE];
 [*END A]",
 
-
 FINISH DATA,
 START TABLES,
 
