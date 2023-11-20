@@ -1,0 +1,1099 @@
+DM $Q10code1 = ($resp/20623004+20860788+21800759+
+22631815+22631816+22631817+22631818+22636751+22640372+22640373+
+22640396+22640398+22640399+22640400+22642361+22646875+22646876+
+22646920+22646921+22646922+22647933+22650365+22650401+22650403+
+22667607+22667608+22667609+22667610+22667611+22667612+22671581+
+22674007+22674008+22674009+22675157+22675160+22676505+22676544+
+22677091+22677092+22679832+22680791+22680792+22680793+22680796+
+22684217+22687109+22687110+22693201+22693766+22696352+22697124+
+22698443+22699807+22699808+22699809+22702218+22767565+22767610+
+22767611+22779380+22779382+22779383+22779384+
+24267859+24321636+
+26539663+25725042+25634336)+
+(($Q12023/nb+$Q22023/nb+$Q32023/NB).$Q10/n1.$Q10/n2),
+
+
+DM $TQ10 = 
+($Q10/1)+($Q10code1/nb),
+$Q10/2,
+R,F,
+VT = "Q10. NON-REJECTOR OF FINTECH",
+V = "
+Yes;
+No;
+Missing answers<Z>;
+Total count<C>",
+
+
+! ===== Q2 2023 ====== !
+DM $xQ8B1_1 = $xT_Q8b1_5,
+DM $xQ8B1_2 = $xT_Q8b1_6,
+DM $xQ8B1_3 = $xT_Q8b1_7,
+DM $xQ8B1_4 = $xT_Q8b1_8,
+DM $xQ8B1_5 = $xT_Q8b1_9,
+DM $xQ8B1_6 = $xT_Q8b1_10,
+DM $xQ8B1_7 = $xT_Q8b1_4,
+DM $xQ8B1_8 = $xT_Q8b1_3,
+
+[*data D8B1 (;)= 
+Bought load (mobile load, prepaid broadband load, game credits, KUMU coins, PayTV, prepaid kit, Tinder, prepaid insurance, kuryente prepaid, etc.);
+Buy and pay from any store, bank, establishments;
+Buy and pay within the same website or app of the store via online;
+Pay bills;
+Save money;
+Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+Buying gaming pins;
+Borrow money or avail of a loan from other people (acquaintances/friends, relatives, `"bumbay/turko`", etc.);
+Borrow money or avail of a loan from bank or other institutions (including credit card, pawning, lending apps etc.);
+Pay off a loan;
+Investing in investment products and services]
+
+[*DATA CODE8B1 = 
+1+1024,
+2+1006+1012+1013+1021+1031+1042,
+3+1008+1101+1108,
+4+1001+1022,
+5+1009,
+6+1003+1002+1005+1010+1011+1023+1027+1020+1025+1026,
+7+1007,
+10,
+11,
+12,
+13]
+
+IF $Q22023/NB+$Q32023/NB, THEN,
+DM $Q8B1_NONE = 
+$xQ8B1_1/(N1.N1024.N2.N1006.N1012.N1013.N1021.N1031.N1042.N3.N1008.N1101.N1108.N4.N1001.N1022.N5.N1009.N6.N1003.N1002.N1005.N1010.N1011.N1023.N1027.N1020.N1025.N1026.N7.N1007.N10.N11.N12.N13).
+$xQ8B1_2/(N1.N1024.N2.N1006.N1012.N1013.N1021.N1031.N1042.N3.N1008.N1101.N1108.N4.N1001.N1022.N5.N1009.N6.N1003.N1002.N1005.N1010.N1011.N1023.N1027.N1020.N1025.N1026.N7.N1007.N10.N11.N12.N13).
+$xQ8B1_3/(N1.N1024.N2.N1006.N1012.N1013.N1021.N1031.N1042.N3.N1008.N1101.N1108.N4.N1001.N1022.N5.N1009.N6.N1003.N1002.N1005.N1010.N1011.N1023.N1027.N1020.N1025.N1026.N7.N1007.N10.N11.N12.N13).
+$xQ8B1_4/(N1.N1024.N2.N1006.N1012.N1013.N1021.N1031.N1042.N3.N1008.N1101.N1108.N4.N1001.N1022.N5.N1009.N6.N1003.N1002.N1005.N1010.N1011.N1023.N1027.N1020.N1025.N1026.N7.N1007.N10.N11.N12.N13).
+$xQ8B1_5/(N1.N1024.N2.N1006.N1012.N1013.N1021.N1031.N1042.N3.N1008.N1101.N1108.N4.N1001.N1022.N5.N1009.N6.N1003.N1002.N1005.N1010.N1011.N1023.N1027.N1020.N1025.N1026.N7.N1007.N10.N11.N12.N13).
+$xQ8B1_6/(N1.N1024.N2.N1006.N1012.N1013.N1021.N1031.N1042.N3.N1008.N1101.N1108.N4.N1001.N1022.N5.N1009.N6.N1003.N1002.N1005.N1010.N1011.N1023.N1027.N1020.N1025.N1026.N7.N1007.N10.N11.N12.N13).
+$xQ8B1_7/(N1.N1024.N2.N1006.N1012.N1013.N1021.N1031.N1042.N3.N1008.N1101.N1108.N4.N1001.N1022.N5.N1009.N6.N1003.N1002.N1005.N1010.N1011.N1023.N1027.N1020.N1025.N1026.N7.N1007.N10.N11.N12.N13),
+END IF,
+
+[*SETn=CODE8B1.#]
+[*DOA=1:n]
+DM $TQ8b1R[A] = 
+$xQ8B1_1/[CODE8B1.a],
+$xQ8B1_2/[CODE8B1.a],
+$xQ8B1_3/[CODE8B1.a],
+$xQ8B1_4/[CODE8B1.a],
+$xQ8B1_5/[CODE8B1.a],
+$xQ8B1_6/[CODE8B1.a],
+$xQ8B1_7/[CODE8B1.a],
+($xQ8B1_8/[CODE8B1.a])+($Q8B1_NONE/nb),
+R,
+F,
+VT = "Q8b1. GENERAL FINANCIAL TRANSACTIONS METHODS (P2M) - [D8B1.A]",
+V = "
+eWallet;
+Mobile/Online Banking;
+Cash;
+Check;
+Debit Card;
+Credit Card;
+Other Financial App/Website;
+Did not do this transaction;
+Missing answers<Z><s>;
+Total count<C>",
+[*ENDA]
+
+DM $TQ8b1R12 = 
+$xQ8B1_1/9999+1016+1100+1040+1041,
+$xQ8B1_2/9999+1016+1100+1040+1041,
+$xQ8B1_3/9999+1016+1100+1040+1041,
+$xQ8B1_4/9999+1016+1100+1040+1041,
+$xQ8B1_5/9999+1016+1100+1040+1041,
+$xQ8B1_6/9999+1016+1100+1040+1041,
+$xQ8B1_7/9999+1016+1100+1040+1041,
+($xQ8B1_8/9999+1016+1100+1040+1041)+($Q8B1_NONE/nb),
+R,
+F,
+VT = "Q8b1. GENERAL FINANCIAL TRANSACTIONS METHODS (P2M) - None",
+V = "
+eWallet;
+Mobile/Online Banking;
+Cash;
+Check;
+Debit Card;
+Credit Card;
+Other Financial App/Website;
+Did not do this transaction;
+Missing answers<Z><s>;
+Total count<C>",
+
+
+
+
+
+DM $TQ8b1REG = 
+$TQ8b1R1/1+$TQ8b1R2/1+$TQ8b1R3/1+$TQ8b1R4/1+$TQ8b1R5/1+$TQ8b1R6/1+$TQ8b1R7/1+$TQ8b1R8/1+$TQ8b1R9/1+$TQ8b1R10/1+$TQ8b1R11/1,
+$TQ8b1R1/2+$TQ8b1R2/2+$TQ8b1R3/2+$TQ8b1R4/2+$TQ8b1R5/2+$TQ8b1R6/2+$TQ8b1R7/2+$TQ8b1R8/2+$TQ8b1R9/2+$TQ8b1R10/2+$TQ8b1R11/2,
+$TQ8b1R1/3+$TQ8b1R2/3+$TQ8b1R3/3+$TQ8b1R4/3+$TQ8b1R5/3+$TQ8b1R6/3+$TQ8b1R7/3+$TQ8b1R8/3+$TQ8b1R9/3+$TQ8b1R10/3+$TQ8b1R11/3,
+$TQ8b1R1/4+$TQ8b1R2/4+$TQ8b1R3/4+$TQ8b1R4/4+$TQ8b1R5/4+$TQ8b1R6/4+$TQ8b1R7/4+$TQ8b1R8/4+$TQ8b1R9/4+$TQ8b1R10/4+$TQ8b1R11/4,
+$TQ8b1R1/5+$TQ8b1R2/5+$TQ8b1R3/5+$TQ8b1R4/5+$TQ8b1R5/5+$TQ8b1R6/5+$TQ8b1R7/5+$TQ8b1R8/5+$TQ8b1R9/5+$TQ8b1R10/5+$TQ8b1R11/5,
+$TQ8b1R1/6+$TQ8b1R2/6+$TQ8b1R3/6+$TQ8b1R4/6+$TQ8b1R5/6+$TQ8b1R6/6+$TQ8b1R7/6+$TQ8b1R8/6+$TQ8b1R9/6+$TQ8b1R10/6+$TQ8b1R11/6,
+$TQ8b1R1/7+$TQ8b1R2/7+$TQ8b1R3/7+$TQ8b1R4/7+$TQ8b1R5/7+$TQ8b1R6/7+$TQ8b1R7/7+$TQ8b1R8/7+$TQ8b1R9/7+$TQ8b1R10/7+$TQ8b1R11/7,
+$TQ8b1R1/8+$TQ8b1R2/8+$TQ8b1R3/8+$TQ8b1R4/8+$TQ8b1R5/8+$TQ8b1R6/8+$TQ8b1R7/8+$TQ8b1R8/8+$TQ8b1R9/8+$TQ8b1R10/8+$TQ8b1R11/8,
+R,
+F,
+VT = "Q8b1. GENERAL FINANCIAL TRANSACTIONS METHODS (P2M) - REGARDLESS",
+V = "
+eWallet;
+Mobile/Online Banking;
+Cash;
+Check;
+Debit Card;
+Credit Card;
+Other Financial App/Website;
+Did not do this transaction;
+Missing answers<Z><s>;
+Total count<C>",
+
+
+
+[*DATA NOMIBRAND (;) = 
+BDO Mobile/Online;
+BPI Mobile/Online;
+CLIQQ;
+Coins.ph;
+GCash;
+GrabPay;
+PayMaya;
+PayPal;
+ShopeePay;
+Others]
+
+
+
+
+[*DATA L8B(;)=
+Digital/Online;
+Non-digital/Offline;
+Did not do this transaction]
+
+[*DATA Q8bnewcode (;)=
+1+2+7;
+3+4+5+6;
+8]
+
+
+
+[*DOA=1:3]
+om $q8b = $T_Q8b_[A],
+DM $TQ8bR[A] =
+$T_Q8b_[A]/1+1024+$TQ8b1R1/[Q8bnewcode.A],
+$T_Q8b_[A]/2+1006+1012+1013+1021+1031+1042+$TQ8b1R2/[Q8bnewcode.A],
+$T_Q8b_[A]/3+1008+1101+1108+$TQ8b1R3/[Q8bnewcode.A],
+$T_Q8b_[A]/4+1001+1022+$TQ8b1R4/[Q8bnewcode.A],
+$T_Q8b_[A]/5+1009+$TQ8b1R5/[Q8bnewcode.A],
+$T_Q8b_[A]/6+1003+1002+1005+1010+1011+1023+1027+1020+1025+1026+$TQ8b1R6/[Q8bnewcode.A],
+$T_Q8b_[A]/7+1007+$TQ8b1R7/[Q8bnewcode.A],
+$T_Q8b_[A]/10+$TQ8b1R8/[Q8bnewcode.A],
+$T_Q8b_[A]/11+$TQ8b1R9/[Q8bnewcode.A],
+$T_Q8b_[A]/12+$TQ8b1R10/[Q8bnewcode.A],
+$T_Q8b_[A]/13+$TQ8b1R11/[Q8bnewcode.A],
+$T_Q8b_[A]/9999+1016+1100+1040+1041+(($TQ8b1R12/[Q8bnewcode.A])),
+R,
+F,
+VT = "Q8b. GENERAL FINANCIAL TRANSACTIONS METHODS (P2M) - [L8B.A]",
+V = "
+Bought load (mobile load, prepaid broadband load, game credits, KUMU coins, PayTV, prepaid kit, Tinder, prepaid insurance, kuryente prepaid, etc.);
+Buy and pay from any store, bank, establishments;
+Buy and pay within the same website or app of the store via online;
+Pay bills;
+Save money;
+Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+Buying gaming pins;
+Borrow money or avail of a loan from other people (acquaintances/friends, relatives, `"bumbay/turko`", etc.);
+Borrow money or avail of a loan from bank or other institutions (including credit card, pawning, lending apps etc.);
+Pay off a loan;
+Investing in investment products and services; 
+None;
+Missing answers<Z>;
+Total count<C>",
+[*ENDA]
+
+
+
+! ----- 
+[*data stub8b(;) = 
+Bought load;
+Buy and pay from any store, bank, establishments;
+Buy and pay within the same website or app of the store via online;
+Pay bills;
+Save money;
+Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+Buying gaming pins;
+Borrow money or avail of a loan from other people (acquaintances/friends, relatives, `"bumbay/turko`", etc.);
+Borrow money or avail of a loan from bank or other institutions (including credit card, pawning, lending apps etc.);
+Pay off a loan;
+Investing in investment products and services]
+[*setn=stub8b.#]
+
+if ($Q32021/nb+$Q42021/nb), then,
+[*doa=1:n]
+OM $TQ8b_X[A] = 
+$TQ8bR1/[a],
+$TQ8bR2/[a],
+$TQ8bR3/[a]+($TQ8bR1/(n[a]).$TQ8bR2/(n[a]).$TQ8bR3/(n[a])),
+r,f,
+XT = "Q8b. GENERAL FINANCIAL TRANSACTIONS METHODS - [stub8b.A]",
+X = "
+Digital/Online (Cashless);
+Non-digital/Offline (Cash/ Check);
+Did not do this transaction;
+     Missing Answer<z>; 
+     Total Count<c>",
+[*enda]
+end if,
+
+
+
+if ($Q12022/nb+$Q22022/nb+$Q32022/nb+$Q42022/nb+$Q12023/nb+$Q22023/nb+$Q32023/NB), then,
+[*doa=1:n]
+OM $TQ8b_X[A] = 
+$TQ8bR1/[a],
+$TQ8bR2/[a],
+$TQ8bR3/[a]+($TQ8bR1/(n[a]).$TQ8bR2/(n[a])),
+r,f,
+XT = "Q8b. GENERAL FINANCIAL TRANSACTIONS METHODS - [stub8b.A]",
+X = "
+Digital/Online (Cashless);
+Non-digital/Offline (Cash/ Check);
+Did not do this transaction;
+     Missing Answer<z>; 
+     Total Count<c>",
+[*enda]
+end if,
+
+[*doa=1:n]
+DM $digitalonly[A] = (($TQ8b1R[A]/1+2+7).N($TQ8b1R[A]/3+4+5+6)),
+DM $offlineonly[A] = (N($TQ8b1R[A]/1+2+7).($TQ8b1R[A]/3+4+5+6)),
+DM $hybrid[A] = (($TQ8b1R[A]/1+2+7).($TQ8b1R[A]/3+4+5+6)),
+
+[*enda]
+
+
+if ($Q32021/nb+$Q42021/nb), then,
+[*doa=1:n]
+OM $TQ8bR[A]list = 
+$TQ8bR1/[a],
+$TQ8bR2/[a],
+$TQ8bR3/[a] + ($TQ8bR1/n([a]).$TQ8bR2/n([a]).$TQ8bR3/n([a])),
+[*end a]
+end if,
+
+
+
+if ($Q12022/nb+$Q22022/nb+$q32022/NB+$q42022/NB+$q12023/NB+$q22023/NB+$q32023/NB), then,
+[*doa=1:n]
+OM $TQ8bR[A]list = 
+$TQ8bR1/[a],
+$TQ8bR2/[a],
+$TQ8bR3/[a] + ($TQ8bR1/n([a]).$TQ8bR2/n([a])),
+[*end a]
+end if,
+
+dm $Q8BR1R2 =
+$TQ8bR1/1+$TQ8bR2/1,
+$TQ8bR1/2+$TQ8bR2/2,
+$TQ8bR1/3+$TQ8bR2/3,
+$TQ8bR1/4+$TQ8bR2/4,
+$TQ8bR1/5+$TQ8bR2/5,
+$TQ8bR1/6+$TQ8bR2/6,
+$TQ8bR1/7+$TQ8bR2/7,
+$TQ8bR1/8+$TQ8bR2/8,
+$TQ8bR1/9+$TQ8bR2/9,
+$TQ8bR1/10+$TQ8bR2/10,
+$TQ8bR1/11+$TQ8bR2/11,
+$TQ8bR1/12+$TQ8bR2/12,
+
+
+! ---- SOURCE FOR Q160-Q162
+[*doa=1:n]
+DM $TQ8b_SRC[A] = 
+$TQ8bR1/[a]+$TQ8bR2/[a],
+XT = "(Q160-Q162). Q8b. GENERAL FINANCIAL TRANSACTIONS METHODS - [stub8b.A]",
+X = "Digital/Online + Non-digital/Offline",
+[*enda]
+
+
+
+! ====== Q8 Combination ======= !
+
+dm $Q8com1 = 
+[*do a = 1:11]
+$TQ8bR1/[a],
+[*END A]
+
+dm $ct8a1 =
+[*do a = 1:11]
+ct($Q8com1)/[a],
+[*END A]
+f,
+vt = "Q8b . COMBINATION OF GENERAL FINANCIAL TRANSACTIONS - Digital/Online(Cashless)",
+v =" 
+[*do a = 1:11]
+[a] COMBINATION <V[A]>;
+[*END A]
+Total Count<c>",
+
+
+
+dm $ct8a1break =
+ct($Q8com1)/1,
+ct($Q8com1)/1.$TQ8bR1/(1),
+ct($Q8com1)/1.$TQ8bR1/(2),
+ct($Q8com1)/1.$TQ8bR1/(3),
+ct($Q8com1)/1.$TQ8bR1/(4),
+ct($Q8com1)/1.$TQ8bR1/(5),
+ct($Q8com1)/1.$TQ8bR1/(6),
+ct($Q8com1)/2,
+ct($Q8com1)/2.$TQ8bR1/(1.2),
+ct($Q8com1)/2.$TQ8bR1/(1.3),
+ct($Q8com1)/2.$TQ8bR1/(1.4),
+ct($Q8com1)/2.$TQ8bR1/(1.5),
+ct($Q8com1)/2.$TQ8bR1/(1.6),
+ct($Q8com1)/2.$TQ8bR1/(2.3),
+ct($Q8com1)/2.$TQ8bR1/(2.4),
+ct($Q8com1)/2.$TQ8bR1/(2.5),
+ct($Q8com1)/2.$TQ8bR1/(2.6),
+ct($Q8com1)/2.$TQ8bR1/(3.4),
+ct($Q8com1)/2.$TQ8bR1/(3.5),
+ct($Q8com1)/2.$TQ8bR1/(3.6),
+ct($Q8com1)/2.$TQ8bR1/(4.5),
+ct($Q8com1)/2.$TQ8bR1/(4.6),
+ct($Q8com1)/2.$TQ8bR1/(5.6),
+ct($Q8com1)/3,
+ct($Q8com1)/3.$TQ8bR1/(1.2.3),
+ct($Q8com1)/3.$TQ8bR1/(1.2.4),
+ct($Q8com1)/3.$TQ8bR1/(1.2.5),
+ct($Q8com1)/3.$TQ8bR1/(1.2.6),
+ct($Q8com1)/3.$TQ8bR1/(1.3.4),
+ct($Q8com1)/3.$TQ8bR1/(1.3.5),
+ct($Q8com1)/3.$TQ8bR1/(1.3.6),
+ct($Q8com1)/3.$TQ8bR1/(1.4.5),
+ct($Q8com1)/3.$TQ8bR1/(1.4.6),
+ct($Q8com1)/3.$TQ8bR1/(1.5.6),
+ct($Q8com1)/3.$TQ8bR1/(2.3.4),
+ct($Q8com1)/3.$TQ8bR1/(2.3.6),
+ct($Q8com1)/3.$TQ8bR1/(2.4.5),
+ct($Q8com1)/3.$TQ8bR1/(2.4.6),
+ct($Q8com1)/3.$TQ8bR1/(2.5.6),
+ct($Q8com1)/3.$TQ8bR1/(3.4.5),
+ct($Q8com1)/3.$TQ8bR1/(3.4.6),
+ct($Q8com1)/3.$TQ8bR1/(3.5.6),
+ct($Q8com1)/3.$TQ8bR1/(4.5.6),
+ct($Q8com1)/4,
+ct($Q8com1)/4.$TQ8bR1/(1.2.3.4),
+ct($Q8com1)/4.$TQ8bR1/(1.2.3.5),
+ct($Q8com1)/4.$TQ8bR1/(1.2.3.6),
+ct($Q8com1)/4.$TQ8bR1/(1.2.4.5),
+ct($Q8com1)/4.$TQ8bR1/(1.2.4.6),
+ct($Q8com1)/4.$TQ8bR1/(1.2.5.6),
+ct($Q8com1)/4.$TQ8bR1/(1.3.4.5),
+ct($Q8com1)/4.$TQ8bR1/(1.3.4.6),
+ct($Q8com1)/4.$TQ8bR1/(1.3.5.6),
+ct($Q8com1)/4.$TQ8bR1/(1.4.5.6),
+ct($Q8com1)/4.$TQ8bR1/(2.3.4.5),
+ct($Q8com1)/4.$TQ8bR1/(2.3.4.6),
+ct($Q8com1)/4.$TQ8bR1/(2.3.5.6),
+ct($Q8com1)/4.$TQ8bR1/(2.4.5.6),
+ct($Q8com1)/4.$TQ8bR1/(3.4.5.6),
+ct($Q8com1)/5,
+ct($Q8com1)/5.$TQ8bR1/(1.2.3.4.5),
+ct($Q8com1)/5.$TQ8bR1/(1.2.3.4.6),
+ct($Q8com1)/5.$TQ8bR1/(1.2.3.5.6),
+ct($Q8com1)/5.$TQ8bR1/(1.2.4.5.6),
+ct($Q8com1)/5.$TQ8bR1/(1.3.4.5.6),
+ct($Q8com1)/5.$TQ8bR1/(2.3.4.5.6),
+ct($Q8com1)/6,
+ct($Q8com1)/6.$TQ8bR1/(1.2.3.4.5.6),
+F,
+VT = "Q8B. COMBINATION OF GENERAL FINANCIAL TRANSACTIONS - Digital/Online",
+v =" 
+COMBINATION 1;
+`     Bought load;
+`     Buy and pay from any store, bank, establishments;
+`     Buy and pay within the same website or app of the store via online;
+`     Pay bills;
+`     Save money;
+`     Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+COMBINATION 2;
+`     Bought load + Buy and pay from any store, bank, establishments;
+`     Bought load + Buy and pay within the same website or app of the store via online;
+`     Bought load + Pay bills;
+`     Bought load + Save money;
+`     Bought load + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online;
+`     Buy and pay from any store, bank, establishments + Pay bills;
+`     Buy and pay from any store, bank, establishments + Save money;
+`     Buy and pay from any store, bank, establishments + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay within the same website or app of the store via online + Pay bills;
+`     Buy and pay within the same website or app of the store via online + Save money;
+`     Buy and pay within the same website or app of the store via online + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Pay bills + Save money;
+`     Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+COMBINATION 3;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online;
+`     Bought load + Buy and pay from any store, bank, establishments + Pay bills;
+`     Bought load + Buy and pay from any store, bank, establishments + Save money;
+`     Bought load + Buy and pay from any store, bank, establishments + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay within the same website or app of the store via online + Pay bills;
+`     Bought load + Buy and pay within the same website or app of the store via online + Save money;
+`     Bought load + Buy and pay within the same website or app of the store via online + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Pay bills + Save money;
+`     Bought load + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Pay bills + Save money;
+`     Buy and pay from any store, bank, establishments + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay within the same website or app of the store via online + Pay bills + Save money;
+`     Buy and pay within the same website or app of the store via online + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay within the same website or app of the store via online + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+COMBINATION 4;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Save money;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay from any store, bank, establishments + Pay bills + Save money;
+`     Bought load + Buy and pay from any store, bank, establishments + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay from any store, bank, establishments + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay within the same website or app of the store via online + Pay bills + Save money;
+`     Bought load + Buy and pay within the same website or app of the store via online + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay within the same website or app of the store via online + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Save money;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay within the same website or app of the store via online + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+COMBINATION 5;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Save money;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay from any store, bank, establishments + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay within the same website or app of the store via online + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+COMBINATION 6;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+Total Count<c>",
+
+
+
+
+	
+
+
+dm $Q8com2 = 
+[*do a = 1:11]
+$TQ8bR2/[a],
+[*END A]
+
+
+dm $ct8a2 =
+[*do a = 1:11]
+ct($Q8com2)/[a],
+[*END A]
+f,
+vt = "Q8b . COMBINATION OF GENERAL FINANCIAL TRANSACTIONS - Non-digital/Offline (Cash/ Check)",
+v = "
+[*do a = 1:11]
+[a] COMBINATION <V[A]>;
+[*END A]
+Total Count<c>",
+
+
+
+
+
+dm $ct8a2break =
+ct($Q8com2)/1,
+ct($Q8com2)/1.$TQ8bR2/(1),
+ct($Q8com2)/1.$TQ8bR2/(2),
+ct($Q8com2)/1.$TQ8bR2/(3),
+ct($Q8com2)/1.$TQ8bR2/(4),
+ct($Q8com2)/1.$TQ8bR2/(5),
+ct($Q8com2)/1.$TQ8bR2/(6),
+ct($Q8com2)/2,
+ct($Q8com2)/2.$TQ8bR2/(1.2),
+ct($Q8com2)/2.$TQ8bR2/(1.3),
+ct($Q8com2)/2.$TQ8bR2/(1.4),
+ct($Q8com2)/2.$TQ8bR2/(1.5),
+ct($Q8com2)/2.$TQ8bR2/(1.6),
+ct($Q8com2)/2.$TQ8bR2/(2.3),
+ct($Q8com2)/2.$TQ8bR2/(2.4),
+ct($Q8com2)/2.$TQ8bR2/(2.5),
+ct($Q8com2)/2.$TQ8bR2/(2.6),
+ct($Q8com2)/2.$TQ8bR2/(4.5),
+ct($Q8com2)/2.$TQ8bR2/(4.6),
+ct($Q8com2)/2.$TQ8bR2/(5.6),
+ct($Q8com2)/3,
+ct($Q8com2)/3.$TQ8bR2/(1.2.3),
+ct($Q8com2)/3.$TQ8bR2/(1.2.4),
+ct($Q8com2)/3.$TQ8bR2/(1.2.5),
+ct($Q8com2)/3.$TQ8bR2/(1.2.6),
+ct($Q8com2)/3.$TQ8bR2/(1.3.4),
+ct($Q8com2)/3.$TQ8bR2/(1.3.5.7),
+ct($Q8com2)/3.$TQ8bR2/(1.3.6),
+ct($Q8com2)/3.$TQ8bR2/(1.4.5),
+ct($Q8com2)/3.$TQ8bR2/(1.4.6),
+ct($Q8com2)/3.$TQ8bR2/(1.5.6),
+ct($Q8com2)/3.$TQ8bR2/(2.3.4),
+ct($Q8com2)/3.$TQ8bR2/(2.3.6),
+ct($Q8com2)/3.$TQ8bR2/(2.4.5),
+ct($Q8com2)/3.$TQ8bR2/(2.4.6),
+ct($Q8com2)/3.$TQ8bR2/(2.5.6),
+ct($Q8com2)/3.$TQ8bR2/(4.5.6),
+ct($Q8com2)/4,
+ct($Q8com2)/4.$TQ8bR2/(1.2.3.4),
+ct($Q8com2)/4.$TQ8bR2/(1.2.3.5.7),
+ct($Q8com2)/4.$TQ8bR2/(1.2.3.6),
+ct($Q8com2)/4.$TQ8bR2/(1.2.4.5),
+ct($Q8com2)/4.$TQ8bR2/(1.2.4.6),
+ct($Q8com2)/4.$TQ8bR2/(1.2.5.6),
+ct($Q8com2)/4.$TQ8bR2/(1.3.4.6),
+ct($Q8com2)/4.$TQ8bR2/(1.4.5.6),
+ct($Q8com2)/4.$TQ8bR2/(2.3.4.5),
+ct($Q8com2)/4.$TQ8bR2/(2.3.4.6),
+ct($Q8com2)/4.$TQ8bR2/(2.3.5.6),
+ct($Q8com2)/4.$TQ8bR2/(2.4.5.6),
+ct($Q8com2)/5,
+ct($Q8com2)/5.$TQ8bR2/(1.2.3.4.5),
+ct($Q8com2)/5.$TQ8bR2/(1.2.3.4.6),
+ct($Q8com2)/5.$TQ8bR2/(1.2.4.5.6),
+ct($Q8com2)/5.$TQ8bR2/(1.3.4.5.6),
+ct($Q8com2)/5.$TQ8bR2/(2.3.4.5.6),
+ct($Q8com2)/6,
+ct($Q8com2)/6.$TQ8bR2/(1.2.3.4.5.6),
+F,
+VT = "Q8B. COMBINATION OF GENERAL FINANCIAL TRANSACTIONS - Non-digital/Offline",
+v =" 
+COMBINATION 1;
+`     Bought load;
+`     Buy and pay from any store, bank, establishments;
+`     Buy and pay within the same website or app of the store via online;
+`     Pay bills;
+`     Save money;
+`     Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+COMBINATION 2;
+`     Bought load + Buy and pay from any store, bank, establishments;
+`     Bought load + Buy and pay within the same website or app of the store via online;
+`     Bought load + Pay bills;
+`     Bought load + Save money;
+`     Bought load + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online;
+`     Buy and pay from any store, bank, establishments + Pay bills;
+`     Buy and pay from any store, bank, establishments + Save money;
+`     Buy and pay from any store, bank, establishments + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Pay bills + Save money;
+`     Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+COMBINATION 3;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online;
+`     Bought load + Buy and pay from any store, bank, establishments + Pay bills;
+`     Bought load + Buy and pay from any store, bank, establishments + Save money;
+`     Bought load + Buy and pay from any store, bank, establishments + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay within the same website or app of the store via online + Pay bills;
+`     Bought load + Buy and pay within the same website or app of the store via online + Save money;
+`     Bought load + Buy and pay within the same website or app of the store via online + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Pay bills + Save money;
+`     Bought load + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Pay bills + Save money;
+`     Buy and pay from any store, bank, establishments + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+COMBINATION 4;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Save money;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay from any store, bank, establishments + Pay bills + Save money;
+`     Bought load + Buy and pay from any store, bank, establishments + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay from any store, bank, establishments + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay within the same website or app of the store via online + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Save money;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+COMBINATION 5;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Save money;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay from any store, bank, establishments + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Bought load + Buy and pay within the same website or app of the store via online + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+`     Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+COMBINATION 6;
+`     Bought load + Buy and pay from any store, bank, establishments + Buy and pay within the same website or app of the store via online + Pay bills + Save money + Send/ receive remittance or `"padala`" OR money transfer for any purposes;
+Total Count<c>",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DM $TQ17i = $xQ17i/
+1,
+2,
+R,F,
+VT = "Q17i. FINAL CONTROL FOR USER AND NON-USER SEGMENT CLASSIFICATION",
+V = "
+Users;
+Non users;
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+
+! ---- Q16/Q17 None ----- !
+dm $q16a_none = $xQ16a/1..48+[*doa=1:XBRX][SOEBRANDNONE.a][*sle]+[*enda],
+DM $TQ16a = $xQ16a/
+1+1056,
+2+1050+1043,
+3+1062,
+4+1058+1061,
+5+1020,
+6+1080,
+7+1029,
+8+1078,
+9,
+10+1079,
+11+1072,
+12+1010,
+13+1002,
+14+1089,
+15,
+16+1008+1051,
+17,
+18+1047,
+19+1054,
+20,
+21,
+22+1022,
+23+1009+1046+1053+1059,
+24+1015,
+25+1016+1033+1060,
+26+1045,
+27,
+28+1042+1087,
+29+1082,
+30,
+31,
+32+1071,
+33,
+34,
+35,
+36+1013,
+37,
+38,
+39,
+40,
+41,
+42+1083,
+43,
+44,
+45,
+46,
+47,
+48,
+1001,
+1003,
+1004+1005+1006+1017,
+1007,
+1011,
+1012,
+1014,
+1018,
+1019+1041,
+1021,
+1028,
+1030,
+1031,
+1032,
+1034,
+1035,
+1036,
+1040,
+1044,
+1048,
+1049,
+1052,
+1055,
+1057,
+1063,
+1064,
+1065,
+1066,
+1067,
+1068,
+1069,
+1070,
+1073,
+1074,
+1076,
+1077,
+1081,
+1084,
+1085,
+1086,
+1087,
+1088,
+1090+1092,
+1093,
+1094,
+1096,
+1075+1091+1095,
+1075,
+1091,
+1095,
+9998,
+($q16a_none/b)+$xQ16a/9999,
+R,F,
+VT = "Q16a. TOM AWARENESS",
+V = "
+GCash;
+PayMaya/ Maya;
+Coins.ph;
+PayPal;
+TrueMoney;
+DragonPay;
+GrabPay;
+AliPay;
+WeChat Pay;
+Beep;
+CLIQQ;
+BPI Mobile / Online;
+BDO Mobile / Online;
+ECPay;
+ING Philippines;
+Landbank Mobile / Online;
+Metrobank Mobile / Online;
+CIMB Bank;
+Unionbank Mobile / Online;
+Security Bank Mobile / Online;
+DiskarTech;
+BDO Pay;
+ShoppeePay;
+LazWallet;
+ML Wallet;
+eCebuana;
+SquidPay;
+Bayad Center Online / App;
+Tonik;
+BancNet Online;
+Moneygment;
+Payoneer;
+RCBC mobile;
+StarPay;
+Maybank's Isave;
+HelloMoney;
+Eon;
+Komo;
+OFBank;
+PBCOMobile;
+PSBank Mobile;
+TouchPay;
+SeaBank;
+Remitly;
+Xendpay;
+Go Tyme;
+Vybe by BPI;
+PalawanPay;
+Western Union;
+Smart Padala;
+Palawan Express Remittance;
+Codashop;
+Cashalo;
+Coin Base;
+Konek2card;
+Pnb Mobile Online;
+Rd Pawnshop;
+Puregold;
+Angkas App;
+Clipclaps;
+Aub Bank;
+Axie;
+Ph Today;
+Tripko;
+Ucpb Online;
+Robinsons Bank;
+Steamwallet;
+Piso Pay;
+Pi Network;
+Psbc Mobile;
+QCRB bank;
+China bank atm;
+USSC Remittance;
+Trust Wallet;
+Emax;
+Easy Money;
+EastWest Mobile;
+Binance;
+Ec Wallet;
+Wemix wallet;
+Wise;
+Razer Gold;
+Prulife;
+Rizal bank;
+Toktok wallet;
+Abra wallet;
+CARD SME Bank;
+InstaPay;
+Hand pass;
+LBC;
+Mlhuillier;
+Gotyme bank;
+Summit Bank;
+Wealth Bank;
+VAGUE (NET)<q>;
+`     Rural bank;
+`     Credit Card;
+`     Eload;
+Don't know;
+None; 
+Missing answers<Z>;
+Total count<C>",
+
+
+
+
+
+DM $xq16d_none = $xA_Q16d/1..48+[*doa=1:XBRX][SOEBRANDNONE.a][*sle]+[*enda],
+DM $TQ16d = $xA_Q16d/
+1+1056,
+2+1050+1043,
+3+1062,
+4+1058+1061,
+5+1020,
+6+1080,
+7+1029,
+8+1078,
+9,
+10+1079,
+11+1072,
+12+1010,
+13+1002,
+14+1089,
+15,
+16+1008+1051,
+17,
+18+1047,
+19+1054,
+20,
+21,
+22+1022,
+23+1009+1046+1053+1059,
+24+1015,
+25+1016+1033+1060,
+26+1045,
+27,
+28+1042+1087,
+29+1082,
+30,
+31,
+32+1071,
+33,
+34,
+35,
+36+1013,
+37,
+38,
+39,
+40,
+41,
+42+1083,
+43,
+44,
+45,
+46,
+47,
+48,
+1001,
+1003,
+1004+1005+1006+1017,
+1007,
+1011,
+1012,
+1014,
+1018,
+1019+1041,
+1021,
+1028,
+1030,
+1031,
+1032,
+1034,
+1035,
+1036,
+1040,
+1044,
+1048,
+1049,
+1052,
+1055,
+1057,
+1063,
+1064,
+1065,
+1066,
+1067,
+1068,
+1069,
+1070,
+1073,
+1074,
+1076,
+1077,
+1081,
+1084,
+1085,
+1086,
+1087,
+1088,
+1090+1092,
+1093,
+1094,
+1096,
+1075+1091+1095,
+1075,
+1091,
+1095,
+9998,
+!$q16d_none/b,
+(99+9999),
+
+R,F,
+VT = "Q16d. TOTAL BRAND AWARENESS",
+V = $TQ16a,
+
+
+
+
+! ================ Q17 ==================== !
+
+dm $q17a_none = $xA_Q17a/1..48+[*doa=1:XBRX][SOEBRANDNONE.a][*sle]+[*enda],
+DM $TQ17a = $xA_Q17a/
+1+1056,
+2+1050+1043,
+3+1062,
+4+1058+1061,
+5+1020,
+6+1080,
+7+1029,
+8+1078,
+9,
+10+1079,
+11+1072,
+12+1010,
+13+1002,
+14+1089,
+15,
+16+1008+1051,
+17,
+18+1047,
+19+1054,
+20,
+21,
+22+1022,
+23+1009+1046+1053+1059,
+24+1015,
+25+1016+1033+1060,
+26+1045,
+27,
+28+1042+1087,
+29+1082,
+30,
+31,
+32+1071,
+33,
+34,
+35,
+36+1013,
+37,
+38,
+39,
+40,
+41,
+42+1083,
+43,
+44,
+45,
+46,
+47,
+48,
+1001,
+1003,
+1004+1005+1006+1017,
+1007,
+1011,
+1012,
+1014,
+1018,
+1019+1041,
+1021,
+1028,
+1030,
+1031,
+1032,
+1034,
+1035,
+1036,
+1040,
+1044,
+1048,
+1049,
+1052,
+1055,
+1057,
+1063,
+1064,
+1065,
+1066,
+1067,
+1068,
+1069,
+1070,
+1073,
+1074,
+1076,
+1077,
+1081,
+1084,
+1085,
+1086,
+1087,
+1088,
+1090+1092,
+1093,
+1094,
+1096,
+1075+1091+1095,
+1075,
+1091,
+1095,
+9998,
+9999+99,
+R,F,
+VT = "Q17a. E-WALLET/MOBILE MONEY/ANY FINANCIAL APP OR WEBSITE USED IN THE PAST 2 MONTHS",
+V = $TQ16a,
+
+
+
