@@ -229,7 +229,7 @@ F=PBL/MOD,
 
 
   
-F=SHG-1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
+F=SHG1/SIG/SLA95/SLB95/BRS/FSL,  !---------SIGTEST
 
 !F=NRTV, ! ------- ONLY COUNT
 !F=NPRC, ! -------- ONLY %
@@ -244,8 +244,8 @@ F=BRS,
 SELECT WR $newwts,
 
 [*DATA HX=
-HA1_RR,
-HE_RR,
+HA1T,
+HET,
 HIT,
 HI2T,
 HI3T,
