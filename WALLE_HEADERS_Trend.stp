@@ -66,29 +66,29 @@ USER*(n);
 NON-USER*(o)",
 
 
-DM $HAC_RR = 
-T,
+! DM $HAC_RR = 
+! T,
 
-$xQ183/
-1,
-2,
+! $xQ183/
+! 1,
+! 2,
 
-$SMRTPHrel/1-4,
+! $SMRTPHrel/1-4,
 
 
-HT = "Header AC. Q187 + MARITAL STATUS",
-h = "
-TOTAL *(a);
+! HT = "Header AC. Q187 + MARITAL STATUS",
+! h = "
+! TOTAL *(a);
    
-WHETHER HAVE KIDS 7-17 YEARS OLD***
-Has 7-17 years old *(b);
-Has no children aged 7 to 17 years old *(c);
+! WHETHER HAVE KIDS 7-17 YEARS OLD***
+! Has 7-17 years old *(b);
+! Has no children aged 7 to 17 years old *(c);
 
-MARITAL STATUS***
-Single *(d);
-Married *(e);
-Live-in *(f);
-Divorced *(g)",
+! MARITAL STATUS***
+! Single *(d);
+! Married *(e);
+! Live-in *(f);
+! Divorced *(g)",
 	
 	
 DM $HE_RR = 
@@ -3531,10 +3531,6 @@ T,
 
 DM $HPT = 
 T,
-$Q32021/nb,
-$Q42021/nb,
-$Q12022/nb,
-$Q22022/nb,
 $Q32022/nb,
 $Q42022/nb,
 $Q12023/nb,
@@ -3542,10 +3538,6 @@ $Q22023/nb,
 $Q32023/nb,
 [*doa=2:16]
 T,
-$Q32021/nb.$HP/[a],
-$Q42021/nb.$HP/[a],
-$Q12022/nb.$HP/[a],
-$Q22022/nb.$HP/[a],
 $Q32022/nb.$HP/[a],
 $Q42022/nb.$HP/[a],
 $Q12023/nb.$HP/[a],
@@ -3557,11 +3549,7 @@ XT = "Header P. Region x SEC",
 H = "
 TOTAL^
 	TOTAL***
-	TOTAL *(a);
-		Q3 2021 *(b);
-		Q4 2021 *(c);
-		Q1 2022 *(d);
-		Q2 2022 *(e);								
+	TOTAL *(a);						
 		Q3 2022 *(f);
 		Q4 2022 *(g);		
 		Q1 2023 *(h);		
@@ -3571,10 +3559,6 @@ MACROREGION X SEC^
 	MMA ****
 		ABC1 ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3582,10 +3566,6 @@ MACROREGION X SEC^
 			Q3 2023 *(j);		
 		C2 ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3593,10 +3573,6 @@ MACROREGION X SEC^
 			Q3 2023 *(j);		
 		D ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3606,10 +3582,6 @@ MACROREGION X SEC^
 	NCL ****
 			ABC1 ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3617,10 +3589,6 @@ MACROREGION X SEC^
 			Q3 2023 *(j);	
 		C2 ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3628,10 +3596,6 @@ MACROREGION X SEC^
 			Q3 2023 *(j);		
 		D ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3640,10 +3604,6 @@ MACROREGION X SEC^
 	SL ****
 			ABC1 ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3651,10 +3611,6 @@ MACROREGION X SEC^
 			Q3 2023 *(j);		
 		C2 ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3662,10 +3618,6 @@ MACROREGION X SEC^
 			Q3 2023 *(j);		
 		D ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3675,10 +3627,6 @@ MACROREGION X SEC^
 	VIS ****
 			ABC1 ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3686,10 +3634,6 @@ MACROREGION X SEC^
 			Q3 2023 *(j);		
 		C2 ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3697,10 +3641,6 @@ MACROREGION X SEC^
 			Q3 2023 *(j);		
 		D ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3710,10 +3650,6 @@ MACROREGION X SEC^
 	MIN ****
 			ABC1 ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3721,10 +3657,6 @@ MACROREGION X SEC^
 			Q3 2023 *(j);		
 		C2 ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
@@ -3732,13 +3664,505 @@ MACROREGION X SEC^
 			Q3 2023 *(j);		
 		D ***
 			TOTAL *(a)<s>;
-			Q3 2021 *(b);
-			Q4 2021 *(c);
-			Q1 2022 *(d);
-			Q2 2022 *(e);		
 			Q3 2022 *(f);
 			Q4 2022 *(g);
 			Q1 2023 *(h);
 			Q2 2023 *(i);	
 			Q3 2023 *(j)",			
 
+
+
+! Q1 2023 client header
+		
+DM $HEAD_TOT_Q12023 = T,
+!!Macroregion	
+$Q3/1,
+($Q3/2+3+4+5),
+($Q3/6+7+8),
+($Q3/9+10+11),
+($Q3/12+13+14+15+16+17), 			
+
+!!LOCALE	
+$Q4/1,
+$Q4/2,
+
+!!SEC			
+$xQ102/1..2,
+$xQ102/3,
+$xQ102/1..3,
+$xQ102/4,
+
+!!GENDER	
+$Q2/1,
+$Q2/2, 
+
+!!LIFESTAGE / AGE				
+$T_Q1_1/1..21,
+$T_Q1_1/22..29,
+$T_Q1_1/30..34,
+$T_Q1_1/35..44,
+$T_Q1_1/45..99,
+
+!!BANKING CONNECTIVITY		
+$Q72/
+1,
+2,
+3,
+
+$Q3/1-17,
+
+$Q3/1,
+
+($Q3/2+3+4+5).($Q4/1),
+($Q3/2+3+4+5).($Q4/2),
+
+($Q3/6+7+8).($Q4/1),
+($Q3/6+7+8).($Q4/2),
+
+($Q3/9+10+11).($Q4/1),
+($Q3/9+10+11).($Q4/2),
+
+($Q3/12+13+14+15+16+17).($Q4/1), 
+($Q3/12+13+14+15+16+17).($Q4/2), 
+
+XT = "Header - Total",
+X = "
+TOTAL;
+MACROREGION\
+NCR;
+NCL;
+SL;
+Vis;
+Min;
+
+LOCALE\
+Urban;
+Rural;
+
+SEC\
+ABC1;
+C2;
+ABC;
+D;
+
+GENDER\
+Male;
+Female;
+
+LIFESTAGE / AGE\
+Youth;
+Yuppies;
+Transitioner;
+Balancer;
+Older Adults;
+
+BANKING CONNECTIVITY\
+Banked;
+Underbanked;
+Unbanked;
+
+REGION\
+NCR;
+CAR;
+Reg I;
+Reg II;
+Reg III;
+Reg IV-A;
+Reg IV-B;
+Reg V;
+Reg VI;
+Reg VII;
+Reg VIII;
+Reg IX;
+Reg X;
+Reg XI;
+Reg XII;
+Reg XIII;
+BARMM;
+
+Macroregion x Locale\
+NCR;
+NCL Urban;
+NCL Rural;
+SL Urban;
+SL Rural;
+Vis Urban;
+Vis Rural;
+Min Urban;
+Min Rural",
+
+
+!!!!!!!!!!TRENDED
+DM $HEAD_TOT_TREND_Q12023 = 
+T,
+$Q32022/nb,
+$Q42022/nb,
+$Q12023/nb,
+$Q22023/nb,
+$Q32023/nb,
+[*doa=2:48]
+T,
+$Q32022/nb.$HEAD_TOT_Q12023/[a],
+$Q42022/nb.$HEAD_TOT_Q12023/[a],
+$Q12023/nb.$HEAD_TOT_Q12023/[a],
+$Q22023/nb.$HEAD_TOT_Q12023/[a],
+$Q32023/nb.$HEAD_TOT_Q12023/[a],
+[*enda]
+
+XT = "Header - Total (Trended)",
+X = "
+TOTAL^
+	TOTAL***
+		TOTAL *(a);
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+
+MACROREGION^
+NCR***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+NCL***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+SL***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Vis***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Min***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+
+LOCALE^
+Urban***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Rural***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+
+SEC^
+ABC1***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+C2***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+ABC***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+D***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+
+GENDER^
+Male***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Female***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+
+LIFESTAGE / AGE^
+Youth***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Yuppies***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Transitioner***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Balancer***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Older Adults***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+
+BANKING CONNECTIVITY^
+Banked***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Underbanked***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Unbanked***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+
+REGION^
+NCR***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+CAR***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg I***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg II***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg III***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg IV-A***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg IV-B***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg V***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg VI***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg VII***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg VIII***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg IX***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg X***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg XI***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg XII***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Reg XIII***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+BARMM***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+		
+Macroregion x Locale^
+NCR***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+NCL Urban***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+NCL Rural***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+SL Urban***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+SL Rural***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Vis Urban***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Vis Rural***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Min Urban***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j);
+Min Rural***
+		TOTAL *(a)<s>;
+		Q3 2022 *(f);
+		Q4 2022 *(g);
+		Q1 2023 *(h);
+		Q2 2023 *(i);
+		Q3 2023 *(j)",
+		
+		
